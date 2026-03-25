@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+  <title>What to Expect — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="Your first appointment at Weave is just a conversation. Here's exactly what happens — before, during, and after.">
+  <meta name="keywords" content="first psychiatry appointment India, what to expect psychiatrist, online psychiatry consultation, integrative psychiatry Weave">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What to Expect — Weave Centre for Integrative Psychiatry">
+  <meta property="og:description" content="Your first appointment is just a conversation. No forms to memorise, no right answers. Here's what happens.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weave.clinic/what-to-expect.html">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://weave.clinic/what-to-expect.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Numbered list for appointment steps */
+    .numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0;
+      max-width: 100%;
+    }
+
+    .numbered-list__item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #E8DDD0;
+    }
+
+    .numbered-list__item:last-child {
+      border-bottom: none;
+    }
+
+    .numbered-list__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: #EFF5EF;
+      color: #4A6E4A;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      border-radius: 50%;
+      border: 1.5px solid rgba(107, 143, 107, 0.3);
+    }
+
+    .numbered-list__content h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.375rem;
+      color: #5B4A3F;
+    }
+
+    .numbered-list__content p {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      margin-bottom: 0;
+    }
+
+    /* Icon list for "Before We Meet" and "What Happens After" */
+    .icon-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .icon-list__item {
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .icon-list__icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .icon-list__item h3 {
+      font-size: 1.0625rem;
+      margin-bottom: 0.5rem;
+      color: #5B4A3F;
+    }
+
+    .icon-list__item p {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    /* Practical details table */
+    .details-table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .details-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #8B7355;
+      border-bottom: 2px solid #D4C4B0;
+    }
+
+    .details-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #E8DDD0;
+      font-size: 0.9375rem;
+      vertical-align: top;
+    }
+
+    .details-table td:first-child {
+      font-weight: 600;
+      color: #5B4A3F;
+      width: 40%;
+    }
+
+    .details-table td:last-child {
+      color: #7A6B5D;
+    }
+
+    /* Loupe QA: table rendering reliability */
+    table {
+      table-layout: fixed;
+    }
+
+    td, th {
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 768px) {
+      .icon-list {
+        grid-template-columns: 1fr;
+      }
+
+      .details-table {
+        font-size: 0.875rem;
+      }
+
+      .details-table td:first-child {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/what-to-expect.html">What to Expect</a></li>
+        <li><a href="/learn/index.html">Learn</a></li>
+        <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">No waiting rooms. No clipboards.</div>
+          <h1>Your first appointment is just a conversation.</h1>
+          <p class="hero__sub">
+            No forms to memorise, no right answers, no need to have it figured out. You just show up and we talk.
+          </p>
+          <div class="btn-group">
+            <a href="/contact.html" class="btn btn--primary">Get in Touch &rarr;</a>
+            <a href="/services.html" class="btn btn--secondary">See Our Services</a>
+          </div>
+        </div>
+        <div class="hero__illustration">
+          <img src="img/what-to-expect.png" alt="A path winding toward warm light" class="hero__img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ BEFORE WE MEET ════════════════ -->
+  <section class="section section--alt section--centered">
+    <div class="container">
+      <h2 class="fade-in">Before we meet</h2>
+      <p class="fade-in" style="color: #7A6B5D; font-size: 1.0625rem;">You don't need to prepare a speech. But here's what helps.</p>
+      <ul class="icon-list fade-in">
+        <li class="icon-list__item">
+          <span class="icon-list__icon">
+            <!-- Abstract clipboard lines -->
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="16" height="18" rx="2" stroke="#6B8F6B" stroke-width="1.5" fill="none"/>
+              <path d="M10 6 L10 10 M18 6 L18 10" stroke="#6B8F6B" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M10 6 L18 6" stroke="#6B8F6B" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M10 14 L18 14" stroke="#6B8F6B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <path d="M10 18 L15 18" stroke="#6B8F6B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </span>
+          <h3>Fill out a short form</h3>
+          <p>Tell us a little about what's been going on. A few sentences is enough — this just helps us come prepared. No medical jargon required.</p>
+        </li>
+        <li class="icon-list__item">
+          <span class="icon-list__icon">
+            <!-- Flowing connection lines — message/reach out -->
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10 C4 8, 6 6, 14 6 C22 6, 24 8, 24 10 L24 18 C24 20, 22 22, 14 22 L8 22 L4 26 L4 22 C4 20, 4 20, 4 18 Z" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <path d="M9 13 L19 13" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+              <path d="M9 16 L15 16" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </span>
+          <h3>We'll confirm over WhatsApp</h3>
+          <p>Once you send the form, we'll reach out within 24 hours to confirm your appointment time and send you a secure video link.</p>
+        </li>
+        <li class="icon-list__item">
+          <span class="icon-list__icon">
+            <!-- Soft location/home mark -->
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 4 L24 12 L24 24 L18 24 L18 17 L10 17 L10 24 L4 24 L4 12 Z" stroke="#5B4A3F" stroke-width="1.5" fill="none" stroke-linejoin="round" opacity="0.65"/>
+              <circle cx="14" cy="13" r="2.5" stroke="#6B8F6B" stroke-width="1.2" fill="none" opacity="0.7"/>
+            </svg>
+          </span>
+          <h3>Find a quiet spot</h3>
+          <p>That's it. You don't need to be anywhere special — just somewhere you can talk without being overheard. Your bedroom works fine.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════ FIRST APPOINTMENT ════════════════ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="fade-in">What your first appointment looks like</h2>
+      <p class="fade-in" style="color: #7A6B5D; font-size: 1.0625rem;">First appointments run 60 minutes. Here's how they usually go.</p>
+      <ul class="numbered-list fade-in">
+        <li class="numbered-list__item">
+          <span class="numbered-list__num">1</span>
+          <div class="numbered-list__content">
+            <h3>We start with you, not your symptoms.</h3>
+            <p>We want to understand who you are first — your life, your context, what matters to you. The clinical stuff comes after. We're not just gathering a history; we're trying to understand a person.</p>
+          </div>
+        </li>
+        <li class="numbered-list__item">
+          <span class="numbered-list__num">2</span>
+          <div class="numbered-list__content">
+            <h3>We go through what's been happening.</h3>
+            <p>You'll have space to describe what's been going on in your own words — at your own pace. We'll ask questions, but we won't rush you or interrupt. If you need to stop, we stop.</p>
+          </div>
+        </li>
+        <li class="numbered-list__item">
+          <span class="numbered-list__num">3</span>
+          <div class="numbered-list__content">
+            <h3>We share what we're thinking — out loud.</h3>
+            <p>We'll tell you what we're noticing and what questions it's raising for us. Not a diagnosis handed down from on high — more like thinking together. We'll explain our reasoning and invite yours.</p>
+          </div>
+        </li>
+        <li class="numbered-list__item">
+          <span class="numbered-list__num">4</span>
+          <div class="numbered-list__content">
+            <h3>We talk about what might help.</h3>
+            <p>If medication is relevant, we'll explain what it does, what it doesn't do, and what the alternatives are. Nothing is prescribed without your understanding and consent. If therapy is the better first step, we'll say so clearly.</p>
+          </div>
+        </li>
+        <li class="numbered-list__item">
+          <span class="numbered-list__num">5</span>
+          <div class="numbered-list__content">
+            <h3>We agree on a next step together.</h3>
+            <p>You'll leave knowing exactly what we're doing and why. Not a vague plan — a concrete next step you actually feel okay about. If you're not sure about something, that's the time to say so.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════ FAQ ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="fade-in">Things people worry about</h2>
+      <p class="fade-in" style="color: #7A6B5D; font-size: 1.0625rem;">You're not the first to wonder about these things.</p>
+      <div class="faq fade-in" style="margin-top: 2rem;">
+
+        <div class="faq__item">
+          <button class="faq__question">What if I cry or get emotional?</button>
+          <div class="faq__answer">
+            <p>Then you cry. This is psychiatry — emotions are the whole point. You won't be rushed past it, and you won't be judged for it. We've sat with a lot of feelings in these appointments. Yours are welcome too.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What if I don't know how to explain what I'm feeling?</button>
+          <div class="faq__answer">
+            <p>Most people don't — that's exactly why they're here. You don't need a clear narrative or the right clinical words. "I just feel off" or "something's been wrong for a while but I can't explain it" is a perfectly good place to start. We'll help you find the words together.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will I be pressured into medication?</button>
+          <div class="faq__answer">
+            <p>No. Medication is one tool among many, and it's never the only conversation. If we think it's worth considering, we'll explain why, what the evidence says, and what the alternatives are. You make the call. Always. We won't follow up with a hard sell.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What if I've had a bad experience with psychiatry before?</button>
+          <div class="faq__answer">
+            <p>Tell us. Seriously — knowing what didn't work, or what felt dismissive or wrong, is some of the most useful information you can give us. We'd rather know upfront than accidentally repeat something that hurt. Bad experiences with mental health care are more common than they should be. We take that seriously.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Is everything I say confidential?</button>
+          <div class="faq__answer">
+            <p>Yes — with very limited legal exceptions. If there's a serious, imminent risk of harm to yourself or someone else, we're required to act. Outside of that, what you share stays between us. We'll always explain the limits of confidentiality clearly at the start.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Do I need a referral or previous diagnosis?</button>
+          <div class="faq__answer">
+            <p>No referral needed. And you don't need to come with a diagnosis — many people come without one, or with a diagnosis they're not sure about. We'll start from scratch if that's what's needed. Bring yourself; we'll take it from there.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ WHAT HAPPENS AFTER ════════════════ -->
+  <section class="section section--centered">
+    <div class="container">
+      <h2 class="fade-in">What happens after</h2>
+      <p class="fade-in" style="color: #7A6B5D; font-size: 1.0625rem;">The first appointment is the beginning, not the assessment.</p>
+      <ul class="icon-list fade-in">
+        <li class="icon-list__item">
+          <span class="icon-list__icon">
+            <!-- Abstract plan/document with path -->
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="4" width="18" height="20" rx="2" stroke="#6B8F6B" stroke-width="1.5" fill="none"/>
+              <path d="M9 10 L19 10" stroke="#6B8F6B" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M9 14 L19 14" stroke="#6B8F6B" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M9 18 L14 18" stroke="#6B8F6B" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+              <circle cx="21" cy="21" r="5" fill="#6B8F6B" opacity="0.15"/>
+              <path d="M18.5 21 L20.5 23 L23.5 19.5" stroke="#6B8F6B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+            </svg>
+          </span>
+          <h3>A clear plan, in writing</h3>
+          <p>After your appointment, you'll receive a brief summary of what we discussed and the plan we agreed on — sent over WhatsApp or email. Nothing clinical or jargon-heavy. Just: here's where we are, here's where we're going.</p>
+        </li>
+        <li class="icon-list__item">
+          <span class="icon-list__icon">
+            <!-- Abstract clock/circle with arc -->
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="14" cy="14" r="10" stroke="#C9A96E" stroke-width="1.5" fill="none" opacity="0.7"/>
+              <path d="M14 8 L14 14 L18 17" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+              <path d="M22 6 C24 8, 25 11, 25 14" stroke="#C75B39" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+            </svg>
+          </span>
+          <h3>Follow-ups that actually follow</h3>
+          <p>We check in. If something we recommended isn't working, or something's changed, we adjust. You won't be left to figure it out alone between appointments. Most follow-ups are 30 minutes.</p>
+        </li>
+        <li class="icon-list__item">
+          <span class="icon-list__icon">
+            <!-- Soft checkmark in sage -->
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="14" cy="14" r="11" stroke="#6B8F6B" stroke-width="1.5" fill="none" opacity="0.5"/>
+              <path d="M8 14 L12 18 L20 10" stroke="#6B8F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+            </svg>
+          </span>
+          <h3>Your pace, your timeline</h3>
+          <p>Some people need weekly appointments for a while. Others find monthly check-ins are enough. We don't lock you into a fixed schedule. We figure out what actually works for your life — and we revisit it.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════ PRACTICAL DETAILS ════════════════ -->
+  <section class="section section--alt">
+    <div class="container fade-in">
+      <h2>Practical details</h2>
+      <table class="details-table">
+        <thead>
+          <tr>
+            <th>Detail</th>
+            <th>What to know</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Format</td>
+            <td>Secure video call — Google Meet or Zoom. Works on phone, tablet, or laptop.</td>
+          </tr>
+          <tr>
+            <td>First appointment</td>
+            <td>60 minutes</td>
+          </tr>
+          <tr>
+            <td>Follow-up appointments</td>
+            <td>30 minutes (standard) or 60 minutes for complex reviews</td>
+          </tr>
+          <tr>
+            <td>Fees</td>
+            <td>Shared on inquiry. No surprise charges.</td>
+          </tr>
+          <tr>
+            <td>Cancellations</td>
+            <td>Please give 24 hours' notice where possible. We'll always do the same.</td>
+          </tr>
+          <tr>
+            <td>Prescriptions</td>
+            <td>Issued digitally and sent directly to you. We work with pharmacies across India.</td>
+          </tr>
+          <tr>
+            <td>Languages</td>
+            <td>English, Hindi, Kannada, Konkani</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">We're not a high-volume clinic. That's intentional — it means you're not rushed, and it means we actually know you.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════ FINAL CTA ════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready when you are.</h2>
+      <p>The first step is the hardest part.<br>Everything after that, we do together.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="/contact.html" class="btn btn--primary">Tell Us What's On Your Mind &rarr;</a>
+        <a href="https://wa.me/917625004229?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20Weave." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> · <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/what-to-expect.html">What to Expect</a>
+        <a href="/medication-faq.html">Medication FAQ</a>
+        <a href="/your-rights.html">Your Rights</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <a href="/learn/adhd-in-adults.html">ADHD in Adults</a>
+        <a href="/learn/addictions.html">Addictions</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika..md" target="_blank" rel="noopener">@doc.niharika..md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave — Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

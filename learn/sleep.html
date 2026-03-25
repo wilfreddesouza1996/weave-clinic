@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon-180.png">
+  <title>Sleep — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="You're exhausted but can't sleep. Evidence-based sleep science, Huberman protocols adapted for India, and when sleep problems are about more than bad habits.">
+  <meta name="keywords" content="sleep problems India, insomnia India, sleep hygiene, circadian rhythm, sleep anxiety, sleep and mental health India, how to sleep better India, sleep science">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sleep — Weave Centre for Integrative Psychiatry">
+  <meta property="og:description" content="Poor sleep is not a willpower problem. It's a brain problem. And brain problems have real, science-backed solutions — including ones that actually work in India.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://weave.clinic/learn/sleep.html">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://weave.clinic/learn/sleep.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "You're Exhausted. But You Can't Sleep.",
+  "description": "You're exhausted but can't sleep. Evidence-based sleep science, Huberman protocols adapted for India, and when sleep problems are about more than bad habits.",
+  "author": {
+    "@type": "Physician",
+    "name": "Dr. Wilfred D'souza"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Weave — Centre for Integrative Psychiatry",
+    "url": "https://weave.clinic"
+  },
+  "datePublished": "2026-03-25",
+  "url": "https://weave.clinic/learn/sleep.html"
+}
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .article-hero {
+      padding: 5rem 0 3rem;
+      background: linear-gradient(135deg, #EEF2F8 0%, #FAF7F2 60%, #FAF7F2 100%);
+      border-bottom: 1px solid #E8DDD0;
+    }
+
+    .article-hero__inner {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .article-hero__content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .article-hero__tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5B6FA8;
+      margin-bottom: 1.25rem;
+    }
+
+    .article-hero h1 {
+      margin-bottom: 1.25rem;
+    }
+
+    .article-hero__sub {
+      font-size: 1.125rem;
+      color: #7A6B5D;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    .protocol-step {
+      padding: 1.5rem 1.75rem;
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .protocol-step__number {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #C9A96E;
+      opacity: 0.25;
+      line-height: 1;
+    }
+
+    .protocol-step h3 {
+      margin-top: 0;
+      color: #5B4A3F;
+      padding-right: 3rem;
+    }
+
+    .protocol-step p {
+      color: #7A6B5D;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .protocol-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .india-note {
+      display: inline-block;
+      background: #F5EDE3;
+      border-left: 3px solid #C9A96E;
+      border-radius: 0 6px 6px 0;
+      padding: 0.5rem 0.875rem;
+      font-size: 0.875rem;
+      color: #6B5A4E;
+      line-height: 1.55;
+      margin: 0.625rem 0 0;
+    }
+
+    .checklist-section {
+      background: #FAFAF8;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+    }
+
+    .checklist-section h3 {
+      margin-top: 0;
+      color: #5B4A3F;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    .checklist-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .checklist-section li {
+      padding: 0.375rem 0 0.375rem 1.75rem;
+      position: relative;
+      font-size: 0.9375rem;
+      color: #5B4A3F;
+      line-height: 1.55;
+    }
+
+    .checklist-section li::before {
+      content: '';
+      position: absolute;
+      left: 0.25rem;
+      top: 0.7rem;
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #C9A96E;
+      border-radius: 3px;
+    }
+
+    .wrecker-block {
+      padding: 1.25rem 1.5rem;
+      background: #FFF8F5;
+      border: 1px solid #E8DDD0;
+      border-left: 3px solid #C75B39;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .wrecker-block h3 {
+      margin-top: 0;
+      color: #5B4A3F;
+      font-size: 1rem;
+    }
+
+    .wrecker-block p {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    .article-disclaimer {
+      margin-top: 4rem;
+      padding: 1.25rem 1.5rem;
+      background: #F5EDE3;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: #8B7355;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .article-hero__inner {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../what-to-expect.html">What to Expect</a></li>
+        <li><a href="index.html" style="color: #5B4A3F; font-weight: 600;">Learn</a></li>
+        <li><a href="../contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ ARTICLE HERO ════════════════ -->
+  <header class="article-hero">
+    <div class="article-hero__inner">
+      <div class="article-hero__content">
+        <div class="article-hero__tag">Learn — Sleep &amp; Mental Health</div>
+        <h1>You're Exhausted. But You Can't Sleep.</h1>
+        <p class="article-hero__sub">
+          You lie down. Your body is tired. Your brain is not. Poor sleep is not a willpower problem — it's a brain problem.
+          And brain problems have real, science-backed solutions.
+        </p>
+      </div>
+      <div class="hero__illustration">
+        <img src="../img/learn.png" alt="Learn — understanding your mind" class="hero__img">
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════ ARTICLE BODY ════════════════ -->
+  <main>
+    <article class="article">
+
+      <p>The thoughts start. Tomorrow's to-do list. That conversation you replayed six times already. A vague dread you can't name. You check your phone. An hour disappears. Or maybe you fall asleep fine but wake up at 3 AM — wide awake, staring at the ceiling.</p>
+
+      <p>About one in three adults in India struggles with sleep. That number is higher in cities, among shift workers, and in anyone dealing with stress, anxiety, or low mood. You've probably tried everything. Warm milk. That meditation app you used twice. Maybe someone told you to "just relax."</p>
+
+      <!-- ════ WHY SLEEP MATTERS ════ -->
+      <section class="fade-in">
+        <h2>Why Sleep Matters More Than You Think</h2>
+
+        <p>Sleep is not downtime. Your brain is doing critical work while you're unconscious. During deep sleep, it clears out waste products that build up during the day. It consolidates memories. It processes emotions. It repairs neural connections. It regulates hormones that control your mood, appetite, and stress response.</p>
+
+        <p>When you don't sleep well, everything suffers. Not just energy. Your mood drops. Your focus scatters. Your patience thins. Small problems feel enormous.</p>
+
+        <blockquote>The cycle is vicious. Poor sleep makes anxiety worse. Anxiety makes sleep harder. Poor sleep deepens low mood. Low mood disrupts sleep further. Sleep and mental health share the same brain circuits. You cannot fix one without addressing the other.</blockquote>
+
+        <p>Research is clear: improving sleep is one of the single most powerful things you can do for your mental health. Better than most supplements. On par with exercise. Sometimes as effective as medication for mild to moderate mood concerns.</p>
+      </section>
+
+      <!-- ════ HOW SLEEP WORKS ════ -->
+      <section class="fade-in">
+        <h2>What Actually Happens When You Sleep</h2>
+
+        <div class="grid-3" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+          <div class="card lining--silver">
+            <h3 class="card__title">Your Body Clock</h3>
+            <p class="card__text">Your brain runs on a 24-hour internal clock controlled mainly by light. Morning sunlight triggers cortisol (alertness). About 14–16 hours later, melatonin starts rising (sleepiness). Disrupted schedules, late screens, and lack of morning light throw this off.</p>
+          </div>
+          <div class="card lining--silver">
+            <h3 class="card__title">Adenosine: Sleep Pressure</h3>
+            <p class="card__text">From the moment you wake up, adenosine builds in your brain — sleep pressure. Caffeine blocks adenosine receptors, which is why coffee makes you alert. But the adenosine keeps building. When caffeine wears off, all of it hits at once — the afternoon crash.</p>
+          </div>
+          <div class="card lining--silver">
+            <h3 class="card__title">Sleep Stages</h3>
+            <p class="card__text">You need all three: light sleep (transition), deep slow-wave sleep (physical restoration, memory consolidation), and REM sleep (emotional processing, dreaming). Alcohol crushes deep sleep and REM — which is why you can pass out after drinking and still feel terrible.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ TOOLKIT ════ -->
+      <section class="fade-in">
+        <h2>The Science-Backed Sleep Toolkit</h2>
+
+        <p>These aren't lifestyle hacks — they're based on how your brain actually works. The ones with the strongest evidence:</p>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">1</div>
+          <h3>Get Morning Sunlight</h3>
+          <p>Within 30–60 minutes of waking, go outside and let sunlight hit your eyes. Not through a window. Not through sunglasses. Actual outdoor light. This sends the strongest signal to your circadian clock — it triggers your cortisol peak at the right time and sets a timer for melatonin release 14–16 hours later.</p>
+          <p>Bright sunny day: 10 minutes. Cloudy: 20 minutes. Overcast or rainy: 30–60 minutes.</p>
+          <span class="india-note">In India, even monsoon outdoor light is far brighter than indoor light. Step onto your balcony with your morning chai. That's enough.</span>
+        </div>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">2</div>
+          <h3>Keep a Consistent Wake Time</h3>
+          <p>Your wake time matters more than your bedtime. Your circadian clock anchors to when you wake up. If you wake at 7 AM on weekdays and 11 AM on weekends, you're giving yourself jet lag every Monday. Keep your wake time within one hour, even on weekends.</p>
+        </div>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">3</div>
+          <h3>Time Your Caffeine</h3>
+          <p>No caffeine within 8–10 hours of bedtime. If you sleep at 11 PM, your last cup should be before 1–3 PM. Delay your first caffeine by 90–120 minutes after waking — this lets adenosine clear naturally and prevents the afternoon crash.</p>
+          <span class="india-note">That 5 PM cup of chai contains enough caffeine to disrupt sleep at 11 PM. Switch to decaf or herbal in the evening. Even small shifts help.</span>
+        </div>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">4</div>
+          <h3>Control Temperature</h3>
+          <p>Your body needs to drop 1–3 degrees in core temperature to fall asleep. Keep your bedroom as cool as possible (18–20°C is ideal). Take a warm shower 60–90 minutes before bed — this sounds counterintuitive, but warm water brings blood to the skin's surface, which cools your core temperature afterward.</p>
+          <span class="india-note">In Indian summers without AC: wet a thin cotton sheet as a cover. Keep windows open for cross-ventilation. A table fan aimed at your feet helps more than one aimed at your face.</span>
+        </div>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">5</div>
+          <h3>Dim the Lights After Sunset</h3>
+          <p>Bright light at night — especially overhead lights and screens — tells your brain it's still daytime. After 8–9 PM: switch to dim, warm-toned lighting. Use lamps instead of ceiling lights (overhead light mimics sunlight angles). If you must use screens, use night mode and reduce brightness to the lowest comfortable level.</p>
+        </div>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">6</div>
+          <h3>Exercise Early, Not Late</h3>
+          <p>Exercise is one of the best sleep aids — but timing matters. Morning or afternoon exercise improves sleep quality. Exercise within 3–4 hours of bedtime can raise core temperature and adrenaline, making it harder to fall asleep. A 30-minute morning walk gives you two interventions at once: exercise and light exposure.</p>
+        </div>
+
+        <div class="protocol-step">
+          <div class="protocol-step__number">7</div>
+          <h3>NSDR: Non-Sleep Deep Rest</h3>
+          <p>A 10–20 minute practice where you lie down, close your eyes, and follow a guided relaxation through your body (closely related to Yoga Nidra). It's a deliberate shift from sympathetic to parasympathetic nervous system activity. Research shows it restores mental energy and helps with sleep onset.</p>
+          <p>Use it after a poor night's sleep, in the afternoon instead of a long nap, before bed as a wind-down, or if you wake at 3 AM and can't fall back asleep. Search "NSDR Huberman" or "Yoga Nidra for sleep" on YouTube. Ten minutes is enough.</p>
+        </div>
+      </section>
+
+      <!-- ════ SLEEP WRECKERS ════ -->
+      <section class="fade-in">
+        <h2>Common Sleep Wreckers</h2>
+
+        <div class="wrecker-block">
+          <h3>Screens</h3>
+          <p>It's not just the blue light — it's the content. Social media, news, and messages activate your brain. You're asking your nervous system to calm down while feeding it stimulation. A 30–60 minute screen-free buffer before bed makes a real difference. Read a physical book. Listen to something calming. Have a conversation.</p>
+        </div>
+
+        <div class="wrecker-block">
+          <h3>Alcohol</h3>
+          <p>Alcohol is a sedative, not a sleep aid. It knocks you unconscious faster, but it fragments your sleep architecture. Deep sleep and REM suffer badly. You wake up more often. You feel unrested even after 8 hours. Try to finish at least 3–4 hours before bed — and be honest with yourself about whether it's helping or hurting.</p>
+        </div>
+
+        <div class="wrecker-block">
+          <h3>Irregular Schedules</h3>
+          <p>Shift work, exam cramming, weekend social schedules — these all fragment your circadian rhythm. Your brain can't predict when to release melatonin if your schedule changes constantly. If your schedule is irregular by choice, try anchoring at least your wake time.</p>
+        </div>
+
+        <div class="wrecker-block">
+          <h3>Anxiety and Rumination</h3>
+          <p>This is the big one. You can control your room temperature and your caffeine intake. You can't always control the thoughts that arrive at 2 AM. If racing thoughts are your main sleep barrier, sleep hygiene alone won't fix it. You may need support for the anxiety underneath. That's not a failure — it's the right diagnosis.</p>
+        </div>
+      </section>
+
+      <!-- ════ INDIA ════ -->
+      <section class="fade-in">
+        <h2>Sleep in India: The Real Challenges</h2>
+
+        <div class="grid-2" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+          <div class="card">
+            <h3 class="card__title">"I share a room."</h3>
+            <p class="card__text">With a sibling, spouse, parent, or child. You can't control the other person's screen use or snoring. Earplugs and eye masks are cheap and effective. If your partner's snoring is severe, that's worth checking — it may be sleep apnea.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">"My house is noisy."</h3>
+            <p class="card__text">Joint families mean sounds at all hours. White noise — a fan, a white noise app — can mask inconsistent sounds. Even a low hum helps your brain stop startling awake.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">"It's too hot."</h3>
+            <p class="card__text">Cotton clothing, wet sheet cooling, cross-ventilation, and sleeping on a lower floor (heat rises) all help. A ceiling fan on medium is better than no airflow at all.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">"Evening chai is non-negotiable."</h3>
+            <p class="card__text">Switch to a smaller cup, or try decaf. Warm milk with turmeric (haldi doodh) satisfies the same ritual without the caffeine. Even moving chai from 6 PM to 4 PM can make a difference.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ WHEN IT'S MORE ════ -->
+      <section class="fade-in">
+        <h2>When It's More Than Bad Habits</h2>
+
+        <p>Sometimes sleep problems are not about habits at all. They're about what's going on in your brain.</p>
+
+        <div class="card lining--gold" style="margin: 1.5rem 0;">
+          <ul style="margin: 0 0 0 1.25rem; padding: 0;">
+            <li style="margin-bottom: 0.625rem;"><strong>If you can't sleep because your mind won't stop</strong> — racing thoughts, worry loops, replaying conversations — that may be anxiety. Fixing your sleep environment won't quiet your nervous system.</li>
+            <li style="margin-bottom: 0.625rem;"><strong>If you sleep 10–12 hours and still feel exhausted</strong> — that's not laziness. It may be depression. Excessive sleep is as much a sign of depression as insomnia is.</li>
+            <li style="margin-bottom: 0.625rem;"><strong>If your sleep is fragmented by nightmares or flashbacks</strong> — that may point to trauma or PTSD. Sleep hygiene won't address what your brain is processing at night.</li>
+            <li style="margin-bottom: 0.625rem;"><strong>If your sleep has shifted dramatically</strong> — sleeping very little and feeling wired, or swinging between no sleep and too much sleep — that pattern is worth discussing with a psychiatrist. It can be connected to mood cycling.</li>
+            <li style="margin-bottom: 0;"><strong>If you've tried everything for 3–4 weeks and nothing has changed</strong> — it's time to talk to someone. Not because you've failed, but because the problem may be deeper than behaviour.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ════ SLEEP MEDICATION ════ -->
+      <section class="fade-in">
+        <h2>A Note on Sleep Medication</h2>
+
+        <p>Sleep medication works — in the short term. It can help you break a cycle of severe insomnia, reset your sleep pattern, or get through a crisis period. But sleep medication is a bridge, not a destination. Most sleep medicines lose effectiveness over time. Some create dependence. None give you the same quality of sleep that natural sleep provides.</p>
+
+        <blockquote>The real, lasting solution for most people is behavioural. It's the habits, the environment, the timing, and sometimes the therapy to address what's keeping you awake. Medication can help you get stable enough to build those changes. It's a tool, not a solution by itself.</blockquote>
+
+        <p>If you're currently taking sleep medication and want to reduce or stop, don't do it abruptly. Talk to your doctor about a gradual taper plan.</p>
+      </section>
+
+      <!-- ════ CHECKLIST ════ -->
+      <section class="fade-in section--centered">
+        <h2>Your Sleep Checklist</h2>
+        <p>You don't need to do all of these at once. Pick two or three. Build from there.</p>
+
+        <div style="max-width: 720px; margin: 1.5rem auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="checklist-section">
+            <h3>Morning</h3>
+            <ul>
+              <li>Wake at the same time every day (yes, weekends too)</li>
+              <li>Get outside within 30–60 minutes of waking</li>
+              <li>Delay caffeine by 90–120 minutes after waking</li>
+            </ul>
+          </div>
+          <div class="checklist-section">
+            <h3>Afternoon</h3>
+            <ul>
+              <li>No caffeine after 1–2 PM</li>
+              <li>Exercise, ideally in the morning or early afternoon</li>
+              <li>If tired, try 10–20 minutes of NSDR instead of a long nap</li>
+            </ul>
+          </div>
+          <div class="checklist-section">
+            <h3>Evening</h3>
+            <ul>
+              <li>Dim lights after sunset — lamps, not ceiling lights</li>
+              <li>Screen-free buffer 30–60 minutes before bed</li>
+              <li>Warm shower 60–90 minutes before bed</li>
+              <li>Cool bedroom — fan, AC timer, light cotton</li>
+            </ul>
+          </div>
+          <div class="checklist-section">
+            <h3>At Bedtime</h3>
+            <ul>
+              <li>Same bedtime (within 30 minutes) most nights</li>
+              <li>Dark room — blackout curtains or eye mask</li>
+              <li>Quiet room — earplugs or white noise</li>
+              <li>No phone in bed (charge it across the room)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ FAQ ════ -->
+      <section class="fade-in">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+          <div class="faq__item">
+            <button class="faq__question">How many hours of sleep do I actually need?</button>
+            <div class="faq__answer">
+              <p>Most adults need 7–9 hours. Teenagers need more (8–10 hours). The number that leaves you feeling genuinely rested — not relying on caffeine to function — is your target. Quality matters as much as quantity. Eight fragmented hours are worse than seven solid ones.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Can I "catch up" on sleep on weekends?</button>
+            <div class="faq__answer">
+              <p>Partially. You can reduce the immediate cognitive effects of sleep debt with a lie-in, but you can't fully make up for chronic sleep deprivation. And sleeping in on weekends shifts your circadian rhythm — which makes Monday mornings harder. The most effective approach is preventing the debt in the first place with a consistent schedule.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">I wake up at 3 AM and can't fall back asleep. What do I do?</button>
+            <div class="faq__answer">
+              <p>After 20–25 minutes of lying awake, get out of bed. Go to a dimly lit room and do something boring — read a dull book, listen to something calm. Don't check your phone or look at the clock (both increase anxiety). Return to bed when you feel sleepy. NSDR / body-scan practices are particularly useful here — they calm the nervous system even if they don't produce full sleep.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Is sleep anxiety a real thing?</button>
+            <div class="faq__answer">
+              <p>Yes. Sleep anxiety is a specific pattern where the bedroom itself — or the act of trying to fall asleep — becomes associated with worry and frustration. The bed starts to trigger alertness instead of sleepiness. CBT-I (Cognitive Behavioural Therapy for Insomnia) is the gold-standard treatment and works better long-term than any sleep medication. A psychiatrist can help you access this.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">My child has sleep problems. Is this the same page for them?</button>
+            <div class="faq__answer">
+              <p>Many of the same principles apply — consistent wake time, morning light, no screens before bed. But children's sleep architecture is different from adults', and their sleep problems often have different causes. For specific guidance on children's sleep, see our screens and child development page. For persistent paediatric sleep concerns, a child psychiatry consultation is advisable.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="article-disclaimer">
+        <em>Weave is an integrative psychiatry practice led by Dr. Wilfred D'souza and Dr. Niharika. We offer online consultations across India. This page is for educational purposes. It is not a substitute for professional assessment. If you're in crisis, please contact iCall (9152987821) or Vandrevala Foundation (1860-2662-345).</em>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ════════════════ FINAL CTA ════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>You deserve to wake up actually feeling rested.</h2>
+      <p>That's not a luxury. It's a basic need. If sleep problems have been part of your life for a long time — or if poor sleep is tangled with anxiety, low mood, or racing thoughts — a conversation might help.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="../contact.html" class="btn btn--primary">Book a Consultation &rarr;</a>
+        <a href="https://wa.me/917625004229" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> · <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../what-to-expect.html">What to Expect</a>
+        <a href="../medication-faq.html">Medication FAQ</a>
+        <a href="../your-rights.html">Your Rights</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <a href="adhd-in-adults.html">ADHD in Adults</a>
+        <a href="addictions.html">Addictions</a>
+        <a href="screen-use.html">Screens &amp; Your Child</a>
+        <a href="chronic-pain.html">Chronic Pain</a>
+        <a href="child-rearing.html">Raising Children</a>
+        <a href="sleep.html">Sleep</a>
+        <a href="supplements.html">Supplements</a>
+        <a href="sexual-health.html">Sexual Health</a>
+        <a href="psychosis.html">Psychosis</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika..md" target="_blank" rel="noopener">@doc.niharika..md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave — Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

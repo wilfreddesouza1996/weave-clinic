@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+  <title>Services — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="Online psychiatry consultations, psychotherapy, couples work, child psychiatry, and community programs. Transparent pricing. Across India via secure video.">
+  <meta name="keywords" content="online psychiatrist India, tele-psychiatry India, psychiatrist consultation online, couples therapy online India, child psychiatrist online India, Schema Therapy India, affordable psychiatrist Mumbai">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services — Weave Centre for Integrative Psychiatry">
+  <meta property="og:description" content="Psychiatric care that goes beyond the prescription. Online consultations across India.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weave.clinic/services.html">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://weave.clinic/services.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Service card internals */
+    .card__meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #E8DDD0;
+    }
+
+    .card__tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .card__tag--wilfred {
+      background: #FDF0EB;
+      color: #C75B39;
+      border: 1px solid rgba(199, 91, 57, 0.2);
+    }
+
+    .card__tag--niharika {
+      background: #EFF5EF;
+      color: #4A6E4A;
+      border: 1px solid rgba(107, 143, 107, 0.2);
+    }
+
+    .card__tag--both {
+      background: #F5EDE3;
+      color: #8B6914;
+      border: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    .card__tag--free {
+      background: #EFF5EF;
+      color: #3A5C3A;
+      border: 1px solid rgba(74, 110, 74, 0.3);
+      font-weight: 700;
+    }
+
+    .card__detail-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #A89B8C;
+      margin-bottom: 0.25rem;
+      margin-top: 1rem;
+    }
+
+    .card__detail-label:first-of-type {
+      margin-top: 1.25rem;
+    }
+
+    .card__detail {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      line-height: 1.6;
+      max-width: none;
+      margin-bottom: 0;
+    }
+
+    /* How we work list */
+    .how-list {
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+    }
+
+    .how-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid #E8DDD0;
+      font-size: 1.0625rem;
+      color: #5B4A3F;
+      line-height: 1.6;
+    }
+
+    .how-list li:last-child {
+      border-bottom: none;
+    }
+
+    .how-list li::before {
+      content: '—';
+      color: #6B8F6B;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+
+    /* Pricing section */
+    .pricing-wrapper {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .pricing-note {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      margin-top: 1rem;
+      line-height: 1.6;
+      max-width: 100%;
+    }
+
+    .pricing-note strong {
+      color: #5B4A3F;
+    }
+
+    /* Group sessions highlight */
+    .card--free-highlight {
+      border: 1.5px solid #6B8F6B;
+      background: #F6FAF6;
+      text-align: left;
+    }
+
+    /* Not sure box */
+    .nudge-box {
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nudge-box h2 {
+      margin-bottom: 0.75rem;
+    }
+
+    .nudge-box p {
+      font-size: 1.0625rem;
+      color: #7A6B5D;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .nudge-box .btn-group {
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/what-to-expect.html">What to Expect</a></li>
+        <li><a href="/learn/index.html">Learn</a></li>
+        <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">Online consultations across India</div>
+          <h1>You deserve more than a 10-minute check-in.</h1>
+          <p class="hero__sub">
+            Mental health care should feel like someone actually listened. Like someone took the time to understand your story — not just your symptoms.
+          </p>
+          <div class="btn-group">
+            <a href="/contact.html" class="btn btn--primary">Tell Us What's On Your Mind &rarr;</a>
+            <a href="/what-to-expect.html" class="btn btn--secondary">See What to Expect</a>
+          </div>
+        </div>
+        <div class="hero__illustration">
+          <img src="img/services.png" alt="Two hands reaching — care and connection" class="hero__img hero__img--lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ HOW WE WORK ════════════════ -->
+  <section class="section section--alt fade-in">
+    <div class="container">
+      <div class="content-width">
+        <h2>How we work</h2>
+        <p style="font-size: 1.0625rem; color: #7A6B5D;">
+          No two people are the same. So no two care plans look the same either. Some people need medication. Some need therapy. Most need both — done well, done together, by the same team.
+        </p>
+        <ul class="how-list">
+          <li><span><strong>We listen first.</strong> Your first session is long enough to actually understand what's happening.</span></li>
+          <li><span><strong>We tailor everything.</strong> Your plan is built around your life, your goals, and what you're ready for.</span></li>
+          <li><span><strong>We do the deeper work.</strong> Therapy isn't optional here. It's central to how we practise.</span></li>
+          <li><span><strong>We stay accessible.</strong> All sessions happen over secure video. No commute. No waiting rooms.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ SERVICE CARDS ════════════════ -->
+  <section class="section section--centered">
+    <div class="container">
+      <h2>What we offer</h2>
+      <div class="grid-2 fade-in" style="margin-top: 2rem;">
+
+        <!-- Psychiatric Assessment -->
+        <div class="card">
+          <h3 class="card__title">Psychiatric Assessment</h3>
+          <p class="card__text">
+            A thorough evaluation over secure video. We look at your current concerns, your history, and how things developed over time — and give you a clear picture of what's going on.
+          </p>
+          <p class="card__detail-label">Who it's for</p>
+          <p class="card__detail">Anyone seeking clarity. Maybe you've been struggling for a while and want answers. Maybe you have a diagnosis but something doesn't feel right. Maybe you're starting from scratch.</p>
+          <p class="card__detail-label">What to expect</p>
+          <p class="card__detail">First session: 45–60 minutes. Follow-ups: 30–45 minutes. This is the starting point for most people who come to Weave.</p>
+          <div class="card__meta">
+            <span class="card__tag card__tag--wilfred">Dr. Wilfred</span>
+            <span class="card__tag card__tag--niharika">Dr. Niharika</span>
+          </div>
+        </div>
+
+        <!-- Psychotherapy -->
+        <div class="card">
+          <h3 class="card__title">Psychotherapy</h3>
+          <p class="card__text">
+            Ongoing, structured therapy — not just advice or breathing exercises. We use evidence-based approaches including Schema Therapy, CBT, DBT-informed skills, Motivational Interviewing, and Emotion-Focused Therapy. The approach depends on what fits you best.
+          </p>
+          <p class="card__detail-label">Who it's for</p>
+          <p class="card__detail">People who want to understand their patterns — not just manage symptoms. If you keep ending up in the same cycles with relationships, work, mood, or self-worth, therapy is where that changes.</p>
+          <p class="card__detail-label">What to expect</p>
+          <p class="card__detail">Sessions are regular — usually weekly or fortnightly. We set goals together and track progress honestly.</p>
+          <div class="card__meta">
+            <span class="card__tag card__tag--wilfred">Dr. Wilfred</span>
+          </div>
+        </div>
+
+        <!-- Couples & Relationship -->
+        <div class="card">
+          <h3 class="card__title">Couples &amp; Relationship Work</h3>
+          <p class="card__text">
+            A safe space for two people to be honest with each other — with someone trained to guide that conversation. We work on communication, patterns that keep showing up, and what each person actually needs.
+          </p>
+          <p class="card__detail-label">Who it's for</p>
+          <p class="card__detail">Couples going through a difficult stretch. Partners who keep having the same fight. People considering marriage and wanting to build a strong foundation. The online format works well here — both of you can join from your own space if that feels easier.</p>
+          <p class="card__detail-label">What to expect</p>
+          <p class="card__detail">Sessions are longer to give both people room to speak. We focus on patterns, not blame.</p>
+          <div class="card__meta">
+            <span class="card__tag card__tag--niharika">Dr. Niharika</span>
+          </div>
+        </div>
+
+        <!-- Child & Adolescent -->
+        <div class="card">
+          <h3 class="card__title">Child &amp; Adolescent Mental Health</h3>
+          <p class="card__text">
+            Assessment and ongoing support for children and young people — with parents involved every step of the way.
+          </p>
+          <p class="card__detail-label">Who it's for</p>
+          <p class="card__detail">If your child is struggling at school, withdrawing socially, having emotional outbursts, or just seems different from how they used to be — it's worth exploring. Reaching out is not overreacting. It's paying attention.</p>
+          <p class="card__detail-label">What to expect</p>
+          <p class="card__detail">We start with a detailed assessment that includes time with your child and time with you. Parent guidance is part of every plan. You won't be left guessing what to do at home.</p>
+          <div class="card__meta">
+            <span class="card__tag card__tag--niharika">Dr. Niharika</span>
+          </div>
+        </div>
+
+        <!-- School & College Programs -->
+        <div class="card">
+          <h3 class="card__title">School &amp; College Programs</h3>
+          <p class="card__text">
+            Weave comes to your institution. We run mental health awareness workshops, train teachers to recognise early signs of distress, and design student wellness programs.
+          </p>
+          <p class="card__detail-label">Who it's for</p>
+          <p class="card__detail">Schools and colleges that take student wellbeing seriously — not as a checkbox, but as a culture.</p>
+          <p class="card__detail-label">What to expect</p>
+          <p class="card__detail">Programs are tailored to your institution's needs. We work with your staff, not around them. This is community investment — something we care about beyond the clinic.</p>
+          <div class="card__meta">
+            <span class="card__tag card__tag--both">Dr. Wilfred &amp; Dr. Niharika</span>
+          </div>
+        </div>
+
+        <!-- Corporate Wellness -->
+        <div class="card">
+          <h3 class="card__title">Corporate Wellness</h3>
+          <p class="card__text">
+            Workshops for organisations — on mental health awareness, stress management, burnout prevention, and building psychologically safer workplaces.
+          </p>
+          <p class="card__detail-label">Who it's for</p>
+          <p class="card__detail">Companies and teams that want to go beyond a token wellness day.</p>
+          <p class="card__detail-label">What to expect</p>
+          <p class="card__detail">Every workshop is designed around your organisation's specific needs and challenges. We don't do cookie-cutter presentations.</p>
+          <div class="card__meta">
+            <span class="card__tag card__tag--both">Dr. Wilfred &amp; Dr. Niharika</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Group Sessions — full width, highlighted -->
+      <div class="card card--free-highlight lining--gold fade-in" style="margin-top: 1.5rem;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="flex: 1; min-width: 280px;">
+            <h3 class="card__title">Group Sessions</h3>
+            <p class="card__text">
+              Free online group sessions, held twice a month. Topics rotate — stress, relationships, understanding how your mind works, and more. Community is its own kind of medicine.
+            </p>
+            <p class="card__detail-label">Who it's for</p>
+            <p class="card__detail">Anyone. You don't need to be a Weave client. You don't need a diagnosis. You just need to be curious, or going through something.</p>
+            <p class="card__detail-label">What to expect</p>
+            <p class="card__detail">A small, respectful group. A topic. An honest conversation. No pressure to share if you'd rather listen.</p>
+            <div class="card__meta">
+              <span class="card__tag card__tag--free">Free &mdash; Open to All</span>
+              <span class="card__tag card__tag--both">Dr. Wilfred &amp; Dr. Niharika</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════ PRICING ════════════════ -->
+  <section class="section section--alt section--centered fade-in">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p style="font-size: 1.0625rem; color: #7A6B5D; margin-bottom: 0.5rem;">
+        We believe in being upfront about costs. No hidden fees.
+      </p>
+
+      <div class="pricing-wrapper">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Service</th>
+              <th>Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="1"><strong>Dr. Wilfred D'souza</strong></td>
+              <td>Therapy session</td>
+              <td>&#8377;2,000</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>Dr. Niharika</strong></td>
+              <td>First consultation</td>
+              <td>&#8377;1,000</td>
+            </tr>
+            <tr>
+              <td>Follow-up consultation</td>
+              <td>&#8377;700</td>
+            </tr>
+            <tr>
+              <td>Therapy session</td>
+              <td>&#8377;1,500</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Group Sessions</strong></td>
+              <td style="color: #4A6E4A; font-weight: 600;">Free — open to all</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="pricing-note">
+          <strong>If finances are tight, talk to us.</strong> Cost shouldn't be the reason you don't get support. We'll figure something out.
+        </p>
+        <p class="pricing-note" style="margin-top: 0.5rem;">
+          <strong>Insurance:</strong> We don't accept insurance yet, but it's something we're actively working on. We'll update this page when it's available.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ NOT SURE ════════════════ -->
+  <section class="section fade-in">
+    <div class="container">
+      <div class="nudge-box">
+        <h2>Not sure what you need?</h2>
+        <p>
+          That's completely fine. Most people don't know whether they need an assessment, therapy, medication, or all three. You don't have to figure that out before reaching out.
+        </p>
+        <p>
+          Just tell us what's going on. We'll help you find the right starting point.
+        </p>
+        <div class="btn-group">
+          <a href="/contact.html" class="btn btn--primary">Tell Us What's On Your Mind &rarr;</a>
+          <a href="/about.html" class="btn btn--secondary">Meet the Doctors</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FINAL CTA ════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready when you are.</h2>
+      <p>Fill out a short form and we'll get back to you within 24 hours.<br>Prefer to chat first? Message us on WhatsApp — no commitment, no pressure.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="/contact.html" class="btn btn--primary">Book a Session &rarr;</a>
+        <a href="https://wa.me/917625004229?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20Weave." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> · <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/what-to-expect.html">What to Expect</a>
+        <a href="/medication-faq.html">Medication FAQ</a>
+        <a href="/your-rights.html">Your Rights</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <a href="/learn/adhd-in-adults.html">ADHD in Adults</a>
+        <a href="/learn/addictions.html">Addictions</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika..md" target="_blank" rel="noopener">@doc.niharika..md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave — Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

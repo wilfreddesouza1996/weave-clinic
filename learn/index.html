@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon-180.png">
+  <title>Learn — Mental Health Resources | Weave</title>
+  <meta name="description" content="Evidence-based mental health articles on ADHD, addictions, sleep, supplements, sexual health, chronic pain, parenting, screen use, and psychosis. Written for real people, not textbooks.">
+  <meta name="keywords" content="mental health articles India, ADHD adults India, addiction help, sleep tips, supplements mental health, psychosis guide">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Learn — Mental Health Resources | Weave">
+  <meta property="og:description" content="Evidence-based mental health articles on ADHD, addictions, sleep, supplements, sexual health, chronic pain, parenting, screen use, and psychosis.">
+  <meta property="og:url" content="https://weave.clinic/learn/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://weave.clinic/learn/">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .learn-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 300ms ease;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+    }
+    .learn-card:hover {
+      transform: translateY(-4px);
+      border-color: #C9A96E;
+      box-shadow: 0 0 0 1px #E0C992, 0 4px 20px rgba(201, 169, 110, 0.18);
+    }
+    .learn-card__tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .learn-card__tag--clinical { background: #EFF5EF; color: #4A6E4A; }
+    .learn-card__tag--lifestyle { background: #FDF6EE; color: #8B7355; }
+    .learn-card__tag--family { background: #F5E0D6; color: #C75B39; }
+    .learn-card__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .learn-card__excerpt {
+      color: #7A6B5D;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .learn-card__read {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #6B8F6B;
+    }
+    .learn-card:hover .learn-card__read {
+      color: #4A6E4A;
+    }
+    @media (max-width: 768px) {
+      .learn-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .learn-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../what-to-expect.html">What to Expect</a></li>
+        <li><a href="index.html" style="color: #5B4A3F; font-weight: 600;">Learn</a></li>
+        <li><a href="../contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <h1>Learn</h1>
+          <p class="hero__sub">
+            Understanding your mind is the first step to changing your life.
+          </p>
+        </div>
+        <div class="hero__illustration">
+          <img src="../img/learn.png" alt="Learn — understanding your mind" class="hero__img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES GRID -->
+  <section class="section section--centered">
+    <div class="container">
+      <div class="learn-grid">
+
+        <a href="adhd-in-adults.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--clinical">Clinical</span>
+          <h3 class="learn-card__title">ADHD in Adults</h3>
+          <p class="learn-card__excerpt">You're not lazy. Your brain just works differently. The 47 browser tabs, the unfinished projects, the gap between what you can do and what you actually do.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="addictions.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--clinical">Clinical</span>
+          <h3 class="learn-card__title">Addictions</h3>
+          <p class="learn-card__excerpt">The opposite of addiction isn't sobriety. It's connection. Alcohol, gambling, gaming, scrolling — understanding what's underneath.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="screen-use.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--family">Family</span>
+          <h3 class="learn-card__title">Screens & Your Child</h3>
+          <p class="learn-card__excerpt">How screens affect developing brains. When gaming or scrolling becomes a problem. And why what you do with your own phone matters most.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="chronic-pain.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--clinical">Clinical</span>
+          <h3 class="learn-card__title">Chronic Pain & Your Mind</h3>
+          <p class="learn-card__excerpt">All tests normal but still in pain? Your body might be carrying what your mind cannot express. Especially common in women.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="child-rearing.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--family">Family</span>
+          <h3 class="learn-card__title">Raising Children Well</h3>
+          <p class="learn-card__excerpt">Good fit vs bad fit. Authoritative vs authoritarian. And 12 Indian parenting patterns worth examining. You learned this from your parents. You can choose differently.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="sleep.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--lifestyle">Lifestyle</span>
+          <h3 class="learn-card__title">Sleep Better Tonight</h3>
+          <p class="learn-card__excerpt">Science-backed protocols for real life. Morning sunlight, caffeine timing, temperature tricks — adapted for Indian households.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="supplements.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--lifestyle">Lifestyle</span>
+          <h3 class="learn-card__title">Supplements That Actually Work</h3>
+          <p class="learn-card__excerpt">Omega-3, Vitamin D, Magnesium, and more. What the research says, what to take, Indian food sources, and what to avoid.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="sexual-health.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--clinical">Clinical</span>
+          <h3 class="learn-card__title">Sexual Health & Your Mind</h3>
+          <p class="learn-card__excerpt">Performance anxiety, desire, the pleasure gap. Sex is part of health. Talking about it shouldn't be harder than the problem itself.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+        <a href="psychosis.html" class="learn-card">
+          <span class="learn-card__tag learn-card__tag--family">Family</span>
+          <h3 class="learn-card__title">What Is Psychosis?</h3>
+          <p class="learn-card__excerpt">A guide for families. If someone you love is seeing or hearing things others don't — here's what you need to know and what to do.</p>
+          <span class="learn-card__read">Read more &rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Have a question we haven't covered?</h2>
+      <p>We're always adding new resources. If there's something you'd like us to write about, let us know.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="../contact.html" class="btn btn--primary">Get in Touch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> · <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../what-to-expect.html">What to Expect</a>
+        <a href="../medication-faq.html">Medication FAQ</a>
+        <a href="../your-rights.html">Your Rights</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <a href="adhd-in-adults.html">ADHD in Adults</a>
+        <a href="addictions.html">Addictions</a>
+        <a href="screen-use.html">Screens & Your Child</a>
+        <a href="chronic-pain.html">Chronic Pain</a>
+        <a href="child-rearing.html">Raising Children</a>
+        <a href="sleep.html">Sleep</a>
+        <a href="supplements.html">Supplements</a>
+        <a href="sexual-health.html">Sexual Health</a>
+        <a href="psychosis.html">Psychosis</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika..md" target="_blank" rel="noopener">@doc.niharika..md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave — Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

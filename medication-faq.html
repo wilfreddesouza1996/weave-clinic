@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+  <title>Medication FAQ — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="Honest answers to the questions people in India actually have about psychiatric medication — personality changes, addiction, fertility, sex drive, and more.">
+  <meta name="keywords" content="psychiatric medication fears India, do I need medication for anxiety, will psychiatric medicine change personality, psychiatric medication side effects, psychiatrist medication India">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Medication FAQ — Weave Centre for Integrative Psychiatry">
+  <meta property="og:description" content="Honest answers to the questions people in India actually have about psychiatric medication. No pressure, no jargon, no scare tactics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weave.clinic/medication-faq.html">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://weave.clinic/medication-faq.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will psychiatric medication change my personality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Psychiatric medication does not change your personality. What it does is turn down the noise. The right medication, at the right dose, removes the layer of anxiety or depression sitting on top of who you actually are. People often say they feel more like themselves, not less. If you ever feel flat, numb, or 'not like me' on a medication, that means we need to adjust."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I become addicted to psychiatric medication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most psychiatric medicines — antidepressants, mood stabilisers, non-addictive anti-anxiety options — do not cause addiction. Your body does not crave them. Some medicines like certain anxiety medications can cause physical dependence if used daily for a long time. We are upfront about which ones those are, and when we prescribe them, it's usually for short periods with a clear plan to taper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to take psychiatric medication forever?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Some people take medication for six months to a year, build the skills they need in therapy, and then taper off with guidance. Some people find that medication helps them enough that they choose to stay on it long-term. The decision to continue or stop is always yours. If you do stop, we help you do it gradually and safely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will psychiatric medication affect my sex drive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can. Some antidepressants (especially SSRIs) can reduce desire, delay arousal, or make it harder to reach orgasm. We ask about sexual health before starting medication so we have a baseline. We choose medications with lower sexual side-effect profiles when possible. If a sexual side effect shows up, we have real options — dose changes, switching medicines, adding a counteracting medication, or adjusting timing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will psychiatric medication make me drowsy at work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some medicines can cause drowsiness, especially in the first week or two. We start at a lower dose and build up slowly. We time doses strategically — if something is sedating, we move it to bedtime. We choose medications with your daily schedule in mind. If drowsiness doesn't go away after the adjustment period, we switch. You should never have to choose between feeling better and functioning well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will psychiatric medication affect fertility or pregnancy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some psychiatric medicines are safe during pregnancy. Some need to be switched. Some need to be tapered before conception. Planning makes all the difference. If you're thinking about starting a family, bring it up — we can choose medications now that won't create complicated decisions later. For men, most psychiatric medicines do not affect fertility."
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Page-specific: fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Approach principles block */
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .principle {
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .principle__label {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6B8F6B;
+      margin-bottom: 0.5rem;
+    }
+
+    .principle__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.5rem;
+    }
+
+    .principle__text {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Timeline for "first few weeks" */
+    .timeline {
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #6B8F6B, #C9A96E);
+    }
+
+    .timeline__item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline__marker {
+      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      background: #FFFFFF;
+      border: 2px solid #6B8F6B;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #6B8F6B;
+      text-align: center;
+      line-height: 1.2;
+      z-index: 1;
+    }
+
+    .timeline__body {
+      padding-top: 0.75rem;
+    }
+
+    .timeline__period {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6B8F6B;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.375rem;
+    }
+
+    .timeline__text {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .timeline__alert {
+      background: #EFF5EF;
+      border: 1.5px solid #6B8F6B;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .timeline__alert p {
+      color: #4A6E4A;
+      font-size: 0.9375rem;
+      margin: 0;
+      max-width: none;
+    }
+
+    /* Normalise section intro text */
+    .section-intro {
+      font-size: 1.0625rem;
+      color: #7A6B5D;
+      max-width: 100%;
+      line-height: 1.7;
+    }
+
+    .faq--wide {
+      max-width: 100%;
+    }
+
+    /* Last principle in odd-count grid: center it */
+    .principles > *:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 22px;
+      }
+
+      .timeline__marker {
+        width: 46px;
+        height: 46px;
+        font-size: 0.6875rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/what-to-expect.html">What to Expect</a></li>
+        <li><a href="/learn/index.html">Learn</a></li>
+        <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">Honest answers, no pressure</div>
+          <h1>You have questions about medication. Good.</h1>
+          <p class="hero__sub">
+            That means you're thinking carefully about what goes into your body. That's not resistance — that's wisdom.
+          </p>
+        </div>
+        <div class="hero__illustration">
+          <img src="img/medication-faq.png" alt="Balance — medication and wellbeing" class="hero__img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ NORMALISE ════════════════ -->
+  <section class="section">
+    <div class="container content-width">
+      <h2>Having questions is smart</h2>
+      <p class="section-intro">
+        In India, psychiatric medication carries a weight that other medicines don't. Nobody thinks twice about blood pressure pills. But the moment someone mentions an antidepressant, the room gets quiet.
+      </p>
+      <p class="section-intro">
+        That silence isn't your fault. It comes from decades of misinformation, Bollywood stereotypes, and a healthcare system that often doesn't take time to explain things properly.
+      </p>
+      <p class="section-intro">
+        So if you're here reading this page, you're already doing something most people don't. You're asking. You're not blindly saying yes. You're not blindly saying no. You're gathering information so you can make a real choice.
+      </p>
+      <p class="section-intro" style="font-weight: 600; color: #5B4A3F;">
+        That's exactly what we want you to do.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════ FAQ ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="fade-in">Your questions, answered honestly</h2>
+      <p class="section-intro fade-in" style="margin-bottom: 2.5rem;">These are the real questions people bring to us. Every answer is specific, honest, and written so you feel more in control — not less.</p>
+
+      <div class="faq faq--wide fade-in">
+
+        <div class="faq__item">
+          <button class="faq__question">Will it change my personality?</button>
+          <div class="faq__answer">
+            <p>This is the number one fear we hear. And it makes complete sense — your personality is <em>you</em>.</p>
+            <p>Here's the honest answer: psychiatric medication does not change your personality. What it does is turn down the noise. Think of it this way. If you're anxious all the time, that anxiety is sitting on top of who you actually are. It's covering up your natural humour, your curiosity, your ability to be present with the people you love.</p>
+            <p>The right medication, at the right dose, removes that layer. People often say they feel <em>more</em> like themselves, not less.</p>
+            <p>If you ever feel flat, numb, or "not like me" on a medication — that's important information. It means we need to adjust. It does not mean you're stuck with that feeling.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will I become addicted?</button>
+          <div class="faq__answer">
+            <p>This fear usually comes from mixing up two very different things: dependence and addiction.</p>
+            <p>Most psychiatric medicines — antidepressants, mood stabilisers, non-addictive anti-anxiety options — do not cause addiction. Your body does not crave them. You do not need increasing amounts to feel the same effect. They are not the same as sleeping pills or certain painkillers.</p>
+            <p>Some medicines (like certain anxiety medications) can cause physical dependence if used daily for a long time. We are upfront about which ones those are. When we do prescribe them, it's usually for short periods with a clear plan to taper.</p>
+            <p>You will always know exactly what category your medication falls into. No surprises.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Do I have to take it forever?</button>
+          <div class="faq__answer">
+            <p>Not necessarily. It depends on what's going on.</p>
+            <p>Some people take medication for six months to a year, build the skills they need in therapy, and then taper off with guidance. Some people find that medication helps them enough that they choose to stay on it long-term — the same way someone might choose to keep wearing glasses instead of squinting.</p>
+            <p>The decision to continue or stop is always yours. We'll give you honest information about what the research says for your specific situation. We'll tell you when stopping is reasonable and when it carries risk. But we won't pressure you in either direction.</p>
+            <p>And if you do stop, we'll help you do it gradually and safely. Nobody should ever quit psychiatric medication cold turkey.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will it make me drowsy at work?</button>
+          <div class="faq__answer">
+            <p>Some medicines can cause drowsiness, especially in the first week or two. We know that's not acceptable if you have a demanding job, exams, or a life that requires you to be sharp.</p>
+            <p>Here's how we handle it: we often start at a lower dose and build up slowly, so your body adjusts. We time doses strategically — if something is sedating, we move it to bedtime. We choose medications with your daily schedule in mind. A surgeon and a writer have different needs. And if drowsiness doesn't go away after the adjustment period, we switch. There are always alternatives.</p>
+            <p>You should never have to choose between feeling better and functioning well. Both are non-negotiable.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Can I stop during my wedding or exams?</button>
+          <div class="faq__answer">
+            <p>We understand the instinct. Big events feel like they need a "clean" version of you. But stopping medication suddenly before a high-stress event is one of the riskiest things you can do. Stress is exactly when you need stability most.</p>
+            <p>That said, we hear you. If you have a big event coming up, let's talk about it well in advance. We can adjust timing or doses so you feel your sharpest. We can address specific concerns like drowsiness or dry mouth. We can plan around the event so you feel fully in control.</p>
+            <p>The goal is that you walk into your wedding or exam hall feeling like the best version of yourself — not a sedated version, not an anxious version. You.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Is it safe with Ayurvedic medicines?</button>
+          <div class="faq__answer">
+            <p>This is an important question, and we're glad you're asking it rather than just combining things on your own.</p>
+            <p>Some Ayurvedic preparations are safe alongside psychiatric medication. Some are not. The challenge is that many Ayurvedic formulations don't list every active ingredient, and some contain metals or herbs that interact with psychiatric medicines in unpredictable ways.</p>
+            <p>We're not going to ask you to stop Ayurvedic medicines as a blanket rule. What we will ask is that you tell us everything you're taking — every supplement, every kashayam, every churna. No judgement. We need the full picture to keep you safe.</p>
+            <p>If there's a genuine interaction risk, we'll explain exactly what it is and work with you to figure out the safest path forward.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will it affect fertility or pregnancy?</button>
+          <div class="faq__answer">
+            <p>This is a question we take very seriously, and the answer depends on the specific medication.</p>
+            <p>Some psychiatric medicines are safe during pregnancy. Some need to be switched. Some need to be tapered before conception. Planning makes all the difference.</p>
+            <p>If you're thinking about starting a family — even if it's a year or two away — bring it up. We can choose medications now that won't create complicated decisions later. And if you're already pregnant and on medication, do not stop anything without talking to us first. Sudden withdrawal can be harmful to both you and the baby.</p>
+            <p>For men: most psychiatric medicines do not affect fertility. A small number can temporarily affect sperm quality. We'll flag this if it applies. You deserve to make reproductive choices with full information. We'll make sure you have it.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will it affect my marriage prospects?</button>
+          <div class="faq__answer">
+            <p>Let's talk about the real fear here. It's not really about the medicine. It's about the <em>record</em> — the idea that taking psychiatric medication means a "mental health history" that could come up during marriage discussions.</p>
+            <p>Here's what you should know: your medical records are confidential. They cannot be accessed without your consent. A psychiatry consultation does not appear on any public record. Online consultations add another layer of privacy. We do not share any information with anyone — family, employers, or prospective in-laws — without your written permission.</p>
+            <p>We understand the reality of marriage conversations in India. We're not going to pretend stigma doesn't exist. But we will tell you this: an untreated struggle affects relationships far more than a treated one ever could.</p>
+            <p>You get to decide who knows, when they know, and how much they know. That's your right.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What if I forget a dose?</button>
+          <div class="faq__answer">
+            <p>It happens. You're human.</p>
+            <p>For most medicines, taking a missed dose when you remember (within a few hours) is fine. For some, it's better to skip the missed dose and take the next one on schedule. A very small number of medicines need more careful handling.</p>
+            <p>When we prescribe something, we'll tell you exactly what to do if you miss a dose — for that specific medicine. No guessing. Some practical tips: pair your medication with something you already do daily (morning chai, brushing teeth), use a simple phone alarm, or keep a small backup strip in your bag or office.</p>
+            <p>Missing one dose is not a crisis. If you're finding it hard to remember consistently, tell us. We can simplify the schedule or look at longer-acting options.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Are psychiatric medicines just a crutch?</button>
+          <div class="faq__answer">
+            <p>Let's flip this. Is insulin a crutch for someone with diabetes? Are glasses a crutch for someone who can't see clearly?</p>
+            <p>A crutch implies weakness. Medication is a tool. Sometimes you need it while you build other skills — like therapy, sleep habits, stress management. Sometimes you need it longer because your brain chemistry genuinely works better with support. Neither option says anything about your strength.</p>
+            <p>The people who take psychiatric medication are not weaker. They're the ones who decided that struggling in silence wasn't working and chose to do something about it. That takes courage, not weakness.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">My friend had a bad experience with medication.</button>
+          <div class="faq__answer">
+            <p>We believe them. Bad experiences with psychiatric medication are real. They usually happen because of one (or more) of these reasons: the wrong medicine was prescribed without a proper evaluation; the dose was too high too fast; side effects were dismissed instead of addressed; the person wasn't told what to expect; or there was no follow-up or adjustment.</p>
+            <p>Notice that none of those are about the medication itself. They're about how it was prescribed and managed.</p>
+            <p>Our approach is different. We start low, go slow, check in frequently, and take every side effect seriously. If something isn't working, we change course. You are never stuck with a bad experience here.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Can I drink alcohol while on medication?</button>
+          <div class="faq__answer">
+            <p>The honest answer: it depends on the medication, but in most cases, alcohol and psychiatric medicines don't mix well.</p>
+            <p>Alcohol can cancel out the benefit of antidepressants. It can amplify sedation dangerously with some medicines. And for people working on anxiety or mood concerns, alcohol itself often makes things worse over time.</p>
+            <p>We're not going to lecture you. We know that social drinking is part of many people's lives, especially in their 20s and 30s. What we will do is give you specific, honest information about your medication and alcohol — not a generic "don't drink" warning, but the actual risks for what you're taking. Then you decide. We'd rather you make an informed choice than hide your drinking from your doctor.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will it affect my sex drive?</button>
+          <div class="faq__answer">
+            <p>It can. And we won't pretend otherwise.</p>
+            <p>Some antidepressants (especially SSRIs) can reduce desire, delay arousal, or make it harder to reach orgasm. This affects both men and women. It's one of the most common reasons people stop medication without telling their doctor.</p>
+            <p>Here's what we do about it: we ask about sexual health before starting medication, so we have a baseline. We choose medications with lower sexual side-effect profiles when possible. If a sexual side effect shows up, we have real options — dose changes, switching medicines, adding a counteracting medication, or adjusting timing. We talk about it openly. No embarrassment. No brushing it off.</p>
+            <p>Your intimate life matters. It's part of your wellbeing, not separate from it.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What's the difference between a psychiatrist and my GP?</button>
+          <div class="faq__answer">
+            <p>Your GP is trained to handle a broad range of health concerns. They can absolutely prescribe basic psychiatric medicines for straightforward situations — mild anxiety, short-term sleep trouble, uncomplicated low mood.</p>
+            <p>A psychiatrist spends years training specifically in how the brain works, how different medicines interact with brain chemistry, and how to adjust when things get complicated. We see patterns your GP may not. We know which combinations are safe. We monitor for subtle side effects. We factor in other medicines you're taking.</p>
+            <p>Think of it like this: your GP is like a general physician. A psychiatrist is like a cardiologist — but for the brain. For simple things, your GP is great. For anything nuanced, ongoing, or not responding to first-line options, a specialist makes a real difference. This isn't a criticism of GPs. It's just a different depth of training.</p>
+          </div>
+        </div>
+
+      </div><!-- /.faq -->
+    </div>
+  </section>
+
+  <!-- ════════════════ HOW WE APPROACH MEDICATION ════════════════ -->
+  <section class="section section--centered">
+    <div class="container">
+      <h2 class="fade-in">How we approach medication at Weave</h2>
+      <p class="section-intro fade-in" style="margin-bottom: 0;">These are not aspirations. They are how every single conversation about medication happens here.</p>
+
+      <div class="principles lining--gold fade-in" style="padding: 2rem; border-radius: 14px; margin-top: 2rem;">
+        <div class="principle">
+          <div class="principle__label">Principle 1</div>
+          <div class="principle__title">Your choice, always.</div>
+          <p class="principle__text">We will never pressure you to take medication. We present options. We explain trade-offs. You decide. If you say no, we respect that and work with other approaches.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__label">Principle 2</div>
+          <div class="principle__title">Smallest effective dose.</div>
+          <p class="principle__text">More is not better. We find the lowest dose that gives you meaningful relief with the fewest side effects. If half a tablet works, we don't prescribe a full one.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__label">Principle 3</div>
+          <div class="principle__title">Full transparency.</div>
+          <p class="principle__text">Before you take anything, you'll know: what it is, why we're suggesting it, what it does in the brain, what side effects to watch for, how long you'll likely need it, and what happens when you stop. No mystery prescriptions.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__label">Principle 4</div>
+          <div class="principle__title">Regular check-ins, especially early on.</div>
+          <p class="principle__text">The first few weeks matter most. We check in frequently — not because something will go wrong, but because fine-tuning early leads to better results. Think of it as calibration, not crisis management.</p>
+        </div>
+        <div class="principle">
+          <div class="principle__label">Principle 5</div>
+          <div class="principle__title">Medication is one tool, not the only tool.</div>
+          <p class="principle__text">We combine medication with therapy, lifestyle changes, and your own self-knowledge. The goal is to build a support system, not a single point of dependence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FIRST FEW WEEKS TIMELINE ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="fade-in">What to expect in the first few weeks</h2>
+      <p class="section-intro fade-in">This is the timeline most people wish they'd had before starting. Read it. Save it.</p>
+
+      <div class="timeline fade-in">
+
+        <div class="timeline__item">
+          <div class="timeline__marker">Days<br>1–3</div>
+          <div class="timeline__body">
+            <div class="timeline__period">Days 1–3</div>
+            <div class="timeline__title">Your body meets a new molecule.</div>
+            <p class="timeline__text">You might not feel much. Some people notice mild nausea, a slight headache, or changes in sleep. This is your body adjusting. It's usually mild and temporary.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">Week<br>1</div>
+          <div class="timeline__body">
+            <div class="timeline__period">Week 1</div>
+            <div class="timeline__title">Side effects (if any) tend to peak.</div>
+            <p class="timeline__text">Energy and sleep may shift. The therapeutic benefit usually hasn't kicked in yet. This is the hardest part — side effects without benefits. It's temporary.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">Weeks<br>2–3</div>
+          <div class="timeline__body">
+            <div class="timeline__period">Weeks 2–3</div>
+            <div class="timeline__title">Things start shifting.</div>
+            <p class="timeline__text">Side effects start fading. You may begin noticing subtle changes — sleeping a little better, the mental noise turning down slightly, a bit more patience with daily frustrations. It's often not dramatic. People around you might notice before you do.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">Weeks<br>4–6</div>
+          <div class="timeline__body">
+            <div class="timeline__period">Weeks 4–6</div>
+            <div class="timeline__title">Full effect.</div>
+            <p class="timeline__text">This is where most medicines reach their full effect. If things are going well, you'll feel more like yourself — not euphoric, not numb, just steadier. If they're not, this is when we reassess and adjust.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline__alert">
+        <p><strong>Important:</strong> If at any point you feel significantly worse — not just "adjusting" but genuinely worse — contact us immediately. You don't need to wait for your next appointment. Message us on WhatsApp. That's what we're here for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FINAL CTA ════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>You're in charge here.</h2>
+      <p>
+        Maybe you're ready to have a conversation about medication.<br>
+        Maybe you just wanted to understand your options.<br>
+        Both are completely valid.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="/contact.html" class="btn btn--primary">I'd like to talk about my options &rarr;</a>
+        <a href="https://wa.me/917625004229?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20Weave." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          I have a quick question first
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> · <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/what-to-expect.html">What to Expect</a>
+        <a href="/medication-faq.html">Medication FAQ</a>
+        <a href="/your-rights.html">Your Rights</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <a href="/learn/adhd-in-adults.html">ADHD in Adults</a>
+        <a href="/learn/addictions.html">Addictions</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika..md" target="_blank" rel="noopener">@doc.niharika..md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave — Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

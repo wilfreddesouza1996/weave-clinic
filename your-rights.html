@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+  <title>Confidentiality &amp; Your Rights — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="Your privacy is absolute at Weave. Understand your rights under the Mental Healthcare Act 2017, how we protect your records, and who can never access your information.">
+  <meta name="keywords" content="therapy confidential India, will psychiatrist tell my parents, mental health confidentiality India, Mental Healthcare Act 2017 rights, is online therapy secure, psychiatry records India">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Confidentiality &amp; Your Rights — Weave Centre for Integrative Psychiatry">
+  <meta property="og:description" content="What you share here stays here. Your rights under Indian law, plainly explained.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weave.clinic/your-rights.html">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://weave.clinic/your-rights.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will my parents find out I'm seeing a psychiatrist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If you are 18 or older, we cannot tell your parents anything. Not that you called, not that you booked, not what you said. Even if you live at home. Even if they are paying. Your sessions are yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will seeing a psychiatrist show up on my medical records?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your records at Weave are separate from hospital records. We do not share them with other doctors, hospitals, or clinics unless you ask us to. Nothing goes on a central database."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my employer or future employer find out I see a psychiatrist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We do not report to employers. Mental health records are not part of standard background checks. Seeing a psychiatrist does not appear on any employment record. It will not affect government job applications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about arranged marriage background checks and psychiatry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your mental health records are not public. No one doing a background check can access them. We will never confirm or deny that someone is connected with us — to anyone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is online therapy actually secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our sessions use end-to-end encrypted video. Sessions are never recorded. Your records are stored on encrypted servers, protected by multiple layers of security. Only your clinician can access them. There is no waiting room and no chance of running into someone you know."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my spouse access my mental health records?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Not without your written permission. Marriage does not grant access to your mental health records. This is your legal right under the Mental Healthcare Act."
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Page-specific: fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Rights grid */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .right-card {
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .right-card__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .right-card__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.5rem;
+    }
+
+    .right-card__text {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .right-card__law {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #B8B8B0;
+    }
+
+    /* Privacy protection cards */
+    .protection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .protection-card {
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .protection-card__label {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6B8F6B;
+      margin-bottom: 0.5rem;
+    }
+
+    .protection-card__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.5rem;
+    }
+
+    .protection-card__text {
+      font-size: 0.9rem;
+      color: #7A6B5D;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Exceptions section */
+    .exception {
+      background: #FFFFFF;
+      border: 1.5px solid #C9A96E;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .exception__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.5rem;
+    }
+
+    .exception__text {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .exceptions-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .exceptions-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #FDF6EC;
+      border: 1px solid #C9A96E;
+      color: #8B6914;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    /* Section intro */
+    .section-intro {
+      font-size: 1.0625rem;
+      color: #7A6B5D;
+      max-width: 100%;
+      line-height: 1.7;
+    }
+
+    .faq--wide {
+      max-width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .rights-grid,
+      .protection-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/what-to-expect.html">What to Expect</a></li>
+        <li><a href="/learn/index.html">Learn</a></li>
+        <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">Mental Healthcare Act, 2017 &mdash; your rights in plain language</div>
+          <h1>What you share here stays here.</h1>
+          <p class="hero__sub">
+            Your privacy isn't a policy. It's a promise. No one finds out — not unless you say so.
+          </p>
+        </div>
+        <div class="hero__illustration">
+          <img src="img/your-rights.png" alt="Shield — your privacy protected" class="hero__img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ YOUR RIGHTS ════════════════ -->
+  <section class="section section--centered">
+    <div class="container">
+      <h2 class="fade-in">Your rights under the law</h2>
+      <p class="section-intro fade-in">The Mental Healthcare Act (2017) gives you specific rights. These are not suggestions. They are law. Here is what they mean for you, in plain language.</p>
+
+      <div class="rights-grid lining--silver fade-in" style="padding: 2rem; border-radius: 14px; margin-top: 2rem;">
+
+        <div class="right-card">
+          <div class="right-card__title">The right to confidentiality.</div>
+          <p class="right-card__text">Nothing you say in a session can be shared with anyone — not your family, not your employer, not an insurance company — without your written permission.</p>
+          <span class="right-card__law">MHCA 2017 &sect; 23</span>
+        </div>
+
+        <div class="right-card">
+          <div class="right-card__title">The right to choose your own care.</div>
+          <p class="right-card__text">You decide what kind of support you want. You can say no to anything. You can change your mind at any time. No one can override your choices.</p>
+          <span class="right-card__law">MHCA 2017 &sect; 18</span>
+        </div>
+
+        <div class="right-card">
+          <div class="right-card__title">The right to information.</div>
+          <p class="right-card__text">You can ask us anything about your care. What we think is going on. What we recommend. Why. You deserve clear answers, and we will give them.</p>
+          <span class="right-card__law">MHCA 2017 &sect; 20</span>
+        </div>
+
+        <div class="right-card">
+          <div class="right-card__title">The right to make an advance directive.</div>
+          <p class="right-card__text">You can write down, in advance, how you want to be supported if you ever go through a mental health crisis. This document is legally binding. We can help you create one.</p>
+          <span class="right-card__law">MHCA 2017 &sect; 5</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FAQ ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="fade-in">The questions you're actually asking</h2>
+      <p class="section-intro fade-in" style="margin-bottom: 2.5rem;">We know the real worries. Let's address them directly.</p>
+
+      <div class="faq faq--wide fade-in">
+
+        <div class="faq__item">
+          <button class="faq__question">Will my parents find out?</button>
+          <div class="faq__answer">
+            <p>No. If you are 18 or older, we cannot tell your parents anything. Not that you called. Not that you booked. Not what you said. Even if you live at home. Even if they are paying. Your sessions are yours.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will this show up on my medical records?</button>
+          <div class="faq__answer">
+            <p>Your records at weave.clinic are separate from hospital records. We do not share them with other doctors, hospitals, or clinics unless you ask us to. Nothing goes on a central database.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will my employer or future employer find out?</button>
+          <div class="faq__answer">
+            <p>No. We do not report to employers. Mental health records are not part of standard background checks. Seeing a psychiatrist does not appear on any employment record. It will not affect government job applications.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What about arranged marriage background checks?</button>
+          <div class="faq__answer">
+            <p>Your mental health records are not public. No one doing a background check can access them. We will never confirm or deny that someone is connected with us — to anyone.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Will my insurance company know what I talked about?</button>
+          <div class="faq__answer">
+            <p>If you use insurance, your insurer may know you had a session. They will not know what you said. If you pay out of pocket, your insurer knows nothing at all.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What if my family calls and asks about me?</button>
+          <div class="faq__answer">
+            <p>We will not confirm or deny that you are connected with us. If your mother, father, spouse, in-law, or anyone else calls — the answer is the same. We do not share information. Period.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Can my spouse access my records?</button>
+          <div class="faq__answer">
+            <p>No. Not without your written permission. Marriage does not grant access to your mental health records. This is your legal right under the Mental Healthcare Act.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What about joint family situations?</button>
+          <div class="faq__answer">
+            <p>We understand that privacy at home can be complicated. You can tell us how you want to be contacted. We will never call, message, or email in a way that could reveal your connection with us. If you need help planning around shared spaces for online sessions, we can work that out together.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What if I'm under 18?</button>
+          <div class="faq__answer">
+            <p>If you are under 18, a parent or guardian is involved in your care by law. But we still respect your voice. We will talk with you about what is shared and what stays between us. Your trust matters, even when the rules are different.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What happens to my records if I stop coming?</button>
+          <div class="faq__answer">
+            <p>Your records stay safe and locked. They are not deleted, shared, or handed over. If you come back — even years later — they will be here. If you want them deleted, you can request that.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What if I tell you something about substance use or self-harm?</button>
+          <div class="faq__answer">
+            <p>Telling us about substance use is not a crime we report. It is something we can help with. You can be honest. That honesty is what makes the work effective.</p>
+            <p>Talking about self-harm does not trigger a report. We are here to understand and support you, not to alert anyone. The only exception is immediate, life-threatening risk — and even then, we talk with you first.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Is online therapy actually secure?</button>
+          <div class="faq__answer">
+            <p>Yes. Our sessions use end-to-end encrypted video. No one — not even us — can access a recording, because there is no recording. Sessions are never recorded. Your records are stored on encrypted servers, protected by multiple layers of security. Only your clinician can access them.</p>
+            <p>We are an online practice. There is no waiting room. No chance of running into someone you know. No one sees you walk in or out.</p>
+          </div>
+        </div>
+
+      </div><!-- /.faq -->
+    </div>
+  </section>
+
+  <!-- ════════════════ HOW WE PROTECT YOUR PRIVACY ════════════════ -->
+  <section class="section section--centered">
+    <div class="container">
+      <h2 class="fade-in">How we protect your privacy</h2>
+      <p class="section-intro fade-in">Words are not enough. Here is what we actually do.</p>
+
+      <div class="protection-grid fade-in">
+
+        <div class="protection-card">
+          <div class="protection-card__label">Encrypted sessions</div>
+          <div class="protection-card__title">No recordings. Ever.</div>
+          <p class="protection-card__text">Sessions use end-to-end encrypted video. Nothing is recorded. There is no archive to subpoena, share, or leak.</p>
+        </div>
+
+        <div class="protection-card">
+          <div class="protection-card__label">Secure storage</div>
+          <div class="protection-card__title">Locked records.</div>
+          <p class="protection-card__text">Your records are stored on encrypted servers. Multiple security layers. Only your clinician has access. Not support staff. Not other doctors.</p>
+        </div>
+
+        <div class="protection-card">
+          <div class="protection-card__label">No shared systems</div>
+          <div class="protection-card__title">Isolated from hospital networks.</div>
+          <p class="protection-card__text">We do not use hospital or shared clinic software where others could stumble onto your information. Our systems are independent.</p>
+        </div>
+
+        <div class="protection-card">
+          <div class="protection-card__label">Private communication</div>
+          <div class="protection-card__title">You choose how we reach you.</div>
+          <p class="protection-card__text">We will never leave a voicemail or send a message that mentions mental health, therapy, or our clinic name — unless you tell us it is safe to do so.</p>
+        </div>
+
+        <div class="protection-card">
+          <div class="protection-card__label">No waiting room</div>
+          <div class="protection-card__title">No one sees you arrive.</div>
+          <p class="protection-card__text">We are fully online. No chance of running into someone you know. No receptionist. No check-in at a front desk. Just you and your clinician.</p>
+        </div>
+
+        <div class="protection-card">
+          <div class="protection-card__label">Strict disclosure policy</div>
+          <div class="protection-card__title">We confirm nothing to anyone.</div>
+          <p class="protection-card__text">We will not confirm you are connected with us to any third party — family, employers, insurers, or prospective in-laws — without your written permission.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ THE EXCEPTIONS ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="exceptions-header fade-in">
+        <h2 style="margin-bottom: 0;">The exceptions</h2>
+        <span class="exceptions-badge">Rare &amp; specific</span>
+      </div>
+      <p class="section-intro fade-in">There are rare situations where confidentiality has limits. We believe you deserve to know them upfront — not buried in fine print.</p>
+
+      <div style="margin-top: 2rem;" class="fade-in">
+
+        <div class="exception">
+          <div class="exception__title">Immediate danger to your life.</div>
+          <p class="exception__text">If we believe you are at serious and immediate risk of ending your life, we may need to contact someone who can help keep you safe. We will always try to talk with you first. This is about protecting you, not exposing you.</p>
+        </div>
+
+        <div class="exception">
+          <div class="exception__title">Immediate danger to someone else.</div>
+          <p class="exception__text">If you tell us about a specific, serious plan to harm another person, we have a legal duty to act. This is extremely rare.</p>
+        </div>
+
+        <div class="exception">
+          <div class="exception__title">A court order.</div>
+          <p class="exception__text">If a court of law specifically orders us to share records, we are legally required to comply. This is uncommon and does not happen without a formal legal process. We would notify you if this ever occurred.</p>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 2rem; padding: 1.5rem; background: #EFF5EF; border-radius: 10px; border: 1.5px solid #6B8F6B;" class="fade-in">
+        <p style="color: #4A6E4A; font-size: 0.9375rem; margin: 0; max-width: none;">
+          <strong>Substance use and self-harm are not exceptions.</strong> You can be honest with us about these without any concern that we will report you or alert anyone. Honesty is what makes the work effective. The only time we act without your consent is when there is immediate, life-threatening risk — and even then, we talk with you first.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FINAL CTA ════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>You are in control.</h2>
+      <p>
+        You decide who knows. You decide what we discuss.<br>
+        You decide how we contact you. You decide whether to continue.<br>
+        You are not handing over power by reaching out. You are using it.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="/contact.html" class="btn btn--primary">Book a session — privately &rarr;</a>
+        <a href="https://wa.me/917625004229?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20Weave." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ask us a question first
+        </a>
+      </div>
+      <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #A89B8C;">
+        If you ever feel your privacy has been compromised, you have the right to file a complaint with the Mental Health Review Board in your state. We will help you do that if it ever comes to it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> · <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/what-to-expect.html">What to Expect</a>
+        <a href="/medication-faq.html">Medication FAQ</a>
+        <a href="/your-rights.html">Your Rights</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <a href="/learn/adhd-in-adults.html">ADHD in Adults</a>
+        <a href="/learn/addictions.html">Addictions</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika..md" target="_blank" rel="noopener">@doc.niharika..md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave — Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
