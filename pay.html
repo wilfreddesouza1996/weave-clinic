@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+  <title>Pay — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="Complete your payment for your consultation at Weave. Secure UPI payment via any app.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="canonical" href="https://weave.clinic/pay.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pay-container {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .pay-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .pay-selector {
+      margin-bottom: 2rem;
+    }
+    .pay-selector__label {
+      display: block;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #A89B8C;
+      margin-bottom: 0.75rem;
+      text-align: left;
+    }
+    .pill-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .pill {
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      border: 1.5px solid #E8DDD0;
+      background: transparent;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+    .pill:hover {
+      border-color: #C9A96E;
+      color: #5B4A3F;
+    }
+    .pill.active {
+      background: #5B4A3F;
+      border-color: #5B4A3F;
+      color: #FFFFFF;
+    }
+
+    .pay-amount {
+      margin: 2rem 0;
+    }
+    .pay-amount__label {
+      font-size: 0.875rem;
+      color: #A89B8C;
+      margin-bottom: 0.25rem;
+    }
+    .pay-amount__value {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: #5B4A3F;
+    }
+    .pay-amount__type {
+      font-size: 1rem;
+      color: #7A6B5D;
+      margin-top: 0.25rem;
+    }
+
+    .pay-qr {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #FFFFFF;
+      border: 2px solid #E8DDD0;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    .pay-qr img {
+      display: block;
+      image-rendering: pixelated;
+    }
+
+    .pay-upi-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: #6B8F6B;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 200ms ease;
+      margin-top: 1rem;
+    }
+    .pay-upi-btn:hover {
+      background: #5A7D5A;
+    }
+
+    .pay-instructions {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #E8DDD0;
+      text-align: left;
+    }
+    .pay-instructions__title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.75rem;
+    }
+    .pay-instructions ol {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .pay-instructions li {
+      font-size: 0.9375rem;
+      color: #7A6B5D;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .pay-apps {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 0.8125rem;
+      color: #A89B8C;
+    }
+
+    .pay-whatsapp {
+      margin-top: 2rem;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 768px) {
+      .pay-card {
+        padding: 1.5rem;
+      }
+      .pay-amount__value {
+        font-size: 2.75rem;
+      }
+      .pill-group {
+        flex-direction: column;
+      }
+      .pill {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/what-to-expect.html">What to Expect</a></li>
+        <li><a href="/learn/index.html">Learn</a></li>
+        <li><a href="/medication-faq.html">Medication FAQ</a></li>
+        <li><a href="/your-rights.html">Your Rights</a></li>
+        <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero" style="padding-bottom: 1.5rem;">
+    <div class="container">
+      <div class="pay-container">
+        <h1 style="font-size: 2rem;">Complete your payment</h1>
+        <p class="hero__sub" style="max-width: 480px;">
+          Select your doctor and consultation type below. Pay securely via any UPI app.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ PAYMENT ════════════════ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="pay-container fade-in">
+        <div class="pay-card lining--gold">
+
+          <!-- Doctor selector -->
+          <div class="pay-selector">
+            <span class="pay-selector__label">Doctor</span>
+            <div class="pill-group" id="doctor-pills">
+              <button class="pill" data-doctor="wilfred">Dr. Wilfred</button>
+              <button class="pill" data-doctor="niharika">Dr. Niharika</button>
+            </div>
+          </div>
+
+          <!-- Consultation type selector -->
+          <div class="pay-selector hidden" id="type-selector">
+            <span class="pay-selector__label">Consultation type</span>
+            <div class="pill-group" id="type-pills"></div>
+          </div>
+
+          <!-- Amount -->
+          <div class="pay-amount hidden" id="amount-section">
+            <div class="pay-amount__label">Amount</div>
+            <div class="pay-amount__value" id="amount-display"></div>
+            <div class="pay-amount__type" id="type-display"></div>
+          </div>
+
+          <!-- QR Code -->
+          <div id="qr-section" class="hidden">
+            <div class="pay-qr" id="qr-container"></div>
+
+            <div>
+              <a id="upi-link" class="pay-upi-btn" href="#">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                Pay with UPI app
+              </a>
+            </div>
+
+            <div class="pay-apps">
+              <span>Google Pay</span>
+              <span>PhonePe</span>
+              <span>Paytm</span>
+              <span>Any UPI app</span>
+            </div>
+          </div>
+
+          <!-- Instructions -->
+          <div class="pay-instructions hidden" id="instructions-section">
+            <div class="pay-instructions__title">How to pay</div>
+            <ol>
+              <li>Scan the QR code above with any UPI app, or tap "Pay with UPI app" on your phone</li>
+              <li>Confirm the payment in your app</li>
+              <li>Take a screenshot of the payment confirmation</li>
+              <li>Share the screenshot with us on WhatsApp</li>
+            </ol>
+          </div>
+
+        </div>
+
+        <!-- WhatsApp return -->
+        <div class="pay-whatsapp" style="text-align: center;">
+          <a href="https://wa.me/917625004229" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer" style="display: inline-flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Return to WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person practice coming to Mumbai, late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> &middot; <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/what-to-expect.html">What to Expect</a>
+        <a href="/medication-faq.html">Medication FAQ</a>
+        <a href="/your-rights.html">Your Rights</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave &mdash; Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- QR Code library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+  <script>
+    (function() {
+      'use strict';
+
+      var UPI_ID = 'wilfred.desouza1996@okaxis';
+      var UPI_NAME = 'Weave Psychiatry';
+
+      var CONSULTATIONS = {
+        wilfred: [
+          { type: 'therapy', label: 'Therapy support', amount: 2000 }
+        ],
+        niharika: [
+          { type: 'first', label: 'First consultation', amount: 1000 },
+          { type: 'followup', label: 'Follow-up', amount: 700 },
+          { type: 'therapy', label: 'Therapy session', amount: 1500 }
+        ]
+      };
+
+      var selectedDoctor = null;
+
+      var doctorPills = document.getElementById('doctor-pills');
+      var typePillsContainer = document.getElementById('type-pills');
+      var typeSelector = document.getElementById('type-selector');
+      var amountSection = document.getElementById('amount-section');
+      var amountDisplay = document.getElementById('amount-display');
+      var typeDisplay = document.getElementById('type-display');
+      var qrSection = document.getElementById('qr-section');
+      var qrContainer = document.getElementById('qr-container');
+      var upiLink = document.getElementById('upi-link');
+      var instructionsSection = document.getElementById('instructions-section');
+
+      function formatAmount(n) {
+        return '\u20B9' + n.toLocaleString('en-IN');
+      }
+
+      function buildUpiString(amount, note) {
+        return 'upi://pay?pa=' + UPI_ID +
+          '&pn=' + encodeURIComponent(UPI_NAME) +
+          '&am=' + amount +
+          '&cu=INR' +
+          '&tn=' + encodeURIComponent('Weave - ' + note);
+      }
+
+      function generateQR(amount, note) {
+        var upiString = buildUpiString(amount, note);
+        upiLink.href = upiString;
+
+        // Clear previous QR
+        while (qrContainer.firstChild) {
+          qrContainer.removeChild(qrContainer.firstChild);
+        }
+
+        var qr = qrcode(0, 'M');
+        qr.addData(upiString);
+        qr.make();
+
+        var size = Math.min(window.innerWidth - 140, 280);
+        var img = document.createElement('img');
+        img.src = qr.createDataURL(8, 4);
+        img.alt = 'UPI QR Code for payment';
+        img.style.width = size + 'px';
+        img.style.height = size + 'px';
+        qrContainer.appendChild(img);
+      }
+
+      function selectType(consultation) {
+        // Update type pills
+        var pills = typePillsContainer.querySelectorAll('.pill');
+        for (var i = 0; i < pills.length; i++) {
+          pills[i].classList.toggle('active', pills[i].getAttribute('data-type') === consultation.type);
+        }
+
+        amountDisplay.textContent = formatAmount(consultation.amount);
+        typeDisplay.textContent = consultation.label;
+        amountSection.classList.remove('hidden');
+
+        generateQR(consultation.amount, consultation.label);
+        qrSection.classList.remove('hidden');
+        instructionsSection.classList.remove('hidden');
+      }
+
+      function selectDoctor(doctor) {
+        selectedDoctor = doctor;
+
+        // Update doctor pills
+        var dPills = doctorPills.querySelectorAll('.pill');
+        for (var i = 0; i < dPills.length; i++) {
+          dPills[i].classList.toggle('active', dPills[i].getAttribute('data-doctor') === doctor);
+        }
+
+        // Build type pills safely (no innerHTML)
+        while (typePillsContainer.firstChild) {
+          typePillsContainer.removeChild(typePillsContainer.firstChild);
+        }
+
+        var types = CONSULTATIONS[doctor];
+        types.forEach(function(t) {
+          var btn = document.createElement('button');
+          btn.className = 'pill';
+          btn.setAttribute('data-type', t.type);
+          btn.textContent = t.label + ' \u2014 ' + formatAmount(t.amount);
+          btn.addEventListener('click', function() { selectType(t); });
+          typePillsContainer.appendChild(btn);
+        });
+
+        typeSelector.classList.remove('hidden');
+        amountSection.classList.add('hidden');
+        qrSection.classList.add('hidden');
+        instructionsSection.classList.add('hidden');
+
+        // Auto-select if only one type
+        if (types.length === 1) {
+          selectType(types[0]);
+        }
+      }
+
+      // Doctor pill clicks
+      var doctorButtons = doctorPills.querySelectorAll('.pill');
+      for (var i = 0; i < doctorButtons.length; i++) {
+        (function(btn) {
+          btn.addEventListener('click', function() {
+            selectDoctor(btn.getAttribute('data-doctor'));
+          });
+        })(doctorButtons[i]);
+      }
+
+      // Parse URL params for smart linking
+      var params = new URLSearchParams(window.location.search);
+      var paramDoctor = params.get('doctor');
+      var paramType = params.get('type');
+
+      if (paramDoctor && CONSULTATIONS[paramDoctor]) {
+        selectDoctor(paramDoctor);
+        if (paramType) {
+          var match = CONSULTATIONS[paramDoctor].find(function(t) { return t.type === paramType; });
+          if (match) selectType(match);
+        }
+      }
+
+      // Fade-in observer
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+      // Mobile nav toggle
+      var toggle = document.querySelector('.nav__toggle');
+      var links = document.querySelector('.nav__links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          links.classList.toggle('active');
+          toggle.classList.toggle('active');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

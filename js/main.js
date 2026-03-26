@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const seen_before = form.querySelector('[name="seen_before"]:checked')?.value || '';
       const preferred = form.querySelector('[name="preferred_doctor"]:checked')?.value || '';
       const city = form.querySelector('[name="city"]')?.value || '';
+      const consultation_type = form.querySelector('[name="consultation_type"]')?.value || '';
 
       let text = `Hi, I'd like to reach out to Weave.\n\n`;
       if (name) text += `Name: ${name}\n`;
@@ -83,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (city) text += `City: ${city}\n`;
       if (seen_before) text += `Seen someone before: ${seen_before}\n`;
       if (preferred) text += `Preferred doctor: ${preferred}\n`;
-      if (message) text += `\nWhat's on my mind:\n${message}`;
+      if (consultation_type) text += `Consultation type: ${consultation_type}\n`;
+      if (message) text += `\nWhat I'm going through:\n${message}`;
 
       const encoded = encodeURIComponent(text.trim());
       window.open(`https://wa.me/917625004229?text=${encoded}`, '_blank');
