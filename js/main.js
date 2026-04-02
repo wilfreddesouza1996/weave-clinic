@@ -134,13 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Save lead to localStorage
       localStorage.setItem('weave_exam_lead', JSON.stringify(lead));
 
-      // Trigger download
-      const a = document.createElement('a');
-      a.href = data.download_url;
-      a.download = '';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      // Trigger download via redirect (cross-origin download attribute doesn't work)
+      window.location.href = data.download_url;
 
       closeModal();
       form.reset();
@@ -179,12 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(data.error);
       }
 
-      const a = document.createElement('a');
-      a.href = data.download_url;
-      a.download = '';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      window.location.href = data.download_url;
     } catch (err) {
       alert('Download failed: ' + (err.message || 'Please try again.'));
     } finally {
