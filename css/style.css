@@ -1046,3 +1046,238 @@ select:focus-visible {
   outline-offset: 1px;
 }
 
+/* ═══════════════════════════════════════════
+   FOR RESIDENTS — Banner
+   ═══════════════════════════════════════════ */
+
+.residents-banner {
+  background: linear-gradient(135deg, #E8F2EC 0%, #F5ECD6 100%);
+  border-left: 4px solid #6B8F6B;
+  padding: 3.5rem 0;
+}
+
+.residents-banner__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4A6E4A;
+  margin-bottom: 0.75rem;
+}
+
+.residents-banner__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: #5B4A3F;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.residents-banner__body {
+  font-size: 1.125rem;
+  color: #7A6B5D;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   FOR RESIDENTS — Exam Grid & Cards
+   ═══════════════════════════════════════════ */
+
+.exam-section__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #6B8F6B;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.exam-section__subtitle {
+  color: #7A6B5D;
+  font-size: 0.9375rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.exam-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E8DDD0;
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 300ms ease;
+}
+
+.exam-card:hover {
+  transform: translateY(-3px);
+  border-color: #C9A96E;
+  box-shadow: 0 0 0 1px #E0C992, 0 4px 20px rgba(201, 169, 110, 0.18);
+}
+
+.exam-card__tag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  width: fit-content;
+  background: #3D6B4F;
+  color: #FFFFFF;
+}
+
+.exam-card__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #5B4A3F;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.exam-card__desc {
+  color: #7A6B5D;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.exam-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  border: 1.5px solid #6B8F6B;
+  background: transparent;
+  color: #6B8F6B;
+  cursor: pointer;
+  transition: all 250ms ease;
+  width: 100%;
+}
+
+.exam-card__btn:hover {
+  background: #6B8F6B;
+  color: #FFFFFF;
+}
+
+.exam-card__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════
+   FOR RESIDENTS — Download Modal
+   ═══════════════════════════════════════════ */
+
+.download-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-modal.active {
+  display: flex;
+}
+
+.download-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(61, 50, 40, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.download-modal__card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 460px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(61, 50, 40, 0.2);
+}
+
+.download-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #7A6B5D;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+.download-modal__close:hover {
+  color: #5B4A3F;
+}
+
+.download-modal__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5B4A3F;
+  margin-bottom: 0.5rem;
+}
+
+.download-modal__subtitle {
+  color: #7A6B5D;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.download-modal__form .form__group {
+  margin-bottom: 1rem;
+}
+
+.download-modal__submit {
+  margin-top: 0.5rem;
+}
+
+.download-modal__error {
+  color: #C75B39;
+  font-size: 0.8125rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════
+   FOR RESIDENTS — Responsive
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .residents-banner { padding: 2.5rem 0; }
+  .residents-banner__title { font-size: 2rem; }
+  .exam-grid { grid-template-columns: 1fr; }
+  .download-modal__card { padding: 1.75rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .exam-grid { grid-template-columns: repeat(2, 1fr); }
+}
+

@@ -62,6 +62,146 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+  // Exam prep download modal
+  const EDGE_FN_URL = 'https://swnhmrljpafvaojaytkv.supabase.co/functions/v1/exam-prep-download';
+  let pendingFileKey = null;
+
+  window.handleDownload = function(btn) {
+    const card = btn.closest('.exam-card');
+    pendingFileKey = card.dataset.file;
+
+    // Check localStorage for returning user
+    const saved = localStorage.getItem('weave_exam_lead');
+    if (saved) {
+      const lead = JSON.parse(saved);
+      triggerDownload(lead, pendingFileKey, btn);
+      return;
+    }
+
+    // Show modal
+    const modal = document.getElementById('downloadModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('dl-name').focus(), 100);
+  };
+
+  window.closeModal = function() {
+    const modal = document.getElementById('downloadModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    document.getElementById('downloadError').style.display = 'none';
+    pendingFileKey = null;
+  };
+
+  window.submitDownload = async function(e) {
+    e.preventDefault();
+    const form = document.getElementById('downloadForm');
+    const submitBtn = form.querySelector('.download-modal__submit');
+    const errorEl = document.getElementById('downloadError');
+    errorEl.style.display = 'none';
+
+    const lead = {
+      name: form.querySelector('#dl-name').value.trim(),
+      email: form.querySelector('#dl-email').value.trim(),
+      institution: form.querySelector('#dl-institution').value.trim(),
+      year: form.querySelector('#dl-year').value,
+      exam: form.querySelector('#dl-exam').value,
+    };
+
+    if (!lead.name || !lead.email) {
+      errorEl.textContent = 'Name and email are required.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Preparing download...';
+
+    try {
+      const res = await fetch(EDGE_FN_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...lead, file_key: pendingFileKey }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Download failed');
+      }
+
+      // Save lead to localStorage
+      localStorage.setItem('weave_exam_lead', JSON.stringify(lead));
+
+      // Trigger download
+      const a = document.createElement('a');
+      a.href = data.download_url;
+      a.download = '';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      closeModal();
+      form.reset();
+    } catch (err) {
+      errorEl.textContent = err.message || 'Something went wrong. Please try again.';
+      errorEl.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Download PDF';
+    }
+  };
+
+  async function triggerDownload(lead, fileKey, btn) {
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Preparing...';
+
+    try {
+      const res = await fetch(EDGE_FN_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...lead, file_key: fileKey }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        // If file not found, might need to re-auth
+        if (res.status === 500) {
+          localStorage.removeItem('weave_exam_lead');
+          btn.textContent = originalText;
+          btn.disabled = false;
+          window.handleDownload(btn);
+          return;
+        }
+        throw new Error(data.error);
+      }
+
+      const a = document.createElement('a');
+      a.href = data.download_url;
+      a.download = '';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (err) {
+      alert('Download failed: ' + (err.message || 'Please try again.'));
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('downloadModal');
+      if (modal && modal.classList.contains('active')) {
+        closeModal();
+      }
+    }
+  });
+
   // WhatsApp form handler (contact page)
   const form = document.querySelector('.form');
   if (form) {
