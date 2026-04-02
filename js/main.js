@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lead = {
       name: form.querySelector('#dl-name').value.trim(),
       email: form.querySelector('#dl-email').value.trim(),
+      phone: form.querySelector('#dl-phone').value.trim(),
       institution: form.querySelector('#dl-institution').value.trim(),
       year: form.querySelector('#dl-year').value,
       exam: form.querySelector('#dl-exam').value,
