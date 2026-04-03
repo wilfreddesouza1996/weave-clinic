@@ -65,10 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Exam prep download modal
   const EDGE_FN_URL = 'https://swnhmrljpafvaojaytkv.supabase.co/functions/v1/exam-prep-download';
   let pendingFileKey = null;
+  let pendingBucket = 'exam-prep-pdfs';
+  let pendingSource = 'exam-prep';
 
   window.handleDownload = function(btn) {
     const card = btn.closest('.exam-card');
     pendingFileKey = card.dataset.file;
+    pendingBucket = card.dataset.bucket || 'exam-prep-pdfs';
+    pendingSource = pendingBucket === 'assimilate-pdfs' ? 'assimilate' : 'exam-prep';
 
     // Check localStorage for returning user
     const saved = localStorage.getItem('weave_exam_lead');
@@ -122,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await fetch(EDGE_FN_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...lead, file_key: pendingFileKey }),
+        body: JSON.stringify({ ...lead, file_key: pendingFileKey, bucket: pendingBucket, source: pendingSource }),
       });
 
       const data = await res.json();
@@ -157,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await fetch(EDGE_FN_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...lead, file_key: fileKey }),
+        body: JSON.stringify({ ...lead, file_key: fileKey, bucket: pendingBucket, source: pendingSource }),
       });
 
       const data = await res.json();

@@ -1182,6 +1182,27 @@ select:focus-visible {
   cursor: not-allowed;
 }
 
+/* Assimilate Theme — Indigo/Copper */
+.exam-card--assimilate:hover {
+  border-color: #3A5289;
+  box-shadow: 0 0 0 1px #5A7AB5, 0 4px 20px rgba(58, 82, 137, 0.18);
+}
+
+.exam-card__tag--assimilate {
+  background: #2C3E6B;
+  color: #FFFFFF;
+}
+
+.exam-card__btn--assimilate {
+  border-color: #3A5289;
+  color: #3A5289;
+}
+
+.exam-card__btn--assimilate:hover {
+  background: #3A5289;
+  color: #FFFFFF;
+}
+
 /* ═══════════════════════════════════════════
    FOR RESIDENTS — Download Modal
    ═══════════════════════════════════════════ */
