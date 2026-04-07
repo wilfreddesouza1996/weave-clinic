@@ -1,0 +1,1146 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Cognitive Behaviour Therapy &mdash; Weave Psychotherapy Vol. 4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 4</div>
+      <div class="cover-title">Cognitive Behaviour Therapy</div>
+      <div class="cover-subtitle">From Aaron Beck to Modern CBT — Formulation, Techniques, and Evidence</div>
+      <div class="cover-topics">Cognitive Model · Distortions · Case Conceptualization · Thought Records · Behavioral Experiments · PD Profiles</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Cognitive Behaviour Therapy &mdash; Weave Psychotherapy Vol. 4</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 4 | Cognitive Behaviour Therapy</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Cognitive Behaviour Therapy — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-historical-development" style="color:var(--indigo);text-decoration:none">Historical Development</a></li>
+  <li><a href="#2-the-cognitive-model" style="color:var(--indigo);text-decoration:none">The Cognitive Model</a></li>
+  <li><a href="#3-cognitive-distortions" style="color:var(--indigo);text-decoration:none">Cognitive Distortions</a></li>
+  <li><a href="#4-cbt-assessment-and-case-conceptualization" style="color:var(--indigo);text-decoration:none">CBT Assessment and Case Conceptualization</a></li>
+  <li><a href="#5-session-structure" style="color:var(--indigo);text-decoration:none">Session Structure</a></li>
+  <li><a href="#6-core-cbt-techniques" style="color:var(--indigo);text-decoration:none">Core CBT Techniques</a></li>
+  <li><a href="#7-therapeutic-relationship-in-cbt" style="color:var(--indigo);text-decoration:none">Therapeutic Relationship in CBT</a></li>
+  <li><a href="#8-cbt-for-specific-disorders" style="color:var(--indigo);text-decoration:none">CBT for Specific Disorders</a></li>
+  <li><a href="#9-cbt-for-personality-disorders" style="color:var(--indigo);text-decoration:none">CBT for Personality Disorders</a></li>
+  <li><a href="#10-advanced-cbt-concepts" style="color:var(--indigo);text-decoration:none">Advanced CBT Concepts</a></li>
+  <li><a href="#11-evidence-base" style="color:var(--indigo);text-decoration:none">Evidence Base</a></li>
+  <li><a href="#12-third-wave-developments" style="color:var(--indigo);text-decoration:none">Third-Wave Developments</a></li>
+</ol>
+
+<hr>
+<h1>1. HISTORICAL DEVELOPMENT</h1>
+<h2>1.1 Aaron Beck's Journey from Psychoanalysis</h2>
+<p>Aaron T. Beck, originally trained as a psychoanalyst, developed cognitive therapy in the 1960s and 1970s. While investigating the psychoanalytic hypothesis that depression results from hostility turned inward (retroflected anger), Beck found that depressed patients' dreams contained themes of defectiveness, deprivation, and loss — not hostility. This was a direct disconfirmation of the prevailing psychoanalytic model.</p>
+<p>Beck made a second critical observation: his clients reported two parallel streams of thinking. One was the free-association stream expected in analytic therapy; the other was a rapid, evaluative stream of "automatic" thoughts that were closely tied to emotions. When Beck helped clients identify, evaluate, and respond to these automatic thoughts, they improved rapidly. This clinical observation became the foundation of the cognitive model.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck originally named his approach "cognitive therapy" (CT), not CBT. The term "cognitive behaviour therapy" emerged later as the model incorporated increasing behavioural components. Some purists still use "CT" to refer to Beck's specific model, while "CBT" is the broader umbrella term.</p></div>
+<h2>1.2 The Cognitive Revolution and Albert Ellis</h2>
+<p>Beck was not working in isolation. Albert Ellis developed Rational Emotive Behaviour Therapy (REBT) in the 1950s, preceding Beck by about a decade. Ellis proposed the ABC model: Activating events (A) are filtered through Beliefs (B), producing emotional and behavioural Consequences (C). Therapeutic change occurs through Disputing (D) irrational beliefs, leading to a new Effect (E) — more adaptive emotions and behaviours.</p>
+<p>Key differences between Beck and Ellis:</p>
+<table>
+<thead><tr><th>Feature</th><th>Beck (CT/CBT)</th><th>Ellis (REBT)</th></tr></thead>
+<tbody>
+<tr><td>Therapeutic stance</td><td>Collaborative empiricism; guided discovery</td><td>More directive; active disputation</td></tr>
+<tr><td>View of cognitions</td><td>Distorted thinking (testable hypotheses)</td><td>Irrational beliefs (philosophically evaluated)</td></tr>
+<tr><td>Technique emphasis</td><td>Socratic questioning</td><td>Logical, empirical, and pragmatic disputing</td></tr>
+<tr><td>Core irrational beliefs</td><td>Three categories (helplessness, unlovability, worthlessness)</td><td>Three musts (demandingness about self, others, world)</td></tr>
+<tr><td>Tone</td><td>Warm, exploratory</td><td>Confrontational, persuasive</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Ellis's three core "musts" (demandingness about self, others, and the world) parallel Beck's three categories of negative core beliefs (helplessness, unlovability, worthlessness). Both models converge on the idea that psychological disturbance stems from rigid, absolute cognitive structures — they differ primarily in therapeutic style.</p></div>
+<h2>1.3 Evolution of CBT</h2>
+<p>The history of CBT is conventionally described in three waves:</p>
+<ul>
+  <li><strong>First wave (1950s-1960s):</strong> Behaviour therapy. Wolpe's systematic desensitisation, Skinner's operant conditioning, Bandura's social learning theory. Focus on observable behaviour; cognition was the "black box."</li>
+  <li><strong>Second wave (1960s-1980s):</strong> Cognitive therapy. Beck and Ellis bring cognition into the therapeutic frame. The cognitive revolution in psychology parallels this clinical development. CBT as we know it emerges from the integration of cognitive and behavioural approaches.</li>
+  <li><strong>Third wave (1990s-present):</strong> Contextual and process-based approaches. Acceptance and Commitment Therapy (ACT), Mindfulness-Based Cognitive Therapy (MBCT), Dialectical Behaviour Therapy (DBT), Schema Therapy. These approaches shift focus from changing thought content to changing the relationship with thoughts.</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked about the "waves" of CBT, remember: first wave = behaviour only, second wave = cognition + behaviour, third wave = relationship with cognition (acceptance, mindfulness, metacognition).</p></div>
+<hr>
+<h1>2. THE COGNITIVE MODEL</h1>
+<h2>2.1 The Fundamental Cognitive Hypothesis</h2>
+<p>The cognitive model proposes that it is not a situation itself that determines what people feel and do, but rather how they construe that situation. Dysfunctional thinking — which influences mood and behaviour — is common to all psychological disturbances. When people learn to evaluate their thinking in a more realistic and adaptive way, they experience a decrease in negative emotion and maladaptive behaviour.</p>
+<p>The fundamental sequence:</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The cognitive model does NOT claim that cognition causes emotion. It claims that cognition mediates between situations and emotional responses. This is a frequent exam trap — the model is mediational, not purely causal.</p></div>
+<h2>2.2 Three Levels of Cognition</h2>
+<table>
+<thead><tr><th>Level</th><th>Characteristics</th><th>Accessibility</th><th>Modifiability</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Automatic thoughts</strong></td><td>Situation-specific, brief, spontaneous, verbal or imagistic</td><td>Most accessible; client often unaware until trained</td><td>Most easily modified</td><td>"I can't do anything right"</td></tr>
+<tr><td><strong>Intermediate beliefs</strong></td><td>Rules, attitudes, and conditional assumptions; not usually articulated</td><td>Moderate; elicited through downward arrow</td><td>Moderately modifiable</td><td>"If I ask for help, people will see I'm incompetent"</td></tr>
+<tr><td><strong>Core beliefs</strong></td><td>Global, absolute, rigid; about self, others, world; operate as "truths"</td><td>Least accessible; often unarticulated even to self</td><td>Most difficult to modify; require multiple techniques over time</td><td>"I'm incompetent" / "I'm unlovable" / "I'm worthless"</td></tr>
+</tbody>
+</table>
+
+<p><strong>Automatic thoughts</strong> are the most superficial level — situation-specific words or images that pop into the mind spontaneously. They are brief, often barely conscious, and are accepted uncritically as though they are facts. Clients are usually more aware of the resulting emotion than of the thought itself. The cardinal question for eliciting automatic thoughts is: "What was just going through your mind?"</p>
+<p><strong>Intermediate beliefs</strong> are underlying assumptions, rules, and attitudes that connect core beliefs to automatic thoughts. They typically take the form of conditional statements ("If...then"), rules ("I should always..."), and attitudes ("It's terrible to fail"). They are identified using the downward arrow technique.</p>
+<p><strong>Core beliefs</strong> are the deepest, most fundamental beliefs about the self, others, and the world. They develop in childhood through interactions with significant others and are maintained through selective information processing. In depression, negative core beliefs become activated while positive, adaptive core beliefs become deactivated.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Negative core beliefs about the self fall into three categories: helplessness ("I'm incompetent, powerless, inferior"), unlovability ("I'm unlovable, undesirable, bound to be rejected"), and worthlessness ("I'm immoral, dangerous, don't deserve to live"). These three categories are a high-yield exam fact.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: "HUW" — Helplessness, Unlovability, Worthlessness</strong> — Beck's three categories of negative core beliefs. Alternatively, the <strong>Three H's: Helpless, Heartless world (Unlovability), Hopeless character (Worthlessness).</strong></p></div>
+<h2>2.3 The Cognitive Triad</h2>
+<p>Beck's cognitive triad, originally proposed for depression, describes three domains of negative thinking:</p>
+<ol>
+  <li><strong>Negative view of the self</strong> — "I'm defective, inadequate, worthless"</li>
+  <li><strong>Negative view of the world/experience</strong> — "The world is unfair, nothing ever works out"</li>
+  <li><strong>Negative view of the future</strong> — "Things will never get better, there's no hope"</li>
+</ol>
+
+<p>The cognitive triad is activated during depressive episodes and produces the characteristic symptoms: low mood (from negative self-view), withdrawal (from negative world-view), and hopelessness (from negative future-view).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The cognitive triad is specific to depression. Anxiety has a different cognitive profile: overestimation of threat probability and severity combined with underestimation of one's ability to cope and of rescue factors.</p></div>
+<h2>2.4 Schemas</h2>
+<p>Schemas are relatively stable cognitive structures that organise experience and guide information processing. Core beliefs are the content of schemas. In Beck's model, schemas have several properties:</p>
+<ul>
+  <li><strong>Breadth:</strong> Narrow (situation-specific) to broad (pervasive across domains)</li>
+  <li><strong>Flexibility/Rigidity:</strong> How easily modified by new information</li>
+  <li><strong>Density:</strong> How many situations activate the schema</li>
+  <li><strong>Valence:</strong> From latent (dormant) to hypervalent (constantly activated, prepotent)</li>
+</ul>
+
+<p>In depression, negative schemas become activated and positive schemas become deactivated. This leads to biased information processing where negative data are immediately absorbed while positive data are discounted or not noticed.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The "screen" metaphor for schemas: a schema acts like a screen or filter through which information passes. Positive data that contradict the schema are deflected by the screen, while negative data that confirm it pass straight through. This is why depressed patients can acknowledge positive events intellectually but cannot "feel" them — the positive data hit the schema screen and bounce off.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's schemas vs Young's Early Maladaptive Schemas (EMSs): Beck identified schemas as cognitive structures containing core beliefs; Young expanded this into 18 specific EMSs grouped into 5 domains with associated schema modes, coping styles, and origins. Young's model is more elaborated and forms the basis of Schema Therapy, which is a third-wave development.</p></div>
+<h2>2.5 Modes</h2>
+<p>Beck later introduced the concept of modes — clusters of interrelated schemas that become simultaneously activated. The adaptive mode contains schemas of effectiveness, lovability, and worth, along with motivational, affective, behavioural, and physiological components that promote approach and activity. The depressive mode contains schemas of helplessness, unlovability, and worthlessness, along with schemas that produce sadness, withdrawal, and fatigue.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's concept of modes was an important theoretical development because it explained why depression affects cognition, motivation, emotion, behaviour, and physiology simultaneously — all components of the depressive mode are activated together.</p></div>
+<hr>
+<h1>3. COGNITIVE DISTORTIONS</h1>
+<p>Cognitive distortions are systematic errors in information processing that maintain negative beliefs despite contradictory evidence. Beck and colleagues identified the following distortions:</p>
+<table>
+<thead><tr><th>Distortion</th><th>Definition</th><th>Clinical Example</th></tr></thead>
+<tbody>
+<tr><td><strong>All-or-nothing thinking</strong> (dichotomous thinking)</td><td>Viewing a situation in only two categories instead of on a continuum</td><td>"If I'm not a total success, I'm a failure."</td></tr>
+<tr><td><strong>Catastrophising</strong> (fortune-telling)</td><td>Predicting the future negatively without considering more likely outcomes</td><td>"I'll be so upset, I won't be able to function at all."</td></tr>
+<tr><td><strong>Disqualifying/discounting the positive</strong></td><td>Telling yourself positive experiences, deeds, or qualities do not count</td><td>"I did that project well, but that doesn't mean I'm competent — I just got lucky."</td></tr>
+<tr><td><strong>Emotional reasoning</strong></td><td>Believing something must be true because you "feel" it strongly, ignoring contrary evidence</td><td>"I know I do a lot of things okay at work, but I still feel like I'm a failure."</td></tr>
+<tr><td><strong>Labelling</strong></td><td>Putting a fixed, global label on yourself or others instead of describing specific behaviour</td><td>"I'm a loser"; "He's no good."</td></tr>
+<tr><td><strong>Magnification/minimisation</strong></td><td>Unreasonably magnifying the negative and/or minimising the positive</td><td>"Getting a mediocre evaluation proves how inadequate I am. Getting high marks doesn't mean I'm smart."</td></tr>
+<tr><td><strong>Mental filter</strong> (selective abstraction)</td><td>Paying undue attention to one negative detail instead of the whole picture</td><td>"Because I got one low rating on my evaluation [with several high ratings], it means I'm doing a lousy job."</td></tr>
+<tr><td><strong>Mind reading</strong></td><td>Believing you know what others are thinking without sufficient evidence</td><td>"He's thinking that I don't know the first thing about this project."</td></tr>
+<tr><td><strong>Overgeneralisation</strong></td><td>Making a sweeping negative conclusion that goes far beyond the current situation</td><td>"Because I felt uncomfortable at the meeting, I don't have what it takes to make friends."</td></tr>
+<tr><td><strong>Personalisation</strong></td><td>Believing others behave negatively because of you, without considering other explanations</td><td>"The repairman was curt to me because I did something wrong."</td></tr>
+<tr><td><strong>"Should" and "must" statements</strong> (imperatives)</td><td>Having a precise, fixed idea of how you or others should behave; overestimating how bad it is when expectations are not met</td><td>"It's terrible that I made a mistake. I should always do my best."</td></tr>
+<tr><td><strong>Tunnel vision</strong></td><td>Seeing only the negative aspects of a situation</td><td>"My son's teacher can't do anything right. He's critical and insensitive and lousy at teaching."</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>All-or-nothing thinking (dichotomous thinking) is considered the fundamental cognitive distortion in borderline personality disorder. It drives the splitting and idealisation-devaluation cycle: people are either all good or all bad, with no middle ground.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For exams, know at least 10 cognitive distortions with definitions. The four most commonly tested are: all-or-nothing thinking, catastrophising, emotional reasoning, and mind reading. Be able to identify the distortion operating in a clinical vignette.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Cognitive distortions are not unique to pathology — everyone uses them. They become clinically significant when they are pervasive, rigid, and tied to strong negative emotions. The goal of CBT is not to eliminate all distorted thinking but to help clients recognise and evaluate their thinking patterns more flexibly.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: "ALL MODELS COPE" — All-or-nothing, Labelling, (seLective abstraction/mentaL filter), Mind reading, Overgeneralisation, Discounting the positive, Emotional reasoning, (shouLd statements), Catastrophising, (magnification/minimisatiOn), Personalisation, (tunnEl vision).</strong> This is imperfect but may help recall the list during an exam.</p></div>
+<hr>
+<h1>4. CBT ASSESSMENT AND CASE CONCEPTUALIZATION</h1>
+<h2>4.1 The Cognitive Conceptualization Diagram (CCD)</h2>
+<p>The Cognitive Conceptualization Diagram is the cornerstone of CBT case formulation. It organises the client's presentation into a coherent framework that guides treatment planning and intervention selection. Beck's CCD has two forms:</p>
+<ol>
+  <li><strong>Traditional CCD</strong> — organises maladaptive patterns</li>
+  <li><strong>Strengths-Based CCD</strong> — organises adaptive cognitions, behaviours, and life history (a CT-R innovation)</li>
+</ol>
+
+<h3>Traditional CCD Structure (Longitudinal Formulation)</h3>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The CCD organises: relevant life history &rarr; core beliefs &rarr; intermediate beliefs (rules, attitudes, assumptions) &rarr; coping strategies &rarr; and three examples of situations with automatic thoughts, their meanings, emotions, and behaviours. The three situation examples should all trace back to the same core belief, demonstrating the pattern.</p></div>
+<h3>Cross-Sectional Formulation (Single Situation)</h3>
+<p>The cross-sectional formulation captures a specific moment in the client's experience:</p>
+<table>
+<thead><tr><th>Component</th><th>Description</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Situation</td><td>What happened? Where, when, with whom?</td><td>Boss asked to speak to him privately</td></tr>
+<tr><td>Automatic thought</td><td>What went through the client's mind?</td><td>"I'm about to be fired"</td></tr>
+<tr><td>Meaning</td><td>What did this thought mean to the client?</td><td>"I really am incompetent"</td></tr>
+<tr><td>Emotion</td><td>What did the client feel? (single word + intensity)</td><td>Anxiety (80%), shame (70%)</td></tr>
+<tr><td>Behaviour</td><td>What did the client do?</td><td>Avoided eye contact, gave minimal answers</td></tr>
+<tr><td>Physiological</td><td>Body sensations?</td><td>Sweating, heart racing, nausea</td></tr>
+</tbody>
+</table>
+
+<h2>4.2 Case Conceptualization Components</h2>
+<table>
+<thead><tr><th>Component</th><th>What It Covers</th></tr></thead>
+<tbody>
+<tr><td>Presenting problems</td><td>Chief complaint, current symptoms, functional impairment</td></tr>
+<tr><td>Diagnosis</td><td>DSM-5 diagnoses, differential</td></tr>
+<tr><td>Life history</td><td>Childhood, family, education, relationships, trauma, medical</td></tr>
+<tr><td>Precipitants</td><td>Events that triggered current episode</td></tr>
+<tr><td>Core beliefs</td><td>About self, others, the world</td></tr>
+<tr><td>Intermediate beliefs</td><td>Rules, attitudes, conditional assumptions</td></tr>
+<tr><td>Coping strategies</td><td>How the client manages (avoidance, compensation, surrender)</td></tr>
+<tr><td>Maintaining factors</td><td>What keeps the problem going (behavioural, cognitive, interpersonal cycles)</td></tr>
+<tr><td>Strengths and resources</td><td>Adaptive beliefs, skills, supports, values</td></tr>
+<tr><td>Aspirations and values</td><td>What matters to the client; goals for therapy</td></tr>
+<tr><td>Treatment plan</td><td>Based on all of the above</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The cognitive conceptualization is not a one-time exercise completed at intake. It is an evolving hypothesis that is refined throughout treatment as new data emerge. Each session should either confirm or modify the conceptualization. Judith Beck calls this "the most important clinical skill in CBT."</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The diathesis-stress model in CBT: vulnerabilities (rigid values, biased information processing, genetic predisposition) interact with relevant stressors to activate latent negative core beliefs and trigger the disorder. The stressor must be relevant to the schema — a person with an unlovability schema is more vulnerable to relationship loss than to work failure.</p></div>
+<hr>
+<h1>5. SESSION STRUCTURE</h1>
+<h2>5.1 Standard CBT Session Format</h2>
+<table>
+<thead><tr><th>Phase</th><th>Element</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>Initial</strong></td><td>1. Mood/medication check</td><td>Brief objective + subjective assessment; track progress</td></tr>
+<tr><td>2. Set the agenda</td><td>Collaborative; prioritise topics for the session</td></tr>
+<tr><td>3. Update + review Action Plan (homework)</td><td>Bridge from last session; reinforce gains; troubleshoot non-completion</td></tr>
+<tr><td>4. Prioritise the agenda</td><td>Choose which items to address given available time</td></tr>
+<tr><td><strong>Middle</strong></td><td>5. Work on agenda item 1</td><td>Summarise the issue &rarr; intervene &rarr; set Action Plan items</td></tr>
+<tr><td>6. Work on agenda items 2-3 (if time)</td><td>Same structure</td></tr>
+<tr><td><strong>End</strong></td><td>7. Summarise the session</td><td>Content summary + client summary + session summary</td></tr>
+<tr><td>8. Review Action Plan for coming week</td><td>Explicit, written, with completion likelihood checked</td></tr>
+<tr><td>9. Elicit feedback</td><td>"Is there anything I got wrong today? Anything you want to do differently?"</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: "MADAM-SURF" — Mood check, Agenda setting, Discuss update + Action Plan review, Agenda prioritisation, Middle (work on items) — Summarise, Update Action Plan, Review feedback, Finish.</strong></p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The standard CBT session structure is one of the most commonly tested facts: mood check &rarr; set agenda &rarr; update + Action Plan review &rarr; prioritise agenda &rarr; work on agenda items &rarr; summarise &rarr; review new Action Plan &rarr; elicit feedback. The "bridge" concept refers to linking one session to the next through homework review and continuity of agenda items.</p></div>
+<h2>5.2 First Therapy Session</h2>
+<p>The first session has a distinct structure with additional components:</p>
+<ol>
+  <li>Mood (and medication/other treatment) check</li>
+  <li>Set the agenda</li>
+  <li>Update (since evaluation) and review Action Plan</li>
+  <li>Discuss diagnosis and provide psychoeducation</li>
+  <li>Identify aspirations, values, and goals</li>
+  <li>Activity scheduling or work on an issue</li>
+  <li>Collaboratively set new Action Plan</li>
+  <li>Provide summary</li>
+  <li>Elicit feedback</li>
+</ol>
+
+<p>The most important objective of session one is to inspire hope.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Key psychoeducation metaphors for session one: the "pneumonia analogy" (depression is a real illness, like pneumonia — you wouldn't try to cure pneumonia on your own); the "black glasses" metaphor (depression is like wearing the blackest glasses, making everything look dark); the "horse blinders" metaphor (depression restricts your view to only what's immediately ahead, and through the black glasses, it all looks terrible).</p></div>
+<h2>5.3 Three Types of Summaries</h2>
+<ol>
+  <li><strong>Content summaries</strong> — therapist summarises what has been discussed, in cognitive model form (situation &rarr; thought &rarr; emotion &rarr; behaviour)</li>
+  <li><strong>Client summaries</strong> — therapist asks the client to summarise ("What's your takeaway from what we just discussed?") to check understanding</li>
+  <li><strong>Session summaries</strong> — at the end, tying all the threads together</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>CBT sessions are typically 50 minutes, conducted weekly, for 12-20 sessions in standard Axis I treatment. Personality disorders require 1-3 years. The structured session format distinguishes CBT from most other modalities and is a defining feature.</p></div>
+<hr>
+<h1>6. CORE CBT TECHNIQUES</h1>
+<h2>6.1 Socratic Questioning</h2>
+<p>Socratic questioning is the primary verbal technique in CBT. The therapist uses questions — not lectures or challenges — to help clients examine their thinking and arrive at their own conclusions. This is fundamentally different from disputation (Ellis) or interpretation (psychoanalysis).</p>
+<p><strong>Key question types:</strong></p>
+<ol>
+  <li><strong>Evidence questions:</strong> "What's the evidence that this thought is true? What's the evidence on the other side?"</li>
+  <li><strong>Alternative explanation:</strong> "Is there another way of looking at this? Could there be another explanation?"</li>
+  <li><strong>Decatastrophising:</strong> "What's the worst that could happen? The best? The most realistic?"</li>
+  <li><strong>Impact questions:</strong> "What's the effect of thinking this way? What could be the effect of changing your thinking?"</li>
+  <li><strong>Distancing:</strong> "What would you tell a friend/family member in this situation?"</li>
+  <li><strong>Problem-solving:</strong> "What would be good to do now?"</li>
+  <li><strong>Downward arrow (for beliefs):</strong> "If that thought were true, what would it mean about you?"</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Collaborative empiricism is the defining stance of CBT — therapist and client act as scientists, jointly examining evidence for and against the client's cognitions. CBT does NOT "challenge" thoughts; it helps clients assess accuracy and utility through guided discovery. This distinction is frequently tested.</p></div>
+<h2>6.2 Guided Discovery</h2>
+<p>Guided discovery is the overarching therapeutic strategy within which Socratic questioning operates. The therapist guides the client through a process of discovery rather than telling them what to think. The client arrives at their own conclusions, which increases buy-in and schema-level change.</p>
+<h2>6.3 Thought Records / Daily Record of Dysfunctional Thoughts (DTR)</h2>
+<p>The thought record is the signature written technique of CBT. Originally called the Daily Record of Dysfunctional Thoughts (Beck et al., 1979).</p>
+<p><strong>Columns:</strong></p>
+<table>
+<thead><tr><th>Column</th><th>Prompt</th></tr></thead>
+<tbody>
+<tr><td>1. Date/Time</td><td>When did this happen?</td></tr>
+<tr><td>2. Situation</td><td>What was happening? What triggered the thought?</td></tr>
+<tr><td>3. Automatic thought(s)</td><td>What went through my mind? (Rate belief 0-100%)</td></tr>
+<tr><td>4. Emotion(s)</td><td>What did I feel? (Rate intensity 0-100%)</td></tr>
+<tr><td>5. Adaptive response</td><td>What's the evidence? Is there another way to look at this?</td></tr>
+<tr><td>6. Outcome</td><td>Re-rate belief in automatic thought; re-rate emotion</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The thought record is not just a monitoring tool — it is a cognitive restructuring tool. The adaptive response column requires the client to actively generate alternative perspectives, weigh evidence, and arrive at a balanced conclusion. Many therapists make the mistake of using it only for monitoring without guiding clients through the restructuring component.</p></div>
+<h2>6.4 Behavioural Experiments</h2>
+<p>Behavioural experiments are collaboratively designed tests of negative predictions. They are often more powerful than verbal techniques alone because they provide direct experiential evidence against distorted beliefs.</p>
+<p>Steps:</p>
+<ol>
+  <li>Identify the specific prediction or belief to be tested</li>
+  <li>Design the experiment collaboratively</li>
+  <li>Predict the outcome (write it down specifically)</li>
+  <li>Carry out the experiment</li>
+  <li>Evaluate the result against the prediction</li>
+  <li>Draw adaptive conclusions</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Behavioural experiments are the most powerful technique for changing beliefs at both the intellectual and emotional levels. Verbal techniques (Socratic questioning, thought records) primarily produce intellectual change; behavioural experiments and experiential techniques (imagery, role play) produce emotional-level change as well.</p></div>
+<h2>6.5 Behavioural Activation and Activity Scheduling</h2>
+<p>Behavioural activation targets the vicious cycle of depression: depressed mood &rarr; negative thoughts &rarr; inactivity &rarr; loss of mastery/pleasure/connection &rarr; reinforced depression. Breaking this cycle through scheduled activity is often the first intervention in CBT for depression.</p>
+<ul>
+  <li>Activity Charts track activities hour-by-hour with ratings for pleasure, mastery, and overall mood (0-10)</li>
+  <li>Four categories: self-care, connecting with people, managing at home, recreation</li>
+  <li>Predicted vs actual ratings are compared to demonstrate the inaccuracy of negative predictions</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The "jack-in-the-box" metaphor for behavioural activation: some people crank the handle once and the clown pops out (feel better quickly); others need to crank many times. But you have to start cranking. This metaphor sets realistic expectations while maintaining hope.</p></div>
+<h2>6.6 Graded Exposure</h2>
+<p>Graded exposure is used for anxiety disorders and avoidance behaviour:</p>
+<ol>
+  <li>Create a hierarchy of avoided situations rated by predicted anxiety (0-100)</li>
+  <li>Start with situations predicted at approximately 30% anxiety</li>
+  <li>Engage in exposure daily if feasible</li>
+  <li>Stay in the situation until the feared outcome does not happen</li>
+  <li>Monitor and eliminate safety behaviours</li>
+  <li>Use the Exposure Monitor: date, activity, predicted anxiety, actual anxiety, predictions</li>
+  <li>Imaginal exposure for situations too fearful or impractical for in vivo work</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Safety behaviours are actions a person takes within a feared situation to prevent the feared outcome (e.g., holding onto furniture during a panic attack to prevent fainting). They maintain the anxiety disorder because the person attributes the non-occurrence of the feared outcome to the safety behaviour rather than to the situation being safe. Dropping safety behaviours is a critical component of exposure.</p></div>
+<h2>6.7 Cognitive Restructuring (Step-by-Step)</h2>
+<ol>
+  <li>Identify the situation</li>
+  <li>Identify the automatic thought(s) and/or image(s)</li>
+  <li>Identify the emotion(s) and rate intensity</li>
+  <li>Evaluate the thought using Socratic questions</li>
+  <li>Develop an adaptive response</li>
+  <li>Re-rate belief in original thought and emotion intensity</li>
+  <li>Record the adaptive response in therapy notes for daily review</li>
+</ol>
+
+<h2>6.8 Problem Solving</h2>
+<ol>
+  <li>Identify and define the problem specifically</li>
+  <li>Generate multiple possible solutions (brainstorming)</li>
+  <li>Evaluate each solution (advantages/disadvantages)</li>
+  <li>Choose and implement a solution</li>
+  <li>Evaluate the outcome</li>
+  <li>If unsuccessful, try another solution</li>
+</ol>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Know the distinction between three kinds of automatic thoughts that require different interventions: (1) inaccurate thoughts &rarr; evaluate with Socratic questioning; (2) accurate but unhelpful thoughts &rarr; problem-solve or work toward acceptance; (3) thoughts that are part of dysfunctional processes (rumination, obsession) &rarr; use mindfulness; evaluate beliefs about the process.</p></div>
+<hr>
+<h1>7. THERAPEUTIC RELATIONSHIP IN CBT</h1>
+<h2>7.1 Collaborative Empiricism</h2>
+<p>Collaborative empiricism is the hallmark of the CBT therapeutic relationship. Therapist and client function as co-investigators — like two scientists in a laboratory — jointly examining evidence for and against the client's beliefs. The therapist does not position themselves as an authority who knows the truth, but as a collaborative partner who helps the client discover it.</p>
+<h2>7.2 The Therapeutic Alliance in CBT</h2>
+<p>Judith Beck identifies four essential guidelines:</p>
+<ol>
+  <li>Treat every client the way you would want to be treated</li>
+  <li>Be a nice human being and help the client feel safe</li>
+  <li>Remember that clients are supposed to pose challenges — that is the nature of psychological disturbance</li>
+  <li>Keep expectations reasonable</li>
+</ol>
+
+<p>Key counselling skills: empathy, acceptance, validation, accurate understanding, inspiring hope, warmth, interest, positive regard, caring, encouragement, positive reinforcement, compassion, and humour.</p>
+<h2>7.3 Self-Disclosure</h2>
+<p>Self-disclosure is used judiciously in CBT to strengthen the relationship, normalise difficulties, demonstrate CBT techniques, or model skills. It is always brief, purposeful, and in service of the client's goals.</p>
+<h2>7.4 Alliance Ruptures</h2>
+<p>When a rupture occurs, the therapist first asks whether the client is right. If so, the therapist models apology and repair. If the rupture stems from a cognitive distortion, the therapist gently examines the cognition. Alliance repair is itself a powerful intervention — it provides corrective interpersonal data that can modify schemas about relationships.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Therapists must manage their own negative reactions through self-monitoring, applying CBT techniques to their own thoughts, seeking supervision, and maintaining good self-care. This is especially important in personality disorder work, where therapist schemas are frequently activated by the patient's interpersonal behaviour.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The therapeutic relationship in CBT is both a vehicle for change and a target of intervention. It is not just a background condition (as in traditional behaviour therapy) — it is actively used as a source of data for the conceptualization and as a testing ground for new beliefs.</p></div>
+<hr>
+<h1>8. CBT FOR SPECIFIC DISORDERS</h1>
+<h2>8.1 Depression: Beck's Cognitive Model</h2>
+<p>Beck's cognitive model of depression centres on the cognitive triad (negative views of self, world, and future), negative automatic thoughts, and biased information processing driven by depressive schemas. The diathesis-stress model proposes that latent negative schemas are activated by relevant stressors.</p>
+<p><strong>Maintenance cycle:</strong></p>
+<p>Treatment focuses on behavioural activation (breaking the inactivity cycle), identifying and evaluating negative automatic thoughts, and eventually modifying underlying beliefs and schemas.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's first RCT (Rush et al., 1977) showed cognitive therapy was as effective as imipramine for depression. The follow-up data showed CT was more effective than imipramine in preventing relapse — this finding has been replicated multiple times and remains one of CBT's strongest selling points.</p></div>
+<h2>8.2 Panic Disorder: Clark's Catastrophic Misinterpretation Model (1986)</h2>
+<p>David Clark proposed that panic attacks result from the catastrophic misinterpretation of normal bodily sensations. The model:</p>
+<p>Treatment components:</p>
+<ul>
+  <li>Psychoeducation about the fight-or-flight response</li>
+  <li>Identification of catastrophic misinterpretations</li>
+  <li>Behavioural experiments (interoceptive exposure — deliberately inducing feared sensations)</li>
+  <li>Dropping safety behaviours</li>
+  <li>Cognitive restructuring of catastrophic beliefs</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Clark's (1986) model of panic is one of the most commonly tested CBT models. The key concept is catastrophic misinterpretation of normal bodily sensations. Interoceptive exposure (e.g., hyperventilation, spinning, breathing through a straw) tests the prediction that these sensations are dangerous.</p></div>
+<h2>8.3 Social Anxiety: Clark and Wells Model (1995)</h2>
+<p>Clark and Wells proposed that social anxiety is maintained by three processes operating before, during, and after social situations:</p>
+<p><strong>Before:</strong> Anticipatory processing — recalling previous "failures," predicting catastrophe, generating anxiety before the event even begins.</p>
+<p><strong>During:</strong></p>
+<ul>
+  <li>Self-focused attention (the client becomes their own audience, monitoring themselves for signs of anxiety)</li>
+  <li>Use of safety behaviours (rehearsed speech, avoiding eye contact, gripping objects)</li>
+  <li>Construction of a distorted self-image (the "observer perspective" — seeing themselves from the outside as they imagine others see them)</li>
+</ul>
+
+<p><strong>After:</strong> Post-event processing — prolonged rumination replaying the event, focusing selectively on perceived failures, and consolidating the negative memory.</p>
+<p>Treatment components:</p>
+<ul>
+  <li>Video feedback (showing clients they look more normal than they imagine)</li>
+  <li>Attention training (shifting from self-focus to external focus)</li>
+  <li>Dropping safety behaviours within social situations</li>
+  <li>Behavioural experiments in social situations</li>
+  <li>Banning post-event rumination</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In the Clark and Wells model, self-focused attention is the central maintaining mechanism. The client is not primarily afraid of others' judgement — they are trapped in a self-monitoring loop that generates the very symptoms they fear. Treatment must target this attentional shift.</p></div>
+<h2>8.4 PTSD: Ehlers and Clark Cognitive Model (2000)</h2>
+<p>Ehlers and Clark proposed that PTSD becomes persistent when individuals process the traumatic event in a way that produces a sense of serious current threat, even though the event is in the past. Two key mechanisms:</p>
+<ol>
+  <li><strong>Negative appraisals of the trauma and its sequelae</strong> — overgeneralised conclusions about self ("I attract danger"), the world ("Nowhere is safe"), others' responses ("No one can be trusted"), and symptoms ("I'm going crazy")</li>
+</ol>
+
+<ol>
+  <li><strong>Disturbed trauma memory</strong> — the memory is poorly elaborated and contextualised, meaning it is stored as a series of sensory impressions (flashbacks) rather than as an autobiographical narrative with a clear time-stamp. This is why the memory is re-experienced as though it is happening now.</li>
+</ol>
+
+<p>Maintaining factors:</p>
+<ul>
+  <li>Cognitive strategies (thought suppression, rumination, dissociation)</li>
+  <li>Behavioural strategies (avoidance of reminders, safety behaviours, hypervigilance)</li>
+</ul>
+
+<p>Treatment components:</p>
+<ul>
+  <li>Imaginal reliving (updating the trauma memory with new information)</li>
+  <li>Cognitive restructuring of appraisals</li>
+  <li>Behavioural experiments to test threat predictions</li>
+  <li>Site visits (returning to the trauma location with updated information)</li>
+  <li>Stimulus discrimination training (learning to distinguish "then" from "now")</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Ehlers and Clark (2000) model explains PTSD maintenance through two mechanisms: (1) excessively negative appraisals of the trauma and its aftermath, and (2) a disturbed trauma memory that lacks temporal context, causing re-experiencing. Treatment addresses both: cognitive restructuring for appraisals, and imaginal reliving for memory elaboration.</p></div>
+<h2>8.5 OCD: Salkovskis Model (1985)</h2>
+<p>Salkovskis proposed that OCD is maintained by the appraisal of intrusive thoughts as indicating personal responsibility for preventing harm. Everyone has intrusive thoughts — what differs in OCD is the meaning attached to them.</p>
+<p>Key cognitive features:</p>
+<ul>
+  <li><strong>Inflated responsibility</strong> — "If I don't act, harm will occur, and it will be my fault"</li>
+  <li><strong>Thought-action fusion</strong> — believing that having a thought is morally equivalent to carrying out the action, or that thinking about an event makes it more likely to happen</li>
+  <li><strong>Overestimation of threat probability and severity</strong></li>
+  <li><strong>Intolerance of uncertainty</strong> — need for absolute certainty that harm will not occur</li>
+  <li><strong>Overimportance of thoughts</strong> — "Having this thought means something terrible about me"</li>
+  <li><strong>Need to control thoughts</strong> — belief that one should and can control intrusive thoughts</li>
+</ul>
+
+<p>Treatment: Exposure and Response Prevention (ERP) combined with cognitive restructuring of responsibility beliefs.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Salkovskis (1985) identified inflated responsibility as the core cognitive distortion in OCD. Thought-action fusion (moral TAF: "thinking it is as bad as doing it"; likelihood TAF: "thinking it makes it more likely") is a closely related concept. Both are high-yield exam topics.</p></div>
+<h2>8.6 Disorder-Specific Models Comparison</h2>
+<table>
+<thead><tr><th>Disorder</th><th>Key Model</th><th>Central Cognitive Mechanism</th><th>Key Maintaining Process</th><th>Primary CBT Intervention</th></tr></thead>
+<tbody>
+<tr><td>Depression</td><td>Beck (1967)</td><td>Cognitive triad; negative schemas</td><td>Withdrawal, rumination, biased processing</td><td>Behavioural activation + cognitive restructuring</td></tr>
+<tr><td>Panic</td><td>Clark (1986)</td><td>Catastrophic misinterpretation of bodily sensations</td><td>Anxiety-sensation spiral, safety behaviours</td><td>Interoceptive exposure, drop safety behaviours</td></tr>
+<tr><td>Social anxiety</td><td>Clark & Wells (1995)</td><td>Self-focused attention, distorted self-image</td><td>Safety behaviours, post-event rumination</td><td>Attention training, video feedback, drop safety behaviours</td></tr>
+<tr><td>PTSD</td><td>Ehlers & Clark (2000)</td><td>Negative appraisals + poorly elaborated trauma memory</td><td>Avoidance, rumination, thought suppression</td><td>Imaginal reliving, cognitive restructuring, site visits</td></tr>
+<tr><td>OCD</td><td>Salkovskis (1985)</td><td>Inflated responsibility, thought-action fusion</td><td>Compulsions (neutralising), avoidance</td><td>ERP + cognitive restructuring of responsibility</td></tr>
+<tr><td>GAD</td><td>Dugas et al. (1998)</td><td>Intolerance of uncertainty</td><td>Worry as avoidance of imagery, reassurance-seeking</td><td>Uncertainty exposure, worry postponement</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Disorder-specific models are very commonly tested. Know the author, the year, and the central maintaining mechanism for each. The table above is your revision tool.</p></div>
+<hr>
+<h1>9. CBT FOR PERSONALITY DISORDERS</h1>
+<h2>9.1 Beck's Cognitive Model of Personality Disorders</h2>
+<p>Beck, Freeman, and Davis (2004) proposed that personality disorders represent exaggerations of normal adaptive strategies that have become rigid, overgeneralised, and dysfunctional. They are not categorically different from normal personality — they are hyperactivated, inflexible versions of evolutionarily adaptive patterns.</p>
+<p>Key distinctions from Axis I:</p>
+<ul>
+  <li>Schemas are structuralised (continuously activated, ego-syntonic) rather than episodic (state-dependent)</li>
+  <li>Treatment requires 1-3 years rather than weeks/months</li>
+  <li>Greater emphasis on the therapeutic relationship</li>
+  <li>Schema-level work rather than surface-level automatic thought work</li>
+</ul>
+
+<h2>9.2 Cognitive Profiles of Personality Disorders</h2>
+<table>
+<thead><tr><th>PD</th><th>Core Belief</th><th>View of Self</th><th>View of Others</th><th>Main Strategy</th><th>Overdeveloped</th><th>Underdeveloped</th></tr></thead>
+<tbody>
+<tr><td><strong>Avoidant</strong></td><td>"I am inadequate. Any criticism proves it."</td><td>Socially inept, incompetent, vulnerable</td><td>Critical, demeaning, superior</td><td>Avoid evaluative situations</td><td>Social vulnerability, avoidance, inhibition</td><td>Self-assertion, gregariousness</td></tr>
+<tr><td><strong>Dependent</strong></td><td>"I need help to survive and function."</td><td>Needy, incompetent, weak</td><td>Nurturing, supportive (idealised)</td><td>Cultivate dependent relationship</td><td>Help-seeking, clinging</td><td>Self-sufficiency, mobility</td></tr>
+<tr><td><strong>OCPD</strong></td><td>"Details matter. Errors are catastrophic."</td><td>Responsible, accountable</td><td>Irresponsible, casual, incompetent</td><td>Apply rules, avoid error</td><td>Control, responsibility, systematisation</td><td>Spontaneity, playfulness</td></tr>
+<tr><td><strong>Paranoid</strong></td><td>"Watch out. Don't trust anyone."</td><td>Righteous, innocent, vulnerable to treachery</td><td>Malicious, devious, scheming</td><td>Vigilance, wariness, counterattack</td><td>Vigilance, mistrust, suspiciousness</td><td>Serenity, trust, acceptance</td></tr>
+<tr><td><strong>Narcissistic</strong></td><td>"I deserve special treatment."</td><td>Special, unique, deserving</td><td>Inferior, admiring, or rivals</td><td>Self-promotion, put others down</td><td>Self-aggrandisement, competitiveness</td><td>Sharing, group identification</td></tr>
+<tr><td><strong>Histrionic</strong></td><td>"I need to impress. Reactions matter."</td><td>Glamorous, impressive</td><td>Admirers, audience</td><td>Dramatic display, seduction</td><td>Exhibitionism, expressiveness</td><td>Reflectiveness, control</td></tr>
+<tr><td><strong>Antisocial</strong></td><td>"I'm entitled to break rules."</td><td>Autonomous, strong (predator)</td><td>Exploitable, vulnerable</td><td>Exploit, attack</td><td>Combativeness, exploitativeness</td><td>Empathy, reciprocity</td></tr>
+<tr><td><strong>Schizoid</strong></td><td>"Relationships are messy and unnecessary."</td><td>Self-sufficient, loner</td><td>Intrusive, unrewarding</td><td>Isolation, detachment</td><td>Autonomy, isolation</td><td>Intimacy, reciprocity</td></tr>
+<tr><td><strong>BPD</strong></td><td>"I will be abandoned" + "I am bad."</td><td>Weak, bad, unlovable (unstable)</td><td>Idealised then devalued</td><td>Clinging, devaluing, self-harm, splitting</td><td>—</td><td>Integration, consistency, stability</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>This cognitive profiles table is extremely high-yield for exams. For each PD, know the core belief, the view of self, the view of others, and the main compensatory strategy. The overdeveloped/underdeveloped column is unique to Beck's model and distinguishes it from other PD frameworks.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In treating personality disorders with CBT, the sequence matters: stabilise Axis I symptoms first (using standard CBT), then shift to schema-level work. Trying to modify deep schemas while a patient is in an acute depressive episode is ineffective and potentially destabilising.</p></div>
+<h2>9.3 Beck's Three Models of BPD</h2>
+<p>Beck identified three core assumptions in BPD:</p>
+<ol>
+  <li>"The world is dangerous and malevolent."</li>
+  <li>"I am powerless and vulnerable."</li>
+  <li>"I am inherently unacceptable."</li>
+</ol>
+
+<p>Plus a weak or absent stable identity ("Who am I?"). Dichotomous thinking is the fundamental cognitive vulnerability in BPD, driving the splitting, idealisation-devaluation, and rapid schema activation that characterise the disorder.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's model of BPD vs Linehan's model: Beck emphasises dichotomous thinking as the core cognitive vulnerability; Linehan emphasises emotion dysregulation as the core deficit (biological sensitivity + invalidating environment). Young's schema mode model identifies four primary modes in BPD: Abandoned/Abused Child, Angry/Impulsive Child, Punitive Parent, and Detached Protector. All three models are valid and complementary — they emphasise different levels of the same phenomenon.</p></div>
+<hr>
+<h1>10. ADVANCED CBT CONCEPTS</h1>
+<h2>10.1 Core Belief Work</h2>
+<p>Modifying core beliefs is the most challenging and important phase of CBT, typically occurring in the middle-to-late stages of treatment. Core beliefs are resistant to change because they have been operating since childhood and have shaped decades of selective information processing.</p>
+<p><strong>Strengthening adaptive beliefs:</strong></p>
+<ul>
+  <li>Elicit positive data and draw conclusions</li>
+  <li>Examine advantages of the adaptive belief</li>
+  <li>Evidence Chart (running log of evidence supporting the adaptive belief)</li>
+  <li>Induce images of current and historical positive experiences</li>
+  <li>Act "as if" the adaptive belief were true</li>
+</ul>
+
+<p><strong>Modifying maladaptive beliefs:</strong></p>
+<ul>
+  <li>Socratic questioning</li>
+  <li>Reframing (Reframes Chart)</li>
+  <li>Behavioural experiments</li>
+  <li>Cognitive continuum (0-100% scale between extremes)</li>
+  <li>Stories, movies, and metaphors</li>
+  <li>Using others as reference point</li>
+  <li>Self-disclosure</li>
+  <li>Intellectual-emotional role plays</li>
+  <li>Historical tests</li>
+  <li>Restructuring meaning of early memories</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beliefs change at the intellectual level first; experiential techniques (imagery, role play, metaphors, behavioural experiments) are needed for emotional-level change. This intellectual-emotional gap is one of the most common stuck points in therapy — the client says "I know it's not true, but I still feel it."</p></div>
+<h2>10.2 The Downward Arrow Technique</h2>
+<p>The downward arrow is used to identify intermediate and core beliefs by following automatic thoughts to their deepest implications.</p>
+<p><strong>Example:</strong></p>
+<p>The key question is: "If that thought were true, what would it mean about you?" This question is asked repeatedly until the core belief is reached.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The downward arrow technique is used to move from automatic thoughts to intermediate beliefs to core beliefs. The repeating question — "If that were true, what would it mean about you?" — is the defining feature. It is NOT used in the first few sessions; premature schema work can overwhelm clients who have not yet learned basic cognitive skills.</p></div>
+<h2>10.3 The Positive Data Log</h2>
+<p>The positive data log is a daily record of experiences, actions, or observations that are consistent with the new adaptive core belief and inconsistent with the old maladaptive belief. Clients are asked to actively search for this data each day. Over weeks, the log provides a growing body of evidence that the maladaptive belief is not the whole truth.</p>
+<h2>10.4 Cognitive Continua</h2>
+<p>The cognitive continuum technique combats all-or-nothing thinking by placing beliefs on a 0-100% scale. For example, a client who believes "I'm either competent or I'm a total failure" is asked to define what 0% competent and 100% competent would look like, then rate themselves and others on the continuum. This introduces shades of grey into what was previously a binary evaluation.</p>
+<h2>10.5 Historical Review of Evidence</h2>
+<p>The historical review involves systematically examining evidence from the client's entire life that contradicts the core belief. Going epoch by epoch (childhood, adolescence, early adulthood, etc.), the therapist helps the client reframe experiences that were previously interpreted through the lens of the maladaptive schema.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Historical review is particularly powerful for beliefs that formed in childhood. The client as an adult can now see that the evidence they used to form the belief (e.g., parental criticism) was actually about the parent's pathology, not about the child's worth. The technique works best in combination with imagery rescripting of early memories.</p></div>
+<h2>10.6 Intellectual-Emotional Role Play</h2>
+<p>The therapist first argues the negative belief while the client argues the adaptive belief (intellectual practice). Then they switch roles — the therapist voices the adaptive belief while the client tries to argue the negative belief. This technique often produces an emotional shift because the client discovers that they cannot effectively argue for the negative belief, or that hearing it from someone else makes its irrationality more apparent.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>CT-R (Recovery-Oriented Cognitive Therapy) is a recent innovation by Aaron Beck that adds emphasis on aspirations, values, strengths, and positive conclusions. It focuses more on future-oriented goals than past problems, cultivates positive emotions, and was originally developed for severe mental illness including schizophrenia. This is an increasingly tested topic.</p></div>
+<hr>
+<h1>11. EVIDENCE BASE</h1>
+<h2>11.1 Landmark Trials</h2>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>Rush et al.</td><td>1977</td><td>CT as effective as imipramine for depression; CT superior for relapse prevention</td></tr>
+<tr><td>Elkin et al. (NIMH TDCRP)</td><td>1989</td><td>CBT, IPT, imipramine, and pill-placebo compared for depression; imipramine superior for severe depression; CBT equivalent for mild-moderate</td></tr>
+<tr><td>Clark et al.</td><td>1994</td><td>CT superior to applied relaxation and imipramine for panic disorder</td></tr>
+<tr><td>DeRubeis et al.</td><td>2005</td><td>CT equivalent to medications for moderate-severe depression (challenging the TDCRP finding)</td></tr>
+<tr><td>Hollon et al.</td><td>2005</td><td>CT has enduring effects after discontinuation; medication does not (relapse after discontinuation)</td></tr>
+<tr><td>Hofmann et al. (meta-analysis)</td><td>2012</td><td>CBT effective across 23 diagnostic categories with moderate-to-large effect sizes</td></tr>
+</tbody>
+</table>
+
+<h2>11.2 Meta-Analytic Evidence</h2>
+<p>CBT has the largest evidence base of any psychotherapy. Over 2,000 outcome studies demonstrate efficacy. Key findings from meta-analyses:</p>
+<ul>
+  <li><strong>Depression:</strong> CBT is as effective as antidepressant medication for mild-to-moderate depression, with superior relapse prevention after treatment ends</li>
+  <li><strong>Anxiety disorders:</strong> CBT is the first-line psychological treatment for all anxiety disorders (panic, social anxiety, GAD, specific phobias)</li>
+  <li><strong>OCD:</strong> CBT with ERP is the psychological treatment of choice; equivalent or superior to SSRIs for mild-moderate OCD</li>
+  <li><strong>PTSD:</strong> Trauma-focused CBT is recommended as first-line by NICE and APA guidelines</li>
+  <li><strong>Eating disorders:</strong> CBT-E (enhanced) is the leading evidence-based treatment for bulimia nervosa and binge eating disorder</li>
+  <li><strong>Psychosis:</strong> CBTp (CBT for psychosis) is recommended as adjunctive treatment by NICE; modest effect sizes for positive symptoms</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>CBT's strongest evidence base is for depression and anxiety disorders. The key advantage over medication is the enduring effect — CBT reduces relapse rates after treatment ends, while medication effects are contingent on continued use. Hollon et al. (2005) is the landmark study for this finding.</p></div>
+<h2>11.3 Comparison with Other Therapies</h2>
+<table>
+<thead><tr><th>Comparison</th><th>Key Findings</th></tr></thead>
+<tbody>
+<tr><td>CBT vs medication (depression)</td><td>Equivalent for acute treatment; CBT superior for relapse prevention</td></tr>
+<tr><td>CBT vs IPT (depression)</td><td>Roughly equivalent overall; IPT slightly better for interpersonal issues</td></tr>
+<tr><td>CBT vs psychodynamic therapy</td><td>CBT has more RCT evidence; emerging evidence for psychodynamic therapy is narrowing the gap</td></tr>
+<tr><td>CBT vs Schema Therapy (PDs)</td><td>Schema Therapy superior for BPD (Giesen-Bloo et al., 2006 RCT); standard CBT is effective for Cluster C PDs</td></tr>
+<tr><td>CBT vs DBT (BPD)</td><td>DBT has stronger evidence for suicidality and self-harm; CBT (schema-focused) has stronger evidence for overall PD pathology</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked about "the most evidence-based psychotherapy," the answer is CBT. But know the nuances: Schema Therapy is superior for BPD, DBT is superior for BPD suicidality, IPT is equivalent for depression, and the evidence gap with psychodynamic therapy is closing.</p></div>
+<hr>
+<h1>12. THIRD-WAVE DEVELOPMENTS</h1>
+<h2>12.1 How CBT Evolved</h2>
+<p>The third wave of CBT shifted focus from changing the content of thoughts to changing the relationship with thoughts. This was driven by observations that some clients improved through cognitive restructuring, while others improved through developing a different relationship with their cognitions — observing them without engagement rather than evaluating and modifying them.</p>
+<h2>12.2 Brief Overview of Third-Wave Approaches</h2>
+<table>
+<thead><tr><th>Approach</th><th>Developer</th><th>Year</th><th>Key Innovation</th><th>Relationship to CBT</th></tr></thead>
+<tbody>
+<tr><td><strong>DBT</strong></td><td>Marsha Linehan</td><td>1993</td><td>Dialectics (acceptance + change); skills training (mindfulness, distress tolerance, emotion regulation, interpersonal effectiveness)</td><td>Adds acceptance and validation to CBT; designed for BPD</td></tr>
+<tr><td><strong>MBCT</strong></td><td>Segal, Williams, Teasdale</td><td>2002</td><td>Mindfulness meditation integrated with CBT; targets rumination and depressive relapse</td><td>Adds mindfulness to CBT; designed for relapse prevention in recurrent depression</td></tr>
+<tr><td><strong>ACT</strong></td><td>Steven Hayes</td><td>1999</td><td>Psychological flexibility; acceptance, defusion, present moment, self-as-context, values, committed action</td><td>Moves away from thought evaluation entirely; focuses on valued living regardless of thought content</td></tr>
+<tr><td><strong>Schema Therapy</strong></td><td>Jeffrey Young</td><td>1990</td><td>18 EMSs, schema modes, limited reparenting, experiential techniques (imagery rescripting, chair work)</td><td>Extends Beck's schema concept; adds developmental, experiential, and relational elements for PDs</td></tr>
+<tr><td><strong>MCT</strong></td><td>Adrian Wells</td><td>2009</td><td>Metacognition — beliefs about thinking ("worry is dangerous" vs "worry helps me prepare")</td><td>Treats beliefs about cognition rather than cognition itself</td></tr>
+<tr><td><strong>CFT</strong></td><td>Paul Gilbert</td><td>2009</td><td>Three emotion regulation systems (threat, drive, soothing); self-compassion as antidote to shame and self-criticism</td><td>Adds evolutionary psychology and compassion to CBT; designed for high shame/self-criticism</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's schemas vs Young's EMSs: Beck identified schemas broadly as cognitive structures containing core beliefs. Young elaborated this into 18 specific Early Maladaptive Schemas across 5 domains (Disconnection/Rejection, Impaired Autonomy, Impaired Limits, Other-Directedness, Overvigilance/Inhibition), with associated schema modes (child modes, parent modes, coping modes, healthy adult), three coping styles (surrender, avoidance, overcompensation), and a developmental origins model. Schema Therapy is now its own modality with a distinct evidence base, particularly for BPD.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The third wave does not replace the second wave. Standard CBT remains the first-line treatment for most Axis I disorders. Third-wave approaches tend to be most useful for (1) personality disorders, (2) chronic/treatment-resistant presentations, (3) cases where the problem is less about inaccurate thinking and more about the person's relationship with their internal experience (rumination, self-criticism, experiential avoidance).</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mindfulness was integrated into CBT by Segal, Williams, and Teasdale (2002) as MBCT specifically for relapse prevention in recurrent depression (3+ episodes). The AWARE technique (Accept, Watch, Act, Repeat, Expect the best) is Beck's own mindfulness integration, originally from Beck and Emery (1985), predating the third wave.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: "DMS-MAC" — DBT, MBCT, Schema Therapy, Metacognitive Therapy, ACT, Compassion-Focused Therapy</strong> — the six major third-wave CBT developments.</p></div>
+<hr>
+<h2>Summary of Key Exam Facts</h2>
+<ol>
+  <li>Beck developed CT in the 1960s-70s; originally trained as a psychoanalyst</li>
+  <li>The cognitive model: Situation &rarr; Automatic Thought &rarr; Reaction (emotional, behavioural, physiological)</li>
+  <li>Three levels of cognition: automatic thoughts &rarr; intermediate beliefs &rarr; core beliefs</li>
+  <li>Three categories of negative core beliefs: Helplessness, Unlovability, Worthlessness</li>
+  <li>The cognitive triad (depression): negative view of self, world, and future</li>
+  <li>Schemas are cognitive structures containing core beliefs; they filter information</li>
+  <li>12 cognitive distortions — know definitions and be able to identify from vignettes</li>
+  <li>CCD structure: life history &rarr; core beliefs &rarr; intermediate beliefs &rarr; coping strategies &rarr; situations</li>
+  <li>Session structure: mood check &rarr; agenda &rarr; bridge/update &rarr; work on items &rarr; summary &rarr; homework &rarr; feedback</li>
+  <li>Collaborative empiricism is the defining therapeutic stance</li>
+  <li>Socratic questioning, NOT disputation or interpretation</li>
+  <li>Thought records (DTR): situation, thought, emotion, adaptive response, outcome</li>
+  <li>Behavioural experiments are the most powerful technique for emotional-level belief change</li>
+  <li>Disorder-specific models: Clark (panic), Clark & Wells (social anxiety), Ehlers & Clark (PTSD), Salkovskis (OCD)</li>
+  <li>Rush et al. (1977): first CBT RCT; CT equivalent to imipramine; CT superior for relapse prevention</li>
+  <li>CBT for PDs: longer treatment, schema-level work, emphasis on therapeutic relationship</li>
+  <li>Beck's cognitive profiles of PDs: know core belief, view of self, view of others, strategy for each PD</li>
+  <li>Third wave: DBT, MBCT, ACT, Schema Therapy — change relationship with thoughts, not just content</li>
+  <li>Safety behaviours maintain anxiety by preventing disconfirmation</li>
+  <li>CT-R: recovery-oriented CBT focusing on aspirations, values, and strengths</li>
+</ol>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Cognitive Behaviour Therapy &mdash; Weave Psychotherapy Vol. 4</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 4 | Cognitive Behaviour Therapy</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Cognitive Behaviour Therapy — Clinical Quick Reference</h1>
+<hr>
+<h2>1. CBT at a Glance</h2>
+<ul>
+  <li><strong>Founder:</strong> Aaron T. Beck (1960s-70s), originally trained as a psychoanalyst</li>
+  <li><strong>Core premise:</strong> It is not a situation itself that determines what people feel and do, but how they construe that situation</li>
+  <li><strong>Mechanism:</strong> Dysfunctional thinking influences mood and behaviour; correcting biased cognitions reduces emotional distress</li>
+  <li><strong>Therapeutic stance:</strong> Collaborative empiricism — therapist and client as co-investigators testing hypotheses</li>
+  <li><strong>Evidence base:</strong> 2,000+ outcome studies; first RCT (Rush et al., 1977) showed CT equivalent to imipramine for depression, with superior relapse prevention at follow-up</li>
+</ul>
+
+<table>
+<thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Duration</td><td>12-20 sessions (Axis I); 1-3 years (personality disorders)</td></tr>
+<tr><td>Format</td><td>Individual, group, couples; face-to-face or digital</td></tr>
+<tr><td>Structure</td><td>Manualized, session-by-session agenda, homework-driven</td></tr>
+<tr><td>Focus</td><td>Present-focused initially; deeper belief work in middle phase</td></tr>
+<tr><td>Key innovation</td><td>CT-R (Recovery-Oriented CT) — aspirations, values, strengths, positive conclusions</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck discovered automatic thoughts while investigating the psychoanalytic hypothesis that depression = hostility turned inward. Instead, he found themes of defectiveness, deprivation, and loss in depressed patients' dreams — leading him to develop the cognitive model.</p></div>
+<hr>
+<h2>2. The Cognitive Model — Visual</h2>
+<h3>Three Levels of Cognition</h3>
+<table>
+<thead><tr><th>Level</th><th>Characteristics</th><th>Accessibility</th><th>Modifiability</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Automatic thoughts</td><td>Situation-specific, brief, spontaneous, verbal or imagistic</td><td>Most accessible</td><td>Easiest to modify</td><td>"I can't do anything right"</td></tr>
+<tr><td>Intermediate beliefs</td><td>Rules, attitudes, conditional assumptions</td><td>Moderate; elicited via downward arrow</td><td>Moderately modifiable</td><td>"If I ask for help, I'll look incompetent"</td></tr>
+<tr><td>Core beliefs</td><td>Global, absolute, rigid; about self/others/world</td><td>Least accessible; often unarticulated</td><td>Hardest to modify; require multiple techniques</td><td>"I'm incompetent"</td></tr>
+</tbody>
+</table>
+
+<h3>Three Categories of Negative Core Beliefs</h3>
+<table>
+<thead><tr><th>Category</th><th>Theme</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td><strong>Helplessness</strong></td><td>Ineffectiveness, inability to cope</td><td>"I'm incompetent, helpless, powerless, inferior, a failure"</td></tr>
+<tr><td><strong>Unlovability</strong></td><td>Inability to gain/maintain love</td><td>"I'm unlovable, unlikeable, unwanted, bound to be rejected"</td></tr>
+<tr><td><strong>Worthlessness</strong></td><td>Immorality, toxicity</td><td>"I'm worthless, bad, dangerous, don't deserve to live"</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>Three H's of negative core beliefs:</strong> <strong>H</strong>elplessness (I can't cope), <strong>H</strong>eartless world (Unlovability), <strong>H</strong>opeless character (Worthlessness).</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Schemas are cognitive structures containing core beliefs. In depression, negative schemas become hyperactivated and positive schemas become deactivated, leading to biased information processing — negative data are immediately absorbed while positive data are discounted.</p></div>
+<hr>
+<h2>3. Cognitive Distortions Master Table</h2>
+<table>
+<thead><tr><th>Distortion</th><th>Definition</th><th>One-Line Example</th></tr></thead>
+<tbody>
+<tr><td>All-or-nothing thinking</td><td>Viewing situations in only two categories</td><td>"If I'm not perfect, I'm a total failure."</td></tr>
+<tr><td>Catastrophizing</td><td>Predicting the worst without considering likely outcomes</td><td>"I'll be so upset I won't function at all."</td></tr>
+<tr><td>Disqualifying the positive</td><td>Dismissing positive experiences as irrelevant</td><td>"That success was just luck."</td></tr>
+<tr><td>Emotional reasoning</td><td>Treating feelings as evidence of truth</td><td>"I feel like a failure, so I must be one."</td></tr>
+<tr><td>Labeling</td><td>Applying a fixed global label</td><td>"I'm a loser."</td></tr>
+<tr><td>Magnification/minimization</td><td>Inflating negatives, shrinking positives</td><td>"One bad rating proves I'm inadequate."</td></tr>
+<tr><td>Mental filter</td><td>Attending to one negative detail, ignoring the rest</td><td>"I got one low score, so I'm doing terribly."</td></tr>
+<tr><td>Mind reading</td><td>Assuming you know others' thoughts</td><td>"He thinks I'm incompetent."</td></tr>
+<tr><td>Overgeneralization</td><td>Drawing sweeping conclusions from one event</td><td>"I felt awkward, so I'll never make friends."</td></tr>
+<tr><td>Personalization</td><td>Attributing others' behaviour to yourself</td><td>"The repairman was rude because of me."</td></tr>
+<tr><td>Should/must statements</td><td>Rigid rules about how things ought to be</td><td>"I should always do my best."</td></tr>
+<tr><td>Tunnel vision</td><td>Seeing only negatives in a situation</td><td>"My boss can't do anything right."</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Emotional reasoning is the distortion most commonly missed by trainees. The patient "feels" something is true and treats that feeling as evidence, despite contradictory objective data. It is especially prominent in anxiety and BPD.</p></div>
+<hr>
+<h2>4. CBT Session Checklist</h2>
+<h3>Standard Session Structure (Subsequent Sessions)</h3>
+<table>
+<thead><tr><th>Phase</th><th>Step</th><th>Time</th></tr></thead>
+<tbody>
+<tr><td><strong>Initial</strong></td><td>1. Mood/medication check</td><td>2 min</td></tr>
+<tr><td>2. Set agenda collaboratively</td><td>3 min</td></tr>
+<tr><td>3. Update (positives first) + review Action Plan</td><td>5 min</td></tr>
+<tr><td>4. Prioritize agenda items</td><td>1 min</td></tr>
+<tr><td><strong>Middle</strong></td><td>5. Work on agenda item 1 (summarize, intervene, set Action Plan)</td><td>15-20 min</td></tr>
+<tr><td>6. Work on items 2-3 if time</td><td>10-15 min</td></tr>
+<tr><td><strong>End</strong></td><td>7. Summarize the session</td><td>2 min</td></tr>
+<tr><td>8. Review new Action Plan</td><td>2 min</td></tr>
+<tr><td>9. Elicit feedback</td><td>2 min</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MADAM-SURF</strong> for session structure: <strong>M</strong>ood check, <strong>A</strong>genda setting, <strong>D</strong>iscuss update + Action Plan, <strong>A</strong>genda prioritization, <strong>M</strong>iddle work — <strong>S</strong>ummarize, <strong>U</strong>pdate Action Plan, <strong>R</strong>eview feedback, <strong>F</strong>inish.</p></div>
+<hr>
+<h2>5. Case Conceptualization Template</h2>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's Cognitive Conceptualization Diagram (CCD) comes in two forms: the Traditional CCD (organizing maladaptive patterns) and the Strengths-Based CCD (organizing adaptive cognitions, values, and resources). CT-R prioritizes the strengths-based version.</p></div>
+<hr>
+<h2>6. Technique Quick Cards</h2>
+<h3>Socratic Questioning</h3>
+<p>Guided discovery through strategic questions rather than direct challenging. Six question types: evidence ("What's the evidence for and against?"), alternative explanations, decatastrophizing ("What's the worst/best/most realistic outcome?"), impact ("What's the effect of thinking this way?"), distancing ("What would you tell a friend?"), and problem-solving.</p>
+<h3>Thought Record (DTR)</h3>
+<p>Six-column worksheet: (1) date/time, (2) situation, (3) automatic thought + belief rating 0-100%, (4) emotion + intensity 0-100%, (5) adaptive response, (6) outcome — re-rate belief and emotion. The client reads therapy notes daily and pulls them out when distressed.</p>
+<h3>Behavioural Experiments</h3>
+<p>Collaboratively designed tests of negative predictions. Steps: identify specific prediction, design the test, predict the outcome, carry out the experiment, evaluate the result, draw adaptive conclusions. More powerful than verbal techniques alone for belief change.</p>
+<h3>Activity Scheduling</h3>
+<p>Hour-by-hour Activity Chart tracking mastery (0-10) and pleasure (0-10). Four categories: self-care, connecting with people, managing at home, recreation. Compare predicted vs. actual ratings to demonstrate inaccuracy of negative predictions.</p>
+<h3>Graded Exposure</h3>
+<p>Hierarchy of avoided situations rated by predicted anxiety (0-100). Start at approximately 30%. Daily practice. Stay in situation until feared outcome does not occur. Monitor and eliminate safety behaviours. Imaginal exposure for situations too fearful for in vivo.</p>
+<h3>Cognitive Continuum</h3>
+<p>A 0-100% scale placed between two extremes to combat all-or-nothing thinking. Client rates self and others on the continuum, demonstrating that most people fall in the middle rather than at the poles.</p>
+<h3>Downward Arrow Technique</h3>
+<p>Used to identify core beliefs from automatic thoughts. Ask repeatedly: "If that were true, what would it mean about you?" Continue until the core belief is reached (typically 3-5 steps).</p>
+<h3>Imagery Techniques</h3>
+<p>Five positive imagery interventions: focusing on positive memories, rehearsing adaptive coping, distancing (envisioning getting through a rough period), substituting positive images, and focusing on positive aspects of upcoming situations. For negative images: change the "movie," follow the image to completion, or reality-test the image.</p>
+<hr>
+<h2>7. Disorder-Specific Models Table</h2>
+<table>
+<thead><tr><th>Disorder</th><th>Model/Authors</th><th>Key Mechanism</th><th>Key Intervention</th></tr></thead>
+<tbody>
+<tr><td>Depression</td><td>Beck's cognitive triad</td><td>Negative views of self, world, future; schema-driven information processing bias</td><td>Behavioural activation + cognitive restructuring + belief modification</td></tr>
+<tr><td>GAD</td><td>Dugas & Robichaud; Wells</td><td>Intolerance of uncertainty; positive beliefs about worry; meta-worry</td><td>Worry exposure, problem-solving training, challenging beliefs about worry</td></tr>
+<tr><td>Panic disorder</td><td>Clark (1986)</td><td>Catastrophic misinterpretation of bodily sensations</td><td>Interoceptive exposure, cognitive reappraisal of sensations</td></tr>
+<tr><td>Social anxiety</td><td>Clark & Wells (1995)</td><td>Self-focused attention, post-event rumination, safety behaviours</td><td>Video feedback, attention training, behavioural experiments dropping safety behaviours</td></tr>
+<tr><td>OCD</td><td>Salkovskis (1985)</td><td>Inflated responsibility, thought-action fusion</td><td>ERP + cognitive restructuring of responsibility appraisals</td></tr>
+<tr><td>PTSD</td><td>Ehlers & Clark (2000)</td><td>Negative appraisals of trauma + fragmented trauma memory + maintenance strategies</td><td>Reliving with cognitive restructuring, updating trauma memory, dropping maintenance behaviours</td></tr>
+<tr><td>Eating disorders</td><td>Fairburn (2008) — CBT-E</td><td>Over-evaluation of shape/weight/eating + dietary restraint + mood intolerance</td><td>Regular eating, addressing shape/weight concerns, broadening self-evaluation</td></tr>
+<tr><td>Insomnia</td><td>Morin — CBT-I</td><td>Dysfunctional beliefs about sleep + maladaptive sleep behaviours</td><td>Sleep restriction, stimulus control, cognitive restructuring of sleep beliefs</td></tr>
+<tr><td>Health anxiety</td><td>Salkovskis & Warwick</td><td>Misinterpretation of bodily symptoms + reassurance-seeking</td><td>Behavioural experiments, response prevention for reassurance, cognitive reappraisal</td></tr>
+<tr><td>Psychosis</td><td>CT-R (Beck et al.)</td><td>Negative beliefs about self, defeatist performance beliefs</td><td>Aspirations-based goal setting, positive belief strengthening, behavioural activation</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Clark's (1986) cognitive model of panic is the most commonly examined disorder-specific CBT model. The vicious circle: bodily sensation --> catastrophic misinterpretation ("I'm having a heart attack") --> anxiety --> more bodily sensations. Interoceptive exposure breaks the cycle.</p></div>
+<hr>
+<h2>8. PD Cognitive Profiles Table</h2>
+<table>
+<thead><tr><th>PD</th><th>View of Self</th><th>View of Others</th><th>Core Belief</th><th>Compensatory Strategy</th><th>Therapeutic Focus</th></tr></thead>
+<tbody>
+<tr><td>Avoidant</td><td>Socially inept, vulnerable</td><td>Critical, demeaning</td><td>"I am inadequate"</td><td>Avoid evaluative situations</td><td>Graded exposure + schema work on defectiveness</td></tr>
+<tr><td>Dependent</td><td>Needy, weak</td><td>Nurturing (idealized)</td><td>"I need help to survive"</td><td>Cultivate dependent relationships</td><td>Build self-efficacy, graded autonomy</td></tr>
+<tr><td>OCPD</td><td>Responsible, accountable</td><td>Irresponsible, casual</td><td>"I must not err"</td><td>Apply rules, avoid error</td><td>Cognitive continuum, flexibility experiments</td></tr>
+<tr><td>Paranoid</td><td>Righteous, vulnerable</td><td>Malicious, devious</td><td>"People are dangerous"</td><td>Vigilance, counterattack</td><td>Alliance first; behavioural experiments on trust</td></tr>
+<tr><td>Narcissistic</td><td>Special, deserving</td><td>Inferior or rivals</td><td>"I deserve special treatment"</td><td>Self-aggrandizement</td><td>Empathy building, examining costs of entitlement</td></tr>
+<tr><td>Histrionic</td><td>Glamorous, impressive</td><td>Admirers, audience</td><td>"I need to impress"</td><td>Dramatic display</td><td>Develop reflectiveness, reduce external validation</td></tr>
+<tr><td>Antisocial</td><td>Autonomous, predator</td><td>Exploitable, weak</td><td>"Rules are for others"</td><td>Exploit, attack</td><td>MI-based; focus on concrete personal costs</td></tr>
+<tr><td>Schizoid</td><td>Self-sufficient, loner</td><td>Intrusive</td><td>"Relationships are unnecessary"</td><td>Isolation, detachment</td><td>Accept patient's goals; gradual range expansion</td></tr>
+<tr><td>BPD</td><td>Weak, bad, unlovable</td><td>Idealized then devalued</td><td>"I will be abandoned / I am bad"</td><td>Clinging, splitting, self-harm</td><td>Schema-focused CT or DBT; alliance stability</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>PD belief anchors by cluster:</strong> Cluster A = "Others are dangerous/intrusive" (paranoid, schizoid, schizotypal). Cluster B = "I am special/entitled/abandoned" (narcissistic, antisocial, histrionic, BPD). Cluster C = "I am inadequate/helpless/must not err" (avoidant, dependent, OCPD).</p></div>
+<hr>
+<h2>9. Evidence Snapshot</h2>
+<table>
+<thead><tr><th>Therapy</th><th>Disorder</th><th>Effect Size / NNT</th><th>Key Trial or Meta-Analysis</th></tr></thead>
+<tbody>
+<tr><td>CBT</td><td>Major depression</td><td>d = 0.71 vs control; NNT ~3-4</td><td>Cuijpers et al. (2013) meta-analysis</td></tr>
+<tr><td>CBT</td><td>Depression relapse prevention</td><td>~50% relapse reduction vs medication discontinuation</td><td>Hollon et al. (2005)</td></tr>
+<tr><td>CBT</td><td>GAD</td><td>d = 0.80 vs waitlist</td><td>Cuijpers et al. (2014)</td></tr>
+<tr><td>CBT (Clark model)</td><td>Panic disorder</td><td>d = 0.90 vs control; 70-80% panic-free at end</td><td>Clark et al. (1999)</td></tr>
+<tr><td>CBT (Clark & Wells)</td><td>Social anxiety</td><td>d = 1.56 vs fluoxetine + self-exposure</td><td>Clark et al. (2003)</td></tr>
+<tr><td>CBT + ERP</td><td>OCD</td><td>d = 1.31 vs control</td><td>Ost et al. (2015) meta-analysis</td></tr>
+<tr><td>CPT / PE (CBT-based)</td><td>PTSD</td><td>d = 1.0-1.5 vs waitlist</td><td>Resick et al. (2002); Foa et al. (2005)</td></tr>
+<tr><td>CBT-E</td><td>Eating disorders (BN)</td><td>50-60% remission</td><td>Fairburn et al. (2009)</td></tr>
+<tr><td>CBT-I</td><td>Insomnia</td><td>d = 0.98; superior to medication long-term</td><td>Trauer et al. (2015) meta-analysis</td></tr>
+<tr><td>CT-R</td><td>Schizophrenia</td><td>Significant improvement in negative symptoms</td><td>Grant et al. (2012) RCT</td></tr>
+<tr><td>CT for PDs (general)</td><td>Cluster C PDs</td><td>Good effect; shorter than Cluster B</td><td>Beck et al. (2004)</td></tr>
+<tr><td>Schema-focused CT</td><td>BPD</td><td>Superior to TFP at 3 years</td><td>Giesen-Bloo et al. (2006) RCT</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>CBT's strongest evidence (largest effect sizes) is for panic disorder, social anxiety disorder, and OCD. For depression, CBT's unique advantage is relapse prevention — patients who learn CBT skills relapse at roughly half the rate of those who discontinue medication alone.</p></div>
+<hr>
+<h2>10. Mnemonics Collection</h2>
+<table>
+<thead><tr><th>Mnemonic</th><th>Stands For</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td><strong>AWARE</strong></td><td>Accept, Watch, Act constructively, Repeat, Expect the best</td><td>Anxiety management technique (Beck & Emery, 1985)</td></tr>
+<tr><td><strong>MADAM-SURF</strong></td><td>Mood, Agenda, Discuss update, Agenda prioritize, Middle work — Summarize, Update AP, Review feedback, Finish</td><td>CBT session structure</td></tr>
+<tr><td><strong>Three H's</strong></td><td>Helplessness, Heartless world (Unlovability), Hopeless character (Worthlessness)</td><td>Three categories of negative core beliefs</td></tr>
+<tr><td><strong>STOPP</strong></td><td>Stop, Take a breath, Observe thoughts, Pull back (perspective), Practise what works</td><td>Quick cognitive defusion in the moment</td></tr>
+<tr><td><strong>ABC</strong></td><td>Activating event, Belief, Consequence</td><td>Ellis's REBT model; maps onto CBT's situation-thought-reaction</td></tr>
+<tr><td><strong>TRAP-TRAC</strong></td><td>Trigger, Response, Avoidance Pattern / Trigger, Response, Alternative Coping</td><td>Behavioural activation — recognising avoidance and choosing alternative</td></tr>
+<tr><td><strong>SMART goals</strong></td><td>Specific, Measurable, Achievable, Relevant, Time-bound</td><td>Goal setting in early CBT sessions</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>Cognitive distortions quick recall — "FLAME MOST":</strong> <strong>F</strong>ortune-telling (catastrophizing), <strong>L</strong>abeling, <strong>A</strong>ll-or-nothing, <strong>M</strong>ind reading, <strong>E</strong>motional reasoning — <strong>M</strong>agnification, <strong>O</strong>vergeneralization, <strong>S</strong>hould statements, <strong>T</strong>unnel vision. (Covers 9 of 12; add mental filter, personalization, disqualifying the positive.)</p></div>
+<hr>
+<h2>11. Comparison: CBT vs Other Therapies</h2>
+<table>
+<thead><tr><th>Dimension</th><th>CBT</th><th>DBT</th><th>Schema Therapy</th><th>Psychodynamic</th></tr></thead>
+<tbody>
+<tr><td><strong>Founder</strong></td><td>Aaron T. Beck</td><td>Marsha Linehan</td><td>Jeffrey Young</td><td>Freud; modern: Kernberg, Shedler</td></tr>
+<tr><td><strong>Core target</strong></td><td>Distorted automatic thoughts and beliefs</td><td>Emotion dysregulation + behavioural patterns</td><td>Early maladaptive schemas + schema modes</td><td>Unconscious conflict, defences, object relations</td></tr>
+<tr><td><strong>Therapeutic stance</strong></td><td>Collaborative empiricism</td><td>Dialectical (acceptance + change)</td><td>Limited reparenting within empathic confrontation</td><td>Neutrality, abstinence, transference analysis</td></tr>
+<tr><td><strong>Time frame</strong></td><td>12-20 sessions (Axis I)</td><td>12+ months standard</td><td>1-3 years</td><td>Open-ended or time-limited (16-24 sessions)</td></tr>
+<tr><td><strong>Session structure</strong></td><td>Highly structured (agenda, homework)</td><td>Skills group + individual; diary cards</td><td>Semi-structured; experiential techniques</td><td>Unstructured; free association</td></tr>
+<tr><td><strong>Primary techniques</strong></td><td>Thought records, behavioural experiments, Socratic questioning</td><td>Distress tolerance, mindfulness, interpersonal effectiveness, emotion regulation</td><td>Imagery rescripting, chair work, mode dialogues, limited reparenting</td><td>Interpretation, working through, transference analysis</td></tr>
+<tr><td><strong>Homework</strong></td><td>Central ("Action Plans")</td><td>Diary cards, skills practice</td><td>Schema diaries, flash cards</td><td>Minimal or none</td></tr>
+<tr><td><strong>Best evidence for</strong></td><td>Depression, anxiety disorders, OCD, PTSD, eating disorders</td><td>BPD, suicidal behaviour, emotion dysregulation</td><td>BPD, Cluster C PDs, chronic depression</td><td>Depression, personality disorders (moderate evidence)</td></tr>
+<tr><td><strong>Relationship to CBT</strong></td><td>—</td><td>Third-wave CBT offshoot</td><td>Extension of CBT for characterological issues</td><td>Independent tradition; CBT developed partly in reaction to it</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Schema Therapy was developed by Jeffrey Young as an extension of CBT specifically for patients whose personality pathology made them poor responders to standard short-term CBT. It integrates CBT, attachment theory, gestalt, and psychodynamic concepts.</p></div>
+<hr>
+<h2>12. Viva Questions</h2>
+<p><strong>Q1: What is the cognitive model of depression?</strong></p>
+<p>Beck's cognitive triad proposes that depression is maintained by negative views of the self ("I'm worthless"), the world ("Nothing works out"), and the future ("Things will never improve"). These views arise from activated negative schemas that bias information processing — negative data are immediately absorbed while positive data are discounted or ignored.</p>
+<p><strong>Q2: Differentiate automatic thoughts, intermediate beliefs, and core beliefs.</strong></p>
+<p>Automatic thoughts are situation-specific, brief, spontaneous cognitions (most accessible, most modifiable). Intermediate beliefs are underlying rules, attitudes, and assumptions linking core beliefs to situations. Core beliefs are global, absolute, rigid convictions about self/others/world — least accessible and hardest to modify, requiring sustained work with multiple techniques.</p>
+<p><strong>Q3: What is collaborative empiricism?</strong></p>
+<p>The hallmark therapeutic stance of CBT: therapist and client function as co-investigators, jointly examining evidence for and against the client's cognitions. CBT does not "challenge" thoughts — it helps clients assess accuracy and utility through guided discovery and Socratic questioning.</p>
+<p><strong>Q4: Describe the standard CBT session structure.</strong></p>
+<p>Initial phase: mood/medication check, set agenda, update + review Action Plan, prioritize agenda. Middle phase: work on agenda items using cognitive and behavioural techniques, setting Action Plan items for each. End phase: summarize the session, review the full Action Plan, elicit feedback.</p>
+<p><strong>Q5: How does CBT for personality disorders differ from CBT for Axis I disorders?</strong></p>
+<p>PD treatment requires longer duration (1-3 years vs weeks/months), greater emphasis on the therapeutic relationship, schema-level work rather than just automatic thought modification, and attention to ego-syntonic patterns the patient may not recognise as problematic. Schemas in PDs are structuralised (continuously activated, integrated into everyday processing) rather than episodic.</p>
+<p><strong>Q6: What is the downward arrow technique?</strong></p>
+<p>A method for identifying core beliefs from automatic thoughts by repeatedly asking "If that were true, what would it mean about you?" until the deepest, most global belief is reached. Typically requires 3-5 iterations. Example: "She didn't call" --> "She doesn't care" --> "I'm not important to anyone" --> "I am unlovable."</p>
+<p><strong>Q7: How does CBT prevent relapse in depression?</strong></p>
+<p>Relapse prevention begins from session 1: teaching that recovery is non-linear, attributing progress to the client's own cognitive and behavioural changes (not just medication), teaching lifelong skills, tapering sessions gradually (weekly to biweekly to monthly), conducting self-therapy sessions, identifying early warning signs, and scheduling booster sessions at 3, 6, and 12 months.</p>
+<p><strong>Q8: What is the evidence for CBT being superior to medication in relapse prevention?</strong></p>
+<p>Hollon et al. (2005) showed that patients treated with CBT relapsed at approximately half the rate of those who discontinued antidepressants. The original Rush et al. (1977) trial also showed CT was more effective than imipramine at follow-up. The explanation is that CBT teaches durable cognitive skills that persist after treatment ends, whereas medication effects cease when the drug is stopped.</p>
+<p><strong>Q9: Name five cognitive distortions and give a clinical example of each.</strong></p>
+<p>All-or-nothing thinking: "If I don't get 100%, I'm a failure." Catastrophizing: "If I make a mistake, I'll be fired." Emotional reasoning: "I feel stupid, so I must be stupid." Mind reading: "Everyone in the meeting thinks I'm incompetent." Should statements: "I should never feel anxious — something is wrong with me."</p>
+<p><strong>Q10: How does Beck's cognitive model of personality disorders differ from his model of Axis I disorders?</strong></p>
+<p>In Axis I, schemas are episodic (state-dependent, activated by stressors, plastic, modifiable). In personality disorders, schemas are structuralised — continuously activated, integrated into everyday cognitive processing, ego-syntonic, and significantly harder to modify. PDs represent exaggerations of normal adaptive strategies that have become rigid, overgeneralised, and dysfunctional through interaction of innate temperament with early maladaptive experiences.</p>
+<hr>
+<p><em>Clinical Quick Reference — Weave Psychotherapy Vol. 4</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

@@ -1,0 +1,1250 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Third-Wave Therapies &mdash; Weave Psychotherapy Vol. 6</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 6</div>
+      <div class="cover-title">Third-Wave Therapies</div>
+      <div class="cover-subtitle">DBT, Schema Therapy, ACT, MBCT, and Compassion-Focused Therapy</div>
+      <div class="cover-topics">DBT Skills · Schema Modes · 18 EMSs · ACT Hexaflex · MBCT · Biosocial Model · Imagery Rescripting</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Third-Wave Therapies &mdash; Weave Psychotherapy Vol. 6</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 6 | Third-Wave Therapies</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Third-Wave Therapies — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-what-is-the-third-wave" style="color:var(--indigo);text-decoration:none">What is the "Third Wave"?</a></li>
+  <li><a href="#2-dialectical-behavior-therapy-dbt" style="color:var(--indigo);text-decoration:none">Dialectical Behavior Therapy (DBT)</a></li>
+  <li><a href="#3-schema-therapy-st" style="color:var(--indigo);text-decoration:none">Schema Therapy (ST)</a></li>
+  <li><a href="#4-acceptance-and-commitment-therapy-act" style="color:var(--indigo);text-decoration:none">Acceptance and Commitment Therapy (ACT)</a></li>
+  <li><a href="#5-mindfulness-based-cognitive-therapy-mbct" style="color:var(--indigo);text-decoration:none">Mindfulness-Based Cognitive Therapy (MBCT)</a></li>
+  <li><a href="#6-compassion-focused-therapy-cft" style="color:var(--indigo);text-decoration:none">Compassion-Focused Therapy (CFT)</a></li>
+  <li><a href="#7-comparison-table" style="color:var(--indigo);text-decoration:none">Comparison Table</a></li>
+</ol>
+
+<hr>
+<h1>1. WHAT IS THE "THIRD WAVE"?</h1>
+<h2>1.1 Hayes' Three Waves of Behaviour Therapy</h2>
+<p>Steven Hayes (2004) proposed a taxonomy of behaviour therapy's evolution:</p>
+<p><strong>First Wave — Classical Behaviourism (1950s-1970s).</strong> Rooted in Pavlov, Skinner, and Wolpe. Therapy meant modifying observable behaviour through conditioning: systematic desensitisation, token economies, exposure and response prevention. Internal experience was either irrelevant or inaccessible. The therapist was a technician applying learning principles.</p>
+<p><strong>Second Wave — Cognitive Revolution (1970s-1990s).</strong> Beck, Ellis, and Meichenbaum brought internal cognitions centre stage. Dysfunctional thoughts cause emotional disturbance; therapy means identifying and changing distorted cognitions. Cognitive restructuring, thought records, Socratic questioning, and guided discovery became the core methods. The therapist was a scientist helping the patient test hypotheses.</p>
+<p><strong>Third Wave — Contextual and Process-Based Approaches (1990s-present).</strong> Rather than changing the content of thoughts, third-wave therapies change the relationship to thoughts. Key features:</p>
+<ul>
+  <li><strong>Acceptance over control</strong> — emotions and thoughts are not enemies to be eliminated but experiences to be observed and tolerated</li>
+  <li><strong>Mindfulness</strong> — present-moment, nonjudgmental awareness as a core skill, not just a technique</li>
+  <li><strong>Values and meaning</strong> — behaviour is guided by personal values, not just symptom reduction</li>
+  <li><strong>Therapeutic relationship as active ingredient</strong> — not merely the vehicle for delivering techniques but itself a mechanism of change</li>
+  <li><strong>Metacognition</strong> — stepping back to observe one's own thinking processes rather than engaging with thought content</li>
+  <li><strong>Dialectics</strong> — holding opposing truths simultaneously; synthesis rather than linear logic</li>
+  <li><strong>Contextual sensitivity</strong> — behaviour understood in its context, not as inherently "dysfunctional"</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The three waves are not sequential replacements — each wave built on and incorporated the previous. DBT uses behavioural skills training (first wave) + cognitive modification (second wave) + acceptance and mindfulness (third wave). Schema Therapy integrates cognitive restructuring (second wave) with experiential techniques, attachment theory, and limited reparenting (third wave).</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked to classify a therapy as "third wave," look for these distinguishing features: acceptance-based stance, mindfulness component, emphasis on the therapeutic relationship as a change mechanism, values orientation, and metacognitive or process-level intervention. If a therapy only uses cognitive restructuring and behavioural experiments, it is second wave.</p></div>
+<h2>1.2 The Major Third-Wave Therapies</h2>
+<table>
+<thead><tr><th>Therapy</th><th>Founder(s)</th><th>Year</th><th>Core Innovation</th></tr></thead>
+<tbody>
+<tr><td>Dialectical Behavior Therapy (DBT)</td><td>Marsha Linehan</td><td>1993</td><td>Dialectics: acceptance + change; skills-based</td></tr>
+<tr><td>Schema Therapy (ST)</td><td>Jeffrey Young</td><td>1990/2003</td><td>Early Maladaptive Schemas; limited reparenting</td></tr>
+<tr><td>Acceptance and Commitment Therapy (ACT)</td><td>Steven Hayes</td><td>1999</td><td>Psychological flexibility; defusion; values</td></tr>
+<tr><td>Mindfulness-Based Cognitive Therapy (MBCT)</td><td>Segal, Williams, Teasdale</td><td>2002</td><td>Mindfulness for depression relapse prevention</td></tr>
+<tr><td>Compassion-Focused Therapy (CFT)</td><td>Paul Gilbert</td><td>2005</td><td>Three emotion regulation systems; compassionate mind</td></tr>
+<tr><td>Functional Analytic Psychotherapy (FAP)</td><td>Kohlenberg & Tsai</td><td>1991</td><td>In-session behaviour as target of change</td></tr>
+<tr><td>Metacognitive Therapy (MCT)</td><td>Adrian Wells</td><td>2009</td><td>Metacognitive beliefs; detached mindfulness</td></tr>
+<tr><td>Behavioural Activation (BA)</td><td>Martell, Addis, Jacobson</td><td>2001</td><td>Context, not cognition; valued action in depression</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Not all authorities classify Schema Therapy as "third wave." Young developed it as an extension of CBT for characterological patients. However, its emphasis on the therapeutic relationship (limited reparenting), experiential techniques (imagery rescripting, chair work), and attachment-based conceptualisation place it firmly in the third-wave tradition. Most contemporary texts include it.</p></div>
+<hr>
+<h1>2. DIALECTICAL BEHAVIOR THERAPY (DBT)</h1>
+<h2>2.1 The Biosocial Model</h2>
+<p>DBT explains chronic emotional dysregulation through a transactional model:</p>
+<p><strong>Biological vulnerability</strong> — three features:</p>
+<ul>
+  <li><strong>High emotional sensitivity</strong> — emotions triggered easily and by subtle cues</li>
+  <li><strong>High emotional reactivity</strong> — intense emotional responses once triggered</li>
+  <li><strong>Slow return to baseline</strong> — emotional arousal persists for hours, not minutes</li>
+</ul>
+
+<p><strong>Invalidating environment</strong> — consistently communicates that internal experiences are wrong, inappropriate, or an overreaction. Three types:</p>
+<ol>
+  <li>Punishing or dismissing valid emotional expression ("Stop crying, there's nothing to cry about")</li>
+  <li>Intermittently reinforcing only extreme emotional displays (shapes escalation)</li>
+  <li>Oversimplifying solutions ("Just say no," "Just try harder")</li>
+</ol>
+
+<p>The transaction between biological vulnerability and environmental invalidation produces: emotional dysregulation, self-invalidation, behavioural dysregulation (impulsivity/avoidance), interpersonal dysregulation, and identity confusion.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The biosocial model is transactional, not linear. The child's emotional sensitivity shapes parental responses; parental invalidation worsens the child's dysregulation; escalation cycles establish patterns. Neither biology nor environment alone is "the cause." This is the biosocial transaction.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In clinical practice, presenting the biosocial model to patients is a powerful de-shaming intervention. It says: "Your problems are not your fault (biology + environment), but they are your responsibility to solve." This captures the central dialectic of DBT.</p></div>
+<h2>2.2 Dialectical Philosophy</h2>
+<p>DBT is grounded in three principles of dialectical philosophy:</p>
+<ol>
+  <li><strong>Interrelatedness</strong> — everything is connected; a change in one part of the system affects all other parts</li>
+  <li><strong>Polarity</strong> — reality is composed of opposing forces (thesis and antithesis); truth lies in the synthesis</li>
+  <li><strong>Continuous change</strong> — the only constant is change; both patient and therapist are always evolving</li>
+</ol>
+
+<p>The fundamental dialectic in DBT: <strong>acceptance and change</strong>. The patient is doing the best they can AND needs to do better. The therapist validates the patient's suffering AND pushes for new behaviour. Acceptance without change is stagnation. Change without acceptance is invalidation.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Three dialectical dilemmas in standard DBT (Linehan): (1) Emotional vulnerability vs. self-invalidation, (2) Active passivity vs. apparent competence, (3) Unrelenting crisis vs. inhibited experiencing. Each generates secondary treatment targets.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Three additional adolescent-specific dialectical dilemmas (Rathus & Miller): (1) Excessive leniency vs. authoritarian control, (2) Normalising pathological behaviours vs. pathologising normative behaviours, (3) Forcing autonomy vs. fostering dependence.</p></div>
+<h2>2.3 Four Treatment Modes</h2>
+<table>
+<thead><tr><th>Mode</th><th>Function</th><th>Setting</th></tr></thead>
+<tbody>
+<tr><td><strong>Individual therapy</strong></td><td>Motivational; applies skills to specific problems; processes diary card; follows target hierarchy</td><td>Weekly, 1 hour</td></tr>
+<tr><td><strong>Skills group</strong></td><td>Skills acquisition and strengthening; teaching new capabilities</td><td>Weekly, 2-2.5 hours</td></tr>
+<tr><td><strong>Phone coaching</strong></td><td>Skills generalisation to real-life crises; brief, skill-focused calls</td><td>As needed, between sessions</td></tr>
+<tr><td><strong>Consultation team</strong></td><td>Therapy for the therapists; prevents burnout, maintains fidelity; treats therapists' own dialectical dilemmas</td><td>Weekly, 1-2 hours</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The four modes serve four distinct functions and must not be conflated. Individual therapy is for motivation and problem-solving; skills group is for capability. A patient cannot call the individual therapist to "process" emotions — phone coaching is specifically for "help me use a skill right now." The consultation team is not supervision — it is therapy for the therapist within a DBT framework.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In adolescent DBT (Rathus & Miller), the skills group becomes a multifamily group — parents attend alongside teens. This directly addresses the invalidating environment by teaching parents the same skills and validation principles.</p></div>
+<h2>2.4 Target Hierarchy</h2>
+<p>The target hierarchy governs what is addressed in individual therapy sessions, in strict order:</p>
+<p><strong>Stage 1 Individual Therapy Target Hierarchy:</strong></p>
+<ol>
+  <li><strong>Life-threatening behaviours</strong> — suicidal ideation, self-harm, homicidal ideation</li>
+  <li><strong>Therapy-interfering behaviours</strong> — missed sessions, non-compliance, therapist burnout</li>
+  <li><strong>Quality-of-life-interfering behaviours</strong> — substance use, housing instability, eating disorders, interpersonal chaos</li>
+  <li><strong>Increasing behavioural skills</strong> — generalising skills from group to daily life</li>
+</ol>
+
+<p><strong>Stage 1 Skills Training Target Hierarchy:</strong></p>
+<ol>
+  <li>Decrease behaviours likely to destroy therapy</li>
+  <li>Increase skills acquisition, strengthening, and generalisation</li>
+</ol>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If an exam question describes a patient who missed sessions, used substances, and had suicidal thoughts this week, the correct answer for what to address first is always suicidal behaviour (life-threatening > therapy-interfering > quality-of-life). The hierarchy is absolute.</p></div>
+<h2>2.5 Stage Model (Stages 1-4)</h2>
+<table>
+<thead><tr><th>Stage</th><th>Focus</th><th>Goal</th></tr></thead>
+<tbody>
+<tr><td><strong>Pretreatment</strong></td><td>Orientation, assessment, commitment</td><td>Informed consent; mutual agreement to proceed</td></tr>
+<tr><td><strong>Stage 1</strong></td><td>Behavioural stabilisation</td><td>Attain basic capacities — safety, control</td></tr>
+<tr><td><strong>Stage 2</strong></td><td>Emotional processing</td><td>Reduce post-traumatic stress; exposure for trauma</td></tr>
+<tr><td><strong>Stage 3</strong></td><td>Ordinary life problems</td><td>Increase self-respect; pursue individual goals</td></tr>
+<tr><td><strong>Stage 4</strong></td><td>Completeness</td><td>Capacity for sustained joy; spiritual fulfilment</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Most DBT manuals and research address Stage 1 only. Stage 2 incorporates prolonged exposure techniques. Stage 4 was inspired by Linehan's Zen practice and addresses the existential dimension — moving from "a life worth living" to "a life experienced as complete."</p></div>
+<h2>2.6 DBT Skills by Module</h2>
+<h3>Core Mindfulness</h3>
+<table>
+<thead><tr><th>Skill Category</th><th>Skills</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Three States of Mind</strong></td><td>Emotional Mind, Reasonable Mind, Wise Mind</td><td>Wise Mind = synthesis of emotion and reason; intuitive knowing</td></tr>
+<tr><td><strong>"What" Skills</strong></td><td>Observe</td><td>Notice internal/external experience without words; "Teflon mind"</td></tr>
+<tr><td>Describe</td><td>Put words on observations; stick to facts, no interpretations</td></tr>
+<tr><td>Participate</td><td>Throw yourself fully into the current activity; "in the zone"</td></tr>
+<tr><td><strong>"How" Skills</strong></td><td>Non-judgmentally</td><td>Notice without evaluating as good/bad; replace judgments with descriptions</td></tr>
+<tr><td>One-mindfully</td><td>Do one thing at a time; when mind wanders, return gently</td></tr>
+<tr><td>Effectively</td><td>Do what works; let go of "right" vs. "wrong"; focus on goals</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mindfulness is not a separate module taught once — it is the foundation module, repeated before every other module begins. You cannot use any DBT skill without first noticing you need it. Mindfulness is the "gateway skill."</p></div>
+<h3>Distress Tolerance</h3>
+<p><strong>Crisis Survival Skills:</strong></p>
+<table>
+<thead><tr><th>Skill</th><th>Acronym/Name</th><th>Components</th></tr></thead>
+<tbody>
+<tr><td><strong>TIPP</strong></td><td>Temperature, Intense exercise, Paced breathing, Progressive relaxation</td><td>Rapid physiological downregulation; activates PNS; for "red zone" distress</td></tr>
+<tr><td><strong>STOP</strong></td><td>Stop, Take a step back, Observe, Proceed mindfully</td><td>Impulse control; prevents acting on the first urge</td></tr>
+<tr><td><strong>Wise Mind ACCEPTS</strong></td><td>Activities, Contributing, Comparisons, Emotions, Pushing away, Thoughts, Sensations</td><td>Distraction techniques; done mindfully</td></tr>
+<tr><td><strong>Self-Soothe</strong></td><td>Six senses: Vision, Hearing, Touch, Smell, Taste, Movement</td><td>Sensory self-comfort</td></tr>
+<tr><td><strong>IMPROVE the Moment</strong></td><td>Imagery, Meaning, Prayer, Relaxation, One thing, Vacation, Encouragement</td><td>In-the-moment coping enhancers</td></tr>
+<tr><td><strong>Pros and Cons</strong></td><td>Weigh pros/cons of acting on urge vs. using skills</td><td>Label each as short-term or long-term</td></tr>
+</tbody>
+</table>
+
+<p><strong>Reality Acceptance Skills:</strong></p>
+<table>
+<thead><tr><th>Skill</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Radical Acceptance</strong></td><td>Full acknowledgment of reality as it is; acceptance does not equal approval; Pain + Non-acceptance = Suffering</td></tr>
+<tr><td><strong>Turning the Mind</strong></td><td>Repeated, moment-by-moment choice to accept reality; acceptance is not a single decision</td></tr>
+<tr><td><strong>Willingness vs. Willfulness</strong></td><td>Willingness = doing what the situation requires; Willfulness = refusing to engage with reality</td></tr>
+<tr><td><strong>Half-Smile</strong></td><td>Subtle relaxation of facial muscles; behavioural cue for acceptance</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>TIPP skills work as fast as dysfunctional behaviours (self-harm, substance use) but without the negative consequences. The Temperature skill activates the mammalian dive reflex: cold water on the face triggers the vagus nerve, rapidly reducing heart rate. This is parasympathetic activation — the physiological mechanism is identical to that targeted by vagal nerve stimulation.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Radical acceptance is not agreeing that bad things are acceptable. It is acknowledging that they happened. Pain is unavoidable; suffering is pain multiplied by non-acceptance. "This should not have happened to me" is the non-acceptance that converts pain into prolonged suffering.</p></div>
+<h3>Emotion Regulation</h3>
+<table>
+<thead><tr><th>Skill</th><th>Acronym/Name</th><th>Components</th></tr></thead>
+<tbody>
+<tr><td><strong>ABC PLEASE</strong></td><td>Accumulate positives, Build mastery, Cope ahead, treat PhysicaL illness, balance Eating, Avoid mood-altering substances, balance Sleep, get Exercise</td><td>Vulnerability reduction; proactive emotional management</td></tr>
+<tr><td><strong>Check the Facts</strong></td><td>—</td><td>Is the emotion fitting the facts? Are interpretations accurate?</td></tr>
+<tr><td><strong>Opposite Action</strong></td><td>—</td><td>Act opposite to the emotional action urge — all the way — when emotion does not fit the facts</td></tr>
+<tr><td><strong>Problem Solving</strong></td><td>—</td><td>When emotion fits the facts, solve the problem systematically</td></tr>
+<tr><td><strong>The Wave Skill</strong></td><td>Mindfulness of Current Emotion</td><td>Observe emotion as a wave; do not fight, do not hold; let it pass</td></tr>
+<tr><td><strong>Model of Emotions</strong></td><td>A-B-C-D chain</td><td>Vulnerability factors &rarr; Prompting event &rarr; Interpretation &rarr; Response &rarr; Aftereffects</td></tr>
+</tbody>
+</table>
+
+<p><strong>Opposite Action — Master Table:</strong></p>
+<table>
+<thead><tr><th>Emotion</th><th>Action Urge</th><th>Opposite Action</th></tr></thead>
+<tbody>
+<tr><td>Fear</td><td>Avoid, escape</td><td>Approach; confront repeatedly (exposure)</td></tr>
+<tr><td>Anger</td><td>Attack, confront</td><td>Avoid temporarily; approach with empathy and kindness</td></tr>
+<tr><td>Sadness</td><td>Withdraw, be passive</td><td>Become active; engage; resume pleasurable activities</td></tr>
+<tr><td>Shame (unjustified)</td><td>Hide, lower head</td><td>Go public; stand tall; maintain eye contact</td></tr>
+<tr><td>Shame (justified)</td><td>Hide, punish self</td><td>Face the music; accept responsibility; apologise; repair</td></tr>
+<tr><td>Guilt (justified)</td><td>Beg forgiveness</td><td>Apologise once; make amends; commit to change</td></tr>
+<tr><td>Guilt (unjustified)</td><td>Over-apologise</td><td>Do not apologise; stand tall; let go</td></tr>
+<tr><td>Jealousy</td><td>Demand, control, check</td><td>Do not act on jealousy; engage in other activities</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Opposite action only works when done "all the way" — posture, tone of voice, facial expression, thoughts, and actions must all be opposite. Half-hearted opposite action does not change the emotion. This is consistent with the facial feedback hypothesis and embodied cognition research.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p>ABC PLEASE — the "ABC" is proactive (Accumulate positives, Build mastery, Cope ahead) and the "PLEASE" is preventive (PhysicaL illness, Eating, Avoid substances, Sleep, Exercise). Together they reduce vulnerability before emotions fire.</p></div>
+<h3>Interpersonal Effectiveness</h3>
+<table>
+<thead><tr><th>Skill</th><th>Acronym</th><th>Goal</th><th>Components</th></tr></thead>
+<tbody>
+<tr><td><strong>DEAR MAN</strong></td><td>Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate</td><td>Getting what you want / saying no</td><td>Objective effectiveness</td></tr>
+<tr><td><strong>GIVE</strong></td><td>Gentle, Interested, Validate, Easy manner</td><td>Maintaining the relationship</td><td>Relationship effectiveness</td></tr>
+<tr><td><strong>FAST</strong></td><td>Fair, no Apologies, Stick to values, Truthful</td><td>Maintaining self-respect</td><td>Self-respect effectiveness</td></tr>
+<tr><td><strong>THINK</strong></td><td>Think, Have empathy, Interpretations, Notice, Kindness</td><td>Reducing hostile attributions</td><td>Adolescent-specific (Rathus & Miller)</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DEAR MAN, GIVE, and FAST represent three different goals of any interpersonal interaction: getting your objective (DEAR MAN), keeping the relationship (GIVE), and keeping your self-respect (FAST). The clinical skill is knowing which to prioritise in a given situation. They are not always compatible — sometimes getting what you want costs the relationship.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p>DEAR MAN = the "what to do" (Describe, Express, Assert, Reinforce) + the "how to do it" (Mindful, Appear confident, Negotiate). The first four letters are content; the last three are style.</p></div>
+<h3>Walking the Middle Path (Adolescent DBT)</h3>
+<table>
+<thead><tr><th>Component</th><th>Content</th></tr></thead>
+<tbody>
+<tr><td><strong>Dialectics</strong></td><td>Move from "either/or" to "both/and"; find the kernel of truth in each side; no absolute truth</td></tr>
+<tr><td><strong>Validation</strong></td><td>Six levels of validation (see below); validate the valid, not the invalid</td></tr>
+<tr><td><strong>Behaviour Change</strong></td><td>Positive reinforcement, negative reinforcement, shaping, extinction, punishment; behavioural burst during extinction</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Walking the Middle Path is unique to adolescent DBT (Rathus & Miller, 2015). It is not in standard adult DBT. It directly addresses the three adolescent-specific dialectical dilemmas by teaching families dialectical thinking, validation skills, and behaviour-change principles.</p></div>
+<h2>2.7 DBT Mnemonics Master Table</h2>
+<table>
+<thead><tr><th>Mnemonic</th><th>Stands For</th><th>Module</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td><strong>DEAR MAN</strong></td><td>Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate</td><td>Interpersonal Effectiveness</td><td>Asking for what you want; saying no</td></tr>
+<tr><td><strong>GIVE</strong></td><td>Gentle, Interested, Validate, Easy manner</td><td>Interpersonal Effectiveness</td><td>Maintaining relationships</td></tr>
+<tr><td><strong>FAST</strong></td><td>Fair, no Apologies, Stick to values, Truthful</td><td>Interpersonal Effectiveness</td><td>Maintaining self-respect</td></tr>
+<tr><td><strong>THINK</strong></td><td>Think, Have empathy, Interpretations, Notice, Kindness</td><td>Interpersonal Effectiveness (adolescent)</td><td>Reducing hostile attributions</td></tr>
+<tr><td><strong>TIPP</strong></td><td>Temperature, Intense exercise, Paced breathing, Progressive relaxation</td><td>Distress Tolerance</td><td>Rapid crisis downregulation</td></tr>
+<tr><td><strong>STOP</strong></td><td>Stop, Take a step back, Observe, Proceed mindfully</td><td>Distress Tolerance</td><td>Impulse control</td></tr>
+<tr><td><strong>ACCEPTS</strong></td><td>Activities, Contributing, Comparisons, Emotions, Pushing away, Thoughts, Sensations</td><td>Distress Tolerance</td><td>Distraction in crisis</td></tr>
+<tr><td><strong>IMPROVE</strong></td><td>Imagery, Meaning, Prayer, Relaxation, One thing, Vacation, Encouragement</td><td>Distress Tolerance</td><td>Improving the moment</td></tr>
+<tr><td><strong>ABC PLEASE</strong></td><td>Accumulate positives, Build mastery, Cope ahead, PhysicaL illness, Eating, Avoid substances, Sleep, Exercise</td><td>Emotion Regulation</td><td>Reducing vulnerability</td></tr>
+<tr><td><strong>WAVE</strong></td><td>— (metaphor)</td><td>Emotion Regulation</td><td>Mindfulness of current emotion</td></tr>
+</tbody>
+</table>
+
+<h2>2.8 Validation Levels 1-6</h2>
+<table>
+<thead><tr><th>Level</th><th>Name</th><th>Description</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>Unbiased listening</td><td>Full attentive presence; putting aside distractions</td><td>Putting phone down, making eye contact, staying focused</td></tr>
+<tr><td><strong>2</strong></td><td>Accurate reflection</td><td>Paraphrasing without distortion</td><td>"So what you're saying is..."</td></tr>
+<tr><td><strong>3</strong></td><td>Mind-reading</td><td>Articulating unspoken thoughts or feelings from nonverbal cues</td><td>"I can see this is really painful for you right now"</td></tr>
+<tr><td><strong>4</strong></td><td>Validation by past history</td><td>Behaviour makes sense given learning history and past experiences</td><td>"Given what you've been through, of course you react this way"</td></tr>
+<tr><td><strong>5</strong></td><td>Validation by current context</td><td>Behaviour makes sense given current circumstances; normalising</td><td>"Anyone in your situation would feel anxious right now"</td></tr>
+<tr><td><strong>6</strong></td><td>Radical genuineness</td><td>Treating the person as a capable equal; honest, direct, warm</td><td>Giving honest feedback without being patronising</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Level 5 validation is the heart of DBT validation — it normalises the patient's response within their current context. Level 6 is the highest level and the hardest — radical genuineness means treating the patient as capable of handling truth, not as fragile. Many therapists avoid Level 6 out of their own discomfort with directness.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If asked about "the most important level of validation in DBT," the answer is Level 5 (current context). If asked about "the highest level," the answer is Level 6 (radical genuineness).</p></div>
+<h2>2.9 Chain Analysis and Solution Analysis</h2>
+<p><strong>Chain analysis</strong> is a detailed behavioural assessment of the sequence leading to a problem behaviour:</p>
+<ol>
+  <li>Identify the problem behaviour (specific, observable)</li>
+  <li>Identify the prompting event (what set it off)</li>
+  <li>Identify vulnerability factors (what made you susceptible today)</li>
+  <li>Map the chain: event &rarr; thought &rarr; emotion &rarr; body sensation &rarr; action urge &rarr; behaviour, link by link</li>
+  <li>Identify consequences (reinforcers maintaining the behaviour)</li>
+</ol>
+
+<p><strong>Solution analysis</strong> follows immediately:</p>
+<ol>
+  <li>At each link in the chain, identify which skill could have interrupted the sequence</li>
+  <li>Develop a prevention plan for vulnerability factors</li>
+  <li>Commit to specific skill use if the chain begins again</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Chain analysis is not punishment — it is collaborative detective work. Done well, patients begin to see the predictable cascade that leads to their problem behaviours and gain agency over the process. Done badly (interrogation style, blame-focused), it becomes aversive and therapy-interfering.</p></div>
+<h2>2.10 Diary Card</h2>
+<p>The diary card is a weekly self-monitoring tool completed daily. It tracks:</p>
+<ul>
+  <li>Suicidal urges (0-5 scale)</li>
+  <li>Self-harm urges and acts</li>
+  <li>Misery (0-5)</li>
+  <li>Substance use</li>
+  <li>Emotions experienced</li>
+  <li>Skills used (checkboxes for each skill)</li>
+  <li>Custom targets (personalised)</li>
+</ul>
+
+<p>The diary card is reviewed at the start of every individual therapy session. It determines which targets are addressed according to the target hierarchy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>If the diary card shows both suicidal urges and missed skills group, suicidal urges are addressed first (life-threatening > therapy-interfering). The diary card is not optional — not completing it is itself a therapy-interfering behaviour.</p></div>
+<h2>2.11 Evidence Base</h2>
+<table>
+<thead><tr><th>Study</th><th>Design</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>Linehan et al. (1991)</td><td>RCT, BPD women</td><td>DBT superior to TAU: fewer suicide attempts, less self-harm, fewer hospitalisations, lower dropout</td></tr>
+<tr><td>Linehan et al. (2006)</td><td>RCT, BPD women</td><td>DBT superior to community treatment by experts: halved suicide attempts, reduced self-harm, ED visits, psychiatric hospitalisation</td></tr>
+<tr><td>Rathus & Miller (2002)</td><td>Quasi-experimental, suicidal adolescents</td><td>DBT feasible for adolescents; fewer hospitalisations, lower dropout than TAU</td></tr>
+<tr><td>Mehlum et al. (2014)</td><td>RCT, self-harming adolescents</td><td>16-week adolescent DBT superior to enhanced usual care: significant reduction in self-harm and suicidality</td></tr>
+<tr><td>Linehan et al. (2015)</td><td>Skills training component analysis</td><td>DBT skills training alone (without individual therapy) reduced suicidal ideation, depression, and anxiety</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>3. SCHEMA THERAPY (ST)</h1>
+<h2>3.1 The 18 Early Maladaptive Schemas and 5 Domains</h2>
+<p>Early Maladaptive Schemas (EMSs) are broad, pervasive patterns of memories, emotions, cognitions, and bodily sensations regarding oneself and relationships, developed in childhood when core emotional needs go unmet, and repeated throughout life. Behaviour is NOT part of the schema itself — it is a coping response.</p>
+<p><strong>Five core emotional needs:</strong></p>
+<ol>
+  <li>Secure attachment to others</li>
+  <li>Autonomy and competence</li>
+  <li>Freedom to express valid needs and emotions</li>
+  <li>Spontaneity and play</li>
+  <li>Realistic limits and self-control</li>
+</ol>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: DISCO</strong> for the 5 schema domains — <strong>D</strong>isconnection & Rejection, <strong>I</strong>mpaired Autonomy, Impaired Limit<strong>S</strong>, Other-dire<strong>C</strong>tedness, <strong>O</strong>vervigilance & Inhibition.</p></div>
+<h3>Full 18 EMSs Table</h3>
+<table>
+<thead><tr><th>Domain</th><th>#</th><th>Schema</th><th>Core Belief</th><th>Typical Origins</th></tr></thead>
+<tbody>
+<tr><td><strong>I. Disconnection & Rejection</strong></td><td>1</td><td>Abandonment/Instability</td><td>"People I love will leave me or be unpredictable"</td><td>Unstable, unpredictable parent; early loss</td></tr>
+<tr><td>2</td><td>Mistrust/Abuse</td><td>"Others will hurt, exploit, or betray me"</td><td>Physical, sexual, emotional abuse; exploitation</td></tr>
+<tr><td>3</td><td>Emotional Deprivation</td><td>"My emotional needs will never be met"</td><td>Cold, unaffectionate parents; three subtypes: nurturance, empathy, protection</td></tr>
+<tr><td>4</td><td>Defectiveness/Shame</td><td>"I am fundamentally flawed and unlovable"</td><td>Critical, rejecting parents; compared to siblings</td></tr>
+<tr><td>5</td><td>Social Isolation/Alienation</td><td>"I don't belong; I am different from everyone"</td><td>Family different from surroundings; not fitting in</td></tr>
+<tr><td><strong>II. Impaired Autonomy & Performance</strong></td><td>6</td><td>Dependence/Incompetence</td><td>"I cannot handle life without help"</td><td>Overprotective parents who did everything for child</td></tr>
+<tr><td>7</td><td>Vulnerability to Harm/Illness</td><td>"Catastrophe is imminent and I cannot prevent it"</td><td>Anxious parent who modelled catastrophising</td></tr>
+<tr><td>8</td><td>Enmeshment/Undeveloped Self</td><td>"I have no identity apart from significant others"</td><td>Enmeshed family; parent who lived through child</td></tr>
+<tr><td>9</td><td>Failure</td><td>"I am stupid, inept, and will always fail"</td><td>Parents who criticised achievement; unrecognised ADHD</td></tr>
+<tr><td><strong>III. Impaired Limits</strong></td><td>10</td><td>Entitlement/Grandiosity</td><td>"I am superior; rules don't apply to me"</td><td>Permissive, overindulgent parents; OR overcompensation for deprivation</td></tr>
+<tr><td>11</td><td>Insufficient Self-Control</td><td>"I cannot tolerate frustration or control impulses"</td><td>Lack of discipline or structure in childhood</td></tr>
+<tr><td><strong>IV. Other-Directedness</strong></td><td>12</td><td>Subjugation</td><td>"I must submit or others will punish/abandon me"</td><td>Domineering, controlling parent</td></tr>
+<tr><td>13</td><td>Self-Sacrifice</td><td>"I must meet others' needs at my own expense"</td><td>Weak, needy, or ill parent; parentified child</td></tr>
+<tr><td>14</td><td>Approval-Seeking</td><td>"I need others' approval to feel worthy"</td><td>Parents valued status over emotional needs</td></tr>
+<tr><td><strong>V. Overvigilance & Inhibition</strong></td><td>15</td><td>Negativity/Pessimism</td><td>"Things will go wrong; I must be prepared for the worst"</td><td>Pessimistic, worried parent; repeated losses</td></tr>
+<tr><td>16</td><td>Emotional Inhibition</td><td>"I must suppress my emotions to avoid disapproval"</td><td>Family discouraged emotional expression</td></tr>
+<tr><td>17</td><td>Unrelenting Standards</td><td>"I must be perfect to avoid criticism"</td><td>Parents who set impossibly high standards</td></tr>
+<tr><td>18</td><td>Punitiveness</td><td>"Mistakes deserve harsh punishment"</td><td>Punitive, unforgiving parents</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The domain distribution is 5-4-2-3-4 (easy to remember: the Impaired Limits domain has only 2 schemas — Entitlement and Insufficient Self-Control). Domain I (Disconnection & Rejection) contains the schemas most associated with personality disorders.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Conditional schemas (Subjugation, Self-Sacrifice, Approval-Seeking, Emotional Inhibition, Unrelenting Standards) develop later as attempts to cope with unconditional schemas (the remaining 13). Example: Unrelenting Standards develops in response to Defectiveness — "If I can be perfect, I will be worthy of love."</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Behaviour is NOT part of the schema. Schemas comprise memories, emotions, cognitions, and bodily sensations. This is why different patients use different — even opposite — behaviours to cope with the same schema (surrender vs. avoidance vs. overcompensation).</p></div>
+<h2>3.2 Schema Modes</h2>
+<p>Modes are moment-to-moment emotional states and coping responses. While schemas are traits, modes are states. Modes are more directly accessible and targetable in session.</p>
+<h3>Schema Modes Table (Young 2003 — 10 modes)</h3>
+<table>
+<thead><tr><th>Category</th><th>Mode</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Child Modes</strong></td><td>Vulnerable Child</td><td>Feels abandoned, abused, deprived, helpless, frightened</td></tr>
+<tr><td>Angry Child</td><td>Enraged about unmet needs; vents without regard for consequences</td></tr>
+<tr><td>Impulsive/Undisciplined Child</td><td>Acts impulsively; low frustration tolerance</td></tr>
+<tr><td>Happy Child</td><td>Core needs met; spontaneous, content</td></tr>
+<tr><td><strong>Coping Modes</strong></td><td>Compliant Surrenderer</td><td>Passive, subservient; submits to avoid conflict</td></tr>
+<tr><td>Detached Protector</td><td>Emotionally withdrawn, numb; may use substances or fantasy</td></tr>
+<tr><td>Overcompensator</td><td>Counterattacks; appears grandiose, aggressive, or controlling</td></tr>
+<tr><td><strong>Parent Modes</strong></td><td>Punitive/Critical Parent</td><td>Punishes child for expressing needs; harsh self-criticism</td></tr>
+<tr><td>Demanding Parent</td><td>Sets impossibly high expectations; pressures for perfection</td></tr>
+<tr><td><strong>Healthy Mode</strong></td><td>Healthy Adult</td><td>Nurtures Vulnerable Child, limits Angry/Impulsive Child, battles maladaptive modes</td></tr>
+</tbody>
+</table>
+
+<h3>Arntz/Bernstein Expanded Mode Model (18 modes)</h3>
+<table>
+<thead><tr><th>Category</th><th>Mode</th><th>Key Affect/Function</th></tr></thead>
+<tbody>
+<tr><td><strong>Dysfunctional Child — Vulnerability</strong></td><td>Lonely child</td><td>Empty, alone, unlovable</td></tr>
+<tr><td>Abandoned/abused child</td><td>Fear, pain, defencelessness</td></tr>
+<tr><td>Humiliated/inferior child</td><td>Shame, inferiority</td></tr>
+<tr><td>Dependent child</td><td>Overwhelmed, regressive</td></tr>
+<tr><td><strong>Dysfunctional Child — Anger</strong></td><td>Angry child</td><td>Frustrated, rebellious</td></tr>
+<tr><td>Obstinate child</td><td>Passive resistance</td></tr>
+<tr><td>Enraged child</td><td>Uncontrolled aggression</td></tr>
+<tr><td><strong>Dysfunctional Child — Discipline</strong></td><td>Impulsive child</td><td>Selfish, no delay of gratification</td></tr>
+<tr><td>Undisciplined child</td><td>Gives up, cannot tolerate boredom</td></tr>
+<tr><td><strong>Dysfunctional Parent</strong></td><td>Punitive parent</td><td>Self-loathing, harsh criticism</td></tr>
+<tr><td>Demanding parent</td><td>Excessive standards, pressure</td></tr>
+<tr><td><strong>Coping — Surrender</strong></td><td>Compliant surrender</td><td>Passive, subservient, self-deprecating</td></tr>
+<tr><td><strong>Coping — Avoidance</strong></td><td>Detached protector</td><td>Emotional shutdown, dissociation</td></tr>
+<tr><td>Avoidant protector</td><td>Behavioural avoidance of situations</td></tr>
+<tr><td>Angry protector</td><td>Wall of anger for distance</td></tr>
+<tr><td>Detached self-soother</td><td>Addictive soothing/stimulation</td></tr>
+<tr><td><strong>Coping — Overcompensation</strong></td><td>Self-aggrandiser</td><td>Grandiose, denigrating</td></tr>
+<tr><td>Attention-seeker</td><td>Extravagant, approval-seeking</td></tr>
+<tr><td>Perfectionistic overcontroller</td><td>Control via perfectionism</td></tr>
+<tr><td>Paranoid overcontroller</td><td>Control via vigilance/suspicion</td></tr>
+<tr><td>Bully & attack</td><td>Intimidation, hot aggression</td></tr>
+<tr><td>Conning/manipulative</td><td>Deceit for goals</td></tr>
+<tr><td>Predator</td><td>Cold, ruthless elimination of threats</td></tr>
+<tr><td><strong>Healthy</strong></td><td>Happy child</td><td>Core needs met, spontaneous</td></tr>
+<tr><td>Healthy adult</td><td>Realistic, responsible, balanced</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Young (2003) described 10 modes. Arntz & Jacob (2013) expanded to 18+ modes, primarily by differentiating coping modes more granularly. The expanded model is assessed via the Schema Mode Inventory (SMI; Lobbestael et al., 2010).</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Differentiating anger-related modes uses countertransference: angry child = impulsive, childlike, patient wants repair; angry protector = secondary emotion creating distance, wall-like quality; bully & attack = controlled intimidation, therapist feels threatened. Your own emotional response tells you which mode you are facing.</p></div>
+<h2>3.3 Three Coping Styles</h2>
+<table>
+<thead><tr><th>Coping Style</th><th>Threat Response Analogue</th><th>Mechanism</th><th>Example (Abandonment Schema)</th></tr></thead>
+<tbody>
+<tr><td><strong>Surrender</strong></td><td>Freeze</td><td>Gives in to the schema; behaves as if it were true</td><td>Selects uncommitted partners and stays</td></tr>
+<tr><td><strong>Avoidance</strong></td><td>Flight</td><td>Avoids triggering situations, emotions, or thoughts</td><td>Avoids intimate relationships; drinks when alone</td></tr>
+<tr><td><strong>Overcompensation</strong></td><td>Fight</td><td>Behaves as though the opposite of the schema were true</td><td>Clings, smothers; attacks partner for minor separations</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: SAO</strong> — Surrender (Freeze), Avoidance (Flight), Overcompensation (Fight). Same schema, three completely different behavioural presentations.</p></div>
+<h2>3.4 Limited Reparenting</h2>
+<p>The defining therapeutic relationship model of Schema Therapy. The therapist provides, within appropriate boundaries, what the patient needed but did not receive from parents. This is not becoming a parent — it is a consistent relational stance calibrated to the patient's unmet needs:</p>
+<ul>
+  <li>Abandonment &rarr; provide stability, consistency, reliability</li>
+  <li>Emotional Deprivation &rarr; provide warmth, empathy, guidance</li>
+  <li>Defectiveness &rarr; be accepting, nonjudgmental; welcome flaws</li>
+  <li>Subjugation &rarr; be non-directive; invite choices</li>
+  <li>Entitlement &rarr; set limits firmly; hold boundaries</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Nadort et al. (2009) showed that crisis phone support outside office hours adds no benefit for BPD patients receiving Schema Therapy. This was removed from the protocol. Email contact is offered instead.</p></div>
+<h2>3.5 Core Techniques</h2>
+<p><strong>Cognitive techniques:</strong> Schema validity testing, reframing evidence, coping-style pros/cons, schema flash cards, schema diaries.</p>
+<p><strong>Experiential techniques:</strong></p>
+<ul>
+  <li><strong>Imagery rescripting</strong> — patient accesses childhood memory via affect bridge; helping figure (therapist &rarr; third party &rarr; patient's healthy adult) enters scene and rescripts the experience. NOT exposure — patient contacts emotion but does not relive full trauma.</li>
+  <li><strong>Chair work</strong> — two-chair (coping mode exploration) or three-chair (parent mode reduction) dialogues. Therapist initially models Healthy Adult; patient gradually takes over.</li>
+</ul>
+
+<p><strong>Behavioural techniques:</strong> Pattern-breaking assignments, social skills training, exposure with response prevention (for coping modes), positive activity scheduling.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In imagery rescripting, the therapist does NOT ask permission to enter the scene — they simply step in. Three types of helping figures correspond to healthy adult strength: (1) therapist enters (weak HA), (2) third-party helper (intermediate), (3) patient as own HA (strong). Progression across therapy: 1 &rarr; 2 &rarr; 3.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Imagery rescripting is NOT exposure therapy. Arntz et al. (2007) showed IR was superior to imaginal exposure on guilt, shame, and anger control in PTSD. The patient contacts the emotion but is not required to relive the full trauma.</p></div>
+<h2>3.6 Mode Model for BPD</h2>
+<p>Four core BPD modes:</p>
+<ol>
+  <li><strong>Abandoned/abused child</strong> — intense abandonment fear, helplessness</li>
+  <li><strong>Angry/impulsive child</strong> — rage at unfair treatment + impulsive need fulfilment</li>
+  <li><strong>Punitive parent</strong> — extreme self-hatred (the signature BPD mode)</li>
+  <li><strong>Detached protector</strong> — emotional shutdown, dissociation, substance use</li>
+</ol>
+
+<p>Treatment: 2-3 years, starting at 2x/week. Phase 1 (up to 1 year): work with coping modes, build therapeutic relationship. Phase 2: imagery rescripting for trauma, chair dialogues against punitive parent. Phase 3: transfer healthy adult role, behavioural pattern-breaking.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Giesen-Bloo et al. (2006) found psychotropic medication — particularly sedatives/benzodiazepines — significantly reduced ST effectiveness in BPD, likely by blocking emotional intensity required for experiential interventions. This is one of the few studies showing medication can impair psychotherapy outcomes.</p></div>
+<h2>3.7 Evidence Base</h2>
+<table>
+<thead><tr><th>Study</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>Giesen-Bloo et al. (2006)</td><td>Outpatient ST superior to TFP for BPD (RCT, Archives of General Psychiatry)</td></tr>
+<tr><td>Farrell et al. (2009)</td><td>Group ST effective for BPD outpatients</td></tr>
+<tr><td>Nadort et al. (2009)</td><td>Crisis phone support adds no benefit; removed from protocol</td></tr>
+<tr><td>Bamelis et al. (2014)</td><td>ST effective for Cluster C personality disorders and paranoid PD</td></tr>
+<tr><td>Arntz et al. (2007)</td><td>IR superior to imaginal exposure for PTSD on anger, guilt, shame</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>4. ACCEPTANCE AND COMMITMENT THERAPY (ACT)</h1>
+<h2>4.1 Theoretical Foundation</h2>
+<p>ACT (pronounced as one word, "act") is rooted in <strong>Relational Frame Theory (RFT)</strong>, a post-Skinnerian account of human language and cognition. RFT proposes that human suffering is largely a product of language: the ability to relate events symbolically means we can re-experience pain through words alone ("remembering" a loss), create suffering about the future ("what if I fail"), and fuse with verbal rules that restrict our behaviour ("I'm not the kind of person who...").</p>
+<p>The fundamental problem is not the content of thoughts but our relationship to them. Attempting to control or eliminate unwanted thoughts and feelings (experiential avoidance) is itself the pathological process. ACT targets not symptoms but <strong>psychological inflexibility</strong> — the rigid dominance of verbal processes over direct experience, leading to behaviour that is incongruent with values.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>ACT is the only third-wave therapy built on an explicit basic science foundation (RFT). While other therapies are empirically tested treatment packages, ACT's theoretical model generates novel, testable predictions about language, cognition, and behaviour change.</p></div>
+<h2>4.2 Psychological Flexibility and the Hexaflex</h2>
+<p>The goal of ACT is psychological flexibility: the ability to contact the present moment fully as a conscious human being, and to change or persist in behaviour in the service of chosen values. Six core processes, arranged in a "hexaflex" model, interact to produce flexibility:</p>
+<table>
+<thead><tr><th>Process</th><th>Inflexibility Pole</th><th>Flexibility Pole</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Acceptance</strong></td><td>Experiential avoidance</td><td>Acceptance</td><td>Willingness to have unwanted internal experiences without trying to change, escape, or avoid them</td></tr>
+<tr><td><strong>Cognitive Defusion</strong></td><td>Cognitive fusion</td><td>Defusion</td><td>Seeing thoughts as thoughts (mental events) rather than as literal truths; stepping back from thought content</td></tr>
+<tr><td><strong>Present Moment</strong></td><td>Dominance of past/future</td><td>Present-moment awareness</td><td>Flexible, voluntary attention to the here-and-now; mindfulness</td></tr>
+<tr><td><strong>Self-as-Context</strong></td><td>Attachment to conceptualised self</td><td>Self-as-context</td><td>The observing self — a stable perspective from which to notice changing thoughts, feelings, and roles; "the sky, not the weather"</td></tr>
+<tr><td><strong>Values</strong></td><td>Lack of values clarity</td><td>Values</td><td>Chosen life directions that give meaning; not goals but ongoing directions</td></tr>
+<tr><td><strong>Committed Action</strong></td><td>Inaction/impulsivity/avoidance</td><td>Committed action</td><td>Concrete behaviours in service of values; includes willingness to fail and try again</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The hexaflex has two overarching processes: (1) Mindfulness and acceptance processes (acceptance, defusion, present moment, self-as-context) and (2) Commitment and behaviour change processes (values, committed action). The six processes are not sequential stages — they are interdependent and worked on simultaneously.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p>The hexaflex can be remembered as: "Accept thoughts (acceptance + defusion) while being here (present moment + self-as-context) and doing what matters (values + committed action)."</p></div>
+<h2>4.3 Key Techniques</h2>
+<p><strong>Creative hopelessness:</strong> The therapist helps the patient recognise that all prior attempts to control or eliminate unwanted internal experiences have failed — not because the patient was bad at it, but because the control agenda itself is the problem. This is not nihilism; it creates openness to an alternative approach.</p>
+<p><strong>Defusion techniques:</strong> "I'm having the thought that I'm worthless" (not "I'm worthless"); thanking your mind for the thought; singing intrusive thoughts to a silly tune; saying the thought slowly until it becomes just sounds; "leaves on a stream" exercise.</p>
+<p><strong>Values clarification:</strong> Identifying what truly matters across life domains (relationships, work, health, play, spirituality). Values are not goals — they are directions. You never "achieve" a value; you move toward it.</p>
+<p><strong>Committed action:</strong> Specific, concrete, values-consistent behaviour patterns. Includes exposure exercises, skills building, and goal-setting — similar to traditional CBT behavioural activation but explicitly linked to values rather than mood improvement.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>ACT does not aim to reduce symptoms. It aims to increase psychological flexibility. Symptom reduction may occur as a byproduct, but it is not the goal. This is a fundamental philosophical departure from both CBT and DBT, and exam questions sometimes test this distinction.</p></div>
+<h2>4.4 Evidence Base</h2>
+<table>
+<thead><tr><th>Condition</th><th>Evidence Level</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Chronic pain</td><td>Strong (multiple RCTs)</td><td>ACT superior to TAU and comparable to CBT; improvements in disability, pain interference</td></tr>
+<tr><td>Depression</td><td>Moderate (RCTs)</td><td>ACT comparable to CBT; mediational analyses support flexibility as mechanism</td></tr>
+<tr><td>Anxiety disorders</td><td>Moderate (RCTs)</td><td>ACT comparable to CBT; especially effective when experiential avoidance is prominent</td></tr>
+<tr><td>Psychosis</td><td>Emerging (RCTs)</td><td>ACT reduces rehospitalisation and distress associated with hallucinations</td></tr>
+<tr><td>Substance use</td><td>Emerging</td><td>ACT shows promise for smoking cessation and polysubstance use</td></tr>
+<tr><td>Transdiagnostic</td><td>Growing</td><td>ACT increasingly used as a transdiagnostic intervention; flexibility is dimension, not diagnosis-specific</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>A-Tjak et al. (2015, meta-analysis, Behaviour Research and Therapy) found ACT superior to control conditions across all outcomes and comparable to CBT. ACT showed particular strength when experiential avoidance was the primary maintaining factor.</p></div>
+<hr>
+<h1>5. MINDFULNESS-BASED COGNITIVE THERAPY (MBCT)</h1>
+<h2>5.1 Theoretical Foundation</h2>
+<p>MBCT was developed by Zindel Segal, Mark Williams, and John Teasdale specifically to prevent relapse in recurrent depression. It is not a general mindfulness programme — it has a precise theoretical rationale.</p>
+<p><strong>Differential activation hypothesis (Teasdale, 1988):</strong> In remitted depression, low mood can reactivate the specific cognitive patterns (negative automatic thoughts, rumination, hopelessness) that were present during the depressive episode. This reactivation occurs through associative memory networks — the more episodes a person has had, the less mood provocation is required to trigger the full depressive cognitive package. After three or more episodes, relapse can be triggered by normal sadness.</p>
+<p><strong>Rumination as mechanism:</strong> Rumination (repetitive, self-focused, analytical thinking about causes and consequences of distress) maintains and deepens depressive episodes. MBCT targets rumination not by changing thought content but by changing the mode of processing: from "doing mode" (goal-directed, discrepancy-monitoring, analytical) to "being mode" (present-focused, accepting, experiential).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MBCT works by preventing the "cognitive reactivation cascade" — the process by which mild dysphoria snowballs into full relapse through rumination. It does not treat acute depression. Its primary indication is relapse prevention in patients with three or more prior episodes of depression.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The "doing mode" vs. "being mode" distinction is central to MBCT. Doing mode monitors the gap between current state and desired state (discrepancy monitoring), which triggers more effortful processing, which deepens rumination. Being mode accepts current experience as it is, interrupting the discrepancy-monitoring loop.</p></div>
+<h2>5.2 The 8-Session Structure</h2>
+<table>
+<thead><tr><th>Session</th><th>Theme</th><th>Key Practices</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>Automatic pilot</td><td>Raisin exercise (mindful eating); body scan; recognising autopilot</td></tr>
+<tr><td><strong>2</strong></td><td>Dealing with barriers</td><td>Body scan; thoughts and feelings exercise; identifying wandering mind</td></tr>
+<tr><td><strong>3</strong></td><td>Mindfulness of the breath</td><td>Sitting meditation (breath focus); 3-minute breathing space; seeing/hearing exercise</td></tr>
+<tr><td><strong>4</strong></td><td>Staying present</td><td>Sitting meditation (breath + body); recognising aversion; "thoughts are not facts"</td></tr>
+<tr><td><strong>5</strong></td><td>Allowing/letting be</td><td>Sitting meditation (sounds, thoughts); exploring difficulty; working with aversion</td></tr>
+<tr><td><strong>6</strong></td><td>Thoughts are not facts</td><td>Sitting meditation (choiceless awareness); moods and alternative viewpoints</td></tr>
+<tr><td><strong>7</strong></td><td>How can I best take care of myself?</td><td>Links between activity and mood; nourishing vs. depleting activities; relapse signature; action plan</td></tr>
+<tr><td><strong>8</strong></td><td>Using what has been learned</td><td>Review of course; body scan; maintaining practice; relapse prevention plan</td></tr>
+</tbody>
+</table>
+
+<p><strong>The 3-Minute Breathing Space:</strong> The signature MBCT micro-practice, taught from Session 3 and used throughout.</p>
+<ul>
+  <li>Minute 1: Awareness — "What is my experience right now?" (thoughts, feelings, body sensations)</li>
+  <li>Minute 2: Gathering — Narrow attention to the breath</li>
+  <li>Minute 3: Expanding — Expand awareness to the whole body and the present moment</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The 3-minute breathing space is used both as a scheduled practice (3x daily) and as a "coping" breathing space (when noticing the beginnings of rumination or mood shift). It is the bridge between formal meditation and daily life — the most clinically important MBCT practice.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>MBCT is delivered as a group programme (12-15 participants) over 8 weeks with daily homework (45 minutes of formal practice + informal practice). It is not individual therapy. The group format is essential — it normalises the experience and creates a community of practice.</p></div>
+<h2>5.3 Evidence Base</h2>
+<table>
+<thead><tr><th>Study</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>Teasdale et al. (2000)</td><td>MBCT reduced relapse by 44% in patients with 3+ prior episodes vs. TAU; no benefit for 1-2 episodes</td></tr>
+<tr><td>Ma & Teasdale (2004)</td><td>Replicated: MBCT halved relapse risk for 3+ episodes; specific to those with childhood adversity</td></tr>
+<tr><td>Kuyken et al. (2008)</td><td>MBCT comparable to maintenance antidepressant medication for relapse prevention</td></tr>
+<tr><td>Kuyken et al. (2015)</td><td>MINDFUL trial (RCT, n=424): MBCT with tapering antidepressants non-inferior to maintenance antidepressants over 24 months</td></tr>
+<tr><td>NICE (2009, updated 2022)</td><td>MBCT recommended for recurrent depression (3+ episodes) as relapse prevention</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MBCT is effective specifically for patients with three or more prior depressive episodes. Teasdale et al. (2000) found NO benefit for patients with only 1-2 episodes. The differential activation hypothesis explains this: with fewer episodes, relapse is driven more by life events than by cognitive reactivation, so a cognitive intervention adds less.</p></div>
+<hr>
+<h1>6. COMPASSION-FOCUSED THERAPY (CFT)</h1>
+<h2>6.1 Theoretical Foundation</h2>
+<p>CFT was developed by Paul Gilbert for patients with high shame and self-criticism — particularly those who can generate alternative thoughts cognitively but cannot feel reassured by them. Gilbert's key insight: understanding intellectually that you are not worthless does not reduce shame if the emotional system generating shame is not also addressed.</p>
+<h2>6.2 Three Emotion Regulation Systems</h2>
+<table>
+<thead><tr><th>System</th><th>Function</th><th>Affect</th><th>Neurobiology</th><th>Pathology When Dominant</th></tr></thead>
+<tbody>
+<tr><td><strong>Threat/Protection</strong></td><td>Detect and respond to danger</td><td>Anxiety, anger, disgust, shame</td><td>Amygdala, HPA axis, SNS</td><td>Anxiety disorders, PTSD, OCD, shame-based conditions</td></tr>
+<tr><td><strong>Drive/Resource-Seeking</strong></td><td>Pursue goals, rewards, and resources</td><td>Excitement, anticipation, pleasure</td><td>Dopamine circuits, nucleus accumbens</td><td>Mania, addiction, narcissism, workaholism</td></tr>
+<tr><td><strong>Soothing/Affiliation</strong></td><td>Calm, connect, feel safe</td><td>Contentment, safety, connection</td><td>Oxytocin, endorphins, vagal tone</td><td>Inadequately developed in high-shame patients</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The core pathology in CFT's model is an underdeveloped soothing/affiliation system combined with an overactive threat system. Many patients oscillate between threat (anxiety, self-criticism) and drive (achievement, perfectionism) without ever accessing soothing. Traditional CBT addresses the threat system (cognitive restructuring of threats) but does not build the soothing system.</p></div>
+<h2>6.3 Compassionate Mind Training</h2>
+<p>CFT uses specific exercises to activate and strengthen the soothing/affiliation system:</p>
+<ul>
+  <li><strong>Compassionate imagery:</strong> Creating a detailed image of an ideal compassionate figure (wise, strong, warm, non-judgmental) and practising receiving compassion from this figure</li>
+  <li><strong>Compassionate self:</strong> Developing an inner compassionate voice — not just correcting distorted thoughts but speaking to oneself with warmth, understanding, and encouragement</li>
+  <li><strong>Compassion-focused exposure:</strong> Approaching feared situations while deliberately activating the soothing system rather than relying on threat-system coping</li>
+  <li><strong>Fears of compassion:</strong> Many patients actively resist self-compassion (fear of self-indulgence, grief about unmet needs, belief they do not deserve it). These fears are directly addressed as therapy targets</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>CFT is especially indicated when standard CBT cognitive restructuring produces intellectual change without emotional change — "I know I'm not worthless but I still feel it." This gap between head and heart is the signal that the soothing system needs building, not just the threat system needs correcting.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Gilbert identified three "flows" of compassion: compassion for others, compassion from others, and self-compassion. Many patients can feel compassion for others but cannot receive it or generate it for themselves. The "flows" help identify where the blockage lies.</p></div>
+<hr>
+<h1>7. COMPARISON TABLE</h1>
+<h2>7.1 Third-Wave Therapies Compared</h2>
+<table>
+<thead><tr><th>Dimension</th><th>DBT</th><th>Schema Therapy</th><th>ACT</th><th>MBCT</th><th>CFT</th></tr></thead>
+<tbody>
+<tr><td><strong>Founder</strong></td><td>Linehan (1993)</td><td>Young (1990/2003)</td><td>Hayes (1999)</td><td>Segal, Williams, Teasdale (2002)</td><td>Gilbert (2005)</td></tr>
+<tr><td><strong>Theoretical basis</strong></td><td>Biosocial model + dialectics + Zen</td><td>Unmet childhood needs &rarr; EMSs; attachment theory</td><td>RFT; functional contextualism</td><td>Differential activation; cognitive vulnerability to relapse</td><td>Evolutionary psychology; three emotion regulation systems</td></tr>
+<tr><td><strong>Core concept</strong></td><td>Acceptance + change</td><td>Early Maladaptive Schemas and modes</td><td>Psychological flexibility</td><td>Mindful awareness preventing cognitive reactivation</td><td>Compassion as antidote to shame</td></tr>
+<tr><td><strong>Primary target</strong></td><td>Emotional dysregulation; suicidality</td><td>Characterological patterns; personality disorders</td><td>Experiential avoidance; psychological inflexibility</td><td>Depressive relapse (3+ episodes)</td><td>High shame; self-criticism</td></tr>
+<tr><td><strong>Format</strong></td><td>Individual + group + phone + consult team</td><td>Individual (1-2x/week); some group adaptations</td><td>Individual or group</td><td>8-session group programme</td><td>Individual or group</td></tr>
+<tr><td><strong>Duration</strong></td><td>1 year (standard); 24 weeks (adolescent)</td><td>1-3 years (personality disorders)</td><td>8-16 sessions typically</td><td>8 weeks</td><td>12-20 sessions typically</td></tr>
+<tr><td><strong>Therapeutic relationship</strong></td><td>Dialectical: validation + problem-solving</td><td>Limited reparenting + empathic confrontation</td><td>Functional; therapist models flexibility</td><td>Group facilitator; teacher</td><td>Compassionate; models warmth/non-judgment</td></tr>
+<tr><td><strong>Key techniques</strong></td><td>Skills training, chain analysis, diary card, validation</td><td>Imagery rescripting, chair work, flash cards, pattern-breaking</td><td>Defusion, values clarification, creative hopelessness, committed action</td><td>Mindfulness meditation, body scan, 3-minute breathing space</td><td>Compassionate imagery, compassionate self, fears of compassion</td></tr>
+<tr><td><strong>Mindfulness role</strong></td><td>Core module; gateway skill</td><td>Not central; used in some adaptations</td><td>Present-moment awareness (1 of 6 processes)</td><td>Central and defining</td><td>Embedded in compassionate awareness practices</td></tr>
+<tr><td><strong>Evidence level</strong></td><td>Strong (multiple RCTs for BPD, self-harm, suicidality)</td><td>Strong for BPD (Giesen-Bloo 2006); growing for other PDs</td><td>Moderate-strong across multiple conditions</td><td>Strong for recurrent depression relapse prevention</td><td>Growing; moderate evidence for shame-based presentations</td></tr>
+<tr><td><strong>Primary populations</strong></td><td>BPD, suicidal/self-harming, emotion dysregulation</td><td>Personality disorders, chronic Axis I, treatment-resistant</td><td>Chronic pain, anxiety, depression, transdiagnostic</td><td>Recurrent depression (3+ episodes)</td><td>High shame, self-criticism, complex trauma</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When comparing third-wave therapies, the key discriminating features are: (1) DBT = acceptance + change dialectic + skills training, (2) ST = childhood schemas + limited reparenting + experiential techniques, (3) ACT = psychological flexibility + defusion + values, (4) MBCT = mindfulness + relapse prevention for recurrent depression, (5) CFT = three emotion systems + compassion training for shame. If the question describes a patient with high shame who can think rationally but not feel it, the answer is CFT. If recurrent depression with rumination, MBCT. If chronic BPD with suicidality, DBT. If deep characterological patterns from childhood, ST.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>All third-wave therapies share: (1) acceptance-based stance, (2) emphasis on process over content, (3) attention to the therapeutic relationship, (4) mindfulness (in varying degrees), (5) focus on function rather than form of behaviour. They differ in: theoretical basis, primary target population, specific techniques, and the role of mindfulness.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In clinical practice, these therapies are often integrated rather than delivered in pure form. DBT skills are used in Schema Therapy as "temporary bridges" for self-harm and dissociation. ACT's defusion techniques complement CBT's cognitive restructuring. CFT's compassionate imagery can be incorporated into Schema Therapy's limited reparenting framework. The clinical skill is knowing which approach best fits the patient's presentation and phase of treatment.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+  <li>Arntz A, Jacob G. Schema Therapy in Practice. Wiley-Blackwell; 2013.</li>
+  <li>Bamelis LLM, Evers SMAA, Spinhoven P, Arntz A. Results of a multicenter randomized controlled trial of the clinical effectiveness of schema therapy for personality disorders. Am J Psychiatry. 2014;171(3):305-322.</li>
+  <li>Giesen-Bloo J, van Dyck R, Spinhoven P, et al. Outpatient psychotherapy for borderline personality disorder: randomized trial of schema-focused therapy vs transference-focused psychotherapy. Arch Gen Psychiatry. 2006;63(6):649-658.</li>
+  <li>Gilbert P. Compassion Focused Therapy: Distinctive Features. Routledge; 2010.</li>
+  <li>Hayes SC. Acceptance and commitment therapy, relational frame theory, and the third wave of behavioral and cognitive therapies. Behav Ther. 2004;35(4):639-665.</li>
+  <li>Hayes SC, Strosahl KD, Wilson KG. Acceptance and Commitment Therapy: The Process and Practice of Mindful Change. 2nd ed. Guilford Press; 2012.</li>
+  <li>Kuyken W, Hayes R, Barrett B, et al. Effectiveness and cost-effectiveness of mindfulness-based cognitive therapy compared with maintenance antidepressant treatment in the prevention of depressive relapse or recurrence (PREVENT). Lancet. 2015;386(9988):63-73.</li>
+  <li>Linehan MM. DBT Skills Training Manual. 2nd ed. Guilford Press; 2015.</li>
+  <li>Linehan MM, Armstrong HE, Suarez A, Allmon D, Heard HL. Cognitive-behavioral treatment of chronically parasuicidal borderline patients. Arch Gen Psychiatry. 1991;48(12):1060-1064.</li>
+  <li>Mehlum L, Tormoen AJ, Ramberg M, et al. Dialectical behavior therapy for adolescents with repeated suicidal and self-harming behavior: a randomized trial. J Am Acad Child Adolesc Psychiatry. 2014;53(10):1082-1091.</li>
+  <li>Rathus JH, Miller AL. DBT Skills Manual for Adolescents. Guilford Press; 2015.</li>
+  <li>Segal ZV, Williams JMG, Teasdale JD. Mindfulness-Based Cognitive Therapy for Depression. 2nd ed. Guilford Press; 2013.</li>
+  <li>Teasdale JD, Segal ZV, Williams JMG, et al. Prevention of relapse/recurrence in major depression by mindfulness-based cognitive therapy. J Consult Clin Psychol. 2000;68(4):615-623.</li>
+  <li>Young JE, Klosko JS, Weishaar ME. Schema Therapy: A Practitioner's Guide. Guilford Press; 2003.</li>
+</ol>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Third-Wave Therapies &mdash; Weave Psychotherapy Vol. 6</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 6 | Third-Wave Therapies</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Third-Wave Therapies — Quick Reference</h1>
+<hr>
+<h2>1. Third-Wave Therapies at a Glance</h2>
+<table>
+<thead><tr><th>Wave</th><th>Era</th><th>Core Idea</th><th>Key Therapies</th></tr></thead>
+<tbody>
+<tr><td><strong>First</strong></td><td>1950s-1970s</td><td>Modify observable behaviour via conditioning</td><td>Systematic desensitisation, token economies, exposure</td></tr>
+<tr><td><strong>Second</strong></td><td>1970s-1990s</td><td>Identify and change distorted cognitions</td><td>CBT (Beck), REBT (Ellis)</td></tr>
+<tr><td><strong>Third</strong></td><td>1990s-present</td><td>Change relationship to thoughts; acceptance + mindfulness + values</td><td>DBT, ST, ACT, MBCT, CFT, MCT, FAP, BA</td></tr>
+</tbody>
+</table>
+
+<p><strong>Third-wave shared features:</strong> Acceptance over control, mindfulness, values-driven behaviour, therapeutic relationship as active ingredient, metacognition, contextual sensitivity.</p>
+<hr>
+<h2>2. DBT Skills Master Table</h2>
+<h3>Core Mindfulness</h3>
+<table>
+<thead><tr><th>Skill</th><th>Type</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Wise Mind</td><td>State of Mind</td><td>Synthesis of Emotional Mind and Reasonable Mind; intuitive knowing</td></tr>
+<tr><td>Observe</td><td>"What" Skill</td><td>Notice experience without words; "Teflon mind"</td></tr>
+<tr><td>Describe</td><td>"What" Skill</td><td>Put words on observations; stick to facts</td></tr>
+<tr><td>Participate</td><td>"What" Skill</td><td>Fully engage in activity; "in the zone"</td></tr>
+<tr><td>Non-judgmentally</td><td>"How" Skill</td><td>Notice without evaluating as good/bad</td></tr>
+<tr><td>One-mindfully</td><td>"How" Skill</td><td>Do one thing at a time</td></tr>
+<tr><td>Effectively</td><td>"How" Skill</td><td>Do what works; let go of "right" vs. "wrong"</td></tr>
+</tbody>
+</table>
+
+<h3>Distress Tolerance — Crisis Survival</h3>
+<table>
+<thead><tr><th>Skill</th><th>Components</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td><strong>TIPP</strong></td><td>Temperature (dive reflex), Intense exercise, Paced breathing, Progressive relaxation</td><td>Red-zone rapid downregulation</td></tr>
+<tr><td><strong>STOP</strong></td><td>Stop, Take a step back, Observe, Proceed mindfully</td><td>Impulse control before acting</td></tr>
+<tr><td><strong>ACCEPTS</strong></td><td>Activities, Contributing, Comparisons, Emotions, Pushing away, Thoughts, Sensations</td><td>Distraction (done mindfully)</td></tr>
+<tr><td><strong>Self-Soothe</strong></td><td>Vision, Hearing, Touch, Smell, Taste, Movement</td><td>Sensory comfort</td></tr>
+<tr><td><strong>IMPROVE</strong></td><td>Imagery, Meaning, Prayer, Relaxation, One thing, Vacation, Encouragement</td><td>In-the-moment coping</td></tr>
+<tr><td><strong>Pros and Cons</strong></td><td>Weigh acting on urge vs. using skills; label short-term/long-term</td><td>Crisis decision-making</td></tr>
+</tbody>
+</table>
+
+<h3>Distress Tolerance — Reality Acceptance</h3>
+<table>
+<thead><tr><th>Skill</th><th>Core Principle</th></tr></thead>
+<tbody>
+<tr><td>Radical Acceptance</td><td>Accept reality as it is; Pain + Non-acceptance = Suffering</td></tr>
+<tr><td>Turning the Mind</td><td>Repeated choice to accept; not one decision but ongoing practice</td></tr>
+<tr><td>Willingness vs. Willfulness</td><td>Willingness = doing what is needed; Willfulness = refusing to engage</td></tr>
+<tr><td>Half-Smile</td><td>Subtle facial relaxation; behavioural cue for acceptance</td></tr>
+</tbody>
+</table>
+
+<h3>Emotion Regulation</h3>
+<table>
+<thead><tr><th>Skill</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>ABC PLEASE</strong></td><td>Accumulate positives, Build mastery, Cope ahead + PhysicaL illness, Eating, Avoid substances, Sleep, Exercise</td></tr>
+<tr><td><strong>Check the Facts</strong></td><td>Is the emotion fitting the facts? Is the interpretation accurate?</td></tr>
+<tr><td><strong>Opposite Action</strong></td><td>Act opposite to urge — all the way — when emotion does not fit facts</td></tr>
+<tr><td><strong>Problem Solving</strong></td><td>When emotion fits facts, solve the problem systematically</td></tr>
+<tr><td><strong>The Wave</strong></td><td>Observe emotion as a wave; do not fight, do not hold; let it pass</td></tr>
+<tr><td><strong>Model of Emotions</strong></td><td>Vulnerability &rarr; Event &rarr; Interpretation &rarr; Response &rarr; Aftereffects</td></tr>
+</tbody>
+</table>
+
+<p><strong>Opposite Action Quick Card:</strong></p>
+<table>
+<thead><tr><th>Emotion</th><th>Urge</th><th>Opposite</th></tr></thead>
+<tbody>
+<tr><td>Fear</td><td>Avoid</td><td>Approach; confront repeatedly</td></tr>
+<tr><td>Anger</td><td>Attack</td><td>Avoid; approach with empathy</td></tr>
+<tr><td>Sadness</td><td>Withdraw</td><td>Get active; engage</td></tr>
+<tr><td>Shame (unjustified)</td><td>Hide</td><td>Go public; stand tall</td></tr>
+<tr><td>Shame (justified)</td><td>Hide</td><td>Accept responsibility; repair</td></tr>
+<tr><td>Guilt (justified)</td><td>Beg</td><td>Apologise once; make amends</td></tr>
+<tr><td>Guilt (unjustified)</td><td>Over-apologise</td><td>Do not apologise; let go</td></tr>
+<tr><td>Jealousy</td><td>Control</td><td>Do not act on it; engage elsewhere</td></tr>
+</tbody>
+</table>
+
+<h3>Interpersonal Effectiveness</h3>
+<table>
+<thead><tr><th>Skill</th><th>Goal</th><th>Components</th></tr></thead>
+<tbody>
+<tr><td><strong>DEAR MAN</strong></td><td>Get what you want / say no</td><td>Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate</td></tr>
+<tr><td><strong>GIVE</strong></td><td>Maintain relationship</td><td>Gentle, Interested, Validate, Easy manner</td></tr>
+<tr><td><strong>FAST</strong></td><td>Maintain self-respect</td><td>Fair, no Apologies, Stick to values, Truthful</td></tr>
+<tr><td><strong>THINK</strong></td><td>Reduce hostile attributions (adolescent)</td><td>Think, Have empathy, Interpretations, Notice, Kindness</td></tr>
+</tbody>
+</table>
+
+<h3>Walking the Middle Path (Adolescent DBT Only)</h3>
+<table>
+<thead><tr><th>Component</th><th>Key Points</th></tr></thead>
+<tbody>
+<tr><td>Dialectics</td><td>"Both/and" not "either/or"; find kernel of truth; no absolute truth</td></tr>
+<tr><td>Validation</td><td>6 levels; validate the valid, not the invalid</td></tr>
+<tr><td>Behaviour Change</td><td>Reinforcement, shaping, extinction; expect behavioural burst</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>3. DBT Mnemonics Collection</h2>
+<table>
+<thead><tr><th>Mnemonic</th><th>Full Form</th><th>Module</th></tr></thead>
+<tbody>
+<tr><td>DEAR MAN</td><td>Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate</td><td>IE</td></tr>
+<tr><td>GIVE</td><td>Gentle, Interested, Validate, Easy manner</td><td>IE</td></tr>
+<tr><td>FAST</td><td>Fair, no Apologies, Stick to values, Truthful</td><td>IE</td></tr>
+<tr><td>THINK</td><td>Think, Have empathy, Interpretations, Notice, Kindness</td><td>IE (adolescent)</td></tr>
+<tr><td>TIPP</td><td>Temperature, Intense exercise, Paced breathing, Progressive relaxation</td><td>DT</td></tr>
+<tr><td>STOP</td><td>Stop, Take a step back, Observe, Proceed mindfully</td><td>DT</td></tr>
+<tr><td>ACCEPTS</td><td>Activities, Contributing, Comparisons, Emotions, Pushing away, Thoughts, Sensations</td><td>DT</td></tr>
+<tr><td>IMPROVE</td><td>Imagery, Meaning, Prayer, Relaxation, One thing, Vacation, Encouragement</td><td>DT</td></tr>
+<tr><td>ABC PLEASE</td><td>Accumulate positives, Build mastery, Cope ahead, PhysicaL illness, Eating, Avoid substances, Sleep, Exercise</td><td>ER</td></tr>
+<tr><td>WAVE</td><td>(metaphor — emotion as wave)</td><td>ER</td></tr>
+</tbody>
+</table>
+
+<p><strong>Module key:</strong> IE = Interpersonal Effectiveness, DT = Distress Tolerance, ER = Emotion Regulation</p>
+<hr>
+<h2>4. Schema Therapy — 18 EMSs Table</h2>
+<table>
+<thead><tr><th>#</th><th>Domain</th><th>Schema</th><th>Core Belief</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>I. Disconnection & Rejection</td><td>Abandonment/Instability</td><td>"People I love will leave or be unpredictable"</td></tr>
+<tr><td>2</td><td>Mistrust/Abuse</td><td>"Others will hurt, exploit, or betray me"</td></tr>
+<tr><td>3</td><td>Emotional Deprivation</td><td>"My emotional needs will never be met"</td></tr>
+<tr><td>4</td><td>Defectiveness/Shame</td><td>"I am fundamentally flawed and unlovable"</td></tr>
+<tr><td>5</td><td>Social Isolation</td><td>"I don't belong; I am different"</td></tr>
+<tr><td>6</td><td>II. Impaired Autonomy</td><td>Dependence/Incompetence</td><td>"I cannot handle life without help"</td></tr>
+<tr><td>7</td><td>Vulnerability to Harm</td><td>"Catastrophe is imminent and unpreventable"</td></tr>
+<tr><td>8</td><td>Enmeshment</td><td>"I have no identity apart from others"</td></tr>
+<tr><td>9</td><td>Failure</td><td>"I am stupid, inept, and will always fail"</td></tr>
+<tr><td>10</td><td>III. Impaired Limits</td><td>Entitlement/Grandiosity</td><td>"I am superior; rules don't apply to me"</td></tr>
+<tr><td>11</td><td>Insufficient Self-Control</td><td>"I cannot tolerate frustration or control impulses"</td></tr>
+<tr><td>12</td><td>IV. Other-Directedness</td><td>Subjugation</td><td>"I must submit or face punishment/abandonment"</td></tr>
+<tr><td>13</td><td>Self-Sacrifice</td><td>"I must meet others' needs at my expense"</td></tr>
+<tr><td>14</td><td>Approval-Seeking</td><td>"I need approval to feel worthy"</td></tr>
+<tr><td>15</td><td>V. Overvigilance & Inhibition</td><td>Negativity/Pessimism</td><td>"Things will go wrong"</td></tr>
+<tr><td>16</td><td>Emotional Inhibition</td><td>"I must suppress emotions"</td></tr>
+<tr><td>17</td><td>Unrelenting Standards</td><td>"I must be perfect"</td></tr>
+<tr><td>18</td><td>Punitiveness</td><td>"Mistakes deserve harsh punishment"</td></tr>
+</tbody>
+</table>
+
+<p><strong>Domain distribution:</strong> 5-4-2-3-4</p>
+<p><strong>Five core emotional needs:</strong> (1) Secure attachment, (2) Autonomy and competence, (3) Freedom to express needs/emotions, (4) Spontaneity and play, (5) Realistic limits and self-control</p>
+<table>
+<thead><tr><th><strong>Three coping styles:</strong> Surrender (Freeze)</th><th>Avoidance (Flight)</th><th>Overcompensation (Fight)</th></tr></thead>
+<tbody>
+</table>
+
+<hr>
+<h2>5. Schema Modes Table</h2>
+<h3>Young (2003) — Original 10 Modes</h3>
+<table>
+<thead><tr><th>Category</th><th>Mode</th></tr></thead>
+<tbody>
+<tr><td>Child</td><td>Vulnerable Child, Angry Child, Impulsive/Undisciplined Child, Happy Child</td></tr>
+<tr><td>Coping</td><td>Compliant Surrenderer, Detached Protector, Overcompensator</td></tr>
+<tr><td>Parent</td><td>Punitive Parent, Demanding Parent</td></tr>
+<tr><td>Healthy</td><td>Healthy Adult</td></tr>
+</tbody>
+</table>
+
+<h3>Arntz & Jacob (2013) — Expanded 18+ Modes</h3>
+<table>
+<thead><tr><th>Category</th><th>Modes</th></tr></thead>
+<tbody>
+<tr><td><strong>Child — Vulnerability</strong></td><td>Lonely, Abandoned/abused, Humiliated/inferior, Dependent</td></tr>
+<tr><td><strong>Child — Anger</strong></td><td>Angry, Obstinate, Enraged</td></tr>
+<tr><td><strong>Child — Discipline</strong></td><td>Impulsive, Undisciplined</td></tr>
+<tr><td><strong>Parent</strong></td><td>Punitive, Demanding</td></tr>
+<tr><td><strong>Coping — Surrender</strong></td><td>Compliant surrender</td></tr>
+<tr><td><strong>Coping — Avoidance</strong></td><td>Detached protector, Avoidant protector, Angry protector, Detached self-soother</td></tr>
+<tr><td><strong>Coping — Overcompensation</strong></td><td>Self-aggrandiser, Attention-seeker, Perfectionistic overcontroller, Paranoid overcontroller, Bully & attack, Conning/manipulative, Predator</td></tr>
+<tr><td><strong>Healthy</strong></td><td>Happy child, Healthy adult</td></tr>
+</tbody>
+</table>
+
+<h3>BPD Mode Model (4 core modes)</h3>
+<ol>
+  <li>Abandoned/abused child (abandonment fear, helplessness)</li>
+  <li>Angry/impulsive child (rage, impulsive need fulfilment)</li>
+  <li>Punitive parent (extreme self-hatred — the signature BPD mode)</li>
+  <li>Detached protector (emotional shutdown, dissociation)</li>
+</ol>
+
+<h3>NPD Mode Model (3 core modes)</h3>
+<ol>
+  <li>Lonely child (Emotional Deprivation + Defectiveness)</li>
+  <li>Self-aggrandiser (Entitlement as overcompensation)</li>
+  <li>Detached self-soother (avoidance through addictive/compulsive activities)</li>
+</ol>
+
+<hr>
+<h2>6. ACT Hexaflex Quick Card</h2>
+<table>
+<thead><tr><th>Process</th><th>Inflexible Pole</th><th>Flexible Pole</th><th>In One Sentence</th></tr></thead>
+<tbody>
+<tr><td>Acceptance</td><td>Experiential avoidance</td><td>Acceptance</td><td>Have unwanted experiences without trying to escape them</td></tr>
+<tr><td>Defusion</td><td>Cognitive fusion</td><td>Defusion</td><td>See thoughts as thoughts, not as facts</td></tr>
+<tr><td>Present Moment</td><td>Past/future dominance</td><td>Present awareness</td><td>Flexible attention to the here-and-now</td></tr>
+<tr><td>Self-as-Context</td><td>Conceptualised self</td><td>Observing self</td><td>"I am the sky, not the weather"</td></tr>
+<tr><td>Values</td><td>Lack of clarity</td><td>Chosen directions</td><td>What truly matters across life domains</td></tr>
+<tr><td>Committed Action</td><td>Inaction/avoidance</td><td>Values-consistent action</td><td>Concrete behaviours serving values</td></tr>
+</tbody>
+</table>
+
+<p><strong>Two overarching clusters:</strong></p>
+<ul>
+  <li>Mindfulness and acceptance: Acceptance + Defusion + Present Moment + Self-as-Context</li>
+  <li>Commitment and change: Values + Committed Action</li>
+</ul>
+
+<p><strong>Key ACT techniques:</strong> Creative hopelessness, defusion exercises ("I'm having the thought that..."), values clarification, committed action patterns, "leaves on a stream" exercise.</p>
+<p><strong>Core distinction from CBT:</strong> ACT does not aim to change thought content. It aims to change the relationship to thoughts. Symptom reduction is a byproduct, not a goal.</p>
+<hr>
+<h2>7. MBCT Session Structure</h2>
+<table>
+<thead><tr><th>Session</th><th>Theme</th><th>Key Practice</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Automatic pilot</td><td>Raisin exercise; body scan</td></tr>
+<tr><td>2</td><td>Dealing with barriers</td><td>Body scan; wandering mind</td></tr>
+<tr><td>3</td><td>Mindfulness of breath</td><td>Sitting meditation; 3-minute breathing space</td></tr>
+<tr><td>4</td><td>Staying present</td><td>Breath + body meditation; "thoughts are not facts"</td></tr>
+<tr><td>5</td><td>Allowing/letting be</td><td>Sounds and thoughts meditation; working with aversion</td></tr>
+<tr><td>6</td><td>Thoughts are not facts</td><td>Choiceless awareness; alternative viewpoints</td></tr>
+<tr><td>7</td><td>Self-care</td><td>Nourishing vs. depleting activities; relapse signature; action plan</td></tr>
+<tr><td>8</td><td>Maintaining practice</td><td>Review; body scan; relapse prevention plan</td></tr>
+</tbody>
+</table>
+
+<p><strong>3-Minute Breathing Space:</strong></p>
+<ul>
+  <li>Minute 1: Awareness — "What is my experience right now?"</li>
+  <li>Minute 2: Gathering — Narrow to breath</li>
+  <li>Minute 3: Expanding — Whole body and present moment</li>
+</ul>
+
+<p><strong>Mechanism:</strong> Doing mode (discrepancy monitoring &rarr; rumination) &rarr; Being mode (present-focused acceptance)</p>
+<p><strong>Indication:</strong> Relapse prevention for recurrent depression (3+ episodes). NOT for acute depression. No benefit for 1-2 episodes.</p>
+<hr>
+<h2>8. Comparison: All Third-Wave Therapies</h2>
+<table>
+<thead><tr><th>Dimension</th><th>DBT</th><th>Schema Therapy</th><th>ACT</th><th>MBCT</th><th>CFT</th></tr></thead>
+<tbody>
+<tr><td><strong>Founder</strong></td><td>Linehan</td><td>Young</td><td>Hayes</td><td>Segal/Williams/Teasdale</td><td>Gilbert</td></tr>
+<tr><td><strong>Year</strong></td><td>1993</td><td>1990/2003</td><td>1999</td><td>2002</td><td>2005</td></tr>
+<tr><td><strong>Core concept</strong></td><td>Acceptance + change</td><td>EMSs + modes</td><td>Psychological flexibility</td><td>Mindful awareness vs. relapse</td><td>Compassion vs. shame</td></tr>
+<tr><td><strong>Primary target</strong></td><td>BPD, suicidality</td><td>Personality disorders</td><td>Experiential avoidance</td><td>Recurrent depression</td><td>High shame, self-criticism</td></tr>
+<tr><td><strong>Theory base</strong></td><td>Biosocial + dialectics</td><td>Attachment + unmet needs</td><td>RFT</td><td>Differential activation</td><td>Evolutionary psychology</td></tr>
+<tr><td><strong>Format</strong></td><td>4 modes (individual + group + phone + consult)</td><td>Individual (1-2x/week)</td><td>Individual or group</td><td>8-session group</td><td>Individual or group</td></tr>
+<tr><td><strong>Duration</strong></td><td>1 year (24 weeks adolescent)</td><td>1-3 years</td><td>8-16 sessions</td><td>8 weeks</td><td>12-20 sessions</td></tr>
+<tr><td><strong>Relationship</strong></td><td>Dialectical: validate + push</td><td>Limited reparenting + empathic confrontation</td><td>Models flexibility</td><td>Group facilitator</td><td>Models compassion</td></tr>
+<tr><td><strong>Mindfulness</strong></td><td>Core module</td><td>Not central</td><td>1 of 6 processes</td><td>Central/defining</td><td>Embedded</td></tr>
+<tr><td><strong>Evidence</strong></td><td>Strong (BPD, self-harm)</td><td>Strong (BPD); growing (other PDs)</td><td>Moderate-strong (transdiagnostic)</td><td>Strong (recurrent depression)</td><td>Growing</td></tr>
+<tr><td><strong>Key technique</strong></td><td>Skills + chain analysis + diary card</td><td>IR + chair work + flash cards</td><td>Defusion + values + committed action</td><td>Meditation + 3-min breathing</td><td>Compassionate imagery</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>9. Evidence Snapshot</h2>
+<table>
+<thead><tr><th>Therapy</th><th>Landmark Study</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td><strong>DBT</strong></td><td>Linehan et al. (1991) Arch Gen Psychiatry</td><td>First RCT: DBT superior to TAU for BPD; fewer suicide attempts, less self-harm</td></tr>
+<tr><td><strong>DBT</strong></td><td>Linehan et al. (2006)</td><td>DBT halved suicide attempts vs. community experts</td></tr>
+<tr><td><strong>DBT (adolescent)</strong></td><td>Mehlum et al. (2014) JAACAP</td><td>Adolescent DBT superior to enhanced usual care for self-harm</td></tr>
+<tr><td><strong>ST</strong></td><td>Giesen-Bloo et al. (2006) Arch Gen Psychiatry</td><td>ST superior to TFP for BPD; higher recovery, lower dropout</td></tr>
+<tr><td><strong>ST</strong></td><td>Nadort et al. (2009)</td><td>No benefit from crisis phone support; removed from protocol</td></tr>
+<tr><td><strong>ST</strong></td><td>Bamelis et al. (2014) Am J Psychiatry</td><td>ST effective for Cluster C PDs and paranoid PD</td></tr>
+<tr><td><strong>ACT</strong></td><td>A-Tjak et al. (2015) Behav Res Ther</td><td>Meta-analysis: ACT superior to controls, comparable to CBT</td></tr>
+<tr><td><strong>MBCT</strong></td><td>Teasdale et al. (2000) JCCP</td><td>MBCT reduced relapse 44% for 3+ episodes; no benefit for 1-2</td></tr>
+<tr><td><strong>MBCT</strong></td><td>Kuyken et al. (2015) Lancet</td><td>MBCT non-inferior to maintenance antidepressants</td></tr>
+<tr><td><strong>CFT</strong></td><td>Gilbert (2010, 2014)</td><td>Growing RCT evidence for shame-based presentations</td></tr>
+</tbody>
+</table>
+
+<p><strong>Medication interaction:</strong> Giesen-Bloo et al. (2006) — sedatives/benzodiazepines significantly reduced ST effectiveness in BPD (blocks emotional processing needed for IR).</p>
+<hr>
+<h2>10. Viva Questions</h2>
+<h3>Q1. What distinguishes third-wave therapies from second-wave CBT?</h3>
+<p>Third-wave therapies change the patient's relationship to thoughts rather than the content of thoughts. They emphasise acceptance over control, incorporate mindfulness, attend to values and meaning, use the therapeutic relationship as an active change mechanism, and work at the metacognitive or process level. Second-wave CBT focuses on identifying and modifying distorted cognitions through logical analysis and behavioural experiments.</p>
+<h3>Q2. Describe the biosocial model in DBT.</h3>
+<p>Chronic emotional dysregulation arises from a transactional interaction between biological vulnerability (high sensitivity, high reactivity, slow return to baseline) and a pervasively invalidating environment (punishing emotions, reinforcing only extremes, oversimplifying solutions). The model is transactional — the child's sensitivity shapes the environment's response and vice versa, creating escalating cycles. The model is de-shaming: problems are not the patient's fault, but they are their responsibility.</p>
+<h3>Q3. What is the DBT target hierarchy and why does it matter?</h3>
+<p>In Stage 1 individual therapy: (1) life-threatening behaviours, (2) therapy-interfering behaviours, (3) quality-of-life-interfering behaviours, (4) increasing skills. The hierarchy is absolute — if suicidal behaviour occurred this week, it is addressed before everything else, regardless of what the patient wants to discuss. This prevents avoidance of lethal risk and ensures systematic progress.</p>
+<h3>Q4. Name all six DBT validation levels.</h3>
+<p>(1) Unbiased listening, (2) Accurate reflection, (3) Mind-reading (articulating unspoken experiences), (4) Validation by past history, (5) Validation by current context (the heart of DBT validation — normalising the response), (6) Radical genuineness (treating the person as a capable equal). Level 5 is the most important clinically; Level 6 is the highest and most challenging.</p>
+<h3>Q5. List the 5 schema domains and give one schema from each.</h3>
+<p>(1) Disconnection & Rejection — e.g., Abandonment; (2) Impaired Autonomy & Performance — e.g., Dependence/Incompetence; (3) Impaired Limits — e.g., Entitlement; (4) Other-Directedness — e.g., Self-Sacrifice; (5) Overvigilance & Inhibition — e.g., Unrelenting Standards. Distribution: 5-4-2-3-4 schemas per domain.</p>
+<h3>Q6. Explain the difference between schemas and modes in Schema Therapy.</h3>
+<p>Schemas are traits — stable, pervasive patterns of memories, emotions, cognitions, and bodily sensations. Modes are states — the moment-to-moment emotional states and coping responses currently active. A patient may have the Abandonment schema as a trait but fluctuate between the Vulnerable Child mode, Detached Protector mode, and Angry Child mode depending on the situation. Modes are more directly accessible in session and more directly targetable.</p>
+<h3>Q7. What is imagery rescripting and how does it differ from exposure therapy?</h3>
+<p>In imagery rescripting, the patient accesses a childhood memory via an affect bridge, then a helping figure (therapist, third party, or patient's own healthy adult) enters the scene and changes the outcome — protecting the child, confronting the perpetrator, meeting unmet needs. Unlike exposure therapy, the patient does NOT relive the full trauma. They contact the emotion just enough to activate the memory, then the memory is actively rescripted. Arntz et al. (2007) showed IR was superior to imaginal exposure on guilt, shame, and anger in PTSD.</p>
+<h3>Q8. Describe the ACT hexaflex and its six processes.</h3>
+<p>The hexaflex represents six processes that interact to produce psychological flexibility: (1) Acceptance — willingness to have unwanted experiences, (2) Cognitive defusion — seeing thoughts as mental events rather than truths, (3) Present-moment awareness — flexible attention to the here-and-now, (4) Self-as-context — the observing self ("the sky, not the weather"), (5) Values — chosen life directions, (6) Committed action — concrete behaviours serving values. Two clusters: mindfulness/acceptance (processes 1-4) and commitment/change (processes 5-6).</p>
+<h3>Q9. Why does MBCT only work for patients with 3+ depressive episodes?</h3>
+<p>MBCT targets the differential activation cascade: in patients with 3+ episodes, mild dysphoria can reactivate the full depressive cognitive package (negative thoughts, rumination, hopelessness) through associative memory networks. After multiple episodes, the threshold for reactivation drops so low that normal sadness triggers relapse. MBCT trains patients to notice early warning signs and shift from "doing mode" (rumination) to "being mode" (acceptance). In patients with 1-2 episodes, relapse is driven more by life events than cognitive reactivation, so the mechanism MBCT targets is not yet established.</p>
+<h3>Q10. What are the three emotion regulation systems in CFT?</h3>
+<p>(1) Threat/Protection system — detects and responds to danger; produces anxiety, anger, shame; driven by amygdala and HPA axis. (2) Drive/Resource-seeking system — pursues goals and rewards; produces excitement, anticipation; driven by dopamine. (3) Soothing/Affiliation system — calms and connects; produces contentment, safety; driven by oxytocin and vagal tone. In patients with high shame, the soothing system is underdeveloped while the threat system is overactive. CFT builds the soothing system through compassionate imagery and compassionate mind training.</p>
+<h3>Q11. Compare the therapeutic relationship across DBT, ST, and ACT.</h3>
+<p>DBT: dialectical — the therapist balances validation (acceptance) with problem-solving (change); warm but also irreverent; consultation team prevents burnout. ST: limited reparenting — the therapist provides within boundaries what the patient needed from parents (warmth for deprivation, stability for abandonment, limits for entitlement) + empathic confrontation. ACT: the therapist models psychological flexibility; therapist willingness to be present with the patient's pain without trying to fix it; relationship is functional rather than corrective.</p>
+<h3>Q12. A patient with BPD is being considered for psychotherapy. Compare how DBT and Schema Therapy would each approach the case.</h3>
+<p>DBT: Biosocial formulation; Stage 1 targets (safety first); individual therapy + skills group + phone coaching + consult team; diary card; chain analysis for self-harm; TIPP for crisis; opposite action for shame; DEAR MAN for interpersonal needs; 1-year commitment. ST: Mode formulation (abandoned child, angry child, punitive parent, detached protector); limited reparenting to build trust (Phase 1, up to 1 year on coping modes); imagery rescripting for childhood trauma (Phase 2); chair work against punitive parent; transfer of healthy adult role (Phase 3); 2-3 years, 2x/week. Key difference: DBT prioritises behavioural stabilisation and skills; ST prioritises emotional processing and schema healing. In practice, DBT skills are often used as a "bridge" in early ST when self-harm or dissociation is present.</p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

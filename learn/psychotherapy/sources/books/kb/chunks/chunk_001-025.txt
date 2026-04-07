@@ -1,0 +1,740 @@
+
+
+--- PAGE 1 ---
+
+
+--- PAGE 2 ---
+Long-Term 
+Psychodynamic 
+Psychotherapy
+A Basic Text
+
+
+--- PAGE 3 ---
+
+
+--- PAGE 4 ---
+Washington, DC
+London, England
+Long-Term
+Psychodynamic
+Psychotherapy
+A Basic Text
+Glen O. Gabbard, M.D.
+Brown Foundation Chair of Psychoanalysis
+Professor of Psychiatry 
+Director of Psychotherapy Education
+Director, Baylor Psychiatry Clinic
+Baylor College of Medicine
+Houston, Texas
+Joint Editor-in-Chief
+International Journal of Psychoanalysis
+
+
+--- PAGE 5 ---
+Note:
+The authors have worked to ensure that all information in this book is ac-
+curate at the time of publication and consistent with general psychiatric and med-
+ical standards, and that information concerning drug dosages, schedules, and
+routes of administration is accurate at the time of publication and consistent with
+standards set by the U.S. Food and Drug Administration and the general medical
+community. As medical research and practice continue to advance, however,
+therapeutic standards may change. Moreover, specific situations may require a
+specific therapeutic response not included in this book. For these reasons and be-
+cause human and mechanical errors sometimes occur, we recommend that read-
+ers follow the advice of physicians directly involved in their care or the care of a
+member of their family.
+Books published by American Psychiatric Publishing, Inc., represent the views
+and opinions of the individual authors and do not necessarily represent the poli-
+cies and opinions of APPI or the American Psychiatric Association.
+Copyright © 2004 American Psychiatric Publishing, Inc.
+ALL RIGHTS RESERVED
+Manufactured in the United States of America on acid-free paper
+08
+07
+06
+05
+04
+5
+4
+3
+2
+1
+First Edition
+Typeset in Adobe’s Berling Roman and Frutiger 55 Roman
+American Psychiatric Publishing, Inc.
+1000 Wilson Boulevard
+Arlington, VA 22209-3901
+www.appi.org
+Library of Congress Cataloging-in-Publication Data
+Gabbard, Glen O.
+Long-term psychodynamic psychotherapy : a basic text / Glen O. Gabbard.
+p. ; cm.
+Includes bibliographical references and index.
+ISBN 1-58562-144-7 (pbk. : alk. paper)
+1. Psychodynamic psychotherapy. 2. Psychotherapist and patient. I. Title.
+[DNLM: 1. Psychoanalytic Therapy—methods. WM 460.6 G112La 2004]
+RC489.P72G315 2004
+616.89′14—dc22
+2003065595
+British Library Cataloguing in Publication Data
+A CIP record is available from the British Library.
+
+
+--- PAGE 6 ---
+Contents
+Introduction to the Core Competencies in 
+Psychotherapy Series . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . vii
+Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .xi
+1
+Key Concepts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+2
+Assessment, Indications, and Formulation. . . . . . . . . . . . . . . 21
+3
+The Nuts and Bolts of Psychotherapy: Getting Started. . . . . 41
+4
+Therapeutic Interventions: What Does the Therapist 
+Say and Do? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+5
+Goals and Therapeutic Action  . . . . . . . . . . . . . . . . . . . . . . . . 77
+6
+Working With Resistance . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+7
+Use of Dreams and Fantasies in Dynamic Psychotherapy . . 117
+8
+Identifying and Working With Countertransference . . . . . 131
+9
+Working Through and Termination. . . . . . . . . . . . . . . . . . . 153
+10
+Use of Supervision . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 173
+11
+Evaluating Core Competencies in Long-Term 
+Psychodynamic Psychotherapy . . . . . . . . . . . . . . . . . . . . . . . 189
+Index. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 199
+
+
+--- PAGE 7 ---
+This page intentionally left blank 
+
+
+--- PAGE 8 ---
+vii
+Introduction to the 
+Core Competencies in 
+Psychotherapy Series
+With the extraordinary progress in the neurosciences and psychophar-
+macology in recent years, some psychiatric training programs have de-
+emphasized psychotherapy education. Many residents and educators
+have decried the loss of the “mind” in the increasing emphasis on the bio-
+logical basis of mental illness and the shift toward somatic treatments as the
+central therapeutic strategy in psychiatry. This shift in emphasis has been
+compounded by the common practice in our managed care era of “split
+treatment,” meaning that psychiatrists are often relegated to seeing the
+patient for a brief medication management session, while the psychother-
+apy is conducted by a mental health professional from another discipline.
+This shift in emphasis has created considerable concern among both psy-
+chiatric educators and the consumers of psychiatric education—the resi-
+dents themselves.
+The importance of psychotherapy in the training of psychiatrists has re-
+cently been reaffirmed, however, as a result of the widespread movement
+toward the establishment of core competencies throughout all medical
+specialties. In 1999 both the Accreditation Council for Graduate Medical
+Education (ACGME) and the American Board of Medical Specialties
+(ABMS) recognized that a set of organizing principles was necessary to
+measure competence in medical education. These six principles—patient
+
+
+--- PAGE 9 ---
+viii
+Long-Term Psychodynamic Psychotherapy
+care, medical knowledge, interpersonal and communication skills, practice-
+based learning and improvement, professionalism, and systems-based
+practice—are now collectively referred to as the core competencies in med-
+ical education.
+This movement within medical education was a direct consequence of
+a broader movement launched by the U.S. Department of Education ap-
+proximately 20 years ago. All educational projects, including those involv-
+ing accreditation, had to develop outcome measures. Those entrusted with
+the training of physicians were no exception.
+Like all medical specialties, psychiatry has risen to the occasion by
+making attempts to translate the notion of core competencies into mean-
+ingful psychiatric terms. The inherent ambiguity of a term like “compe-
+tence” has sparked much discussion among psychiatric educators. Does the
+term mean that practitioners are sufficiently skilled that one would refer
+a family member to them for treatment without hesitation? Or does the
+term imply rudimentary knowledge and practice that would ensure a rea-
+sonable degree of safety? These questions are not yet fully resolved. The
+basic understanding of what is meant by core competencies will be evolv-
+ing over the next few years as various groups within medicine and psy-
+chiatry strive to articulate reasonable standards for educators.
+As of July 2002, the Psychiatry Residency Review Committee (RRC)
+mandated that all psychiatric residency training programs must begin im-
+plementing the six core competencies in clinical and didactic curricula.
+Those programs that fail to do so may receive citations when they undergo
+accreditation surveys. This mandate also requires training directors to de-
+velop more sophisticated means of evaluating the progress and learning
+of residents in their programs.
+As part of the process of adapting the core competencies to psychiatry,
+the Psychiatry RRC felt that reasonable competence in five different forms
+of psychotherapy—long-term psychodynamic psychotherapy, supportive
+psychotherapy, cognitive behavioral psychotherapy, brief psychotherapy,
+and psychotherapy combined with psychopharmacology—should be an
+outcome of a good psychiatric education for all psychiatric residents.
+Many training programs have had to scramble to find faculty who are
+well trained in these modalities and teaching materials to facilitate the
+learning process. American Psychiatric Publishing, Inc., felt that the pub-
+lication of basic texts in each of the five mandated areas would be of great
+value to training programs. So in 2002 Dr. Robert Hales, editor-in-chief
+at American Psychiatric Publishing, appointed me to be the series editor
+of a new line of five books. This series is titled Core Competencies in Psy-
+chotherapy and features five brief texts by leading experts in each of the
+psychotherapies. Each volume covers the key principles of practice in the
+
+
+--- PAGE 10 ---
+Introduction to the Core Competencies in Psychotherapy Series
+ix
+treatment and also suggests ways to evaluate whether residents have been
+trained to a level of competence in each of the therapies. (For more in-
+formation about the books in this series and their availability, please visit
+www.appi.org.)
+True expertise in psychotherapy requires many years of experience
+with skilled supervision and consultation. However, the basic tools can be
+learned during residency training so that freshly minted psychiatrists are
+prepared to deliver necessary treatments to the broad range of patients
+they encounter.
+These books will be valuable adjuncts to the traditional methods of psy-
+chotherapy education: supervision, classroom teaching, and clinical expe-
+rience with a variety of patients. We feel confident that mastery of the
+material in these five volumes will constitute a major step in the acquisi-
+tion of competency in psychotherapy and, ultimately, the compassionate
+care of patients who come to us for help.
+Glen O. Gabbard, M.D., Series Editor
+Brown Foundation Chair of Psychoanalysis and 
+Professor of Psychiatry 
+Director of Psychotherapy Education
+Director, Baylor Psychiatry Clinic
+Baylor College of Medicine
+Houston, Texas
+
+
+--- PAGE 11 ---
+This page intentionally left blank 
+
+
+--- PAGE 12 ---
+xi
+Introduction
+This basic primer in long-term psychodynamic psychotherapy was
+prompted by the Psychiatry Residency Review Committee mandate that
+all psychiatric residents must be trained to competency in five different
+psychotherapies. However, I have written it with a broader audience in
+mind. Many other mental health professionals—future psychologists, social
+workers, licensed counselors, nurses, and others—are also in training pro-
+grams that teach this modality, and they may find this a useful beginning
+text as well. Indeed, much of the material in this volume has grown out
+of my weekly experiences with trainees in all the major mental health
+professions in the Baylor Psychiatry Clinic Case Conference. Each Wednes-
+day morning, a trainee in psychiatry, psychology, or social work presents
+a clinical problem encountered in psychotherapy that serves as a nidus
+for teaching the principles of good therapeutic technique. Rather than
+stipulate what topics will be covered, I have geared the Case Conference
+to the difficulties that the trainees are struggling with. This approach has
+taught me a good deal about the common dilemmas experienced by be-
+ginning therapists and their needs as students. I have tried to write this
+textbook with those struggles in mind so that beginners will feel that the
+case examples and the principles illustrated by those examples will be di-
+rectly applicable to their learning experience. I have also written this vol-
+ume with training directors in mind, and I hope that they will find my ideas
+about evaluating competency useful in their own educational programs.
+No brief text can cover a complex treatment comprehensively. Hence
+I have given a brief overview of theoretical principles in Chapter 1 (“Key
+
+
+--- PAGE 13 ---
+xii
+Long-Term Psychodynamic Psychotherapy
+Concepts”), with the advice to readers to consult my companion text, Psy-
+chodynamic Psychiatry in Clinical Practice, 3rd Edition (Gabbard 2000),
+for more detailed discussions of the major theoretical models in psycho-
+dynamic psychiatry and the approaches to specific disorders. Similarly,
+the text is meant to be accompanied by didactic instruction and weekly
+supervision. Long-term psychodynamic psychotherapy is an art that re-
+quires intensive teaching and experience, and only with these additional
+methods of training can one hope to become competent in the practice
+of this treatment.
+Space considerations precluded a discussion of mental health financ-
+ing or the problems inherent in practicing long-term psychodynamic
+psychotherapy in an era of third-party intrusions on the privacy of the
+psychotherapeutic relationship. Despite the fact that resources are shrink-
+ing for psychiatric treatments in general, a substantial number of patients
+continue to seek a long-term therapeutic relationship in which they can feel
+understood in the privacy of a confidential professional relationship. More-
+over, the principles learned in the practice of long-term dynamic therapy—
+empathy, the therapeutic alliance, unconscious meanings, transference, re-
+sistance, and the influence of the clinician’s countertransference—are
+more generally applicable to all treatments in psychiatry.
+Although dynamic therapy can also be delivered in group settings, in
+family or conjoint therapies, and with children and adolescents, I have
+limited the focus of this text to long-term dynamic work with adults in
+individual therapy. To venture into the other areas would exceed the
+space limitations within which I was required to operate. I have also
+chosen to omit discussions of combining medication with psychother-
+apy, because another volume in this series addresses that topic compre-
+hensively.
+Even with adults in individual long-term dynamic therapy, however,
+the treatment itself is highly diverse. The theoretical orientation in which
+one is trained may dictate the way a therapist conceptualizes the patient’s
+difficulties and implements therapeutic interventions. In addition, the
+therapist’s personality places a personal stamp on the therapy conducted.
+Therefore it is impossible to cover all approaches to long-term psycho-
+dynamic psychotherapy in one text. The approach described in this vol-
+ume draws on several theoretical models, reflecting the pluralism in the
+field today and my own synthesis of those diverse conceptual frame-
+works. The therapy taught in this book also reflects my personal style,
+which has evolved over a quarter century of practice in which I have
+learned a great deal from trial and error. Some readers will have valid dis-
+agreements with how I do things, and I fully accept those legitimate dif-
+ferences in perspective.
+
+
+--- PAGE 14 ---
+Introduction
+xiii
+I owe a special debt of gratitude to my colleagues and students in the
+Baylor Psychiatry Clinic, who sustain my enthusiasm for teaching and
+treating patients on a daily basis. I am fortunate to work in a setting where
+mutual support, good humor, and dedication to patient care are the order
+of the day. Some of my colleagues were kind enough to read early drafts
+and make valuable suggestions about the text. These include Drs. Linda
+Andrews, Kristin Kassaw, Kim-Lan Czelusta, and Jason Garvin. I am grate-
+ful to them for pointing out omissions and blind spots. I also want to
+thank some of my outstanding students for providing some of the clinical
+vignettes in the book. Among these contributors are Drs. Ali Ashgar-Ali,
+Faye Brown, Kim-Lan Czelusta, Estelle Cline, Theresa Lau, Rebecca
+Maxwell, and Daniel Rogers. I also owe a special thanks to Bob Hales,
+editor-in-chief of American Psychiatric Publishing, and John McDuffie,
+editorial director, for their steadfast support and wise counsel during the
+development of this book. Like most writing projects, this one has been
+a team effort. Diane Trees Clay, my dependable and always optimistic as-
+sistant, typed many drafts of this book and was a continual source of com-
+fort at times of discouragement.
+Lastly, I want to express my appreciation to my patients, who have
+taught me more than any of my professors or colleagues over the years.
+I thank them for tolerating my mistakes of tact, judgment, timing, and
+interpretation and for their patience while I learned the art of long-term
+psychodynamic psychotherapy.
+Reference
+Gabbard GO: Psychodynamic Psychiatry in Clinical Practice, 3rd Edition. Wash-
+ington, DC, American Psychiatric Press, 2000
+
+
+--- PAGE 15 ---
+This page intentionally left blank 
+
+
+--- PAGE 16 ---
+1
+1
+Key Concepts
+During the last session of a 3-year dynamic psychotherapy process, the
+patient, a 31-year-old professional man, was silent for a few minutes.
+Then he looked up at his therapist and started to speak: “It’s difficult to
+say what’s on my mind today. I owe you such a debt of gratitude for all
+you’ve done. I didn’t have a clue about what was going on inside me when
+I first came to see you. All I knew was that I was a mess. Now, for the first
+time in my life, I actually have a sense of who I am and what it is I’m seek-
+ing from others. I wasn’t an easy patient. I hid out from you for a long
+time. I played games with you to avoid looking at myself. But you found
+me...eventually. You were incredibly patient and persistent. I can’t thank
+you enough for that. I’ll tell you something—even though you haven’t
+said a lot about yourself, I feel like I know you intimately, and I’ll never
+forget you.”
+In this poignant communication to his therapist, a grateful patient offers
+a glimpse into the reasons for the continued popularity of long-term psy-
+chodynamic psychotherapy. The thirst to understand, to “know thyself,”
+persists despite managed care, the quick-fix mentality of our society, and
+the remarkable progress in psychopharmacology. The much-publicized
+Consumer Reports survey of patients (“Mental Health” 1995) showed that
+patient satisfaction increased with increasing duration of therapy. Pa-
+tients seeking in-depth knowledge about themselves may pay for therapy
+out of their own discretionary funds even though the treatment often takes
+years. Yet despite the continued popularity of long-term dynamic ther-
+apy, it is widely misunderstood. Common misconceptions include the
+following:
+
+
+--- PAGE 17 ---
+2
+Long-Term Psychodynamic Psychotherapy
+1. The psychodynamic therapist is largely silent.
+2. Breakthroughs occur in dramatic emotional catharses when a repressed
+memory is suddenly uncovered.
+3. The main focus of such therapy is the patient’s sexuality.
+4. All reactions to the therapist are distortions of the current situation
+based on past relationships.
+5. The therapy is both interminable and ineffectual (much like the treat-
+ment of the protagonists in Woody Allen’s films).
+6. The psychodynamic therapist is a stone-faced blank screen who does
+not disclose any of his or her own personal reactions to the patient.
+7. The psychodynamic therapist never expresses an opinion that com-
+municates a judgment about what the patient says.
+Although long-term psychodynamic therapy is derived from psycho-
+analysis, even Freud practiced in a way that differed dramatically from
+these various misconceptions about psychodynamic therapy. Psycho-
+dynamic therapists today are more likely to be actively engaged with the
+patient, to resonate emotionally with the patient’s affect states, to be far
+from passive or stone-faced, to be talkative when it is useful, and to be
+mindful of how they themselves contribute to the patient’s perception of
+them. They are also rarely privy to dramatic revelations from the deeply
+buried past.
+If we were to attempt to characterize contemporary long-term psycho-
+dynamic psychotherapy, we might use the following definition: “A therapy
+that involves careful attention to the therapist-patient interaction, with
+thoughtfully timed interpretation of transference and resistance embedded
+in a sophisticated appreciation of the therapist’s contribution to the two-
+person field” (Gunderson and Gabbard 1999, p. 685). The conceptual
+models for this therapy include unconscious conflict derived from ego psy-
+chology, object relations theory, self psychology, and attachment theory.
+Although long-term psychodynamic therapy once meant an exclu-
+sively open-ended process that did not have a defined end point, today
+there are therapies of 40 or 52 sessions that have targeted end points from
+the beginning but still use many of the same principles inherent in long-
+term psychodynamic therapy (Barber et al. 1997; Svartberg et al., in press;
+Winston et al. 1994). In an era of managed care, where 8–12 sessions may
+be the maximum number allowed, time-limited therapies of 40–52 ses-
+sions should definitely be included within the overarching rubric of long-
+term treatment. We thus have two categories: 1) time-limited, in which
+the number of sessions is predetermined, and 2) open-ended, in which
+the therapy is designed to end naturalistically. For purposes of definition,
+one must make an arbitrary boundary. With full awareness of the arbi-
+
+
+--- PAGE 18 ---
+Key Concepts
+3
+trariness inherent in this cutoff point, in this book we define long term as
+therapies with duration longer than 24 sessions or 6 months.
+A set of fundamental theories and principles constitute the foundation
+of psychodynamic therapy, and these are reviewed extensively in my com-
+panion text, Psychodynamic Psychiatry in Clinical Practice, 3rd Edition
+(Gabbard 2000). A brief overview is provided here to lay out the essen-
+tial concepts and their theoretical implications (Table 1–1).
+Key Concepts of Psychodynamic 
+Psychotherapy
+Unconscious Mental Functioning
+Although Freud did not discover the unconscious mind, he elaborated a
+theory and technique that gave it central importance. This emphasis on un-
+conscious mental life remains at the heart of psychoanalytic or psychody-
+namic psychotherapy. However, the way we think about unconscious
+mental functioning has evolved considerably since the days of Freud’s early
+writings. Freud originally focused on the topographic model of the mind,
+which involved a stratified hierarchy of conscious, preconscious, and un-
+conscious domains. Although material in the unconscious could not be
+brought into awareness easily, preconscious contents could be retrieved by
+simply shifting one’s attention. Much of Freud’s writings focused on “the
+unconscious,” a reservoir that contained dynamically repressed contents
+that were kept out of awareness because they created conflict. Freud’s ini-
+tial approach to psychoanalysis was to try to bring those unconscious con-
+tents to the surface beyond the repression barrier so they could be exam-
+ined and understood. Freud soon learned, though, that the derepression of
+memories through cathartic abreactions did not result in durable changes.
+Table 1–1.
+Basic principles of psychodynamic psychotherapy
+Much of mental life is unconscious.
+Childhood experiences in concert with genetic factors shape the adult.
+The patient’s transference to the therapist is a primary source of understanding.
+The therapist’s countertransference provides valuable understanding about what 
+the patient induces in others.
+The patient’s resistance to the therapy process is a major focus of the therapy.
+Symptoms and behaviors serve multiple functions and are determined by 
+complex and often unconscious forces.
+A psychodynamic therapist assists the patient in achieving a sense of 
+authenticity and uniqueness.
+
+
+--- PAGE 19 ---
+4
+Long-Term Psychodynamic Psychotherapy
+Freud’s model gradually became more complicated, culminating, in
+1923, in the introduction of the tripartite structural theory comprising
+ego, id, and superego (Freud 1923/1961). In the structural model, the ego
+is viewed as distinct from the aggressive and sexual drives. The conscious
+aspects of the ego include the executive functions of the mind, such as
+decision making, integration of perceptual data, and mental calculations.
+The unconscious aspects of the ego principally involve defense mecha-
+nisms designed to counteract the powerful instinctual drives harbored in
+the id. Sexuality and aggression are regarded as the basic drives, and they
+require massive defensive efforts from the ego to prevent them from be-
+coming disruptive to the person’s functioning. 
+As shown in Figure 1–1, the id is entirely unconscious and is controlled
+both by the unconscious aspects of the ego and by a third agency called
+the superego. The superego is predominantly unconscious and represents
+the internalization of moral values from parents and others in the indi-
+vidual’s environment. Sometimes the superego is subdivided into an ego
+ideal and a moral conscience. Whereas the ego ideal proscribes (i.e., dic-
+tates what one should not do based on one’s value system), the moral con-
+science or superego proper prescribes (i.e., dictates what one should do).
+This structural model lends itself to a theory of unconscious conflict.
+The three intrapsychic agencies of id, ego, and superego are in constant
+conflict, revolving around the expression and discharge of sexuality and
+aggression. Signal anxiety is produced by conflict between these agencies
+(Freud 1926/1959). This type of anxiety alerts the ego that a defense
+mechanism is required to curb expressions of aggression or sexuality that
+seem forbidden. The formation of symptoms related to neurotic conflict
+evolves in this manner. In other words, conflict produces signal anxiety,
+which then results in a defense, which then leads to a compromise be-
+tween the id and the ego or the id and the superego. A symptom, then, can
+be understood as a compromise formation that defends against a wish
+while also gratifying the wish in disguised form.
+Although unconscious conflict continues to be a pervasive phenomenon
+addressed in psychodynamic therapy, our understanding of unconscious
+mental activity has undergone a transformation over the intervening cen-
+tury since Freud formulated his theories. His basic premise, that much of
+mental life is unconscious, has been extensively validated by research in the
+field of experimental psychology (Westen 1999). However, the view of “the
+unconscious” as a spatial metaphor where contents reside is much less prev-
+alent in modern discourse. Today a neuroscience-informed psychodynamic
+therapist would be more likely to refer to unconscious mental functioning
+or unconscious representations rather than “the unconscious.” Memories are
+stored differently depending on the type of knowledge involved.
+
+
+--- PAGE 20 ---
+Key Concepts
+5
+Declarative memory involves facts or generic knowledge, whereas pro-
+cedural memory involves skills (Figure 1–2) (Squire 1987; Westen and
+Gabbard 2002a, 2002b). Memories of either type can be either explicit
+or implicit, which refers to the mode of expression of retrieval—that is,
+whether or not there is conscious awareness (Westen and Gabbard 2002a).
+Remembering the name of one’s fifth-grade teacher is an example of ex-
+plicit declarative memory, because the fact is readily retrievable by sim-
+ply shifting one’s attention. On the other hand, if hearing a certain song
+on the radio evokes tears and the listener has no idea why, this may well
+be an example of implicit declarative memory. In other words, an event
+related to the song—perhaps the breakup of a relationship—is forever
+connected to the song, but the exact connection between the event and
+the song does not readily come to mind. Therapeutic exploration, how-
+ever, might retrieve that connection.
+Procedural memory involves knowledge of “how,” whereas declarative
+memory involves knowledge “of” (Gabbard 2000). The “how-to” of related-
+ness is internalized early in life, and there are automatic ways that each per-
+son relates to others, based on early experience. Procedural memory is gen-
+erally implicit when it involves the natural way that the patient relates to the
+therapist when walking through the door and greeting the therapist each
+day. Implicit procedural memory is also responsible for many defense mech-
+anisms, which automatically deal with unpleasant feelings by driving them
+out of one’s awareness. However, procedural memory can also be explicit if
+Figure 1–1.
+The structural model.
+Note.
+The preconscious has been deleted for the sake of simplicity.
+Source.
+Reprinted from Gabbard GO: Psychodynamic Psychiatry in Clinical Practice, 3rd
+Edition. Washington, DC, American Psychiatric Press, 2000. Used with permission.
+Conscious
+Unconscious
+Conscious
+Unconscious
+S
+U
+P
+E
+R
+E
+G
+O
+E
+G
+O
+ID
+
+
+--- PAGE 21 ---
+6
+Long-Term Psychodynamic Psychotherapy
+Figure 1–2.
+Type of knowledge versus mode of expression.
+Source.
+Reprinted from Gabbard GO: Psychodynamic Psychiatry in Clinical Practice, 3rd Edition. Washington, DC, American Psychiatric Press, 2000. Used
+with permission.
+Implicit
+Type of 
+knowledge
+Procedural
+(skills)
+Declarative
+(facts)
+Mode of expression or retrieval 
+(with or without conscious awareness)
+Explicit
+
+
+--- PAGE 22 ---
+Key Concepts
+7
+the mode of expression is with conscious awareness. Suppression is such a
+defense mechanism. If a male patient finds himself angry at his therapist but
+is afraid the relationship will be damaged by an expression of anger, he may
+consciously suppress the anger and push it out of his conscious awareness.
+Procedural and declarative memory work in an integrated fashion, and in
+practice it is difficult at times to separate the two types of memory.
+A Developmental Perspective
+The need for a developmental point of view is a core assumption of psy-
+chodynamic thinking. Childhood experiences, in concert with the genetic
+characteristics of an individual, shape the adult person. Our knowledge of
+genetics and cognitive neuroscience suggests that the genetically based
+temperament of the child shapes much of the interaction with the parents.
+Characteristics that are inherited evoke specific parental responses (Reiss
+et al. 1995). The behavior of the parents, in turn, shapes the child’s per-
+sonality. In this regard, it is an oversimplification to blame parents for their
+children’s problems. A complex interaction between the child’s inherent
+traits, the parents’ psychological characteristics, and the “fit” between par-
+ent and child is crucial to the developmental perspective (Gabbard 2000).
+Early psychoanalytic theory involved an understanding of development
+that was based on libidinal zones. The child’s libido or sex drive was linked
+to oral, anal, and phallic regions of the body. The child then entered an oe-
+dipal phase in which he or she wished to be the exclusive love object of the
+opposite-sex parent. This phase involved an acute awareness of a compli-
+cated triangle involving mother, father, and child. The negative oedipal con-
+stellation describes the child’s longing for the same-sex parent, wherein the
+opposite-sex parent is seen as a rival. Both positive and negative oedipal
+themes are typically observable in development.
+In the male child, the development of the superego was regarded as
+the outcome of the oedipal phase of development. The child resigns him-
+self to the fact that he cannot possess his mother because of the aggres-
+sion toward his father that is inherent in such wishes, and the child reluc-
+tantly resigns himself to the fact that it is better to identify with his father
+than to risk the father’s retaliation. Castration anxiety was viewed as a
+fundamental concern of the male oedipal-phase child, who fears that his
+father might retaliate by attacking the child’s genitals. To avoid this dire
+possibility, the boy identifies with his father and looks for a woman like
+his own mother so that he can avoid directly competing with his father.
+The oedipal constellation for the female child was not nearly as coher-
+ent in Freud’s classical conceptualization. Feminist theories of develop-
+ment have superseded the classical view of the girl child as an inferior
+
+
+--- PAGE 23 ---
+8
+Long-Term Psychodynamic Psychotherapy
+male who suffered from penis envy. More contemporary views of female
+psychological development regard the development of female identity as
+involving complex contributions from genes, culture, identifications with
+parents, and internal object relations rather than simple assumptions
+about anatomical differences (Benjamin 1990; Chodorow 1996).
+Another key feature in developmental theory is the notion that early
+experiences of the self with others, along with their associated affect states,
+are internalized to produce representations of those interpersonal inter-
+actions (Fonagy and Target 2003). These internal object relationships are
+repeated again and again throughout life, and the problematic interac-
+tions of a patient described in psychotherapy generally derive from early
+relationship difficulties encountered as a child. The internal representa-
+tion of a parent may not be exactly the same thing as the external figure
+on whom the representation is based. The child’s fantasies about the par-
+ents may exaggerate tendencies that are inherent in the parental inter-
+actions, so that the self and object representations that become etched in
+specific neural networks may, to varying degrees, depart from the actual
+characteristics of the external figure.
+Object relations theory as we know it today largely developed in the
+United Kingdom, where Melanie Klein tried to integrate drive theory
+with internal object relations. Subsequent thinkers, such as W.R.D. Fairbairn
+and D.W. Winnicott, developed what is known as the British independent
+perspective, which argued that the primary motivation of the child is object
+seeking rather than drive gratification (the classical Freudian view) (Gab-
+bard 2000).
+Whereas ego psychology emphasizes intrapsychic conflict, Heinz Kohut
+(1971, 1977, 1984) developed self psychology based on a deficit model
+of development. Kohut suggested that many individuals lack develop-
+mentally appropriate empathy from their mothers, and this leaves them
+with a deficit within them. This sense of something missing leads them
+to seek out responses from others to make up for the functions they lack
+within themselves. Kohut called these selfobject functions. Development,
+in his view, depends on a process whereby the self is gradually made more
+cohesive through selfobject responses from caregivers.
+The self psychological perspective is consistent with some of the infant
+observation work of Daniel Stern (1985, 1989). He noted that validating
+and affirming responses from one’s mother or caregiver are crucial for the
+developing infant’s sense of self. Kohut stressed that without these re-
+sponses, the self is prone to fragmentation, creating a clinical picture of
+extreme narcissistic vulnerability.
+Although attachment theory is somewhat related to object relations
+theory, it developed separately. Bowlby (1988) repeatedly emphasized the
+
+
+--- PAGE 24 ---
+Key Concepts
+9
+importance of the child’s real experience rather than fantasy, in sharp
+contrast to Kleinian thinking. Bowlby believed there was an entire system
+of behavior on the part of the child that was designed to maintain prox-
+imity to the mother or caregiver (Fonagy 2001). In attachment theory the
+motivation of the child is not simply to seek out an object but rather to
+achieve a soothing psychophysiological state that derives from physical
+closeness to the mother or caregiver. Different classifications of attach-
+ment have been developed from studying the infant’s response to what is
+known as the strange situation (Ainsworth et al. 1978). When exposed to
+brief separations from the mother, a child may react in one of four general
+categories that allow for attachment classification: 1) securely attached,
+2) anxious-avoidantly attached, 3) anxious-ambivalent or resistant, and
+4) disorganized/disoriented. These attachment categories have some degree
+of correlation with analogous categories of adult attachment: 1) secure/
+autonomous; 2) insecure/dismissing adults who idealize, denigrate, deny,
+and devalue both past and current attachments; 3) preoccupied adults,
+who are confused or overwhelmed by close relationships; and 4) unre-
+solved or disorganized individuals, who often have been victims of trauma
+or neglect. Insecure attachment accompanied by trauma or neglect may
+hamper the development of the capacity to mentalize, that is, conceive of
+another person’s mind or one’s own as a source of motivation.
+This cursory survey of some of the leading developmental theories does
+not do justice to the controversy and complexity about development that
+characterize contemporary psychoanalytic views. (For more detailed dis-
+cussions, see Gabbard 2000 and Fonagy and Target 2003.) Each of the
+models may be of value in specific clinical situations, and the psychody-
+namic therapist adapts the theoretical model to the patient (Table 1–2).
+Regardless of the theoretical model of development, the psychody-
+namic view is consistent in approaching the adult patient as a product of
+important early experiences that continue to be repeated in the present
+with others, including the therapist.
+Transference
+When childhood patterns of relatedness are repeated in the present with
+the therapist, one can observe the core psychodynamic concept of trans-
+ference. Qualities of a figure from the past are attributed to the doctor,
+and feelings associated with that figure are experienced in the same way
+with the doctor. Freud’s original idea was that transference was a “stereo-
+type plate” (Freud 1912/1958). Freud assumed that libidinal or sexual
+desires from childhood were transferred directly onto the person of the an-
+alyst. The Kleinian and object relations theorists expanded the notion of
+
+
+--- PAGE 25 ---
+10
+Long-Term Psychodynamic Psychotherapy
+Table 1–2.
+Developmental models
+Theoretical model
+Motivation
+Basic units of 
+development
+Psychopathology
+Ego psychology
+Drive gratification
+Ego
+Id
+Superego
+Conflict/compromise formation
+Object relations theory
+Object seeking
+Representation of self and 
+other linked by an affect
+Recurrent maladaptive relationship patterns based 
+on externalization of internal object relationships
+Self psychology
+Self-cohesion/self-esteem
+Self-selfobject
+Fragmentation of self/narcissistic vulnerability
+Attachment theory
+Physical sense of safety
+Internal working models
+Insecure attachment/failure of mentalization

@@ -1,0 +1,1960 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Psychotherapy Question Bank &mdash; Weave Psychotherapy Vol. 13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 13</div>
+      <div class="cover-title">Psychotherapy Question Bank</div>
+      <div class="cover-subtitle">130+ MCQs with Detailed Explanations — All Modalities</div>
+      <div class="cover-topics">Clinical Vignettes · Defence Mechanisms · CBT · DBT · Schema Therapy · Treatment Selection · Landmark Trials</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Psychotherapy Question Bank &mdash; Weave Psychotherapy Vol. 13</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 13 | Psychotherapy Question Bank</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Psychotherapy Question Bank</h1>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>Format:</strong> Single best answer MCQs with detailed explanations <strong>Distribution:</strong> 130 questions across all psychotherapy topics <strong>Difficulty:</strong> 60% moderate, 25% hard, 15% easy</p></div>
+<hr>
+<h2>SECTION A: FOUNDATIONS & COMMON FACTORS (Q1-Q10)</h2>
+<hr>
+<p><strong>Q1.</strong> According to Lambert's (1992) outcome variance model, which factor accounts for the largest proportion of psychotherapy outcome variance?</p>
+<p>A. Therapeutic relationship (30%)</p>
+<p>B. Extratherapeutic factors (40%)</p>
+<p>C. Expectancy/placebo (15%)</p>
+<p>D. Model/technique (15%)</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Extratherapeutic factors account for 40% of outcome variance in Lambert's model. These include patient variables, life events, social support, spontaneous remission, and fortuitous circumstances. The therapeutic relationship accounts for 30% (A), expectancy/placebo for 15% (C), and model/technique for 15% (D). Together, factors outside therapy (40%) and the relationship (30%) account for 70% of outcome variance.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Lambert's 40-30-15-15 model is one of the most frequently examined breakdowns in psychotherapy research. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q2.</strong> A 32-year-old woman in her third session of psychotherapy becomes visibly withdrawn and gives only vague, one-word responses after the therapist suggests exploring her relationship with her mother. According to Safran and Muran, this is best described as:</p>
+<p>A. A confrontation rupture</p>
+<p>B. A withdrawal rupture</p>
+<p>C. Negative transference</p>
+<p>D. Resistance through secondary gain</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> This is a withdrawal rupture -- the patient disengages through silence, compliance without engagement, vague responses, or topic avoidance. A confrontation rupture (A) involves the patient directly challenging the therapist or therapy. While this could involve negative transference (C), the specific pattern of disengagement after a therapeutic intervention is best classified as a withdrawal rupture in Safran and Muran's model. Secondary gain resistance (D) refers to advantages derived from illness, which is not described here.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Successfully repaired ruptures are associated with better outcomes than therapies with no ruptures at all. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q3.</strong> Jerome Frank and Julia Frank identified four features shared by all effective healing relationships. Which of the following is NOT one of their four features?</p>
+<p>A. An emotionally charged, confiding relationship with a helping person</p>
+<p>B. A healing setting</p>
+<p>C. A manualized treatment protocol</p>
+<p>D. A ritual or procedure requiring active participation of both patient and healer</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Frank and Frank's four features are: (1) an emotionally charged, confiding relationship (A), (2) a healing setting (B), (3) a rationale, conceptual scheme, or myth explaining the patient's distress, and (4) a ritual or procedure requiring active participation of both parties (D). A manualized treatment protocol is a modern development in psychotherapy research -- Frank's model explicitly argues that the specific content of the rationale and the specific nature of the ritual matter less than their presence and plausibility.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Frank's model explains why diverse therapies produce roughly equivalent outcomes in meta-analyses -- the specific technique is embedded within a healing structure. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q4.</strong> Bordin's (1979) pantheoretical model of the working alliance comprises three components. Which of the following correctly lists all three?</p>
+<p>A. Empathy, unconditional positive regard, congruence</p>
+<p>B. Goals, tasks, bond</p>
+<p>C. Transference, countertransference, resistance</p>
+<p>D. Hope, relationship, technique</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Bordin's working alliance model comprises Goals (mutual agreement on therapeutic objectives), Tasks (agreement on therapeutic activities), and Bond (quality of personal attachment between patient and therapist). Option A describes Rogers' core conditions, not Bordin's model. Option C lists psychodynamic concepts. Option D loosely relates to Wampold's contextual model but is not the standard formulation.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bordin's model is pantheoretical -- it applies across all modalities. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q5.</strong> Truax and Carkhuff's (1967) landmark review of therapist effectiveness found that patients of therapists with LOW levels of empathy, warmth, and genuineness:</p>
+<p>A. Showed no change compared to no treatment</p>
+<p>B. Showed modest improvement</p>
+<p>C. Deteriorated -- they got worse than without treatment</p>
+<p>D. Improved at the same rate as patients of high-quality therapists</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Truax and Carkhuff found that patients can deteriorate with poorly delivered therapy. Patients of therapists with low empathy, warmth, and genuineness got worse than they would have without treatment. This held across diagnostic groups, theoretical orientations, and therapy lengths. This critical finding establishes that therapy is not a neutral intervention -- it can harm.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>A person with emotional problems is better off with NO treatment than with an emotionally inadequate therapist. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q6.</strong> In Wampold's Contextual Model, specific therapeutic techniques account for approximately what percentage of outcome variance?</p>
+<p>A. 1%</p>
+<p>B. 15%</p>
+<p>C. 30%</p>
+<p>D. 40%</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>A.</strong> Wampold's meta-analyses consistently show that specific ingredients account for approximately 1% of outcome variance, while the therapeutic relationship accounts for 5-9%. This does NOT mean techniques are useless -- Wampold argues that techniques work because they are embedded in a coherent rationale delivered within a genuine relationship. Lambert's model (B: 15%) assigns more variance to technique, but Wampold's more recent analyses have reduced this estimate further.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Wampold does NOT argue that techniques are useless -- he argues they work through the context of the relationship. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q7.</strong> Which of the following correctly describes Rogers' six necessary and sufficient conditions for therapeutic personality change?</p>
+<p>A. Three conditions focus on the therapist, three on the client</p>
+<p>B. Four conditions focus on the therapist, two on the client</p>
+<p>C. Two conditions describe the relational context, three the therapist-offered conditions, and one the client's perception</p>
+<p>D. All six conditions describe therapist qualities</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Rogers' six conditions are: (1) psychological contact (relational context), (2) client incongruence (client condition), (3) therapist congruence/genuineness (therapist), (4) unconditional positive regard (therapist), (5) empathic understanding (therapist), and (6) client perception of the therapist's empathy and regard (client perception). This gives two context/client conditions, three therapist-offered conditions, and one perceptual condition.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The three therapist-offered conditions -- empathy, unconditional positive regard, and genuineness -- are known as Rogers' Triad (mnemonic: EUG). (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q8.</strong> The CASE Approach (Chronological Assessment of Suicide Events) developed by Shea is best described as:</p>
+<p>A. A risk factor checklist for predicting suicide</p>
+<p>B. A structured data-gathering interview method for eliciting suicidal ideation</p>
+<p>C. A standardised decision-making tool for determining hospitalisation</p>
+<p>D. A self-report questionnaire for measuring suicide risk</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The CASE Approach is a structured, four-region interview strategy for systematically gathering information about suicidal ideation and behaviour. It is NOT a risk factor tool (A), NOT a decision-making tool (C), and NOT a self-report questionnaire (D). It organises questioning into four chronological regions: presenting events, recent events (past 6-8 weeks), past events, and immediate events.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The CASE approach uses specific validity techniques including gentle assumption, behavioural incident, denial of the specific, and symptom amplification. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q9.</strong> Shea's validity technique of "gentle assumption" involves:</p>
+<p>A. Asking about specific items rather than categories</p>
+<p>B. Setting the upper limit very high so that minimisation still reveals pathology</p>
+<p>C. Assuming the behaviour is already occurring in the phrasing of the question</p>
+<p>D. Referencing what others experience to reduce stigma</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Gentle assumption frames the question as though the behaviour is already occurring: "What other ways have you thought of killing yourself?" rather than "Have you thought of killing yourself?" This bypasses the initial denial barrier. Option A describes denial of the specific, B describes symptom amplification, and D describes normalisation.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Gentle assumption is risky with suggestible patients and children, as it may lead to false positives. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q10.</strong> Eysenck's (1952) provocative claim about psychotherapy stated that:</p>
+<p>A. Psychoanalysis was superior to all other forms of therapy</p>
+<p>B. Approximately two-thirds of neurotic patients improved whether they received therapy or not</p>
+<p>C. Behaviour therapy was the only effective form of psychological treatment</p>
+<p>D. The therapeutic alliance was more important than specific techniques</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Eysenck claimed that approximately two-thirds of neurotic patients improved within two years regardless of whether they received therapy. While methodologically flawed (his control group calculations were questionable), this claim forced the field to take outcome research seriously and ultimately led to the RCT era in psychotherapy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Eysenck's challenge, though flawed, was the catalyst for evidence-based psychotherapy research. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION B: PSYCHODYNAMIC THERAPY (Q11-Q25)</h2>
+<hr>
+<p><strong>Q11.</strong> A 28-year-old woman describes her new therapist as "the most brilliant doctor I've ever met -- she truly understands me" in session 2. By session 8, she says "this therapy is useless and you're just like every other incompetent doctor." The defence mechanism MOST evident here is:</p>
+<p>A. Projection</p>
+<p>B. Reaction formation</p>
+<p>C. Splitting</p>
+<p>D. Displacement</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Splitting involves compartmentalising experiences of self and others into all-good and all-bad, with bland denial of contradictions. The rapid oscillation between complete idealisation and total devaluation, without integration of both perspectives, is the hallmark of splitting. Projection (A) involves perceiving one's own impulses in another. Reaction formation (B) transforms a wish into its opposite. Displacement (D) shifts feelings to a less threatening target.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Splitting and projective identification are the hallmark defences of borderline personality organisation. Repression is the hallmark of neurotic personality organisation. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q12.</strong> A patient calmly and eloquently describes being physically beaten by his father throughout childhood, using clinical terminology and quoting statistics on child abuse prevalence, with no discernible emotion. This defence mechanism is best identified as:</p>
+<p>A. Repression</p>
+<p>B. Intellectualisation</p>
+<p>C. Denial</p>
+<p>D. Sublimation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Intellectualisation involves excessive abstract ideation to avoid experiencing difficult feelings. The patient is discussing the traumatic content but keeping it at an intellectual distance through clinical language and statistics. Repression (A) would involve being unable to recall the events at all. Denial (B) would involve disregarding the reality of the abuse. Sublimation (D) would involve channelling impulses into socially valued activities. Note: isolation of affect (separating an idea from its emotion) is closely related, but intellectualisation is the broader, more clinically descriptive term here.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Ego psychology's clinical legacy: you must address the defence before interpreting the underlying content. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q13.</strong> In Kernberg's structural model, the key diagnostic criterion that distinguishes borderline personality organisation from neurotic personality organisation is:</p>
+<p>A. Presence of psychotic symptoms</p>
+<p>B. Identity diffusion</p>
+<p>C. Impaired reality testing</p>
+<p>D. Use of projection</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Identity diffusion -- contradictory, split self/other images -- is the hallmark of borderline-level personality organisation. Both borderline and neurotic levels have intact reality testing (C is wrong -- impaired reality testing distinguishes psychotic from borderline). Psychotic symptoms (A) are not required. Projection (D) can occur at neurotic levels as well. Kernberg's three criteria are: identity (integrated vs. diffuse), defences (high-level vs. primitive), and reality testing (intact vs. impaired).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Neurotic = integrated identity + high-level defences + intact reality testing. Borderline = identity diffusion + primitive defences + intact reality testing (except under stress). (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q14.</strong> Kohut's three selfobject transferences are:</p>
+<p>A. Positive, negative, and erotic</p>
+<p>B. Mirroring, idealising, and twinship</p>
+<p>C. Concordant, complementary, and projective</p>
+<p>D. Dependent, fight-flight, and pairing</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Kohut described three selfobject transferences: mirroring (need to be seen and validated), idealising (need to merge with an admired other), and twinship/alter ego (need to feel alike). These are developmental needs being reactivated, not pathological distortions. Option A lists classical transference types. Option C lists Racker's countertransference types plus projective identification. Option D lists Bion's basic assumption groups.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kohut's selfobject transferences are not pathological -- they are developmental needs seeking a second chance at internalisation. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q15.</strong> According to Gabbard, the intervention hierarchy from most expressive to most supportive is:</p>
+<p>A. Empathic validation --> Clarification --> Confrontation --> Interpretation</p>
+<p>B. Interpretation --> Confrontation --> Clarification --> Empathic validation</p>
+<p>C. Interpretation --> Observation --> Confrontation --> Clarification --> Encouragement to elaborate --> Empathic validation --> Advice/Praise</p>
+<p>D. Advice --> Empathic validation --> Interpretation --> Confrontation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Gabbard's intervention hierarchy from most expressive to most supportive is: Interpretation, Observation, Confrontation, Clarification, Encouragement to elaborate, Empathic validation, Psychoeducation, Advice/Praise. Option B omits several key interventions. Options A and D reverse or incorrectly order the hierarchy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mnemonic: "I Often Confront Clearly, Encouraging Empathy And Praise." (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q16.</strong> Racker's distinction between concordant and complementary countertransference is:</p>
+<p>A. Concordant = therapist identifies with patient's projected object representation; complementary = therapist identifies with patient's self-representation</p>
+<p>B. Concordant = therapist identifies with patient's projected self-representation; complementary = therapist identifies with patient's projected object representation</p>
+<p>C. Concordant = positive feelings; complementary = negative feelings</p>
+<p>D. Concordant = conscious awareness; complementary = unconscious enactment</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> In concordant countertransference, the therapist identifies with the patient's projected self-representation -- this is closely related to empathy (feeling what the patient feels). In complementary countertransference, the therapist identifies with the patient's projected object representation -- the therapist enacts the role of the patient's internal object (e.g., becoming authoritarian like the patient's controlling parent). Complementary countertransference is more diagnostically informative and more dangerous if unrecognised.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The key marker of problematic countertransference is "I'm not myself" -- any departure from baseline emotional range should trigger self-reflection. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q17.</strong> Projective identification differs from simple projection in that:</p>
+<p>A. Projective identification involves conscious awareness of the projection</p>
+<p>B. Projective identification includes interpersonal pressure that actually changes the other person's experience</p>
+<p>C. Projection is a mature defence while projective identification is immature</p>
+<p>D. Projection involves only positive feelings while projective identification involves negative ones</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The key difference is interpersonal pressure ("nudging"). In simple projection, the patient attributes unacceptable impulses to others but does not actually change the other person's behaviour. In projective identification, the patient's unconscious communication actually transforms the therapist's experience -- the therapist FEELS hostile, helpless, or seductive in a way that reflects the patient's internal world. Both are primitive/immature defences (C is wrong). Both can involve positive or negative content (D is wrong). Neither involves conscious awareness (A is wrong).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Projective identification is a three-step interpersonal process: projection, interpersonal pressure, and containment. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q18.</strong> The "triangle of insight" (Menninger/Malan) connects patterns across which three relational domains?</p>
+<p>A. Past self, present self, future self</p>
+<p>B. Transference relationship, current relationships, past relationships</p>
+<p>C. Conscious, preconscious, unconscious</p>
+<p>D. Id, ego, superego</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The triangle of insight links: (1) the transference relationship with the therapist, (2) current extratransference relationships, and (3) past relationships (typically parental). A complete transference interpretation connects all three. Options C and D describe Freud's models of the mind (topographic and structural), not interpretive frameworks.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In a viva, always mention timing (interpret when resistance), the triangle of insight (T, C, P), and tentativeness ("I wonder if..."). (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q19.</strong> The Wallerstein (1986) Menninger Psychotherapy Research Project found that:</p>
+<p>A. Expressive therapy was consistently superior to supportive therapy</p>
+<p>B. Supportive treatment produced as much structural change as expressive therapy</p>
+<p>C. Psychoanalysis was the only treatment that produced lasting change</p>
+<p>D. Brief therapy was equivalent to long-term therapy for all conditions</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> This 30-year prospective study of 42 patients found that supportive treatment produced as much structural personality change as expressive therapy -- challenging the dogma that only insight produces "real" change. This suggests that the therapeutic relationship itself is mutative, regardless of whether the therapist interprets or supports.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>This finding supports the common factors hypothesis and contextualises the supportive-expressive continuum. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q20.</strong> In Klein's object relations theory, the depressive position is characterised by:</p>
+<p>A. Splitting, projective identification, and persecutory anxiety</p>
+<p>B. Integration of good and bad objects, guilt, and the capacity for reparation</p>
+<p>C. Identity diffusion and primitive idealisation</p>
+<p>D. Primary narcissism and autoeroticism</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The depressive position involves integrating good and bad aspects of objects into whole objects, experiencing guilt for aggressive impulses toward the loved object, and the capacity for reparation. Option A describes the paranoid-schizoid position. Option C describes Kernberg's borderline organisation. Option D describes early Freudian drive theory.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>BPD is understood as a failure to achieve the depressive position -- the patient remains predominantly in the paranoid-schizoid mode. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q21.</strong> Winnicott's concept of the "false self" develops when:</p>
+<p>A. The child identifies with the aggressor</p>
+<p>B. The mother substitutes her own gesture for the infant's spontaneous gesture</p>
+<p>C. The child represses unacceptable drives</p>
+<p>D. The child fails to resolve the Oedipus complex</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> According to Winnicott, the false self develops when the mother substitutes her own gesture for the infant's spontaneous gesture. The child then complies with external demands at the cost of authentic experience. The true self is the spontaneous, creative core; the false self is a compliant shell that protects it. Options A, C, and D describe other psychodynamic concepts (identification with the aggressor, repression, and Oedipal theory respectively).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Much of psychodynamic therapy is about recovering the true self buried beneath the compliant false self. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q22.</strong> A patient consciously decides not to think about a stressful work situation until after the weekend, saying "I know I'm worried, but I'll deal with it Monday." This is an example of:</p>
+<p>A. Repression</p>
+<p>B. Denial</p>
+<p>C. Suppression</p>
+<p>D. Dissociation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Suppression is a mature defence involving the conscious decision not to attend to a feeling or impulse. The key distinction from repression (A) is that suppression is conscious while repression is unconscious. Denial (B) involves avoiding awareness of external reality. Dissociation (D) involves disrupting identity, memory, or consciousness. The patient here is aware of the worry and deliberately choosing to postpone it -- this is healthy, mature coping.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Suppression is one of the mature defences (alongside sublimation, humour, altruism, and anticipation) associated with healthy adaptation in the Grant Study. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q23.</strong> Which statement about Freud's structural model is correct?</p>
+<p>A. It replaced the topographic model because the topographic model could not explain unconscious defences</p>
+<p>B. The id operates according to the reality principle</p>
+<p>C. The superego is entirely conscious</p>
+<p>D. The ego is entirely unconscious</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>A.</strong> The structural model (Id, Ego, Superego) replaced the topographic model (Conscious, Preconscious, Unconscious) because the topographic model could not explain why defence mechanisms themselves were unconscious. If defences were unconscious, they could not belong to the "conscious" system that was supposed to do the defending. The id operates by the pleasure principle (not reality principle -- B is wrong). The superego is predominantly unconscious (C is wrong). The ego is partly conscious and partly unconscious (D is wrong).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Signal anxiety (Freud, 1926) is the ego's alarm system -- a small dose of anxiety that activates defence mechanisms when forbidden impulses threaten consciousness. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q24.</strong> According to Gabbard, when should transference be interpreted?</p>
+<p>A. As early as possible to demonstrate psychodynamic skill</p>
+<p>B. Only when the transference becomes a resistance</p>
+<p>C. Never -- transference should only be observed and contained</p>
+<p>D. Only during the termination phase</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Gabbard's rule: "Interpret transference when it becomes a resistance." If positive transference is facilitating therapeutic work, do not interpret it. If a patient's idealisation enables them to explore painful material, leave it alone. Interpret when the transference blocks further exploration. Premature interpretation (A) can damage the alliance. Never interpreting (C) misses key therapeutic opportunities. Waiting until termination (D) wastes the therapeutic potential of transference analysis.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Interpret surface before depth, defence before content, and transference when it becomes resistance. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q25.</strong> "Flight into health" during the termination phase of psychodynamic therapy typically represents:</p>
+<p>A. Genuine therapeutic improvement</p>
+<p>B. A resistance function -- premature claim of cure to avoid further exploration</p>
+<p>C. The natural endpoint of successful therapy</p>
+<p>D. A sign that the patient is ready for discharge</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Flight into health is the patient's premature claim of cure, which often serves a resistance function. Gabbard's rule of thumb: the first time a patient brings up termination, it probably represents resistance rather than genuine readiness. This is especially true when it coincides with the emergence of difficult transference material. Genuine improvement (A) is typically accompanied by sustained change across multiple domains, not a sudden claim of cure.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Fewer than 20% of patients in community mental health have a mutually negotiated termination. (WP-03)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION C: COGNITIVE BEHAVIOUR THERAPY (Q26-Q45)</h2>
+<hr>
+<p><strong>Q26.</strong> A patient thinks "I did well on that exam, but that was just luck -- it doesn't mean I'm actually competent." The cognitive distortion MOST evident is:</p>
+<p>A. Emotional reasoning</p>
+<p>B. Disqualifying the positive</p>
+<p>C. Mind reading</p>
+<p>D. Catastrophising</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Disqualifying or discounting the positive involves telling yourself that positive experiences, deeds, or qualities do not count. The patient acknowledges the positive outcome but immediately negates it by attributing it to luck rather than competence. Emotional reasoning (A) involves believing something is true because it feels true. Mind reading (C) involves assuming knowledge of others' thoughts. Catastrophising (D) involves predicting the worst outcome.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The four most commonly tested cognitive distortions are: all-or-nothing thinking, catastrophising, emotional reasoning, and mind reading. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q27.</strong> In Beck's cognitive model, the three levels of cognition from most accessible to least accessible are:</p>
+<p>A. Core beliefs, intermediate beliefs, automatic thoughts</p>
+<p>B. Schemas, core beliefs, automatic thoughts</p>
+<p>C. Automatic thoughts, intermediate beliefs, core beliefs</p>
+<p>D. Automatic thoughts, core beliefs, intermediate beliefs</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The three levels from most accessible to least accessible are: automatic thoughts (situation-specific, brief, spontaneous), intermediate beliefs (rules, attitudes, conditional assumptions -- identified via downward arrow), and core beliefs (global, absolute, rigid -- least accessible, most difficult to modify). Option A reverses the order. Options B and D incorrectly sequence the levels.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The cardinal question for eliciting automatic thoughts: "What was just going through your mind?" (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q28.</strong> Beck's cognitive triad for depression consists of a negative view of:</p>
+<p>A. Past, present, and future</p>
+<p>B. Self, world/experience, and future</p>
+<p>C. Self, others, and relationships</p>
+<p>D. Thoughts, feelings, and behaviour</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Beck's cognitive triad comprises: negative view of the self ("I'm defective"), negative view of the world/experience ("the world is unfair"), and negative view of the future ("things will never get better"). This triad is specific to depression. Anxiety has a different cognitive profile: overestimation of threat with underestimation of coping ability.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The cognitive triad is specific to depression. Anxiety involves threat overestimation + coping underestimation. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q29.</strong> The correct standard structure of a CBT session is:</p>
+<p>A. Free association, interpretation, working through, summary</p>
+<p>B. Mood check, agenda setting, homework review, work on agenda items, summary, new homework, feedback</p>
+<p>C. Mindfulness exercise, skills teaching, role play, homework</p>
+<p>D. Check-in, unstructured exploration, psychoeducation, relaxation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The standard CBT session structure is: mood/medication check, set agenda, update + review action plan (homework), prioritise agenda, work on agenda items, summarise, review new action plan, elicit feedback. Option A describes psychodynamic therapy. Option C describes a DBT skills group. Option D is an unstructured approach inconsistent with CBT's structured format.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The structured session format distinguishes CBT from most other modalities and is a defining feature. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q30.</strong> Collaborative empiricism in CBT is best described as:</p>
+<p>A. The therapist challenges the patient's irrational beliefs through logical disputation</p>
+<p>B. Therapist and client function as co-investigators examining evidence for and against beliefs</p>
+<p>C. The therapist assigns homework and the patient reports back</p>
+<p>D. The therapist teaches the patient about cognitive distortions through psychoeducation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Collaborative empiricism is the defining stance of CBT. Therapist and client act as two scientists jointly examining evidence for and against the client's cognitions. CBT does NOT "challenge" thoughts (that is closer to Ellis's REBT -- A is wrong); it helps clients assess accuracy and utility through guided discovery. While homework (C) and psychoeducation (D) are components of CBT, they do not define the therapeutic stance.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The distinction between collaborative empiricism (Beck) and active disputation (Ellis) is frequently tested. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q31.</strong> A patient with social anxiety avoids eye contact, rehearses what to say before speaking, and holds a glass tightly to hide hand tremor at parties. In the Clark and Wells model, these are examples of:</p>
+<p>A. Cognitive distortions</p>
+<p>B. Safety behaviours</p>
+<p>C. Schema maintenance processes</p>
+<p>D. Experiential avoidance</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Safety behaviours are actions taken within a feared situation to prevent the feared outcome. In Clark and Wells' model for social anxiety, safety behaviours are a key maintaining factor because the person attributes the non-occurrence of the feared outcome to the safety behaviour rather than to the situation being safe -- preventing disconfirmation of negative beliefs. Cognitive distortions (A) are errors in information processing. Schema maintenance (C) is a broader construct from Schema Therapy. Experiential avoidance (D) is an ACT concept.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Clark and Wells model identifies three maintaining factors: self-focused attention, safety behaviours, and post-event rumination. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q32.</strong> The "downward arrow technique" in CBT is used to:</p>
+<p>A. Reduce the intensity of automatic thoughts</p>
+<p>B. Identify underlying intermediate and core beliefs from automatic thoughts</p>
+<p>C. Create a fear hierarchy for graded exposure</p>
+<p>D. Teach relaxation skills progressively</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The downward arrow technique starts with an automatic thought and asks "If that were true, what would it mean about you?" repeatedly, drilling down from surface-level automatic thoughts through intermediate beliefs to core beliefs. It is an assessment technique, not an intervention for reducing thought intensity (A), exposure planning (C), or relaxation (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Intermediate beliefs are identified using the downward arrow technique and typically take the form of conditional statements ("If...then"), rules, and attitudes. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q33.</strong> According to Beck, negative core beliefs about the self fall into which three categories?</p>
+<p>A. Anxiety, depression, anger</p>
+<p>B. Abandonment, mistrust, defectiveness</p>
+<p>C. Helplessness, unlovability, worthlessness</p>
+<p>D. Id, ego, superego</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Beck's three categories of negative core beliefs are: helplessness ("I'm incompetent, powerless, inferior"), unlovability ("I'm unlovable, undesirable, bound to be rejected"), and worthlessness ("I'm immoral, dangerous, don't deserve to live"). Option B lists Young's Early Maladaptive Schemas (from Schema Therapy, not Beck's categories). Options A and D are unrelated frameworks.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mnemonic: HUW -- Helplessness, Unlovability, Worthlessness. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q34.</strong> Behavioural experiments in CBT are considered more powerful than verbal techniques alone because they:</p>
+<p>A. Are easier for the patient to complete</p>
+<p>B. Provide direct experiential evidence against distorted beliefs</p>
+<p>C. Do not require the therapeutic alliance</p>
+<p>D. Work faster than medication</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Behavioural experiments provide direct experiential evidence against distorted beliefs, producing change at both the intellectual and emotional levels. Verbal techniques (Socratic questioning, thought records) primarily produce intellectual change, while behavioural experiments and experiential techniques produce emotional-level change as well. They are not necessarily easier (A), they still require alliance (C), and comparing speed to medication (D) is not the rationale.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Behavioural experiments are the most powerful technique for changing beliefs at both intellectual and emotional levels. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q35.</strong> A patient says "I feel incompetent, therefore I must be incompetent." This cognitive distortion is:</p>
+<p>A. All-or-nothing thinking</p>
+<p>B. Personalisation</p>
+<p>C. Emotional reasoning</p>
+<p>D. Overgeneralisation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Emotional reasoning involves believing something must be true because you "feel" it strongly, ignoring contrary evidence. The patient uses the emotion (feeling incompetent) as proof of the belief (being incompetent). All-or-nothing thinking (A) involves binary categories. Personalisation (B) involves taking excessive responsibility. Overgeneralisation (D) involves drawing sweeping conclusions from single events.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Emotional reasoning is one of the four most commonly tested cognitive distortions. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q36.</strong> Clark's (1986) cognitive model of panic disorder centres on:</p>
+<p>A. Conditioned fear responses to bodily sensations</p>
+<p>B. Catastrophic misinterpretation of bodily sensations</p>
+<p>C. Intolerance of uncertainty</p>
+<p>D. Inflated responsibility for harm prevention</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Clark's model proposes a positive feedback loop: bodily sensations are catastrophically misinterpreted ("I'm having a heart attack"), which increases anxiety, which increases bodily sensations, which reinforces the catastrophic interpretation. Option A describes a purely behavioural model. Option C describes the Dugas model for GAD. Option D describes the Salkovskis model for OCD.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Interoceptive exposure (deliberately inducing feared sensations) is the technique that distinguishes panic disorder CBT from standard anxiety CBT. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q37.</strong> In the Salkovskis (1985) cognitive model of OCD, the key pathological appraisal that distinguishes clinical obsessions from normal intrusive thoughts is:</p>
+<p>A. Thought-action fusion</p>
+<p>B. Inflated personal responsibility for preventing harm</p>
+<p>C. Intolerance of uncertainty</p>
+<p>D. Perfectionism</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Salkovskis' model states that intrusive thoughts are universal (90% of the general population has them). What differentiates OCD is the appraisal of inflated personal responsibility -- "If I don't check the stove, the house will burn down and it will be MY fault." This triggers neutralising behaviour (compulsions). While thought-action fusion (A), intolerance of uncertainty (C), and perfectionism (D) are all relevant to OCD, inflated responsibility is the central appraisal in the Salkovskis model specifically.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>ERP alone matches pharmacotherapy for moderate-severe OCD -- one of the few disorders where psychotherapy alone equals medication. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q38.</strong> All of the following are cognitive distortions EXCEPT:</p>
+<p>A. Emotional reasoning</p>
+<p>B. Collaborative empiricism</p>
+<p>C. Mental filter</p>
+<p>D. Personalisation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Collaborative empiricism is the therapeutic stance of CBT (therapist and client as co-investigators), not a cognitive distortion. Emotional reasoning (A -- believing feelings are facts), mental filter (C -- selective attention to one negative detail), and personalisation (D -- believing others' behaviour is caused by you) are all cognitive distortions identified by Beck.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Know at least 10 cognitive distortions with definitions for exams. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q39.</strong> The CBT-E (Enhanced CBT) model for eating disorders is considered "transdiagnostic" because:</p>
+<p>A. It uses techniques from multiple therapy modalities</p>
+<p>B. It can be applied to AN, BN, and BED using the same framework</p>
+<p>C. It requires no diagnosis before treatment begins</p>
+<p>D. It treats comorbid depression and anxiety simultaneously</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Fairburn's CBT-E is transdiagnostic because it treats all eating disorders using the same core framework -- the shared maintaining mechanisms are clinical perfectionism, core low self-esteem, mood intolerance, and interpersonal difficulties. It is not about combining modalities (A), skipping diagnosis (C), or treating comorbidities per se (D), though the broad form does address maintaining mechanisms that overlap with other conditions.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>CBT-E has a focused form (core eating disorder psychopathology) and a broad form (also addressing perfectionism, self-esteem, mood intolerance, and interpersonal difficulties). (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q40.</strong> A patient says "My boss looked at me briefly during the meeting and then looked away. He must think my presentation was terrible." This cognitive distortion is:</p>
+<p>A. Catastrophising</p>
+<p>B. Mind reading</p>
+<p>C. All-or-nothing thinking</p>
+<p>D. Labelling</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Mind reading involves believing you know what others are thinking without sufficient evidence. The patient interprets a brief, ambiguous behaviour (a glance) as evidence of a specific negative judgment. Catastrophising (A) would involve predicting a terrible outcome. All-or-nothing thinking (C) would involve binary categorisation. Labelling (D) would involve putting a global label on self or other.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mind reading is one of the four most commonly tested cognitive distortions alongside all-or-nothing thinking, catastrophising, and emotional reasoning. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q41.</strong> The Abstinence Violation Effect (AVE) in CBT relapse prevention for substance use disorders refers to:</p>
+<p>A. The physical withdrawal symptoms that occur after stopping substance use</p>
+<p>B. The patient's attribution of a lapse to internal, stable, global causes, catastrophising it into full relapse</p>
+<p>C. The therapist's refusal to continue treatment after a relapse</p>
+<p>D. The mandatory period of abstinence required before starting therapy</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The AVE describes the cognitive process where, after a lapse, the patient makes an internal, stable, global attribution ("I'm an addict, I'll never change") rather than an external, unstable, specific attribution ("I was in a high-risk situation without coping skills"). This catastrophic attribution turns a single lapse into a full relapse. CBT relapse prevention specifically targets this cognitive distortion.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The AVE is a critical concept in Marlatt and Gordon's relapse prevention model. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q42.</strong> Which of the following is the FIRST intervention typically used in CBT for depression?</p>
+<p>A. Cognitive restructuring of core beliefs</p>
+<p>B. Behavioural activation and activity scheduling</p>
+<p>C. Schema change work</p>
+<p>D. Socratic questioning of intermediate beliefs</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Behavioural activation and activity scheduling are typically the first interventions in CBT for depression, targeting the vicious cycle: depressed mood leads to inactivity, which leads to loss of positive reinforcement, which deepens depression. Breaking this cycle through scheduled activity comes before cognitive restructuring of automatic thoughts (which comes before work on intermediate and core beliefs). Schema change work (C) and core belief restructuring (A) come much later in treatment.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Dimidjian et al. (2006) found BA was as effective as antidepressant medication and superior to CBT for severe depression in the acute phase. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q43.</strong> In Beck's cognitive model, what distinguishes a schema from a core belief?</p>
+<p>A. They are the same thing</p>
+<p>B. A schema is the cognitive structure; core beliefs are the content of schemas</p>
+<p>C. Core beliefs are more accessible than schemas</p>
+<p>D. Schemas are conscious while core beliefs are unconscious</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Schemas are relatively stable cognitive structures that organise experience and guide information processing. Core beliefs are the content of schemas. Schemas have properties such as breadth, flexibility/rigidity, density, and valence. They are not the same thing (A). Core beliefs are the least accessible level of cognition (C is wrong). Both are largely outside awareness until activated (D is an oversimplification).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Beck's schemas vs. Young's EMSs: Beck identified schemas as cognitive structures; Young expanded this into 18 specific EMSs with associated modes, coping styles, and origins. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q44.</strong> Applied tension (Ost & Sterner, 1987) is the treatment of choice for which specific phobia?</p>
+<p>A. Claustrophobia</p>
+<p>B. Social phobia</p>
+<p>C. Blood-injection-injury phobia</p>
+<p>D. Agoraphobia</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Applied tension is specifically designed for blood-injection-injury (BII) phobia. Unlike other phobias (which involve sympathetic activation and respond to standard exposure), BII phobia involves a vasovagal (parasympathetic) response -- fainting from blood pressure drop. Applied tension counteracts this by teaching the patient to tense large muscle groups to increase blood pressure during exposure. Standard relaxation-based exposure would be counterproductive.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>BII phobia is the only phobia with a parasympathetic rather than sympathetic mechanism. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q45.</strong> Which key CBT trial found that CBT was less effective than IPT and imipramine for severely depressed patients?</p>
+<p>A. Rush et al. (1977)</p>
+<p>B. NIMH Treatment of Depression Collaborative Research Program (Elkin et al., 1989)</p>
+<p>C. CoBalT trial (Wiles et al., 2013)</p>
+<p>D. TADS Study (2004)</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The NIMH TDCRP (Elkin et al., 1989) found that for mild-moderate depression, CBT, IPT, and imipramine were roughly equivalent. However, for severely depressed patients, IPT and imipramine were superior to CBT -- a controversial result. Rush et al. (A) was the first RCT showing CT equalled imipramine (not showing inferiority). CoBalT (C) studied adding CBT to medication in treatment-resistant depression. TADS (D) studied adolescent depression.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The NIMH TDCRP is the single most important trial in psychotherapy research. (WP-08, WP-11)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION D: BEHAVIOUR THERAPY (Q46-Q55)</h2>
+<hr>
+<p><strong>Q46.</strong> Systematic desensitisation, developed by Wolpe (1958), is based on the principle of:</p>
+<p>A. Operant conditioning</p>
+<p>B. Reciprocal inhibition</p>
+<p>C. Classical extinction</p>
+<p>D. Cognitive restructuring</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Systematic desensitisation is based on reciprocal inhibition -- the principle that a response incompatible with anxiety (such as relaxation) can inhibit the anxiety response. The procedure combines progressive muscle relaxation with graded imaginal exposure to feared stimuli. It has been largely replaced by in vivo exposure in modern practice. Operant conditioning (A) involves consequences shaping behaviour. Classical extinction (C) involves presenting the conditioned stimulus without the unconditioned stimulus. Cognitive restructuring (D) is a CBT technique.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Wolpe's systematic desensitisation was the historical precursor to modern exposure therapy. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q47.</strong> In operant conditioning, a token economy is an example of:</p>
+<p>A. Negative reinforcement</p>
+<p>B. Positive punishment</p>
+<p>C. Positive reinforcement</p>
+<p>D. Negative punishment</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> A token economy uses positive reinforcement -- tokens (secondary reinforcers) are given contingent on desired behaviours and can be exchanged for privileges or goods (primary reinforcers). Negative reinforcement (A) involves removing an aversive stimulus. Positive punishment (B) involves adding an aversive stimulus. Negative punishment (D) involves removing a pleasant stimulus.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Token economies were widely used in psychiatric hospitals following Skinner's operant conditioning principles. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q48.</strong> In the context of exposure therapy, which statement about safety behaviours is correct?</p>
+<p>A. Safety behaviours enhance the effectiveness of exposure</p>
+<p>B. Safety behaviours maintain anxiety by preventing disconfirmation of feared outcomes</p>
+<p>C. Safety behaviours should be encouraged during initial exposure sessions</p>
+<p>D. Safety behaviours have no effect on exposure outcomes</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Safety behaviours maintain anxiety disorders because the person attributes the non-occurrence of the feared outcome to the safety behaviour rather than to the situation being safe. This prevents disconfirmatory learning. Dropping safety behaviours is a critical component of effective exposure. They do not enhance exposure (A), should not be encouraged (C), and have significant negative effects on outcomes (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Safety behaviours are the most commonly missed maintaining factor in anxiety disorders. (WP-04)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q49.</strong> Behavioural Activation (BA) for depression is based on which theoretical model?</p>
+<p>A. Beck's cognitive triad</p>
+<p>B. Lewinsohn's model of reduced positive reinforcement</p>
+<p>C. Seligman's learned helplessness</p>
+<p>D. Bandura's self-efficacy theory</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> BA is based on Lewinsohn's model: depression is maintained by reduced positive reinforcement from the environment due to behavioural withdrawal. The treatment breaks the cycle by scheduling activities that increase contact with sources of positive reinforcement. Beck's cognitive triad (A) is the basis for cognitive therapy, not BA specifically. Learned helplessness (C) and self-efficacy (D) are related concepts but not the primary theoretical basis for BA.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>BA can be delivered by non-specialists and lay health workers -- the MANAS trial in Goa demonstrated this. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q50.</strong> The inhibitory learning model of exposure therapy proposes that:</p>
+<p>A. The original fear memory is erased through repeated exposure</p>
+<p>B. A new non-threat association is formed alongside the existing fear memory</p>
+<p>C. Relaxation inhibits the anxiety response</p>
+<p>D. Cognitive restructuring is required for exposure to work</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The inhibitory learning model proposes that exposure does not erase the original fear association but creates a new, competing non-threat association. Both associations exist in memory; the context determines which is retrieved. This explains why fear can return after successful exposure (through renewal, reinstatement, or spontaneous recovery). Erasure (A) is the older habituation model. Relaxation inhibiting anxiety (C) is Wolpe's reciprocal inhibition. Cognitive restructuring (D) is not required in pure behavioural exposure.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The inhibitory learning model explains why fear returns after successful exposure -- context changes can retrieve the original fear memory. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q51.</strong> Exposure and Response Prevention (ERP) for OCD specifically requires:</p>
+<p>A. Exposure to feared stimuli with relaxation training</p>
+<p>B. Exposure to obsessional triggers with absolute prevention of compulsive rituals</p>
+<p>C. Imaginal exposure only, without in vivo components</p>
+<p>D. Brief exposure followed by immediate distraction</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> ERP involves hierarchical exposure to obsessional triggers combined with absolute prevention of compulsive rituals. The patient learns that anxiety naturally habituates and that the feared catastrophe does not occur. Relaxation training (A) is not part of standard ERP. In vivo exposure is preferred over imaginal-only (C). Distraction (D) would undermine the exposure process.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The most common therapist error is conducting "exposure without response prevention" -- allowing partial ritualising produces sensitisation, not habituation. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q52.</strong> In Contingency Management (CM) for substance use disorders, the primary mechanism is:</p>
+<p>A. Cognitive restructuring of beliefs about substance use</p>
+<p>B. Providing tangible reinforcers for verified abstinence</p>
+<p>C. Exposure and desensitisation to drug cues</p>
+<p>D. Interpersonal skills training</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> CM provides tangible reinforcers (vouchers, prizes) contingent on verified abstinence (negative urine drug screens). It is based on operant conditioning principles -- increasing the reinforcing value of abstinence relative to substance use. It has particularly strong evidence for cocaine and methamphetamine use, where no effective pharmacotherapy exists.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>NICE recommends CM for opioid and stimulant use disorders. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q53.</strong> Single-session exposure treatment (Ost, 1989) has been shown to produce clinically significant improvement in:</p>
+<p>A. Social anxiety disorder</p>
+<p>B. Specific phobias</p>
+<p>C. PTSD</p>
+<p>D. Generalised anxiety disorder</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Single-session exposure (1-3 hours) can produce clinically significant improvement for specific phobias -- making it the most parsimonious and effective treatment in all of psychotherapy. Social anxiety (A), PTSD (C), and GAD (D) require longer, more complex treatment protocols involving cognitive and interpersonal components.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In vivo graded exposure is the first-line treatment for specific phobias. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q54.</strong> The MANAS trial (Patel et al., 2010) demonstrated that:</p>
+<p>A. CBT was superior to medication for depression in India</p>
+<p>B. Collaborative stepped care including BA delivered by lay counsellors was effective for common mental disorders</p>
+<p>C. Psychodynamic therapy could be adapted for low-resource settings</p>
+<p>D. Schema Therapy was effective for chronic depression in developing countries</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The MANAS trial, published in the Lancet, demonstrated that collaborative stepped care including behavioural activation delivered by lay health workers was effective for common mental disorders (depression, anxiety) in Goa, India. This landmark trial showed that evidence-based psychological interventions could be delivered by non-specialists in resource-limited settings.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>BA is increasingly favoured in resource-limited settings because it requires fewer therapist training hours than full CBT. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q55.</strong> In the Community Reinforcement Approach (CRA) for substance use, the primary mechanism is:</p>
+<p>A. Confronting denial about substance use</p>
+<p>B. Rearranging environmental contingencies so sobriety is more rewarding than substance use</p>
+<p>C. Teaching cognitive restructuring of substance-related thoughts</p>
+<p>D. Prescribing aversive consequences for substance use</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> CRA rearranges environmental contingencies so that sobriety is more rewarding than substance use. It includes relationship counselling, job skills, and social/recreational counselling -- making the sober lifestyle reinforcing. It does not confront denial (A -- that is more aligned with traditional confrontation approaches), does not primarily use cognitive restructuring (C), and does not prescribe aversive consequences (D -- it uses positive reinforcement).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>NICE recommends CRA for alcohol dependence. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION E: DBT (Q56-Q70)</h2>
+<hr>
+<p><strong>Q56.</strong> The biosocial model of DBT explains emotional dysregulation as the transaction between:</p>
+<p>A. Cognitive distortions and behavioural avoidance</p>
+<p>B. Biological vulnerability to intense emotions and an invalidating environment</p>
+<p>C. Attachment insecurity and mentalization failure</p>
+<p>D. Early maladaptive schemas and maladaptive coping modes</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The biosocial model is a transactional model: biological vulnerability (high emotional sensitivity, high reactivity, slow return to baseline) interacts with an invalidating environment (dismissing, punishing, or oversimplifying emotional expression). Neither biology nor environment alone is the cause -- the transaction between them produces emotional dysregulation. Option C describes MBT's model, D describes Schema Therapy's model.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The biosocial model is transactional, not linear -- the child's sensitivity shapes parental responses, and parental invalidation worsens the child's dysregulation. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q57.</strong> In DBT's target hierarchy for Stage 1 individual therapy, which behaviour is addressed FIRST?</p>
+<p>A. Quality-of-life-interfering behaviours</p>
+<p>B. Therapy-interfering behaviours</p>
+<p>C. Life-threatening behaviours</p>
+<p>D. Increasing behavioural skills</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The DBT Stage 1 target hierarchy is absolute: (1) life-threatening behaviours (suicidal ideation, self-harm, homicidal ideation), (2) therapy-interfering behaviours, (3) quality-of-life-interfering behaviours, (4) increasing behavioural skills. If a patient had suicidal thoughts, missed sessions, and used substances in the same week, suicidal behaviour is always addressed first.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The target hierarchy governs every individual therapy session -- the therapist always addresses higher-priority targets first. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q58.</strong> The TIPP skills in DBT's Distress Tolerance module stands for:</p>
+<p>A. Think, Identify, Plan, Practice</p>
+<p>B. Temperature, Intense exercise, Paced breathing, Progressive relaxation</p>
+<p>C. Trust, Improve, Persist, Participate</p>
+<p>D. Think, Imagine, Problem-solve, Proceed</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> TIPP = Temperature, Intense exercise, Paced breathing, Progressive (or Paired muscle) relaxation. These are rapid physiological downregulation skills that activate the parasympathetic nervous system. The Temperature skill (cold water on the face) activates the mammalian dive reflex, triggering the vagus nerve and rapidly reducing heart rate.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>TIPP skills work as fast as dysfunctional behaviours (self-harm, substance use) but without the negative consequences. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q59.</strong> DEAR MAN in DBT is used for:</p>
+<p>A. Maintaining self-respect in interpersonal situations</p>
+<p>B. Getting what you want or saying no effectively</p>
+<p>C. Maintaining the relationship during conflict</p>
+<p>D. Reducing hostile attributions toward others</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> DEAR MAN (Describe, Express, Assert, Reinforce, stay Mindful, Appear confident, Negotiate) is the objective effectiveness skill -- getting what you want or saying no. FAST (A) is for self-respect effectiveness. GIVE (C) is for relationship effectiveness. THINK (D) is for reducing hostile attributions (adolescent-specific).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DEAR MAN, GIVE, and FAST represent three different goals of interpersonal interaction -- objective, relationship, and self-respect effectiveness respectively. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q60.</strong> In DBT, which is the correct application of opposite action?</p>
+<p>A. When feeling fear, the opposite action is to avoid the feared situation</p>
+<p>B. When feeling unjustified shame, the opposite action is to hide and withdraw</p>
+<p>C. When feeling sadness, the opposite action is to become active and engage</p>
+<p>D. When feeling justified guilt, the opposite action is to refuse to apologise</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> When sadness does not fit the facts, the opposite action is to become active and engage (rather than withdraw and be passive). Option A reverses the correct opposite action for fear (approach, not avoid). Option B reverses the opposite action for unjustified shame (go public, stand tall -- not hide). Option D reverses the action for justified guilt (apologise and make amends -- not refuse).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Opposite action only works when done "all the way" -- posture, tone, facial expression, thoughts, and actions must all be opposite. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q61.</strong> The four modes of standard DBT treatment are:</p>
+<p>A. Individual therapy, group therapy, family therapy, medication management</p>
+<p>B. Individual therapy, skills group, phone coaching, consultation team</p>
+<p>C. Assessment, stabilisation, trauma processing, integration</p>
+<p>D. Psychoeducation, skills training, exposure, relapse prevention</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The four modes of DBT are: individual therapy (motivational, applies skills to specific problems), skills group (capability -- teaching new skills), phone coaching (generalisation of skills to real-life crises), and consultation team (therapy for the therapists). Each mode serves a distinct function. Notably, DBT skills groups are psychoeducational, NOT process-oriented group therapy (A is wrong).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The consultation team is not supervision -- it is therapy for the therapist within a DBT framework. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q62.</strong> In DBT, the formula "Pain + Non-acceptance = Suffering" describes which skill?</p>
+<p>A. Opposite action</p>
+<p>B. Radical acceptance</p>
+<p>C. Wise Mind</p>
+<p>D. Check the Facts</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Radical acceptance is the full acknowledgment of reality as it is. The formula captures its essence: pain is unavoidable, but suffering is pain multiplied by non-acceptance. "This should not have happened to me" is the non-acceptance that converts pain into prolonged suffering. Acceptance does not equal approval -- it means acknowledging what is.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Radical acceptance is not a single decision but a repeated, moment-by-moment choice (Turning the Mind). (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q63.</strong> Walking the Middle Path is a DBT skills module unique to:</p>
+<p>A. Standard adult DBT</p>
+<p>B. DBT for substance use disorders</p>
+<p>C. Adolescent DBT (Rathus & Miller)</p>
+<p>D. DBT for eating disorders</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Walking the Middle Path is the fifth module unique to adolescent DBT (Rathus & Miller, 2015). It is not in standard adult DBT. It directly addresses the three adolescent-specific dialectical dilemmas by teaching families dialectical thinking, validation skills, and behaviour-change principles. Parents attend skills groups alongside teens in adolescent DBT.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Adolescent DBT also includes parents in the skills group and has a 24-week rather than 1-year programme duration. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q64.</strong> In DBT, which level of validation involves treating the person as a capable equal with honest, direct, warm communication?</p>
+<p>A. Level 3 -- Mind-reading</p>
+<p>B. Level 4 -- Validation by past history</p>
+<p>C. Level 5 -- Validation by current context</p>
+<p>D. Level 6 -- Radical genuineness</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>D.</strong> Level 6, radical genuineness, is the highest level of validation. It means treating the patient as capable of handling truth -- giving honest feedback without being patronising. Level 3 (A) involves articulating unspoken thoughts from nonverbal cues. Level 4 (B) validates behaviour based on learning history. Level 5 (C) normalises the response within the current context.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Level 5 is the heart of DBT validation; Level 6 is the highest and hardest. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q65.</strong> The three dialectical dilemmas in standard adult DBT (Linehan) are:</p>
+<p>A. Acceptance vs. change, validation vs. confrontation, mindfulness vs. action</p>
+<p>B. Emotional vulnerability vs. self-invalidation, active passivity vs. apparent competence, unrelenting crisis vs. inhibited experiencing</p>
+<p>C. Attachment vs. autonomy, emotion vs. reason, past vs. present</p>
+<p>D. Biological vs. environmental, internal vs. external, individual vs. systemic</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Linehan's three dialectical dilemmas are: (1) emotional vulnerability vs. self-invalidation, (2) active passivity vs. apparent competence, (3) unrelenting crisis vs. inhibited experiencing. Each generates secondary treatment targets. Option A captures the fundamental dialectic (acceptance + change) but not the three specific dilemmas.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Three additional adolescent-specific dilemmas were added by Rathus & Miller. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q66.</strong> In DBT chain analysis, the correct sequence of steps is:</p>
+<p>A. Identify the emotion, then the thought, then the behaviour</p>
+<p>B. Identify problem behaviour, prompting event, vulnerability factors, then map the chain link by link</p>
+<p>C. Identify the core belief, then the intermediate belief, then the automatic thought</p>
+<p>D. Identify the schema, then the mode, then the coping style</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Chain analysis follows: (1) identify the specific problem behaviour, (2) identify the prompting event, (3) identify vulnerability factors, (4) map the chain link by link (event, thought, emotion, body sensation, action urge, behaviour), (5) identify consequences. Solution analysis follows immediately, identifying which skill could have interrupted at each link. Option C describes CBT's downward arrow. Option D describes Schema Therapy assessment.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Chain analysis is collaborative detective work, not punishment. Done badly, it becomes aversive and therapy-interfering. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q67.</strong> Linehan et al. (2006) found that DBT for BPD women was superior to community treatment by experts in all of the following EXCEPT:</p>
+<p>A. Halving suicide attempts</p>
+<p>B. Reducing self-harm</p>
+<p>C. Curing personality disorder</p>
+<p>D. Reducing ED visits and psychiatric hospitalisation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> DBT does not claim to "cure" personality disorder. The Linehan et al. (2006) RCT showed DBT was superior to community treatment by experts in reducing suicide attempts by half, reducing self-harm, and reducing ED visits and psychiatric hospitalisation. DBT Stage 1 targets behavioural stabilisation -- achieving safety and control -- not personality structure change.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DBT has four stages, but most research and manuals address only Stage 1. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q68.</strong> The Wise Mind concept in DBT is:</p>
+<p>A. The same as the Adult ego state in Transactional Analysis</p>
+<p>B. The synthesis of Emotional Mind and Reasonable Mind; intuitive knowing</p>
+<p>C. A cognitive restructuring technique borrowed from CBT</p>
+<p>D. The therapist's perspective on the patient's problems</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Wise Mind is the synthesis of Emotional Mind (governed by feelings) and Reasonable Mind (governed by logic and facts). It represents intuitive knowing -- a state where emotion and reason are integrated. While conceptually similar to the Adult ego state in TA (A), it is a distinctly DBT concept rooted in Zen practice. It is not a cognitive technique (C) or the therapist's view (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mindfulness is the "gateway skill" in DBT -- you cannot use any other skill without first noticing you need it. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q69.</strong> ABC PLEASE in DBT's Emotion Regulation module includes all of the following EXCEPT:</p>
+<p>A. Accumulate positives</p>
+<p>B. Avoid mood-altering substances</p>
+<p>C. Analyse cognitive distortions</p>
+<p>D. Build mastery</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> ABC PLEASE stands for Accumulate positives (A), Build mastery (D), Cope ahead, treat PhysicaL illness, balance Eating, Avoid mood-altering substances (B), balance Sleep, get Exercise. "Analyse cognitive distortions" is a CBT technique, not part of the DBT mnemonic. The ABC component is proactive; the PLEASE component is preventive vulnerability reduction.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>ABC PLEASE reduces vulnerability before emotions fire. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q70.</strong> In DBT, when a patient does not complete the diary card, this is classified as:</p>
+<p>A. A life-threatening behaviour</p>
+<p>B. A therapy-interfering behaviour</p>
+<p>C. A quality-of-life-interfering behaviour</p>
+<p>D. Not clinically significant</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Not completing the diary card is a therapy-interfering behaviour -- it interferes with the delivery and effectiveness of treatment. It is addressed in the target hierarchy after any life-threatening behaviours but before quality-of-life issues. The diary card is not optional in DBT; it determines which targets are addressed according to the hierarchy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>If the diary card shows both suicidal urges and missed skills group, suicidal urges are addressed first (life-threatening > therapy-interfering). (WP-06)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION F: SCHEMA THERAPY (Q71-Q80)</h2>
+<hr>
+<p><strong>Q71.</strong> According to Young, the 18 Early Maladaptive Schemas are grouped into how many domains?</p>
+<p>A. 3</p>
+<p>B. 4</p>
+<p>C. 5</p>
+<p>D. 6</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Young's 18 EMSs are grouped into 5 domains: (I) Disconnection & Rejection (5 schemas), (II) Impaired Autonomy & Performance (4 schemas), (III) Impaired Limits (2 schemas), (IV) Other-Directedness (3 schemas), and (V) Overvigilance & Inhibition (4 schemas). Domain distribution: 5-4-2-3-4.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Mnemonic: DISCO -- Disconnection & Rejection, Impaired Autonomy, Impaired LimitS, Other-direCtedness, Overvigilance & Inhibition. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q72.</strong> In Schema Therapy, behaviour is:</p>
+<p>A. Part of the schema itself</p>
+<p>B. NOT part of the schema -- it is a coping response to the schema</p>
+<p>C. The primary target of treatment</p>
+<p>D. Irrelevant to the formulation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Schemas comprise memories, emotions, cognitions, and bodily sensations. Behaviour is NOT part of the schema itself -- it is a coping response. This explains why different patients use completely different (even opposite) behaviours to cope with the same schema: one person with Abandonment schema may cling (surrender), another may avoid intimacy (avoidance), and a third may smother their partner (overcompensation).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The three coping styles -- surrender, avoidance, overcompensation -- correspond to freeze, flight, and fight responses. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q73.</strong> Limited reparenting in Schema Therapy involves:</p>
+<p>A. The therapist becoming a substitute parent for the patient</p>
+<p>B. The therapist providing, within appropriate boundaries, what the patient needed but did not receive from parents</p>
+<p>C. Teaching parenting skills to the patient</p>
+<p>D. Inviting the patient's actual parents into therapy sessions</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Limited reparenting is the defining relational stance of Schema Therapy -- the therapist consistently provides, within appropriate professional boundaries, what the patient's parents failed to provide. For Abandonment: stability and reliability. For Emotional Deprivation: warmth and empathy. For Defectiveness: acceptance and non-judgment. It is not becoming an actual parent (A), teaching parenting (C), or involving real parents (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Nadort et al. (2009) showed that crisis phone support adds no benefit for BPD patients in ST -- email contact is offered instead. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q74.</strong> In Schema Therapy imagery rescripting, the therapist enters the childhood scene as a helping figure. The three types of helping figures, in order of increasing patient Healthy Adult strength, are:</p>
+<p>A. Parent figure, therapist, patient's own Healthy Adult</p>
+<p>B. Therapist enters, third-party helper, patient as own Healthy Adult</p>
+<p>C. Patient's own Healthy Adult, third-party helper, therapist enters</p>
+<p>D. God/spiritual figure, therapist, patient</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The progression reflects the patient's growing Healthy Adult capacity: (1) therapist enters the scene directly (weak HA -- the patient needs the therapist to do the rescripting), (2) third-party helper enters (intermediate -- the patient can recruit help but not do it alone), (3) patient as their own Healthy Adult (strong HA -- the patient can rescript their own childhood experience). Treatment progresses from 1 to 2 to 3.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In imagery rescripting, the therapist does NOT ask permission to enter the scene -- they simply step in. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q75.</strong> The Giesen-Bloo et al. (2006) RCT comparing Schema Therapy and TFP for BPD found:</p>
+<p>A. TFP was superior to Schema Therapy</p>
+<p>B. Both treatments were equally effective</p>
+<p>C. Schema Therapy showed higher recovery rates and lower dropout</p>
+<p>D. Neither treatment was effective</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The Giesen-Bloo et al. (2006) RCT found Schema Therapy showed higher recovery rates (45% vs. 24%), lower dropout (27% vs. 50%), and greater improvement across all BPD symptoms compared to TFP. This is the only head-to-head RCT between two specialist BPD treatments showing superiority of one over the other.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>This study also found that benzodiazepines significantly reduced ST effectiveness, likely by blocking the emotional intensity needed for experiential interventions. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q76.</strong> The four core BPD modes in the Schema Therapy mode model are:</p>
+<p>A. Vulnerable Child, Angry Child, Punitive Parent, Healthy Adult</p>
+<p>B. Abandoned/Abused Child, Angry/Impulsive Child, Punitive Parent, Detached Protector</p>
+<p>C. Happy Child, Compliant Surrenderer, Overcompensator, Healthy Adult</p>
+<p>D. Lonely Child, Demanding Parent, Self-Aggrandiser, Detached Self-Soother</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The four core BPD modes are: (1) Abandoned/Abused Child (intense abandonment fear, helplessness), (2) Angry/Impulsive Child (rage at unfair treatment), (3) Punitive Parent (extreme self-hatred -- the signature BPD mode), and (4) Detached Protector (emotional shutdown, dissociation). The Healthy Adult mode is the treatment goal, not a core pathological mode.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Punitive Parent mode is the signature BPD mode -- extreme self-hatred that is the primary target of chair work. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q77.</strong> Which of the following is TRUE about imagery rescripting in Schema Therapy?</p>
+<p>A. It is a form of prolonged exposure therapy</p>
+<p>B. It aims for complete emotional habituation to traumatic memories</p>
+<p>C. It is NOT exposure therapy -- the patient contacts emotion but does not relive full trauma</p>
+<p>D. It should only be used in the first few sessions of treatment</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Imagery rescripting is NOT exposure therapy. Arntz et al. (2007) showed IR was superior to imaginal exposure on guilt, shame, and anger control in PTSD. The patient contacts the emotion but is not required to relive the full trauma -- instead, the scene is rescripted to meet the child's needs. It is never used in early sessions (D) -- schema assessment and stabilisation come first.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>IR vs. exposure: exposure targets fear habituation; IR targets the meaning of the memory by changing what happens in the scene. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q78.</strong> A patient with a Defectiveness/Shame schema who constantly strives for perfection and achievement to prove they are worthy of love is demonstrating which coping style?</p>
+<p>A. Surrender</p>
+<p>B. Avoidance</p>
+<p>C. Overcompensation</p>
+<p>D. Sublimation</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Overcompensation involves behaving as though the opposite of the schema were true. The patient compensates for feeling fundamentally flawed by striving for perfection -- "If I can be perfect, I will be worthy of love." Surrender (A) would involve accepting the defectiveness belief and selecting partners who confirm it. Avoidance (B) would involve avoiding situations where flaws might be exposed. Sublimation (D) is a psychodynamic defence, not a schema coping style.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Conditional schemas (like Unrelenting Standards) often develop as coping responses to unconditional schemas (like Defectiveness). (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q79.</strong> According to Young, the five core emotional needs that, when unmet, lead to schema development are:</p>
+<p>A. Food, shelter, safety, love, autonomy</p>
+<p>B. Secure attachment, autonomy/competence, freedom to express needs, spontaneity/play, realistic limits</p>
+<p>C. Belonging, esteem, self-actualisation, safety, physiological needs</p>
+<p>D. Trust, identity, intimacy, generativity, integrity</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Young's five core emotional needs are: (1) secure attachment to others, (2) autonomy and competence, (3) freedom to express valid needs and emotions, (4) spontaneity and play, (5) realistic limits and self-control. When these needs go unmet in childhood, EMSs develop. Option C is Maslow's hierarchy. Option D lists Erikson's psychosocial stages.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Each of the five schema domains corresponds to one unmet core need. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q80.</strong> In the Arntz/Bernstein expanded mode model, the Detached Self-Soother mode involves:</p>
+<p>A. Healthy self-care and relaxation</p>
+<p>B. Addictive soothing or stimulation-seeking behaviour</p>
+<p>C. Turning to others for emotional support</p>
+<p>D. Rational problem-solving</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The Detached Self-Soother mode involves addictive soothing or stimulation-seeking -- substance use, compulsive eating, excessive gaming, compulsive shopping, or other behaviours that numb emotional pain through distraction or self-medication. It is a coping/avoidance mode, not healthy self-care (A) or interpersonal support-seeking (C) or rational coping (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Young (2003) described 10 modes; Arntz & Jacob (2013) expanded to 18+ modes, primarily by differentiating coping modes more granularly. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION G: HUMANISTIC-EXISTENTIAL & MI (Q81-Q90)</h2>
+<hr>
+<p><strong>Q81.</strong> Yalom identified four "ultimate concerns" of existence that form the basis of existential psychotherapy. These are:</p>
+<p>A. Love, work, play, and meaning</p>
+<p>B. Death, freedom, isolation, and meaninglessness</p>
+<p>C. Anxiety, guilt, shame, and despair</p>
+<p>D. Being, nothingness, authenticity, and transcendence</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Yalom's four ultimate existential concerns are: death (awareness of mortality), freedom (and its accompanying responsibility), isolation (fundamental aloneness of each individual), and meaninglessness (the challenge of creating meaning in an inherently meaningless universe). These are the deepest sources of human anxiety and the focus of existential psychotherapy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Existential factors are one of Yalom's 11 therapeutic factors in group therapy. (WP-02, WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q82.</strong> In Motivational Interviewing (MI), the acronym DARN-CAT represents types of:</p>
+<p>A. Resistance statements</p>
+<p>B. Change talk</p>
+<p>C. Cognitive distortions</p>
+<p>D. Therapeutic interventions</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> DARN-CAT represents types of change talk: Desire ("I want to..."), Ability ("I could..."), Reasons ("Because..."), Need ("I need to..."), Commitment ("I will..."), Activation ("I'm ready to..."), Taking steps ("I've already started..."). The MI therapist selectively elicits and reinforces change talk to resolve ambivalence.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MI is not a therapy per se but a communication style with four processes: engaging, focusing, evoking, and planning. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q83.</strong> Rogers argued that three "therapist-offered" conditions are necessary and sufficient for therapeutic change. In which situation would a Rogerian therapist be MOST concerned?</p>
+<p>A. The patient does not agree with the therapist's formulation</p>
+<p>B. The patient perceives the therapist as judgmental despite the therapist's efforts</p>
+<p>C. The patient is resistant to homework assignments</p>
+<p>D. The patient has a poor understanding of their diagnosis</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Rogers' sixth condition states that the client must perceive (at least minimally) the therapist's empathy and positive regard. If the patient perceives judgment despite the therapist's intentions, the necessary conditions are not being met. Rogers would be less concerned about formulation disagreement (A -- not central to client-centred therapy), homework (C -- not used in Rogerian therapy), or diagnostic understanding (D -- not prioritised in person-centred approaches).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Rogers' six conditions include psychological contact, client incongruence, and the client's perception of the therapist's empathy and regard. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q84.</strong> The empty chair technique is commonly associated with Gestalt therapy (Perls), but was originally developed by:</p>
+<p>A. Sigmund Freud</p>
+<p>B. Carl Rogers</p>
+<p>C. Jacob Moreno</p>
+<p>D. Aaron Beck</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The empty chair technique was originally developed by Jacob Moreno as a psychodrama technique. Fritz Perls adapted it for Gestalt therapy. In both contexts, the empty chair represents an absent person with whom the patient can have a dialogue. Moreno and Perls had significant professional rivalry over the technique's origins.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Psychodrama techniques (role reversal, doubling, mirror technique, empty chair) predate many techniques attributed to other modalities. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q85.</strong> The four processes of Motivational Interviewing (Miller & Rollnick, 2013) are:</p>
+<p>A. Assessment, formulation, intervention, evaluation</p>
+<p>B. Engaging, focusing, evoking, planning</p>
+<p>C. Contemplation, preparation, action, maintenance</p>
+<p>D. Joining, enactment, restructuring, termination</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The four processes of MI are: engaging (establishing a working relationship), focusing (developing and maintaining a specific direction), evoking (eliciting the person's own motivations for change), and planning (developing commitment and a specific plan). Option C describes Prochaska and DiClemente's stages of change. Option D describes structural family therapy techniques.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MI works through resolving ambivalence -- the therapist selectively elicits and reinforces change talk. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q86.</strong> Gestalt therapy, developed by Fritz Perls, emphasises:</p>
+<p>A. Free association and dream interpretation</p>
+<p>B. Awareness, present-moment experience, and personal responsibility</p>
+<p>C. Systematic desensitisation and reciprocal inhibition</p>
+<p>D. Cognitive restructuring and behavioural experiments</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Gestalt therapy emphasises awareness (becoming aware of what one is doing, feeling, and thinking in the moment), present-moment experience (the "here and now"), and personal responsibility (owning one's experience rather than attributing it to external forces). Option A describes psychoanalysis. Option C describes behaviour therapy. Option D describes CBT.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Perls developed Gestalt therapy as part of the humanistic revolution of the 1960s. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q87.</strong> Project MATCH (1997) for alcohol dependence compared three treatments and found:</p>
+<p>A. CBT was clearly superior to all other treatments</p>
+<p>B. Twelve-Step Facilitation, CBT, and MET were broadly equivalent at 1-year and 3-year follow-up</p>
+<p>C. MET was ineffective</p>
+<p>D. Only medication produced lasting improvement</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Project MATCH found that Twelve-Step Facilitation (TSF), CBT, and Motivational Enhancement Therapy (MET) were broadly equivalent at 1-year and 3-year follow-up for alcohol dependence. TSF may have advantages for patients with high-severity dependence and low social support. The study's main hypothesis -- that matching patients to treatments based on characteristics would improve outcomes -- was largely unsupported.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Project MATCH is the classic viva question for substance use disorder treatment evidence. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q88.</strong> Abraham Maslow's contribution to psychotherapy included:</p>
+<p>A. The cognitive triad for depression</p>
+<p>B. The hierarchy of needs and the concept of self-actualisation</p>
+<p>C. The structural model of personality (id, ego, superego)</p>
+<p>D. The three waves of behaviour therapy</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Maslow contributed the hierarchy of needs (physiological, safety, belonging, esteem, self-actualisation) and the concept of self-actualisation -- the drive to fulfil one's highest potential. This was a key contribution to humanistic psychology and psychotherapy, emphasising growth rather than pathology. Option A is Beck, C is Freud, D is Hayes.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Maslow, Rogers, and Perls were the key figures of the humanistic revolution. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q89.</strong> In existential psychotherapy, "existential guilt" arises from:</p>
+<p>A. Violating the superego's moral standards</p>
+<p>B. Failing to live authentically -- not actualising one's potential</p>
+<p>C. Unresolved Oedipal conflicts</p>
+<p>D. Cognitive distortions about personal responsibility</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Existential guilt is not neurotic guilt (violation of superego standards -- A) but ontological guilt arising from failing to live authentically, not actualising one's potential, or not engaging with the givens of existence (death, freedom, isolation, meaninglessness). It is inherent in the human condition -- we can never fully actualise all possibilities. Option C is a psychoanalytic concept, D is a CBT concept.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Existential therapy focuses on the "givens" of existence rather than on symptoms or diagnoses. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q90.</strong> Harry Stack Sullivan's interpersonal psychiatry emphasised that:</p>
+<p>A. The unconscious is the primary driver of all behaviour</p>
+<p>B. Personality is the relatively enduring pattern of recurrent interpersonal situations</p>
+<p>C. Self-actualisation is the primary human motivation</p>
+<p>D. Operant conditioning shapes all human behaviour</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Sullivan defined personality as "the relatively enduring pattern of recurrent interpersonal situations." His interpersonal psychiatry emphasised that psychiatry is the study of interpersonal relations, shifting focus from intrapsychic drives to the interpersonal field. His work directly influenced IPT and modern relational psychoanalysis.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Sullivan's interpersonal theory, along with Bowlby's attachment work and Meyer's psychobiology, provided the intellectual roots for IPT. (WP-02, WP-08)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION H: SPECIALIZED MODALITIES (Q91-Q100)</h2>
+<hr>
+<p><strong>Q91.</strong> The four problem areas in Interpersonal Therapy (IPT) are:</p>
+<p>A. Trauma, loss, conflict, and isolation</p>
+<p>B. Grief, role disputes, role transitions, and interpersonal deficits</p>
+<p>C. Depression, anxiety, personality, and substance use</p>
+<p>D. Family, work, social, and intimate relationships</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> IPT's four problem areas are: grief (complicated bereavement), role disputes (conflicts with significant others where expectations differ), role transitions (difficulty adapting to changed life circumstances), and interpersonal deficits (history of impoverished relationships). Only one or two areas are selected as the treatment focus. Mnemonic: GRRD -- "Getting Relationships Right when Depressed."</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>IPT does not claim interpersonal problems cause depression -- it claims depression occurs in an interpersonal context. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q92.</strong> The eight phases of EMDR are, in order:</p>
+<p>A. Assessment, preparation, desensitisation, installation, body scan, closure, re-evaluation, history</p>
+<p>B. History, preparation, assessment, desensitisation, installation, body scan, closure, re-evaluation</p>
+<p>C. Preparation, history, assessment, processing, integration, body scan, consolidation, follow-up</p>
+<p>D. Engagement, stabilisation, processing, installation, body scan, integration, termination, follow-up</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The eight phases of EMDR in correct order are: (1) History and treatment planning, (2) Preparation, (3) Assessment, (4) Desensitisation, (5) Installation, (6) Body scan, (7) Closure, (8) Re-evaluation. Mnemonic: "Happy People Always Deserve Instant Body Care and Rest."</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>SUDS (0-10) is used during desensitisation; VOC (1-7) is used during installation. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q93.</strong> In Mentalization-Based Treatment (MBT), "psychic equivalence" is a pre-mentalizing mode in which:</p>
+<p>A. Mental states are decoupled from reality</p>
+<p>B. Inner and outer reality are equated -- what I feel IS what is real</p>
+<p>C. Mental states can only be understood through observable actions</p>
+<p>D. The patient can reflect on their own mental states accurately</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> In psychic equivalence, the patient equates inner experience with external reality: "You hate me" is stated as absolute fact, not as a hypothesis. Pretend mode (A) involves mental states decoupled from reality. Teleological mode (C) involves understanding mental states only through actions. Option D describes mentalizing, not a pre-mentalizing mode.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The three pre-mentalizing modes (psychic equivalence, teleological mode, pretend mode) are hallmarks of MBT theory. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q94.</strong> Kernberg's TFP treatment hierarchy places which concern at the TOP priority?</p>
+<p>A. Narcissistic transference developments</p>
+<p>B. Contract violations</p>
+<p>C. Threats to the patient's life</p>
+<p>D. Material discussed in a blocked manner</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> TFP's hierarchy of priorities: (1) threats to the patient's life, (2) threats to the treatment, (3) acting-out in or outside sessions, (4) contract violations, (5) narcissistic transference developments, (6) material discussed in a blocked or "as-if" manner. Life-threatening behaviour always takes precedence -- identical to DBT's target hierarchy in this regard.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>TFP requires an explicit, detailed treatment contract addressing all anticipated acting-out. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q95.</strong> In EFT for couples (Johnson), the "softening" is:</p>
+<p>A. The therapist becoming gentler with the withdrawing partner</p>
+<p>B. The pursuing partner expressing underlying vulnerability rather than anger and reaching for the withdrawing partner</p>
+<p>C. The withdrawing partner becoming more emotionally expressive</p>
+<p>D. Both partners agreeing to avoid conflict</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The softening is the pivotal change event in EFT. It occurs when the previously critical/pursuing partner, having accessed their underlying vulnerability (fear, sadness, attachment need), can express this directly to the withdrawing partner instead of attacking. When the withdrawer responds with emotional presence, a corrective emotional experience ("bonding event") restructures the attachment bond.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>EFT's three stages: de-escalation, restructuring the bond, consolidation. (WP-08, WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q96.</strong> In Transactional Analysis (Berne), an "ulterior transaction" is one where:</p>
+<p>A. The response comes from an unexpected ego state</p>
+<p>B. Two messages are sent simultaneously -- a social (overt) and a psychological (covert) message</p>
+<p>C. Communication breaks down due to a crossed transaction</p>
+<p>D. The Adult ego state is bypassed</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> An ulterior transaction involves two simultaneous messages: a social (overt) message and a psychological (covert) message. Berne's third rule of communication states that the behavioural outcome is determined by the psychological (covert) level, not the social (overt) level. A crossed transaction (C) is where the response comes from an unexpected ego state (A is also describing a crossed transaction).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In Berne's system, "games" are series of ulterior transactions with predictable payoffs that confirm the player's life script. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q97.</strong> The Bateman & Fonagy (2008) 8-year follow-up of MBT for BPD found that:</p>
+<p>A. All gains were lost at follow-up</p>
+<p>B. 13% of MBT patients still met BPD criteria vs. 87% in treatment as usual</p>
+<p>C. MBT and TAU groups converged over time</p>
+<p>D. MBT patients had higher rates of substance use at follow-up</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> At the 8-year follow-up, only 13% of MBT-treated patients still met full BPD criteria, compared to 87% in TAU. This represents not just symptom reduction but personality change -- among the most impressive long-term outcomes in any BPD treatment trial.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MBT was originally delivered as a partial hospitalisation programme with individual and group therapy. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q98.</strong> Psychodrama's core technique of "role reversal" involves:</p>
+<p>A. The therapist taking the patient's role</p>
+<p>B. The protagonist switching roles with the auxiliary ego, playing the other person</p>
+<p>C. All group members switching seats</p>
+<p>D. The patient playing a different character in a scripted play</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Role reversal involves the protagonist switching roles with the auxiliary ego (the group member playing a significant other), taking the perspective of the other person. This builds empathy, reveals how the other might think and feel, and generates new perspectives. The therapist (director) guides the action but does not play a role (A is wrong).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Psychodrama's three phases: warm-up, action, and sharing. Sharing involves personal responses, not feedback or analysis. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q99.</strong> The "sick role" in IPT is borrowed from Talcott Parsons and serves which function?</p>
+<p>A. Labelling the patient as permanently disabled</p>
+<p>B. Reducing self-blame and simultaneously obligating the patient to work toward recovery</p>
+<p>C. Excusing the patient from all responsibility</p>
+<p>D. Justifying long-term disability benefits</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The sick role reduces self-blame ("you are ill -- this is not a moral failing"), excuses the patient from obligations they cannot currently meet, AND simultaneously obligates them to work toward recovery. It is actively assigned by the therapist in the initial phase of IPT. It does not label permanent disability (A), remove all responsibility (C), or relate to disability benefits (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The sick role is assigned in the initial phase of IPT (sessions 1-3) alongside the interpersonal inventory. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q100.</strong> Supportive psychotherapy is best described as:</p>
+<p>A. The absence of technique -- "just chatting"</p>
+<p>B. A deliberate, structured approach aimed at symptom relief and ego strengthening without uncovering unconscious material</p>
+<p>C. An inferior form of therapy used only when "real therapy" is unavailable</p>
+<p>D. A technique used only in inpatient settings</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Supportive psychotherapy is a deliberate, structured approach with specific techniques (ventilation, reassurance, advice, praise, anticipatory guidance, clarification, suggestion, environmental intervention), clear indications, and goals. It strengthens existing defences rather than uncovering unconscious material. The misconception that it is "just chatting" (A) or inferior (C) is both incorrect and harmful. It is used across settings (D is wrong).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Supportive therapy is the most widely practised form of psychotherapy in clinical settings yet receives the least attention in training. (WP-08)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION I: GROUP THERAPY (Q101-Q105)</h2>
+<hr>
+<p><strong>Q101.</strong> Yalom's 11 therapeutic factors in group therapy include all of the following EXCEPT:</p>
+<p>A. Universality</p>
+<p>B. Transference interpretation</p>
+<p>C. Interpersonal learning</p>
+<p>D. Group cohesiveness</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Transference interpretation is a psychodynamic technique, not one of Yalom's 11 therapeutic factors. The 11 factors are: instillation of hope, universality (A), imparting information, altruism, corrective recapitulation of the primary family group, development of socialising techniques, imitative behaviour, interpersonal learning (C), group cohesiveness (D), catharsis, and existential factors.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Group cohesiveness is to group therapy what the therapeutic alliance is to individual therapy. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q102.</strong> Bion's three basic assumption groups are:</p>
+<p>A. Fight, flight, and freeze</p>
+<p>B. Dependency, fight-flight, and pairing</p>
+<p>C. Forming, storming, and norming</p>
+<p>D. Id, ego, and superego</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Bion proposed that groups operate simultaneously at two levels: the work group (task-oriented) and the basic assumption group (unconscious, driven by primitive anxieties). The three basic assumptions are: dependency (group looks to leader for answers), fight-flight (group unites against enemy or flees), and pairing (two members form a special relationship while the group watches with hope). Option C describes Tuckman's stages, not Bion's assumptions.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bion's three basic assumptions are among the most frequently examined concepts in group therapy. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q103.</strong> The most commonly cited contraindication for outpatient process group therapy is:</p>
+<p>A. Social anxiety disorder</p>
+<p>B. Major depressive disorder</p>
+<p>C. Severe antisocial personality disorder</p>
+<p>D. Generalised anxiety disorder</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Severe antisocial personality is the most commonly cited contraindication for process group therapy. Such patients may dominate, exploit, or traumatise other members without capacity for empathy or self-reflection. Social anxiety (A), depression (B), and GAD (D) are not contraindications -- in fact, process groups can be beneficial for these conditions.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Yalom's single most important selection principle: the patient must be able to participate in the group task. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q104.</strong> In Tuckman's model of group development, the phase where most premature dropouts occur is:</p>
+<p>A. Forming</p>
+<p>B. Storming</p>
+<p>C. Norming</p>
+<p>D. Performing</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The storming/transition phase, characterised by conflict, competition for dominance, and challenges to the leader, is where most premature dropouts occur. Members who survive this phase and enter norming/performing show the greatest therapeutic gains. The therapist's task during storming is to normalise conflict, not suppress it.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>A common beginner's error is rescuing the group from conflict during storming. If managed well, conflict builds cohesion. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q105.</strong> Lieberman, Yalom, and Miles (1973) found that the LEAST effective group leaders were those characterised by:</p>
+<p>A. High caring and moderate stimulation</p>
+<p>B. High emotional stimulation with low caring ("aggressive stimulators")</p>
+<p>C. Moderate executive function and high meaning attribution</p>
+<p>D. Low emotional stimulation with high caring</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> "Aggressive stimulators" (high confrontation, low caring) were the least effective leaders and produced the most casualties. The most effective leaders combined moderate emotional stimulation with high caring, high meaning attribution, and moderate executive function.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The four leadership functions: emotional stimulation, caring, meaning attribution, and executive function. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION J: FAMILY & COUPLES THERAPY (Q106-Q115)</h2>
+<hr>
+<p><strong>Q106.</strong> Gottman's "Four Horsemen of the Apocalypse" are:</p>
+<p>A. Anger, sadness, fear, disgust</p>
+<p>B. Criticism, contempt, defensiveness, stonewalling</p>
+<p>C. Avoidance, pursuit, attack, withdrawal</p>
+<p>D. Enmeshment, disengagement, triangulation, scapegoating</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Gottman's Four Horsemen are: criticism (global negative statement about character), contempt (expression of superiority and disgust), defensiveness (counter-blame), and stonewalling (emotional withdrawal). These four patterns predict divorce at 82% accuracy. Adding failed repair attempts raises prediction into the 90s.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Contempt is the single best predictor of divorce. It differs from criticism in that it expresses superiority and disgust. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q107.</strong> Gottman's research found that stable, happy marriages maintain a positive-to-negative interaction ratio during conflict of at least:</p>
+<p>A. 1:1</p>
+<p>B. 3:1</p>
+<p>C. 5:1</p>
+<p>D. 10:1</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The 5:1 ratio -- at least 5 positive interactions for every 1 negative during conflict -- is the single most replicated finding in marital research. Couples below this ratio are at high risk for dissolution. This does not mean avoiding all negativity; it means maintaining a strong positive foundation that buffers conflict.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The 5:1 ratio is Gottman's most replicated finding. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q108.</strong> Bowen's concept of "differentiation of self" is best defined as:</p>
+<p>A. Separating from one's family of origin completely</p>
+<p>B. The capacity to maintain one's own thinking and emotional functioning in the face of family pressure</p>
+<p>C. Developing a separate identity during adolescence</p>
+<p>D. Achieving financial independence from parents</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Differentiation of self is the capacity to maintain one's own thinking and emotional functioning in the face of family pressure. High differentiation = can be close without being absorbed, can be separate without being cut off. It is NOT the same as autonomy or independence (A, D) or an adolescent developmental task (C). A highly differentiated person can be deeply emotionally connected without losing their sense of self.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Differentiation of self is the master concept of Bowen's theory. Bowen's scale ranges from 0 (complete fusion) to 100 (theoretical ideal). (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q109.</strong> In structural family therapy, the technique of "enactment" involves:</p>
+<p>A. The therapist telling the family what they are doing wrong</p>
+<p>B. Asking family members to demonstrate their typical interaction pattern in session</p>
+<p>C. Prescribing the symptom paradoxically</p>
+<p>D. Drawing a genogram of three generations</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Enactment is the hallmark of structural family therapy. Rather than asking the family to describe their problems, the therapist asks them to interact directly: "Turn to your son right now and tell him what you need." The therapist then observes the actual pattern and intervenes in real time. Paradoxical prescription (C) is a strategic technique. Genograms (D) are associated with Bowenian therapy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Minuchin's "lunch session" for anorexia nervosa is a classic enactment -- the family eats together while the therapist intervenes. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q110.</strong> The "double bind" concept was originally proposed by:</p>
+<p>A. Minuchin</p>
+<p>B. Bowen</p>
+<p>C. Bateson, Jackson, Haley & Weakland</p>
+<p>D. Gottman</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The double bind was proposed by Bateson, Jackson, Haley, and Weakland (1956). It describes contradictory messages at different levels (verbal vs. nonverbal) from which there is no escape. Originally proposed as a cause of schizophrenia (this etiological claim has been abandoned), it remains useful as a description of paradoxical communication in dysfunctional families.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The double bind is a communication pattern, not a family therapy technique. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q111.</strong> In Gottman's Sound Relationship House model, which component forms the BASE?</p>
+<p>A. Managing conflict</p>
+<p>B. Trust and commitment</p>
+<p>C. Love Maps</p>
+<p>D. Creating shared meaning</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Love Maps -- detailed cognitive maps of the partner's inner world (worries, hopes, stresses, preferences) -- form the base of the Sound Relationship House. Trust and commitment (B) are the weight-bearing walls. Managing conflict (A) is level 5. Creating shared meaning (D) is the top level. The first three levels (Love Maps, Fondness/Admiration, Turning Toward) build the friendship system.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Sound Relationship House has 7 levels with trust and commitment as the weight-bearing walls. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q112.</strong> Minuchin proposed that enmeshed families produce psychosomatic symptoms. His "psychosomatic family" model identifies four characteristics. Which of the following is NOT one of them?</p>
+<p>A. Enmeshment</p>
+<p>B. Overprotectiveness</p>
+<p>C. High expressed emotion</p>
+<p>D. Lack of conflict resolution</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> Minuchin's psychosomatic family has four characteristics: enmeshment, overprotectiveness, rigidity, and lack of conflict resolution. High expressed emotion (C) is from the schizophrenia family intervention literature (Brown et al., 1972; Vaughn & Leff, 1976) -- it refers to criticism, hostility, and emotional over-involvement and is used in the EE model for psychosis relapse, not Minuchin's psychosomatic model.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Minuchin's boundary types: clear (healthy), rigid (disengagement), and diffuse (enmeshment). (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q113.</strong> In strategic family therapy, a paradoxical intervention works because:</p>
+<p>A. It confuses the family into changing</p>
+<p>B. If the patient complies, they gain control over the symptom; if they rebel, the symptom disappears</p>
+<p>C. It always makes the family angry, which motivates change</p>
+<p>D. It bypasses the patient's cognitive distortions</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Paradoxical interventions work through two mechanisms: (1) if the patient complies and deliberately produces the symptom, they gain control over what was previously involuntary; (2) if the patient rebels and refuses to produce the symptom, the symptom disappears. Either outcome is therapeutic. They do not work through confusion (A) or anger (C), and they are not cognitive techniques (D).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Paradoxical interventions should NEVER be used with suicidal or self-harming patients. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q114.</strong> According to Gottman, what percentage of marital problems are "perpetual" (fundamental differences that will never be fully resolved)?</p>
+<p>A. 10%</p>
+<p>B. 31%</p>
+<p>C. 50%</p>
+<p>D. 69%</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>D.</strong> Gottman found that 69% of marital problems are perpetual -- fundamental differences that cannot be resolved, only managed through dialogue. The difference between happy and unhappy couples is not whether they have perpetual problems but whether they can dialogue about them with humour and acceptance -- or become gridlocked.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Key Gottman numbers: 91% (divorce prediction), 5:1 (ratio), 69% (perpetual problems), 96% (harsh start-up prediction), 85% (male stonewallers). (WP-09)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q115.</strong> Bowen's concept of "emotional cutoff" refers to:</p>
+<p>A. A healthy boundary between family members</p>
+<p>B. Managing unresolved emotional issues by reducing or totally cutting off family contact</p>
+<p>C. The therapist ending a session early</p>
+<p>D. A technique for managing conflict in couples</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Emotional cutoff is the way people manage unresolved emotional issues with parents/family by reducing or totally cutting off contact. It creates the illusion of autonomy but the emotional reactivity remains -- it simply gets displaced onto new relationships. Cutoff is NOT healthy boundary-setting (A) -- it is avoidance of unresolved emotional processes. Bowen therapy works to replace cutoff with differentiated re-engagement.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bowen's eight interlocking concepts: differentiation, triangles, nuclear family emotional system, family projection process, multigenerational transmission, emotional cutoff, sibling position, societal emotional process. (WP-09)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION K: DISORDER-SPECIFIC THERAPY MAP (Q116-Q125)</h2>
+<hr>
+<p><strong>Q116.</strong> According to NICE guidelines, which psychological therapy is first-line for relapse prevention in recurrent depression (3+ episodes)?</p>
+<p>A. CBT</p>
+<p>B. IPT</p>
+<p>C. MBCT</p>
+<p>D. Schema Therapy</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> NICE recommends MBCT (Mindfulness-Based Cognitive Therapy) as a first-line relapse prevention strategy for patients with 3+ prior depressive episodes. Kuyken et al. (2016) found an NNT of 4 for preventing relapse. Teasdale et al. (2000) found MBCT reduced relapse by 44% but showed NO benefit for patients with only 1-2 episodes. CBT (A) and IPT (B) are first-line for acute treatment, not specifically for relapse prevention. Schema Therapy (D) is indicated for chronic depression with characterological features.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MBCT works by preventing the "cognitive reactivation cascade" -- it does NOT treat acute depression. (WP-06, WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q117.</strong> For adolescent anorexia nervosa, the first-line psychotherapy recommended by NICE is:</p>
+<p>A. CBT-E</p>
+<p>B. Family-Based Treatment (FBT / Maudsley approach)</p>
+<p>C. IPT</p>
+<p>D. Psychodynamic therapy</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Family-Based Treatment (the Maudsley approach) is the only eating disorder psychotherapy with strong evidence specifically for adolescent AN. It agnosticises about aetiology and places parents as the primary agents of change in three phases: (1) weight restoration with parents in charge, (2) gradual return of eating control to adolescent, (3) identity and developmental issues. CBT-E (A) is first-line for adult eating disorders.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>FBT represents a shift from earlier approaches that implicated parents in causation. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q118.</strong> The CoBalT trial (Wiles et al., 2013) demonstrated that:</p>
+<p>A. CBT alone is superior to antidepressants for severe depression</p>
+<p>B. CBT added to antidepressants improved outcomes in treatment-resistant depression with an NNT of 4</p>
+<p>C. IPT is superior to CBT for treatment-resistant depression</p>
+<p>D. Medication is the only effective treatment for treatment-resistant depression</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The CoBalT trial showed that CBT added to medication improved outcomes in treatment-resistant depression, with an NNT of 4. This is the highest-quality evidence for augmenting antidepressants with psychotherapy in treatment-resistant cases. CBT was not studied alone (A), and the trial compared CBT augmentation vs. medication alone, not against IPT (C).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>For treatment-resistant depression questions, always cite the CoBalT trial. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q119.</strong> For Post-Traumatic Stress Disorder, NICE recommends which treatments as first-line?</p>
+<p>A. Supportive counselling and relaxation therapy</p>
+<p>B. Trauma-focused CBT (PE, CPT) and EMDR</p>
+<p>C. Schema Therapy and DBT</p>
+<p>D. IPT and psychodynamic therapy</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> NICE NG116 recommends trauma-focused psychological therapy as first-line: (1) Trauma-focused CBT (including prolonged exposure and cognitive processing therapy) and (2) EMDR. Both should be offered before medication. SSRIs are second-line (only when the patient declines or does not respond to psychological therapy).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>PE and CPT are equivalent in head-to-head trials (Resick et al., 2012). EMDR is equivalent to TF-CBT in meta-analyses. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q120.</strong> The TADS Study (2004) for adolescent depression found that the treatment with the HIGHEST response rate was:</p>
+<p>A. CBT alone</p>
+<p>B. Fluoxetine alone</p>
+<p>C. CBT + fluoxetine combined</p>
+<p>D. Placebo</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> The TADS study found response rates of: combined CBT + fluoxetine 71% > fluoxetine alone 61% > CBT alone 43% > placebo 35%. Combined treatment is the gold standard for moderate-severe adolescent depression. The surprisingly low CBT-alone response rate was controversial and differs from adult findings.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The TADS study is essential for adolescent depression exam questions. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q121.</strong> According to NICE, psychological intervention for schizophrenia should include CBTp offered for at least how many planned sessions?</p>
+<p>A. 6</p>
+<p>B. 10</p>
+<p>C. 16</p>
+<p>D. 24</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>C.</strong> NICE CG178 recommends CBTp with at least 16 planned sessions for all people with schizophrenia. CBTp does not aim to eliminate hallucinations or delusions -- the target is distress and functional impairment. Effect sizes are modest (d = 0.33-0.44) but clinically meaningful as an adjunct to antipsychotics.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Family intervention should also be offered (at least 10 sessions over 3+ months), reducing relapse rates by approximately 50%. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q122.</strong> The social zeitgeber theory, which underpins IPSRT for bipolar disorder, proposes that:</p>
+<p>A. Social isolation causes mania</p>
+<p>B. Disruptions to social rhythms destabilise circadian rhythms, triggering mood episodes</p>
+<p>C. Social conflict is the primary cause of depressive episodes</p>
+<p>D. Social media use triggers bipolar cycling</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The social zeitgeber theory proposes that life events destabilise social rhythms (sleep-wake cycles, mealtimes, activity patterns), which destabilise circadian rhythms, which trigger mood episodes in bipolar disorder. IPSRT integrates IPT with social rhythm stabilisation to address both interpersonal problems and circadian dysregulation.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>IPSRT is the only psychotherapy developed specifically for bipolar disorder from the ground up. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q123.</strong> For BPD, NICE recommends against brief psychological interventions lasting less than:</p>
+<p>A. 1 month</p>
+<p>B. 3 months</p>
+<p>C. 6 months</p>
+<p>D. 12 months</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> NICE CG78 recommends against brief psychological interventions of less than 3 months duration for BPD. Comprehensive treatment programmes (DBT or MBT) are recommended, with at least 1 year for moderate-severe BPD. Medication should not be used as primary treatment.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>All four evidence-based BPD treatments (DBT, MBT, TFP, ST) require at least 1-3 years. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q124.</strong> The Expressed Emotion (EE) model in schizophrenia identifies which three components that predict relapse?</p>
+<p>A. Criticism, hostility, and emotional over-involvement</p>
+<p>B. Anger, contempt, and withdrawal</p>
+<p>C. Denial, projection, and splitting</p>
+<p>D. Anxiety, depression, and psychosis</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>A.</strong> High Expressed Emotion comprises criticism, hostility, and emotional over-involvement in the family environment. Brown et al. (1972) and Vaughn & Leff (1976) showed that high EE predicts relapse in schizophrenia. Family intervention targeting EE reduction can cut relapse rates by approximately 50%.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Family intervention for schizophrenia includes psychoeducation, communication skills, problem-solving, and crisis management. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q125.</strong> Which statement about the MTA Study (1999) for ADHD is correct?</p>
+<p>A. Behavioural treatment was superior to medication at all time points</p>
+<p>B. At 14 months, carefully titrated medication was superior to intensive behavioural treatment for core ADHD symptoms</p>
+<p>C. Combined treatment showed no advantages over medication alone</p>
+<p>D. No treatment was effective for ADHD</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> At 14 months, medication management (carefully titrated) was superior to intensive behavioural treatment for core ADHD symptoms. However, combined treatment was superior for associated problems (oppositional behaviour, parent-child relationship). Importantly, at the 3-year follow-up (Jensen et al., 2007), the medication advantage had diminished.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Always cite both time points -- 14 months (medication advantage) and 3 years (advantage diminished). (WP-11)</p></div>
+<p></details></p>
+<hr>
+<h2>SECTION L: LANDMARK PAPERS (Q126-Q130)</h2>
+<hr>
+<p><strong>Q126.</strong> The NIMH Treatment of Depression Collaborative Research Program (Elkin et al., 1989) compared which four treatment arms?</p>
+<p>A. CBT, DBT, medication, placebo</p>
+<p>B. CBT, IPT, imipramine + clinical management, pill placebo + clinical management</p>
+<p>C. CBT, Schema Therapy, fluoxetine, waiting list</p>
+<p>D. Psychoanalysis, CBT, medication, no treatment</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> The NIMH TDCRP compared CBT, IPT, imipramine + clinical management, and pill placebo + clinical management across 250 patients at three sites. Key findings: all active treatments superior to placebo; IPT and imipramine superior to CBT for severe depression; the therapeutic alliance accounted for 21% of outcome variance across ALL arms (Krupnick et al., 1996).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>This is the single most important trial in psychotherapy research. (WP-08, WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q127.</strong> Fluckiger et al. (2018) conducted the largest meta-analysis of the therapeutic alliance and found an alliance-outcome correlation of:</p>
+<p>A. r = 0.05 across 50 studies</p>
+<p>B. r = 0.278 across 295 independent studies</p>
+<p>C. r = 0.80 across 10 studies</p>
+<p>D. r = 0.50 across 150 studies</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Fluckiger et al. (2018) found r = 0.278 across 295 independent studies (N > 30,000). This moderate effect size holds regardless of whether the alliance is rated by patient, therapist, or observer, and regardless of therapy type. Early alliance (by session 3-5) is particularly predictive of outcome.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The alliance-outcome correlation is the most robust predictor of psychotherapy outcome across all modalities. (WP-02)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q128.</strong> Dimidjian et al. (2006) found that Behavioural Activation for depression was:</p>
+<p>A. Inferior to both CBT and medication</p>
+<p>B. As effective as antidepressant medication and superior to CBT for severe depression</p>
+<p>C. Only effective for mild depression</p>
+<p>D. Effective only when combined with medication</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Dimidjian et al. (2006) found BA was as effective as antidepressant medication and SUPERIOR to CBT for severe depression in the acute phase. This was a significant finding because BA is simpler to train and can be delivered by non-specialists, making it more scalable than full CBT.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>NICE recommends BA as a first-line treatment equivalent to CBT. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q129.</strong> The Colom et al. (2003, 2009) studies demonstrated that group psychoeducation for bipolar disorder:</p>
+<p>A. Had no effect on relapse</p>
+<p>B. Significantly reduced relapse rates at 2-year and 5-year follow-up</p>
+<p>C. Was inferior to CBT</p>
+<p>D. Only worked when delivered individually</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>B.</strong> Colom et al. showed that group psychoeducation (21 sessions) significantly reduced relapse rates at both 2-year and 5-year follow-up for bipolar disorder. Psychoeducation is the simplest and most consistently effective psychological intervention for bipolar disorder, covering illness understanding, medication adherence, early warning signs, lifestyle regulation, and relapse prevention.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The evidence hierarchy for psychological interventions in bipolar: (1) psychoeducation, (2) IPSRT, (3) CBT, (4) FFT. All are adjunctive to pharmacotherapy. (WP-11)</p></div>
+<p></details></p>
+<hr>
+<p><strong>Q130.</strong> Linehan et al. (1991) -- the first RCT of DBT for BPD -- found DBT was superior to treatment as usual in all of the following EXCEPT:</p>
+<p>A. Fewer suicide attempts</p>
+<p>B. Less self-harm</p>
+<p>C. Fewer hospitalisations</p>
+<p>D. Complete remission of personality disorder in all patients</p>
+<p><details></p>
+<p><summary>Answer</summary></p>
+<p><strong>D.</strong> DBT did not produce complete remission of personality disorder in all patients -- no treatment does. The original Linehan et al. (1991) RCT found DBT was superior to TAU in reducing suicide attempts, self-harm, hospitalisations, and treatment dropout. These findings were replicated in the larger Linehan et al. (2006) trial against community treatment by experts.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DBT is the first psychotherapy to demonstrate efficacy for BPD in a randomised controlled trial. (WP-06)</p></div>
+<p></details></p>
+<hr>
+<p><em>Compiled for the Weave Psychotherapy series. Sources: WP-02 (Foundations), WP-03 (Psychodynamic), WP-04 (CBT), WP-06 (Third Wave), WP-08 (Specialized Modalities), WP-09 (Group/Family/Couples), WP-11 (Disorder-Specific Map).</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Psychotherapy Question Bank &mdash; Weave Psychotherapy Vol. 13</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 13 | Psychotherapy Question Bank</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Psychotherapy Question Bank -- Answer Key & High-Yield Summary</h1>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>Companion to:</strong> D1-QuestionBank-DeepStudy.md (130 MCQs)</p></div>
+<hr>
+<h2>1. QUICK ANSWER KEY</h2>
+<table>
+<thead><tr><th>Q</th><th>Ans</th><th>Q</th><th>Ans</th><th>Q</th><th>Ans</th><th>Q</th><th>Ans</th><th>Q</th><th>Ans</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>B</td><td>27</td><td>C</td><td>53</td><td>B</td><td>79</td><td>B</td><td>105</td><td>B</td></tr>
+<tr><td>2</td><td>B</td><td>28</td><td>B</td><td>54</td><td>B</td><td>80</td><td>B</td><td>106</td><td>B</td></tr>
+<tr><td>3</td><td>C</td><td>29</td><td>B</td><td>55</td><td>B</td><td>81</td><td>B</td><td>107</td><td>C</td></tr>
+<tr><td>4</td><td>B</td><td>30</td><td>B</td><td>56</td><td>B</td><td>82</td><td>B</td><td>108</td><td>B</td></tr>
+<tr><td>5</td><td>C</td><td>31</td><td>B</td><td>57</td><td>C</td><td>83</td><td>B</td><td>109</td><td>B</td></tr>
+<tr><td>6</td><td>A</td><td>32</td><td>B</td><td>58</td><td>B</td><td>84</td><td>C</td><td>110</td><td>C</td></tr>
+<tr><td>7</td><td>C</td><td>33</td><td>C</td><td>59</td><td>B</td><td>85</td><td>B</td><td>111</td><td>C</td></tr>
+<tr><td>8</td><td>B</td><td>34</td><td>B</td><td>60</td><td>C</td><td>86</td><td>B</td><td>112</td><td>C</td></tr>
+<tr><td>9</td><td>C</td><td>35</td><td>C</td><td>61</td><td>B</td><td>87</td><td>B</td><td>113</td><td>B</td></tr>
+<tr><td>10</td><td>B</td><td>36</td><td>B</td><td>62</td><td>B</td><td>88</td><td>B</td><td>114</td><td>D</td></tr>
+<tr><td>11</td><td>C</td><td>37</td><td>B</td><td>63</td><td>C</td><td>89</td><td>B</td><td>115</td><td>B</td></tr>
+<tr><td>12</td><td>B</td><td>38</td><td>B</td><td>64</td><td>D</td><td>90</td><td>B</td><td>116</td><td>C</td></tr>
+<tr><td>13</td><td>B</td><td>39</td><td>B</td><td>65</td><td>B</td><td>91</td><td>B</td><td>117</td><td>B</td></tr>
+<tr><td>14</td><td>B</td><td>40</td><td>B</td><td>66</td><td>B</td><td>92</td><td>B</td><td>118</td><td>B</td></tr>
+<tr><td>15</td><td>C</td><td>41</td><td>B</td><td>67</td><td>C</td><td>93</td><td>B</td><td>119</td><td>B</td></tr>
+<tr><td>16</td><td>B</td><td>42</td><td>B</td><td>68</td><td>B</td><td>94</td><td>C</td><td>120</td><td>C</td></tr>
+<tr><td>17</td><td>B</td><td>43</td><td>B</td><td>69</td><td>C</td><td>95</td><td>B</td><td>121</td><td>C</td></tr>
+<tr><td>18</td><td>B</td><td>44</td><td>C</td><td>70</td><td>B</td><td>96</td><td>B</td><td>122</td><td>B</td></tr>
+<tr><td>19</td><td>B</td><td>45</td><td>B</td><td>71</td><td>C</td><td>97</td><td>B</td><td>123</td><td>B</td></tr>
+<tr><td>20</td><td>B</td><td>46</td><td>B</td><td>72</td><td>B</td><td>98</td><td>B</td><td>124</td><td>A</td></tr>
+<tr><td>21</td><td>B</td><td>47</td><td>C</td><td>73</td><td>B</td><td>99</td><td>B</td><td>125</td><td>B</td></tr>
+<tr><td>22</td><td>C</td><td>48</td><td>B</td><td>74</td><td>B</td><td>100</td><td>B</td><td>126</td><td>B</td></tr>
+<tr><td>23</td><td>A</td><td>49</td><td>B</td><td>75</td><td>C</td><td>101</td><td>B</td><td>127</td><td>B</td></tr>
+<tr><td>24</td><td>B</td><td>50</td><td>B</td><td>76</td><td>B</td><td>102</td><td>B</td><td>128</td><td>B</td></tr>
+<tr><td>25</td><td>B</td><td>51</td><td>B</td><td>77</td><td>C</td><td>103</td><td>C</td><td>129</td><td>B</td></tr>
+<tr><td>26</td><td>B</td><td>52</td><td>B</td><td>78</td><td>C</td><td>104</td><td>B</td><td>130</td><td>D</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>2. QUESTIONS SORTED BY TOPIC</h2>
+<h3>Foundations & Common Factors (10 Qs)</h3>
+<p>Q1 (Lambert's model), Q2 (Safran ruptures), Q3 (Frank's four features), Q4 (Bordin's alliance), Q5 (Truax & Carkhuff), Q6 (Wampold), Q7 (Rogers' conditions), Q8 (CASE approach), Q9 (Gentle assumption), Q10 (Eysenck)</p>
+<h3>Psychodynamic Therapy (15 Qs)</h3>
+<p>Q11 (Splitting), Q12 (Intellectualisation), Q13 (Kernberg's organisation levels), Q14 (Kohut's selfobject transferences), Q15 (Intervention hierarchy), Q16 (Racker's CT types), Q17 (Projective identification), Q18 (Triangle of insight), Q19 (Wallerstein study), Q20 (Klein's positions), Q21 (Winnicott's false self), Q22 (Suppression), Q23 (Structural model), Q24 (When to interpret transference), Q25 (Flight into health)</p>
+<h3>CBT (20 Qs)</h3>
+<p>Q26 (Disqualifying the positive), Q27 (Three levels of cognition), Q28 (Cognitive triad), Q29 (CBT session structure), Q30 (Collaborative empiricism), Q31 (Safety behaviours), Q32 (Downward arrow), Q33 (Core belief categories), Q34 (Behavioural experiments), Q35 (Emotional reasoning), Q36 (Clark's panic model), Q37 (Salkovskis OCD model), Q38 (Identify non-distortion), Q39 (CBT-E transdiagnostic), Q40 (Mind reading), Q41 (Abstinence Violation Effect), Q42 (First intervention in CBT for depression), Q43 (Schema vs. core belief), Q44 (Applied tension for BII phobia), Q45 (NIMH TDCRP and CBT)</p>
+<h3>Behaviour Therapy (10 Qs)</h3>
+<p>Q46 (Systematic desensitisation), Q47 (Token economy), Q48 (Safety behaviours in exposure), Q49 (BA theoretical model), Q50 (Inhibitory learning), Q51 (ERP for OCD), Q52 (Contingency Management), Q53 (Single-session exposure), Q54 (MANAS trial), Q55 (CRA)</p>
+<h3>DBT (15 Qs)</h3>
+<p>Q56 (Biosocial model), Q57 (Target hierarchy), Q58 (TIPP), Q59 (DEAR MAN), Q60 (Opposite action), Q61 (Four modes of DBT), Q62 (Radical acceptance), Q63 (Walking the Middle Path), Q64 (Validation Level 6), Q65 (Dialectical dilemmas), Q66 (Chain analysis), Q67 (DBT outcomes), Q68 (Wise Mind), Q69 (ABC PLEASE), Q70 (Diary card non-completion)</p>
+<h3>Schema Therapy (10 Qs)</h3>
+<p>Q71 (5 domains), Q72 (Behaviour not part of schema), Q73 (Limited reparenting), Q74 (Imagery rescripting helpers), Q75 (Giesen-Bloo RCT), Q76 (BPD mode model), Q77 (IR is not exposure), Q78 (Overcompensation), Q79 (Five core emotional needs), Q80 (Detached Self-Soother)</p>
+<h3>Humanistic-Existential & MI (10 Qs)</h3>
+<p>Q81 (Yalom's ultimate concerns), Q82 (DARN-CAT change talk), Q83 (Rogers' perception condition), Q84 (Empty chair origins), Q85 (MI four processes), Q86 (Gestalt therapy), Q87 (Project MATCH), Q88 (Maslow), Q89 (Existential guilt), Q90 (Sullivan)</p>
+<h3>Specialized Modalities (10 Qs)</h3>
+<p>Q91 (IPT problem areas), Q92 (EMDR phases), Q93 (Psychic equivalence in MBT), Q94 (TFP hierarchy), Q95 (EFT softening), Q96 (TA ulterior transactions), Q97 (MBT 8-year follow-up), Q98 (Psychodrama role reversal), Q99 (Sick role in IPT), Q100 (Supportive psychotherapy)</p>
+<h3>Group Therapy (5 Qs)</h3>
+<p>Q101 (Yalom's 11 factors), Q102 (Bion's basic assumptions), Q103 (Contraindication: ASPD), Q104 (Storming = dropout), Q105 (Aggressive stimulators)</p>
+<h3>Family & Couples Therapy (10 Qs)</h3>
+<p>Q106 (Four Horsemen), Q107 (5:1 ratio), Q108 (Differentiation of self), Q109 (Enactment), Q110 (Double bind), Q111 (Sound Relationship House base), Q112 (Psychosomatic family), Q113 (Paradoxical intervention), Q114 (69% perpetual problems), Q115 (Emotional cutoff)</p>
+<h3>Disorder-Specific Map (10 Qs)</h3>
+<p>Q116 (MBCT for relapse prevention), Q117 (FBT for adolescent AN), Q118 (CoBalT trial), Q119 (PTSD first-line), Q120 (TADS study), Q121 (CBTp sessions), Q122 (Social zeitgeber theory), Q123 (BPD minimum duration), Q124 (Expressed Emotion), Q125 (MTA study)</p>
+<h3>Landmark Papers (5 Qs)</h3>
+<p>Q126 (NIMH TDCRP arms), Q127 (Fluckiger alliance meta-analysis), Q128 (Dimidjian BA study), Q129 (Colom psychoeducation), Q130 (Linehan 1991 RCT)</p>
+<hr>
+<h2>3. TOP 20 MOST COMMONLY TESTED CONCEPTS</h2>
+<table>
+<thead><tr><th>Rank</th><th>Concept</th><th>Source Volume</th><th>Key Fact</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Lambert's 40-30-15-15 model</td><td>WP-02</td><td>Extratherapeutic 40%, relationship 30%, expectancy 15%, technique 15%</td></tr>
+<tr><td>2</td><td>Vaillant's defence hierarchy</td><td>WP-03</td><td>Primitive (splitting, PI) --> Neurotic (repression, intellectualisation) --> Mature (sublimation, humour)</td></tr>
+<tr><td>3</td><td>Beck's cognitive triad</td><td>WP-04</td><td>Negative view of self, world, future (specific to depression)</td></tr>
+<tr><td>4</td><td>DBT target hierarchy</td><td>WP-06</td><td>Life-threatening > therapy-interfering > quality-of-life > skills</td></tr>
+<tr><td>5</td><td>Cognitive distortions (all 12)</td><td>WP-04</td><td>All-or-nothing, catastrophising, emotional reasoning, mind reading most tested</td></tr>
+<tr><td>6</td><td>Yalom's 11 therapeutic factors</td><td>WP-09</td><td>Group cohesiveness = alliance equivalent; interpersonal learning = key differentiator</td></tr>
+<tr><td>7</td><td>Gottman's Four Horsemen</td><td>WP-09</td><td>Criticism, contempt, defensiveness, stonewalling; contempt = best divorce predictor</td></tr>
+<tr><td>8</td><td>Rogers' core conditions (EUG)</td><td>WP-02</td><td>Empathy, unconditional positive regard, genuineness</td></tr>
+<tr><td>9</td><td>Kernberg's personality organisation</td><td>WP-03</td><td>Neurotic vs. borderline vs. psychotic: identity, defences, reality testing</td></tr>
+<tr><td>10</td><td>Schema Therapy 18 EMSs / 5 domains</td><td>WP-06</td><td>DISCO mnemonic; 5-4-2-3-4 distribution</td></tr>
+<tr><td>11</td><td>IPT four problem areas (GRRD)</td><td>WP-08</td><td>Grief, role disputes, role transitions, interpersonal deficits</td></tr>
+<tr><td>12</td><td>EMDR eight phases</td><td>WP-08</td><td>History, preparation, assessment, desensitisation, installation, body scan, closure, re-evaluation</td></tr>
+<tr><td>13</td><td>Clark & Wells social anxiety model</td><td>WP-11</td><td>Self-focused attention, safety behaviours, post-event rumination</td></tr>
+<tr><td>14</td><td>Biosocial model (DBT)</td><td>WP-06</td><td>Biological vulnerability x invalidating environment = dysregulation</td></tr>
+<tr><td>15</td><td>Bordin's working alliance (GTB)</td><td>WP-02</td><td>Goals, tasks, bond -- pantheoretical</td></tr>
+<tr><td>16</td><td>Three waves of CBT</td><td>WP-04/06</td><td>1st = behaviour, 2nd = cognition, 3rd = relationship with cognition</td></tr>
+<tr><td>17</td><td>Bowen's differentiation of self</td><td>WP-09</td><td>Master concept; not autonomy -- capacity to be close without fusion</td></tr>
+<tr><td>18</td><td>DBT interpersonal skills (DEAR MAN/GIVE/FAST)</td><td>WP-06</td><td>Objective, relationship, and self-respect effectiveness</td></tr>
+<tr><td>19</td><td>BPD treatments head-to-head</td><td>WP-11</td><td>DBT (skills), MBT (mentalizing), TFP (object relations), ST (schemas)</td></tr>
+<tr><td>20</td><td>NIMH TDCRP (Elkin 1989)</td><td>WP-08/11</td><td>Most important trial; CBT = IPT for mild-moderate; IPT > CBT for severe</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>4. COMMON TRAPS AND DISTRACTORS</h2>
+<h3>Trap 1: "Cognition causes emotion" in CBT</h3>
+<p>The cognitive model claims cognition <strong>mediates</strong> between situations and emotions. It does NOT claim cognition causes emotion. This is a frequent exam trap.</p>
+<h3>Trap 2: DBT skills group = group therapy</h3>
+<p>DBT skills groups are <strong>psychoeducational</strong>, NOT process-oriented group therapy. Individual processing occurs in individual sessions, not in the skills group.</p>
+<h3>Trap 3: Suppression vs. repression</h3>
+<p>Suppression is <strong>conscious</strong> and a <strong>mature</strong> defence. Repression is <strong>unconscious</strong> and a <strong>neurotic</strong> defence. Both involve keeping something out of awareness, but the mechanism differs entirely.</p>
+<h3>Trap 4: Splitting vs. all-or-nothing thinking</h3>
+<p>Splitting is a <strong>primitive defence mechanism</strong> (psychodynamic concept) operating at the level of object relations. All-or-nothing thinking is a <strong>cognitive distortion</strong> (CBT concept) operating at the level of information processing. They describe similar phenomena from different theoretical frameworks.</p>
+<h3>Trap 5: Schema Therapy -- behaviour is NOT part of the schema</h3>
+<p>Schemas = memories + emotions + cognitions + bodily sensations. Behaviour is a <strong>coping response</strong> to the schema, not the schema itself. This is why the same schema produces opposite behaviours (surrender vs. overcompensation).</p>
+<h3>Trap 6: MBCT is NOT for acute depression</h3>
+<p>MBCT is specifically for <strong>relapse prevention</strong> in patients with 3+ prior episodes. It showed NO benefit for patients with 1-2 episodes (Teasdale et al., 2000).</p>
+<h3>Trap 7: Concordant vs. complementary countertransference</h3>
+<p>Concordant = therapist identifies with patient's <strong>self</strong>-representation (empathy). Complementary = therapist identifies with patient's <strong>object</strong>-representation (enacting the parent role). Easy to mix up; remember concordant = <strong>con</strong>-sonant with the patient's experience.</p>
+<h3>Trap 8: Projective identification vs. projection</h3>
+<p>Both are primitive defences. The key difference is <strong>interpersonal pressure</strong> -- in PI, the patient actually changes the other person's experience; in projection, the attribution exists only in the patient's mind.</p>
+<h3>Trap 9: Applied tension vs. relaxation for BII phobia</h3>
+<p>BII phobia uniquely involves a <strong>parasympathetic</strong> (vasovagal) response. Applied tension <strong>increases</strong> blood pressure. Relaxation would worsen the fainting response -- the opposite of what you want.</p>
+<h3>Trap 10: Frank's model vs. Lambert's model</h3>
+<p>Frank identified four <strong>features</strong> of all healing relationships (qualitative). Lambert identified four <strong>factors</strong> contributing to outcome variance with specific percentages (quantitative). They are complementary, not competing.</p>
+<hr>
+<h2>5. SCORE INTERPRETATION GUIDE</h2>
+<h3>Raw Score Bands (out of 130)</h3>
+<table>
+<thead><tr><th>Score</th><th>Percentage</th><th>Interpretation</th><th>Recommended Action</th></tr></thead>
+<tbody>
+<tr><td>117-130</td><td>90-100%</td><td><strong>Excellent.</strong> Exam-ready across all topics.</td><td>Review any errors; focus on viva-style application</td></tr>
+<tr><td>104-116</td><td>80-89%</td><td><strong>Strong.</strong> Solid knowledge base with minor gaps.</td><td>Target weak sections; re-read relevant D1 chapters</td></tr>
+<tr><td>91-103</td><td>70-79%</td><td><strong>Good.</strong> Adequate for pass but room for improvement.</td><td>Systematic review of missed topics; focus on high-yield concepts</td></tr>
+<tr><td>78-90</td><td>60-69%</td><td><strong>Borderline.</strong> Pass possible but unreliable.</td><td>Intensive revision needed; prioritise top 20 concepts</td></tr>
+<tr><td>65-77</td><td>50-59%</td><td><strong>Below pass.</strong> Significant knowledge gaps.</td><td>Full re-read of D1 volumes; focus on foundations before details</td></tr>
+<tr><td><65</td><td><50%</td><td><strong>Insufficient.</strong> Major gaps across multiple domains.</td><td>Start from WP-02 (Foundations) and work systematically through each volume</td></tr>
+</tbody>
+</table>
+
+<h3>Section-Level Analysis</h3>
+<p>For targeted revision, calculate your score per section and identify your two weakest areas:</p>
+<table>
+<thead><tr><th>Section</th><th>Questions</th><th>Out of</th><th>Your Score</th></tr></thead>
+<tbody>
+<tr><td>A: Foundations</td><td>Q1-Q10</td><td>10</td><td>__</td></tr>
+<tr><td>B: Psychodynamic</td><td>Q11-Q25</td><td>15</td><td>__</td></tr>
+<tr><td>C: CBT</td><td>Q26-Q45</td><td>20</td><td>__</td></tr>
+<tr><td>D: Behaviour Therapy</td><td>Q46-Q55</td><td>10</td><td>__</td></tr>
+<tr><td>E: DBT</td><td>Q56-Q70</td><td>15</td><td>__</td></tr>
+<tr><td>F: Schema Therapy</td><td>Q71-Q80</td><td>10</td><td>__</td></tr>
+<tr><td>G: Humanistic/Existential/MI</td><td>Q81-Q90</td><td>10</td><td>__</td></tr>
+<tr><td>H: Specialized Modalities</td><td>Q91-Q100</td><td>10</td><td>__</td></tr>
+<tr><td>I: Group Therapy</td><td>Q101-Q105</td><td>5</td><td>__</td></tr>
+<tr><td>J: Family & Couples</td><td>Q106-Q115</td><td>10</td><td>__</td></tr>
+<tr><td>K: Disorder-Specific</td><td>Q116-Q125</td><td>10</td><td>__</td></tr>
+<tr><td>L: Landmark Papers</td><td>Q126-Q130</td><td>5</td><td>__</td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>130</strong></td><td>__</td></tr>
+</tbody>
+</table>
+
+<h3>Revision Priority Matrix</h3>
+<table>
+<thead><tr><th>Your Section Score</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td><50%</td><td><strong>RED</strong> -- Revise this section immediately (re-read D1 chapter)</td></tr>
+<tr><td>50-69%</td><td><strong>AMBER</strong> -- Focused revision needed (review D6 quick reference + weak areas)</td></tr>
+<tr><td>70-89%</td><td><strong>GREEN</strong> -- Maintenance revision (review errors only)</td></tr>
+<tr><td>90-100%</td><td><strong>BLUE</strong> -- Exam-ready (move on to viva practice)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<p><em>Compiled for the Weave Psychotherapy series. Companion to D1-QuestionBank-DeepStudy.md.</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

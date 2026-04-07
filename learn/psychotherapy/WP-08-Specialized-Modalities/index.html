@@ -1,0 +1,966 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Specialized Psychotherapy Modalities &mdash; Weave Psychotherapy Vol. 8</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 8</div>
+      <div class="cover-title">Specialized Psychotherapy Modalities</div>
+      <div class="cover-subtitle">IPT, EMDR, MBT, TFP, EFT, Transactional Analysis, and Supportive Therapy</div>
+      <div class="cover-topics">IPT · EMDR 8 Phases · MBT · TFP · EFT-C · Transactional Analysis · Psychodrama</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Specialized Psychotherapy Modalities &mdash; Weave Psychotherapy Vol. 8</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 8 | Specialized Psychotherapy Modalities</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Specialized Psychotherapy Modalities — Deep Study</h1>
+<hr>
+<h2>1. Interpersonal Therapy (IPT)</h2>
+<h3>Origins and Theoretical Basis</h3>
+<p>Interpersonal Therapy was developed by <strong>Gerald Klerman and Myrna Weissman</strong> in the 1970s-80s, originally as the psychotherapy arm of a pharmacotherapy trial for depression. It draws on the interpersonal tradition of Harry Stack Sullivan (who argued that psychiatry is the study of interpersonal relations) and the attachment work of John Bowlby. Adolf Meyer's psychobiological approach — emphasising the patient's adaptation to their social environment — is the other major intellectual root.</p>
+<p>IPT is not a theory of personality or psychopathology. It is a <strong>pragmatic, time-limited treatment</strong> that focuses on the connection between the onset of symptoms and current interpersonal problems. The core assumption: whatever the biological vulnerability, depressive episodes occur in an interpersonal context, and resolving the interpersonal crisis will resolve the episode.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>IPT does not claim that interpersonal problems <em>cause</em> depression. It claims that depression occurs in an interpersonal context, and that working on the interpersonal context is the most efficient route to symptom resolution. This is a pragmatic, not an etiological, stance.</p></div>
+<h3>The Four Problem Areas</h3>
+<table>
+<thead><tr><th>Problem Area</th><th>Definition</th><th>Typical Presentation</th><th>Key Techniques</th></tr></thead>
+<tbody>
+<tr><td><strong>Grief</strong> (complicated bereavement)</td><td>Abnormal grief reaction — delayed, distorted, or absent mourning after loss</td><td>Symptoms begin after death of significant other; patient avoids discussing the loss or is stuck in acute mourning</td><td>Facilitate mourning, reconstruct the relationship (positive and negative), help establish new relationships and interests</td></tr>
+<tr><td><strong>Role disputes</strong></td><td>Conflicts with a significant other (spouse, parent, boss, friend) where expectations differ</td><td>Ongoing conflict, withdrawal, or impasse in a key relationship; patient and other have non-reciprocal expectations</td><td>Identify the dispute, determine the stage (renegotiation, impasse, dissolution), explore expectations, improve communication, consider alternatives</td></tr>
+<tr><td><strong>Role transitions</strong></td><td>Difficulty adapting to a changed life circumstance</td><td>Life change — retirement, divorce, diagnosis, parenthood, immigration — with loss of old role and difficulty assuming new one</td><td>Mourn the old role, evaluate positives and negatives of both roles, develop mastery in the new role, build new social supports</td></tr>
+<tr><td><strong>Interpersonal deficits</strong></td><td>History of impoverished or inadequate social relationships</td><td>Social isolation, lack of close relationships, difficulty initiating or sustaining connections; often the most difficult problem area</td><td>Review past relationships for patterns, explore current patient-therapist relationship as a model, encourage social risk-taking, address social skills deficits</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The four IPT problem areas are: <strong>G</strong>rief, <strong>R</strong>ole disputes, <strong>R</strong>ole transitions, and interpersonal <strong>D</strong>eficits. Only ONE or TWO areas are selected as the treatment focus. The therapist explicitly names the problem area in the first few sessions and obtains the patient's agreement.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>GRRD</strong> — Grief, Role disputes, Role transitions, Deficits. Or think: "<strong>G</strong>etting <strong>R</strong>elationships <strong>R</strong>ight when <strong>D</strong>epressed."</p></div>
+<h3>Three Phases of IPT</h3>
+<p><strong>Phase 1: Initial Phase (Sessions 1-3)</strong></p>
+<ul>
+  <li>Assign the "sick role" — legitimise the patient's symptoms as a medical illness, reducing guilt and self-blame</li>
+  <li>Conduct an <strong>interpersonal inventory</strong> — a systematic review of all significant current and recent relationships (quality, frequency, expectations, satisfactions, disappointments, changes)</li>
+  <li>Identify the primary problem area(s)</li>
+  <li>Establish the treatment contract: time limit (12-16 sessions), focus on the named problem area</li>
+</ul>
+
+<p><strong>Phase 2: Middle Phase (Sessions 4-12)</strong></p>
+<ul>
+  <li>Work on the specific problem area using IPT techniques</li>
+  <li>For grief: facilitate mourning, review the relationship, encourage new activities</li>
+  <li>For role disputes: clarify expectations, improve communication, consider options</li>
+  <li>For role transitions: mourn the old role, develop competence in the new</li>
+  <li>For interpersonal deficits: explore relationship patterns, use the therapeutic relationship</li>
+  <li>Techniques: communication analysis, decision analysis, role-play, clarification of expectations, encouragement of affect</li>
+</ul>
+
+<p><strong>Phase 3: Termination Phase (Sessions 13-16)</strong></p>
+<ul>
+  <li>Explicitly discuss the ending of treatment</li>
+  <li>Review progress and remaining symptoms</li>
+  <li>Consolidate gains and discuss strategies for future interpersonal difficulties</li>
+  <li>Reinforce the patient's competence in managing their own interpersonal world</li>
+  <li>Address feelings about termination (loss of the therapist is itself a role transition)</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The "sick role" in IPT is borrowed from Talcott Parsons. It serves a specific therapeutic function: it reduces self-blame, excuses the patient from obligations they cannot meet, and simultaneously obligates them to work toward recovery. It is assigned, not earned — the therapist actively tells the patient "you are ill."</p></div>
+<h3>Evidence Base</h3>
+<table>
+<thead><tr><th>Condition</th><th>Key Evidence</th></tr></thead>
+<tbody>
+<tr><td>Major depression</td><td><strong>Elkin et al. (1989) NIMH TDCRP</strong> — the landmark trial. IPT equivalent to imipramine and superior to placebo for moderate-severe depression. IPT performed best for patients with high initial severity.</td></tr>
+<tr><td>Depression maintenance</td><td>Frank et al. (1990) — monthly maintenance IPT reduced recurrence over 3 years; combined with imipramine was most effective</td></tr>
+<tr><td>Bipolar disorder</td><td>Frank et al. (2005) — Interpersonal and Social Rhythm Therapy (IPSRT) as adjunct to mood stabilisers; stabilises circadian rhythms and reduces recurrence</td></tr>
+<tr><td>Bulimia nervosa</td><td>Fairburn et al. (1991, 1993) — IPT equivalent to CBT at 12-month follow-up for BN, though slower to take effect</td></tr>
+<tr><td>Perinatal depression</td><td>Spinelli & Endicott (2003) — effective for antepartum depression; O'Hara et al. (2000) for postpartum</td></tr>
+<tr><td>Adolescent depression</td><td>Mufson et al. (2004) — IPT-A adapted for adolescents, effective in school-based settings</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The <strong>NIMH Treatment of Depression Collaborative Research Program (Elkin et al., 1989)</strong> is the single most important trial in psychotherapy research. It compared CBT, IPT, imipramine + clinical management, and pill placebo + clinical management across 250 patients at three sites. Key finding for IPT: it was particularly effective for patients with more severe depression, matching imipramine. Key finding for CBT: it was <em>less</em> effective than IPT and imipramine for severely depressed patients — a controversial result that spurred decades of debate.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>IPT is one of the few psychotherapies recommended as a standalone first-line treatment for moderate depression in NICE guidelines. It is also the best-studied psychotherapy for depression in pregnancy, where pharmacotherapy poses fetal risks.</p></div>
+<hr>
+<h2>2. Eye Movement Desensitization and Reprocessing (EMDR)</h2>
+<h3>Origins and the AIP Model</h3>
+<p><strong>Francine Shapiro</strong> developed EMDR in 1987 after noticing that spontaneous eye movements appeared to reduce the distress of disturbing thoughts during a walk in the park. The initial RCT was published in 1989 and the therapy has since accumulated a substantial evidence base, primarily for PTSD.</p>
+<p>The theoretical foundation is the <strong>Adaptive Information Processing (AIP) model</strong>. Core tenets:</p>
+<ul>
+  <li>The brain has an innate information processing system that moves toward adaptive resolution (similar to how the body heals a wound)</li>
+  <li>Traumatic experiences overwhelm this system and are stored in an unprocessed, state-specific form — with the original emotions, sensations, and beliefs intact</li>
+  <li>These unprocessed memories are the basis of pathology: they are triggered by current stimuli and produce symptoms</li>
+  <li>EMDR facilitates the resumption of adaptive processing, allowing the memory to be integrated into existing adaptive networks</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The AIP model distinguishes EMDR from exposure therapy. In exposure, the mechanism is habituation/extinction through prolonged engagement with feared stimuli. In EMDR, the mechanism is proposed to be accelerated information processing — the memory is transformed, not just extinguished. This distinction is theoretically important even though both approaches work for PTSD.</p></div>
+<h3>The Eight Phases of EMDR</h3>
+<table>
+<thead><tr><th>Phase</th><th>Name</th><th>Purpose</th><th>Key Activities</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>History and treatment planning</strong></td><td>Assessment and case conceptualisation</td><td>Identify target memories, current triggers, desired future states; assess client stability and dissociation risk</td></tr>
+<tr><td>2</td><td><strong>Preparation</strong></td><td>Establish safety and teach self-regulation</td><td>Explain the procedure; teach the "safe/calm place" exercise; establish a stop signal; build therapeutic alliance</td></tr>
+<tr><td>3</td><td><strong>Assessment</strong></td><td>Activate the target memory</td><td>Identify: image, negative cognition (NC), positive cognition (PC), VOC rating (1-7), emotion, SUDS (0-10), body location of disturbance</td></tr>
+<tr><td>4</td><td><strong>Desensitization</strong></td><td>Process the disturbing memory</td><td>Bilateral stimulation (BLS) with sets of eye movements, taps, or tones; client reports whatever comes to mind between sets; continue until SUDS = 0 or ecological</td></tr>
+<tr><td>5</td><td><strong>Installation</strong></td><td>Strengthen the positive cognition</td><td>Pair the positive cognition with the target memory during BLS; continue until VOC = 7</td></tr>
+<tr><td>6</td><td><strong>Body scan</strong></td><td>Check for residual somatic disturbance</td><td>Client scans body while thinking of original target + PC; any tension or unusual sensation is targeted with BLS</td></tr>
+<tr><td>7</td><td><strong>Closure</strong></td><td>Stabilise the client</td><td>Return to equilibrium; use safe place or relaxation if processing is incomplete; brief on what to expect between sessions (journaling encouraged)</td></tr>
+<tr><td>8</td><td><strong>Re-evaluation</strong></td><td>Review at next session</td><td>Check if gains maintained, new material emerged, or additional targets needed; guides ongoing treatment planning</td></tr>
+</tbody>
+</table>
+
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>"Happy People Always Deserve Instant Body Care and Rest"</strong> — History, Preparation, Assessment, Desensitization, Installation, Body scan, Closure, Re-evaluation.</p></div>
+<h3>Key Scales</h3>
+<ul>
+  <li><strong>SUDS (Subjective Units of Disturbance Scale):</strong> 0-10, where 0 = no disturbance and 10 = worst possible disturbance. Used during desensitization phase; processing continues until SUDS reaches 0 (or ecological valid level if complete resolution is not possible)</li>
+  <li><strong>VOC (Validity of Cognition Scale):</strong> 1-7, where 1 = "completely false" and 7 = "completely true." Used to measure how strongly the patient believes the positive cognition. Processing during installation continues until VOC = 7</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The negative cognition (NC) in EMDR is always an irrational, present-tense, self-referencing belief (e.g., "I am unsafe," "I am powerless," "I am worthless"). The positive cognition (PC) is the desired adaptive belief (e.g., "I am safe now," "I have choices," "I am worthy"). The NC is not challenged directly — it is expected to shift spontaneously through processing.</p></div>
+<h3>Bilateral Stimulation: Mechanism Debate</h3>
+<p>The mechanism of bilateral stimulation remains controversial. Competing hypotheses:</p>
+<ol>
+  <li><strong>Orienting response / relaxation</strong> — BLS activates the parasympathetic nervous system, reducing arousal and facilitating processing</li>
+  <li><strong>Working memory taxation</strong> — BLS competes for working memory resources, making the memory less vivid and emotional (similar to a cognitive load paradigm). Supported by van den Hout & Engelhard (2012)</li>
+  <li><strong>REM sleep analogy</strong> — BLS mimics the eye movements of REM sleep, which is thought to consolidate and integrate emotional memories</li>
+  <li><strong>Interhemispheric interaction</strong> — BLS facilitates communication between cerebral hemispheres. Weakly supported</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The dismantling debate: is bilateral stimulation an essential ingredient or an epiphenomenon? Meta-analyses (Lee & Cuijpers, 2013) suggest that EMDR with BLS outperforms EMDR without BLS, and that BLS adds value beyond simple exposure. However, the effect is modest and the specific mechanism remains unclear. WHO and NICE both endorse EMDR for PTSD regardless of the mechanism question.</p></div>
+<h3>Evidence Base</h3>
+<ul>
+  <li><strong>PTSD:</strong> Strongest evidence. Multiple meta-analyses show EMDR equivalent to trauma-focused CBT (prolonged exposure, CPT). WHO (2013), NICE (2018), APA (2017), VA/DoD (2023) all recommend EMDR as a first-line PTSD treatment</li>
+  <li><strong>Single-incident trauma:</strong> EMDR may work faster than prolonged exposure (fewer sessions to remission) — Marcus et al. (1997), Ironson et al. (2002)</li>
+  <li><strong>Complex PTSD:</strong> Adaptations exist; evidence growing but less robust than for single-incident PTSD</li>
+  <li><strong>Depression, anxiety, pain:</strong> Emerging evidence, not yet first-line</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>EMDR is contraindicated or requires significant modification in patients with active suicidality, severe dissociative disorders (DID), unstable psychosis, or substance intoxication. Phase 2 preparation is particularly critical in complex trauma — some patients require weeks of stabilisation before any memory processing begins.</p></div>
+<hr>
+<h2>3. Mentalization-Based Treatment (MBT)</h2>
+<h3>Mentalization Defined</h3>
+<p><strong>Anthony Bateman and Peter Fonagy</strong> developed MBT from the 1990s onward, grounded in Fonagy's theory of mentalization and its development in attachment relationships.</p>
+<p><strong>Mentalization</strong> is the capacity to understand behaviour — one's own and others' — in terms of underlying mental states (feelings, desires, beliefs, intentions). It is the ability to "hold mind in mind." Mentalization is:</p>
+<ul>
+  <li><strong>Implicit</strong> (automatic, fast, intuitive) and <strong>explicit</strong> (deliberate, reflective, verbal)</li>
+  <li><strong>Self-focused</strong> and <strong>other-focused</strong></li>
+  <li><strong>Cognitive</strong> (beliefs, intentions) and <strong>affective</strong> (feelings, emotional resonance)</li>
+  <li><strong>Internally focused</strong> (on mental interiors) and <strong>externally focused</strong> (on observable features)</li>
+</ul>
+
+<p>These four polarities create a multidimensional framework. Effective mentalization requires balance across all dimensions. BPD is characterised by imbalanced mentalization — typically dominated by implicit, externally focused, affective processing with collapse of reflective function under stress.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Fonagy's developmental theory: secure attachment is the crucible in which mentalization develops. The "marked and contingent mirroring" of the caregiver teaches the infant that its internal states are real, manageable, and communicable. When caregiving is neglectful or abusive, mentalization develops poorly — the child cannot make sense of the caregiver's hostile intentions and develops a fragile reflective capacity that collapses under arousal.</p></div>
+<h3>BPD as Mentalizing Failure</h3>
+<p>In BPD, mentalizing capacity is present but unstable. It collapses under emotional arousal, particularly in attachment contexts. When mentalizing fails, the patient reverts to three pre-mentalizing modes:</p>
+<table>
+<thead><tr><th>Pre-Mentalizing Mode</th><th>Description</th><th>Clinical Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Psychic equivalence</strong></td><td>Inner and outer reality are equated — what I feel IS what is real</td><td>"You hate me" (stated as absolute fact, not hypothesis)</td></tr>
+<tr><td><strong>Teleological mode</strong></td><td>Mental states can only be understood through observable actions</td><td>"If you really cared, you would extend the session" (only physical proof counts)</td></tr>
+<tr><td><strong>Pretend mode</strong></td><td>Mental states are decoupled from reality; talk is intellectual but disconnected from feeling</td><td>Elaborate psychological insights that have no emotional resonance or behavioural impact</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The three pre-mentalizing modes — psychic equivalence, teleological mode, pretend mode — are the hallmark of MBT theory. Recognising which mode the patient has shifted into guides the therapist's intervention. In psychic equivalence, the therapist validates the feeling while gently introducing uncertainty. In teleological mode, the therapist helps translate the action demand into a mentalised request. In pretend mode, the therapist disrupts the disconnected narrative and grounds it in affect.</p></div>
+<h3>Treatment Structure</h3>
+<p>MBT was originally delivered as a <strong>partial hospitalisation program</strong> (Bateman & Fonagy, 1999):</p>
+<ul>
+  <li>18 months duration</li>
+  <li>Individual therapy once weekly + group therapy three times weekly</li>
+  <li>Expressive therapy (art, writing)</li>
+  <li>Community meeting once weekly</li>
+  <li>Followed by 18 months of outpatient MBT</li>
+</ul>
+
+<p>Intensive outpatient MBT (MBT-IOP) and standard outpatient MBT have since been developed and tested.</p>
+<h3>Therapeutic Stance</h3>
+<p>The MBT therapist adopts a stance characterised by:</p>
+<ol>
+  <li><strong>Not-knowing</strong> — genuine curiosity rather than expert interpretation. The therapist does not assume they know what the patient is feeling; they ask</li>
+  <li><strong>Curiosity</strong> — active, empathic questioning about mental states: "What do you think was going on for you when...?"</li>
+  <li><strong>Affect focus</strong> — consistently drawing attention to emotional experience in the moment, particularly in relation to the therapist</li>
+  <li><strong>Mentalizing the relationship</strong> — when ruptures occur, the therapist openly explores what happened in terms of both parties' mental states</li>
+  <li><strong>Stop and rewind</strong> — when a non-mentalizing process is detected, the therapist halts the narrative and goes back to the point where mentalization was lost</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>MBT therapists are trained to monitor their own mentalizing. When the therapist becomes certain, didactic, or interpretive — they have likely stopped mentalizing and started lecturing. The "not-knowing stance" is not a technique; it is a genuine acknowledgment that we cannot directly access another person's mind.</p></div>
+<h3>Evidence</h3>
+<table>
+<thead><tr><th>Study</th><th>Design</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Bateman & Fonagy (1999)</td><td>RCT, partial hospitalisation vs TAU</td><td>MBT superior on self-harm, suicide attempts, depression, hospital days at 18 months</td></tr>
+<tr><td>Bateman & Fonagy (2001)</td><td>18-month follow-up of 1999 trial</td><td>MBT gains maintained and continued to improve; TAU group showed no further improvement</td></tr>
+<tr><td>Bateman & Fonagy (2008)</td><td>8-year follow-up</td><td>MBT group maintained gains; 13% still met BPD criteria vs 87% in TAU</td></tr>
+<tr><td>Bateman & Fonagy (2009)</td><td>RCT, outpatient MBT vs SCM</td><td>MBT superior to Structured Clinical Management for BPD</td></tr>
+<tr><td>Rossouw & Fonagy (2012)</td><td>RCT, adolescent MBT-A vs TAU</td><td>MBT-A effective for self-harm in adolescents</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Bateman & Fonagy (2008) 8-year follow-up is among the most impressive long-term outcomes in any BPD treatment trial. Only 13% of MBT-treated patients still met full BPD criteria at 8 years, compared to 87% in TAU. The effect was not just symptom reduction — it was personality change.</p></div>
+<hr>
+<h2>4. Transference-Focused Psychotherapy (TFP)</h2>
+<h3>Kernberg's Object Relations Framework</h3>
+<p><strong>Otto Kernberg</strong> developed TFP from his structural model of personality organisation. Kernberg synthesised ego psychology, object relations theory (Klein, Fairbairn, Jacobson, Mahler), and drive theory into a unified framework.</p>
+<h3>Levels of Personality Organization</h3>
+<table>
+<thead><tr><th>Dimension</th><th>Neurotic</th><th>Borderline</th><th>Psychotic</th></tr></thead>
+<tbody>
+<tr><td><strong>Identity</strong></td><td>Integrated, stable self/other representations</td><td>Identity diffusion — contradictory, split self/other images</td><td>Fragmented or merged self/other</td></tr>
+<tr><td><strong>Defences</strong></td><td>Mature (repression, sublimation, reaction formation)</td><td>Primitive (splitting, projective identification, idealisation/devaluation, denial, omnipotence)</td><td>Psychotic (denial of reality, delusional projection, fragmentation)</td></tr>
+<tr><td><strong>Reality testing</strong></td><td>Intact</td><td>Intact (distinguishes inner from outer) but impaired social reality testing</td><td>Impaired — cannot reliably distinguish inner from outer</td></tr>
+<tr><td><strong>Moral functioning</strong></td><td>Integrated superego</td><td>Harsh but poorly integrated superego; contradictory moral standards</td><td>Bizarre or absent superego functioning</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kernberg's key diagnostic tool is the <strong>structural interview</strong> — a semi-structured assessment that evaluates identity integration, defence mechanisms, and reality testing through the patient's response to clarification, confrontation, and interpretation <em>during the interview itself</em>. If the patient becomes more organised after confrontation, they have borderline-level organisation. If they become more disorganised, they may have psychotic-level organisation.</p></div>
+<h3>Object Relations Dyads</h3>
+<p>The fundamental unit of Kernberg's model is the <strong>object relations dyad</strong>: a representation of self linked by an affect to a representation of an other. In borderline organisation, these dyads are split — all-good dyads (idealised self + idealised other + positive affect) are kept rigidly separate from all-bad dyads (worthless self + persecutory other + rage/fear).</p>
+<p>TFP's core task is to help the patient integrate these split dyads through transference analysis. As the patient enacts these dyads in the relationship with the therapist, they can be identified, clarified, and eventually integrated.</p>
+<h3>Treatment Structure</h3>
+<ul>
+  <li><strong>Frequency:</strong> Twice weekly, face-to-face</li>
+  <li><strong>Duration:</strong> 1-3 years</li>
+  <li><strong>Treatment contract:</strong> Explicit, detailed, addressing all anticipated acting-out (self-harm, substance use, missed sessions, between-session crises). The contract is non-negotiable — violations are addressed immediately as they reflect the activation of specific object relations dyads</li>
+  <li><strong>Technique hierarchy:</strong> (1) Clarification — "What do you mean when you say...?"; (2) Confrontation — pointing out contradictions and discrepancies; (3) Interpretation — linking the enacted dyad to its origins and its role in maintaining pathology. Transference interpretation is the primary mutative intervention</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>TFP's technical strategy follows a hierarchy of priorities: (1) threats to the patient's life, (2) threats to the treatment (missing sessions, non-payment, substance use), (3) acting-out in or outside sessions, (4) contract violations, (5) narcissistic transference developments, (6) material discussed in a blocked or "as-if" manner. Life-threatening behaviour always takes precedence.</p></div>
+<h3>Evidence for BPD</h3>
+<ul>
+  <li><strong>Clarkin et al. (2007)</strong> — RCT comparing TFP, DBT, and dynamic supportive therapy for BPD. All three improved, but TFP was the only treatment that significantly improved reflective function and attachment organisation</li>
+  <li><strong>Doering et al. (2010)</strong> — RCT: TFP superior to community treatment in reducing BPD symptoms, psychosocial functioning, and personality organisation</li>
+  <li><strong>Giesen-Bloo et al. (2006)</strong> — Schema-focused therapy superior to TFP in a Dutch RCT; however, the TFP group had higher dropout (46% vs 27%), which may have affected outcomes</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>TFP is the most explicitly psychoanalytic of the evidence-based BPD treatments. Unlike DBT (which teaches skills) and MBT (which builds mentalizing), TFP aims for structural personality change through the analysis of internalised object relations as they are enacted in the transference. It is the treatment of choice for clinicians trained in psychodynamic methods who want an evidence-based framework for working with severe personality pathology.</p></div>
+<hr>
+<h2>5. Emotionally Focused Therapy for Couples (EFT-C)</h2>
+<h3>Theoretical Foundation</h3>
+<p><strong>Sue Johnson</strong> (not to be confused with Leslie Greenberg's EFT for individuals) developed EFT for couples in the 1980s, grounding it in <strong>attachment theory</strong> (Bowlby, Ainsworth). The core premise: adult romantic relationships are attachment bonds, and relationship distress is fundamentally <strong>attachment distress</strong> — the fear of losing the bond with a primary attachment figure.</p>
+<p>Key theoretical concepts:</p>
+<ul>
+  <li><strong>Primary emotions</strong> vs <strong>secondary emotions</strong> — beneath the anger (secondary) is the fear of abandonment or the pain of feeling unworthy (primary). EFT accesses the primary emotion</li>
+  <li><strong>Negative interaction cycles</strong> — rigid, self-reinforcing patterns (pursue-withdraw, attack-attack, withdraw-withdraw) that are maintained by unmet attachment needs. The cycle, not the partner, is the enemy</li>
+  <li><strong>Attachment injuries</strong> — specific incidents where one partner failed to respond during a critical moment of need (e.g., not showing up after a miscarriage). These become loaded "traumas" in the relationship</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The pursue-withdraw cycle is the most common negative interaction pattern in distressed couples. One partner (the pursuer, often anxiously attached) escalates demands and criticism to get a response. The other partner (the withdrawer, often avoidantly attached) shuts down to manage overwhelm. Each partner's strategy confirms the other's fears and intensifies the cycle.</p></div>
+<h3>Three Stages, Nine Steps</h3>
+<table>
+<thead><tr><th>Stage</th><th>Focus</th><th>Steps</th></tr></thead>
+<tbody>
+<tr><td><strong>Stage 1: De-escalation</strong> (Steps 1-4)</td><td>Identify and de-escalate the negative cycle</td><td>1. Identify relational conflict issues 2. Identify the negative interaction cycle and attachment insecurities underlying positions 3. Access unacknowledged emotions (primary emotions) underlying interactional positions 4. Reframe the problem: the cycle is the enemy, not the partner</td></tr>
+<tr><td><strong>Stage 2: Restructuring interactions</strong> (Steps 5-7)</td><td>Create new bonding interactions based on primary attachment needs</td><td>5. Promote identification with disowned attachment needs and aspects of self; integrate these into relationship interactions 6. Promote acceptance of partner's new emotional experience 7. Facilitate expression of needs and wants; create bonding events (key change event: "softening" of the blaming partner and "re-engagement" of the withdrawing partner)</td></tr>
+<tr><td><strong>Stage 3: Consolidation</strong> (Steps 8-9)</td><td>Consolidate new positions and solutions</td><td>8. Facilitate new solutions to old relationship problems 9. Consolidate new positions and new cycle of attachment security</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The <strong>"softening"</strong> is the key change event in EFT. It occurs when the previously blaming/pursuing partner — having accessed their underlying vulnerability (fear, sadness, attachment need) — can express this vulnerability directly to the withdrawing partner, who is now emotionally engaged enough to respond. When the withdrawer responds with comfort, a corrective emotional experience occurs that restructures the attachment bond.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p>The three stages of EFT-C: <strong>"Discover, Deepen, Do."</strong> De-escalate (discover the cycle), restructure (deepen into primary emotions and create bonding events), consolidate (do — new solutions, new patterns).</p></div>
+<h3>Evidence</h3>
+<ul>
+  <li><strong>Johnson et al. (1999)</strong> meta-analysis: large effect size (d = 1.3) for EFT-C compared to control</li>
+  <li><strong>70-75% of couples</strong> move from distress to recovery; <strong>90% show significant improvement</strong></li>
+  <li><strong>Gains are stable</strong> — follow-up studies at 2 years show maintenance or continued improvement (Cloutier et al., 2002)</li>
+  <li>Adapted for attachment injuries (Makinen & Johnson, 2006), trauma survivors (Johnson, 2002), and culturally diverse couples</li>
+  <li><strong>Compared to other couples therapies:</strong> EFT has the strongest evidence alongside Behavioral Couple Therapy (BCT), but EFT shows better maintenance of gains</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>EFT-C is contraindicated when there is ongoing domestic violence with a controlling/abusive pattern — the vulnerability exposure required for change is unsafe. It can be used when there is situational couple violence (mutual, low-level) with appropriate safety planning. The therapist must assess violence type before beginning EFT.</p></div>
+<hr>
+<h2>6. Transactional Analysis (TA)</h2>
+<h3>Berne's Framework</h3>
+<p><strong>Eric Berne</strong> (1910-1970) developed Transactional Analysis in the 1950s-60s as a theory of personality, communication, and psychotherapy. Born from psychoanalysis (Berne trained under Erik Erikson and Paul Federn), TA translates psychoanalytic concepts into accessible, observable language.</p>
+<h3>Ego States</h3>
+<p>The ego state model is Berne's structural analysis — three distinct, observable patterns of thinking, feeling, and behaving:</p>
+<table>
+<thead><tr><th>Ego State</th><th>Description</th><th>Subdivisions</th><th>Observable Signs</th></tr></thead>
+<tbody>
+<tr><td><strong>Parent (P)</strong></td><td>Behaviours, thoughts, feelings copied from parent figures</td><td><strong>Critical Parent (CP)</strong> — rules, criticism, control; <strong>Nurturing Parent (NP)</strong> — care, permission, protection</td><td>Finger-wagging, "you should," furrowed brow (CP); comforting tone, "let me help," open arms (NP)</td></tr>
+<tr><td><strong>Adult (A)</strong></td><td>Data-processing, reality-testing, here-and-now appraisal</td><td>No subdivisions in classical model</td><td>Thoughtful expression, factual language, "what are the options?", calm demeanour</td></tr>
+<tr><td><strong>Child (C)</strong></td><td>Feelings and behaviours preserved from childhood</td><td><strong>Free Child (FC)</strong> — spontaneous, creative, playful; <strong>Adapted Child (AC)</strong> — compliant, rebellious, anxious; conforming to perceived parental demands</td><td>Laughter, curiosity, creativity (FC); whining, pouting, defiance, "I can't" (AC)</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Berne's ego states are phenomenological, not hypothetical constructs. They are directly observable in the person's words, tone, posture, and facial expressions. Each ego state is a complete system — it has its own consistent pattern of thoughts, feelings, and behaviours. The goal of structural analysis is to help the patient recognise which ego state is active and whether it is appropriate to the situation.</p></div>
+<h3>Transactions</h3>
+<p>A transaction is a unit of social interaction: a stimulus from one person's ego state to another person's ego state, plus the response.</p>
+<table>
+<thead><tr><th>Type</th><th>Definition</th><th>Example</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><strong>Complementary</strong></td><td>Response comes from the addressed ego state; vectors are parallel</td><td>A->A: "What time is it?" / A->A: "Three o'clock"</td><td>Communication continues smoothly</td></tr>
+<tr><td><strong>Crossed</strong></td><td>Response comes from an unexpected ego state; vectors cross</td><td>A->A: "What time is it?" / CP->AC: "You should wear a watch!"</td><td>Communication breaks down; surprise, hurt, or conflict</td></tr>
+<tr><td><strong>Ulterior</strong></td><td>Two messages simultaneously — a social (overt) message and a psychological (covert) message</td><td>Social: A->A "Would you like to see my report?" / Psychological: FC->FC "Would you like to come upstairs?"</td><td>The behavioural outcome is determined by the psychological, not the social, message</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Berne's <strong>first rule of communication:</strong> as long as transactions are complementary, communication can continue indefinitely. <strong>Second rule:</strong> when a crossed transaction occurs, communication is disrupted and one or both parties must shift ego states. <strong>Third rule:</strong> in ulterior transactions, the behavioural outcome is determined by the psychological (covert) level, not the social (overt) level.</p></div>
+<h3>Games</h3>
+<p>A game is a series of ulterior transactions that follow a predictable pattern and end with a <strong>payoff</strong> — a familiar bad feeling that confirms the player's life script. Berne described games using a formula:</p>
+<p><strong>Con + Gimmick = Response -> Switch -> Crossup -> Payoff</strong></p>
+<p>Classic games from <em>Games People Play</em> (1964):</p>
+<ul>
+  <li><strong>"Why Don't You... Yes But"</strong> — the person solicits advice, then rejects every suggestion. Payoff: "Nobody can help me" (confirms helplessness script)</li>
+  <li><strong>"If It Weren't For You"</strong> — blaming a partner for one's own limitations. Payoff: avoids the anxiety of testing one's capabilities</li>
+  <li><strong>"Now I've Got You, You Son of a Bitch"</strong> — setting up another person to make a mistake, then pouncing with righteous anger. Payoff: justifies rage</li>
+  <li><strong>"Kick Me"</strong> — behaving provocatively until someone retaliates, then adopting the victim position. Payoff: "Nobody likes me"</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In Berne's system, a "game" is not playful — it is a repetitive, scripted interpersonal pattern with an ulterior motive and a predictable, negative emotional payoff. The payoff reinforces the person's life script. Therapy involves helping the patient recognise the game, understand the payoff, and choose direct communication instead.</p></div>
+<h3>Life Scripts and Stamps</h3>
+<ul>
+  <li><strong>Life script:</strong> An unconscious life plan decided in early childhood, based on parental injunctions and early decisions. The script determines the person's overall life trajectory. Scripts can be "winning," "losing," or "going nowhere"</li>
+  <li><strong>Injunctions:</strong> Parental prohibitions from the Parent ego state of the actual parent to the Child ego state of the child. Goulding & Goulding (1976) identified 12 core injunctions: Don't be, Don't be you, Don't be a child, Don't grow up, Don't make it, Don't, Don't be important, Don't belong, Don't be close, Don't be well, Don't think, Don't feel</li>
+  <li><strong>Stamps:</strong> Accumulated bad feelings from games. When enough stamps are collected, the person cashes them in for a "free" dramatic action (explosion of rage, binge, walkout, suicide attempt). Similar to collecting grievances</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>TA's accessibility is its greatest strength and its limitation. The language (Parent/Adult/Child, games, scripts) is intuitive and patients readily engage with it. However, the simplicity can lead to superficial application. Effective TA work goes beyond labelling ego states — it involves deep script analysis, redecision work (Goulding & Goulding), and genuine emotional change.</p></div>
+<h3>Evidence</h3>
+<p>TA has less RCT evidence than the other modalities in this chapter but has:</p>
+<ul>
+  <li>Meta-analysis by Novey (2002) showing positive effects</li>
+  <li>Ohlsson (2002) — RCT for depression and anxiety, positive outcomes</li>
+  <li>TA is widely used in organisational consulting, education, and counselling settings</li>
+  <li>Integrated into broader relational psychotherapy approaches</li>
+  <li>Recognised by the European Association for Psychotherapy</li>
+</ul>
+
+<hr>
+<h2>7. Psychodrama</h2>
+<h3>Moreno's Method</h3>
+<p><strong>Jacob L. Moreno</strong> (1889-1974) developed psychodrama in Vienna in the 1920s-30s, making it one of the earliest forms of group psychotherapy. Moreno believed that spontaneity and creativity — the ability to respond to new situations with adequacy — are the curative factors in human development. Psychodrama externalises internal conflicts by enacting them on a "stage" with the help of group members.</p>
+<h3>Structure</h3>
+<table>
+<thead><tr><th>Phase</th><th>Name</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>Phase 1</strong></td><td>Warm-up</td><td>Build group cohesion, select the protagonist, identify the theme. Director uses group exercises, discussions, or sculptures to increase spontaneity</td></tr>
+<tr><td><strong>Phase 2</strong></td><td>Action</td><td>The protagonist enacts a scene (past, present, future, or fantasy) with the help of auxiliary egos (group members playing significant others). The director guides the action</td></tr>
+<tr><td><strong>Phase 3</strong></td><td>Sharing</td><td>Group members share their personal responses (NOT feedback or analysis). The focus is on identification: "Your scene reminded me of when I..." This prevents intellectual distancing and builds connection</td></tr>
+</tbody>
+</table>
+
+<h3>Core Techniques</h3>
+<table>
+<thead><tr><th>Technique</th><th>Description</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>Role reversal</strong></td><td>Protagonist switches roles with the auxiliary ego, playing the other person</td><td>Builds empathy, reveals how the other might think/feel, generates new perspectives</td></tr>
+<tr><td><strong>Doubling</strong></td><td>A group member stands behind the protagonist and voices unspoken thoughts/feelings</td><td>Accesses denied or unconscious material, deepens emotional engagement</td></tr>
+<tr><td><strong>Mirror technique</strong></td><td>Protagonist watches as another group member enacts their role</td><td>Provides an outside perspective on one's own behaviour; confronts blind spots</td></tr>
+<tr><td><strong>Soliloquy</strong></td><td>Protagonist speaks thoughts and feelings aloud to the audience while "frozen" in a scene</td><td>Externalises internal dialogue, bridges inner and outer experience</td></tr>
+<tr><td><strong>Surplus reality</strong></td><td>Enacting scenes that never happened or cannot happen (e.g., saying goodbye to a deceased parent)</td><td>Provides corrective emotional experience, completes unfinished business</td></tr>
+<tr><td><strong>Empty chair</strong></td><td>A chair represents an absent person; protagonist speaks to it</td><td>Originally Moreno's technique (later adopted by Perls for Gestalt therapy). Allows confrontation or dialogue with absent figures</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The empty chair technique is commonly associated with Gestalt therapy (Perls), but it was originally a psychodrama technique developed by Moreno. Moreno and Perls had significant professional rivalry. The technique serves a similar function in both modalities — facilitating contact with absent figures — but in psychodrama it occurs within a group context with auxiliary egos.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Psychodrama is particularly powerful for patients who intellectualise or who have "talked about" their problems extensively without emotional change. The enactment bypasses verbal defences and creates an embodied, affectively charged experience. It is also effective for grief work, trauma processing, and interpersonal skill building. Contraindicated in actively psychotic or severely dissociative patients.</p></div>
+<hr>
+<h2>8. Supportive Psychotherapy</h2>
+<h3>Definition and Scope</h3>
+<p>Supportive psychotherapy is the most widely practised form of psychotherapy in clinical settings, yet it receives the least attention in training. Wolberg classifies it as therapy aimed at <strong>symptom relief and restoration of equilibrium</strong> without attempting attitude change or personality restructuring. It strengthens existing defences rather than uncovering unconscious material.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Supportive psychotherapy is NOT the absence of technique. It is a deliberate, structured approach with specific techniques, indications, and goals. The misconception that it is "just chatting" or "what you do when you can't do real therapy" is both incorrect and harmful. Supportive therapy is the treatment of choice for many patients.</p></div>
+<h3>Techniques</h3>
+<table>
+<thead><tr><th>Technique</th><th>Description</th><th>Mechanism</th></tr></thead>
+<tbody>
+<tr><td><strong>Ventilation</strong></td><td>Encouraging the patient to express feelings freely (catharsis)</td><td>Emotional release, reduced internal pressure, destigmatisation</td></tr>
+<tr><td><strong>Reassurance</strong></td><td>Providing realistic comfort about prognosis, normalcy of feelings, or capacity to cope</td><td>Reduces anxiety, counters catastrophising, instils hope</td></tr>
+<tr><td><strong>Advice/guidance</strong></td><td>Direct suggestions about behaviour or decisions</td><td>Fills an executive function gap; appropriate when the patient's judgment is temporarily impaired</td></tr>
+<tr><td><strong>Praise/encouragement</strong></td><td>Acknowledging the patient's strengths, progress, and efforts</td><td>Reinforces adaptive behaviour, counters demoralisation</td></tr>
+<tr><td><strong>Anticipatory guidance</strong></td><td>Preparing the patient for upcoming stressors or challenges</td><td>Reduces anxiety of the unknown, builds sense of mastery, prevents crisis</td></tr>
+<tr><td><strong>Clarification</strong></td><td>Helping the patient understand their situation more clearly (without unconscious interpretation)</td><td>Cognitive reorganisation, reduced confusion</td></tr>
+<tr><td><strong>Suggestion</strong></td><td>Using the therapist's authority to influence behaviour or attitudes</td><td>Leverages the therapeutic relationship for symptom relief</td></tr>
+<tr><td><strong>Environmental intervention</strong></td><td>Helping modify the patient's environment (referrals, letters, family meetings)</td><td>Reduces external stressors, increases support</td></tr>
+</tbody>
+</table>
+
+<h3>Indications</h3>
+<ul>
+  <li>Acute crisis (when ego function is overwhelmed)</li>
+  <li>Chronic severe mental illness (schizophrenia, severe bipolar) as adjunct to pharmacotherapy</li>
+  <li>Low ego strength / limited psychological mindedness</li>
+  <li>Patients undergoing medical procedures or terminal illness</li>
+  <li>Personality disorders where insight-oriented work is destabilising</li>
+  <li>Between episodes: maintaining function and preventing relapse</li>
+</ul>
+
+<h3>Supportive vs Expressive: A Continuum</h3>
+<table>
+<thead><tr><th>Dimension</th><th>Supportive Pole</th><th>Expressive Pole</th></tr></thead>
+<tbody>
+<tr><td>Defences</td><td>Strengthens existing defences</td><td>Analyses and modifies defences</td></tr>
+<tr><td>Therapist activity</td><td>More active, directive</td><td>Less active, interpretive</td></tr>
+<tr><td>Focus</td><td>External stressors, coping</td><td>Internal conflicts, unconscious</td></tr>
+<tr><td>Transference</td><td>Positive transference maintained, not interpreted</td><td>Transference analysed and interpreted</td></tr>
+<tr><td>Regression</td><td>Discouraged</td><td>Tolerated or encouraged</td></tr>
+<tr><td>Goals</td><td>Symptom relief, improved functioning</td><td>Personality change, insight</td></tr>
+<tr><td>Patient selection</td><td>Lower ego strength, acute crisis, psychosis</td><td>Higher ego strength, psychological mindedness</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In practice, most psychotherapy lies on a <strong>supportive-expressive continuum</strong> rather than being purely one or the other. Even in psychoanalysis, supportive elements are present (the holding environment). Even in supportive therapy, moments of insight occur. The skill lies in knowing when to shift along the continuum based on the patient's moment-to-moment needs.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The key error in supportive psychotherapy is being so supportive that the patient becomes dependent and never develops their own coping. The goal is always to strengthen the patient's autonomous functioning. Praise adaptive coping, reinforce problem-solving attempts, and gradually reduce the frequency of sessions as the patient stabilises.</p></div>
+<h3>Evidence</h3>
+<ul>
+  <li>Historically used as a control condition in psychotherapy trials, which paradoxically demonstrated it was more effective than expected</li>
+  <li><strong>De Jonghe et al. (2001)</strong> — supportive psychotherapy for depression equivalent to psychodynamic psychotherapy at 6 months</li>
+  <li><strong>Hellerstein et al. (1998)</strong> — supportive psychotherapy effective for Cluster C personality disorders</li>
+  <li><strong>Clarkin et al. (2007)</strong> — dynamic supportive therapy showed improvement in BPD (though less than TFP on some measures)</li>
+  <li><strong>NICE guidelines</strong> recommend supportive counselling as an option for mild depression</li>
+</ul>
+
+<hr>
+<h2>Comparative Tables</h2>
+<h3>Table 1: All Specialised Modalities at a Glance</h3>
+<table>
+<thead><tr><th>Modality</th><th>Founder</th><th>Core Mechanism</th><th>Format</th><th>Duration</th><th>Primary Evidence</th></tr></thead>
+<tbody>
+<tr><td>IPT</td><td>Klerman & Weissman</td><td>Interpersonal context of depression</td><td>Individual; 12-16 sessions</td><td>3-4 months</td><td>Depression, bulimia, perinatal depression</td></tr>
+<tr><td>EMDR</td><td>Shapiro</td><td>Adaptive Information Processing</td><td>Individual; 6-12 sessions typically</td><td>1-3 months</td><td>PTSD (first-line)</td></tr>
+<tr><td>MBT</td><td>Bateman & Fonagy</td><td>Restoring mentalizing capacity</td><td>Individual + group; 18 months</td><td>18-36 months</td><td>BPD (partial hospitalisation and outpatient)</td></tr>
+<tr><td>TFP</td><td>Kernberg</td><td>Integrating split object relations via transference</td><td>Individual; twice weekly</td><td>1-3 years</td><td>BPD, personality organisation</td></tr>
+<tr><td>EFT-C</td><td>Sue Johnson</td><td>Restructuring attachment bonds via primary emotion</td><td>Couples; 8-20 sessions</td><td>3-6 months</td><td>Couple distress (d = 1.3)</td></tr>
+<tr><td>TA</td><td>Berne</td><td>Script analysis, ego state awareness</td><td>Individual or group</td><td>Variable</td><td>Depression, anxiety, organisational</td></tr>
+<tr><td>Psychodrama</td><td>Moreno</td><td>Spontaneity, role enactment, catharsis</td><td>Group</td><td>Variable</td><td>Trauma, grief, interpersonal skills</td></tr>
+<tr><td>Supportive</td><td>Multiple</td><td>Defence strengthening, coping enhancement</td><td>Individual</td><td>Variable</td><td>Chronic mental illness, crisis, low ego strength</td></tr>
+</tbody>
+</table>
+
+<h3>Table 2: BPD Treatment Comparison (DBT vs MBT vs TFP vs Schema Therapy)</h3>
+<table>
+<thead><tr><th>Dimension</th><th>DBT</th><th>MBT</th><th>TFP</th><th>Schema Therapy</th></tr></thead>
+<tbody>
+<tr><td><strong>Founder</strong></td><td>Linehan</td><td>Bateman & Fonagy</td><td>Kernberg</td><td>Young</td></tr>
+<tr><td><strong>Theoretical basis</strong></td><td>Biosocial theory; dialectics; Zen</td><td>Attachment + mentalization</td><td>Object relations; structural model</td><td>Cognitive-developmental; attachment</td></tr>
+<tr><td><strong>Core target</strong></td><td>Emotion dysregulation + behavioural patterns</td><td>Mentalizing failure</td><td>Split object relations / identity diffusion</td><td>Early maladaptive schemas + maladaptive coping modes</td></tr>
+<tr><td><strong>Stance</strong></td><td>Dialectical (acceptance + change); coaching</td><td>Not-knowing; curiosity; mentalizing stance</td><td>Technically neutral; clarification-confrontation-interpretation</td><td>Limited reparenting; empathic confrontation</td></tr>
+<tr><td><strong>Key technique</strong></td><td>Skills training (4 modules), diary card, chain analysis</td><td>Mentalizing the moment; stop-and-rewind</td><td>Transference interpretation</td><td>Imagery rescripting, mode dialogues, chair work</td></tr>
+<tr><td><strong>Format</strong></td><td>Individual + skills group + phone coaching</td><td>Individual + group (in full model)</td><td>Individual (twice weekly)</td><td>Individual (1-2x weekly)</td></tr>
+<tr><td><strong>Duration</strong></td><td>12+ months standard</td><td>18 months (original); 12-18 outpatient</td><td>1-3 years</td><td>1-3 years</td></tr>
+<tr><td><strong>Hierarchy</strong></td><td>Life-threatening > therapy-interfering > quality of life > skills</td><td>No rigid hierarchy; mentalizing always the focus</td><td>Life threats > treatment threats > acting out > narcissistic transference</td><td>Schema activation guides session focus</td></tr>
+<tr><td><strong>Key RCT</strong></td><td>Linehan et al. (1991, 2006)</td><td>Bateman & Fonagy (1999, 2009)</td><td>Clarkin et al. (2007); Doering et al. (2010)</td><td>Giesen-Bloo et al. (2006); Farrell et al. (2009)</td></tr>
+<tr><td><strong>Unique strength</strong></td><td>Most evidence; skills generalisable; structured for suicidal patients</td><td>Long-term personality change; group format</td><td>Only treatment shown to change personality organisation and attachment</td><td>Most accepted by patients (lowest dropout in RCTs)</td></tr>
+<tr><td><strong>Dropout rate</strong></td><td>~25%</td><td>~15-25%</td><td>~35-46%</td><td>~20-27%</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>When asked to compare BPD treatments in a viva, organise your answer by: (1) theoretical basis, (2) therapeutic stance, (3) primary mechanism of change, (4) key technique, (5) one landmark trial. All four are evidence-based and effective. They differ in theory and technique but share common therapeutic factors: a structured treatment framework, clear focus on the therapeutic relationship, and explicit management of self-harm.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For exam answers on specialised modalities, structure your response as: (1) founder and year, (2) theoretical basis in one sentence, (3) core mechanism, (4) key techniques (name 3), (5) landmark trial with result, (6) primary indication. This gives a complete answer in under 2 minutes.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When comparing modalities, use a table format in your written answer. Examiners consistently give higher marks for structured, comparative answers over narrative descriptions. Name the founder, the mechanism, and one trial for each modality.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>The most commonly examined topics in this chapter are: (1) IPT problem areas, (2) EMDR phases, (3) BPD treatment comparison, (4) the MBT concept of mentalization, (5) supportive vs expressive psychotherapy continuum. If you can speak fluently on these five topics, you will handle most questions.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For EMDR, examiners often ask about mechanism of action and the controversy around bilateral stimulation. A balanced answer acknowledges the strong evidence for EMDR's efficacy while noting that the specific mechanism (and whether BLS is essential vs incidental) remains debated. Avoid taking a strong position either way.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In clinical practice, most patients receive a blend of modalities tailored to their needs, not a "pure" form of any single therapy. Wolberg's central thesis holds: the therapeutic relationship and non-specific factors contribute more to outcome than the specific technique. Knowledge of multiple modalities allows the clinician to choose the right tool at the right moment.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The most common error with specialised modalities is applying them to inappropriate patients. IPT requires a definable interpersonal problem area. EMDR requires a specific traumatic memory to target. MBT and TFP require patients who can tolerate a therapeutic relationship without immediate flight. EFT-C requires both partners to be present and non-violent. Supportive therapy is the fallback when more intensive modalities are contraindicated.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Training matters enormously for specialised modalities. EMDR, MBT, TFP, and EFT-C all require certified training and supervision beyond reading a manual. TA has its own international certification body. The modalities described here cannot be safely self-taught from a textbook.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Supportive psychotherapy is the most commonly delivered and most underrated modality. Every psychiatrist — regardless of psychotherapy orientation — should be competent in supportive techniques because every patient encounter involves supportive elements. It is particularly important for residents who will spend most of their careers providing pharmacotherapy within a supportive psychotherapeutic framework.</p></div>
+<hr>
+<p><em>Deep Study — Weave Psychotherapy Vol. 8</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Specialized Psychotherapy Modalities &mdash; Weave Psychotherapy Vol. 8</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 8 | Specialized Psychotherapy Modalities</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Specialized Psychotherapy Modalities — Clinical Quick Reference</h1>
+<hr>
+<h2>1. IPT — Four Problem Areas</h2>
+<table>
+<thead><tr><th>Problem Area</th><th>Definition</th><th>Stage/Status Assessment</th><th>Key Techniques</th><th>When to Choose</th></tr></thead>
+<tbody>
+<tr><td><strong>Grief</strong></td><td>Abnormal bereavement — delayed, distorted, or absent</td><td>Is mourning blocked, distorted, or chronic?</td><td>Facilitate mourning; reconstruct the relationship (positive + negative); encourage new activities/relationships</td><td>Symptoms began after a death; patient avoids or is stuck in grief</td></tr>
+<tr><td><strong>Role disputes</strong></td><td>Conflicting expectations with a significant other</td><td>Renegotiation (both still trying), impasse (stuck), dissolution (irreparable)</td><td>Clarify expectations; communication analysis; role-play; decision analysis</td><td>Ongoing interpersonal conflict with identifiable other</td></tr>
+<tr><td><strong>Role transitions</strong></td><td>Difficulty adapting to life change</td><td>Old role vs new role — what is lost, what is gained?</td><td>Mourn old role; evaluate both roles realistically; develop mastery in new role; build new supports</td><td>Major life change (retirement, diagnosis, divorce, migration, parenthood)</td></tr>
+<tr><td><strong>Interpersonal deficits</strong></td><td>Impoverished relationships throughout life</td><td>History of isolation; few or no close relationships</td><td>Review past relationship patterns; use therapeutic relationship as model; encourage social risk-taking</td><td>No clear grief, dispute, or transition; lifelong pattern of isolation</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Three phases of IPT: Phase 1 (sessions 1-3) — sick role, interpersonal inventory, identify problem area, contract. Phase 2 (sessions 4-12) — work on problem area. Phase 3 (sessions 13-16) — termination, consolidate gains, address ending as a role transition. Landmark trial: Elkin et al. (1989) NIMH TDCRP — IPT equivalent to imipramine for moderate-severe depression.</p></div>
+<hr>
+<h2>2. EMDR — Eight Phases</h2>
+<table>
+<thead><tr><th>Phase</th><th>Name</th><th>Key Activity</th><th>Target</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>History & treatment planning</td><td>Identify targets (past memories, current triggers, future templates)</td><td>Case conceptualisation</td></tr>
+<tr><td>2</td><td>Preparation</td><td>Safe place exercise, explain procedure, stop signal</td><td>Client stability</td></tr>
+<tr><td>3</td><td>Assessment</td><td>Image + NC + PC + VOC (1-7) + emotion + SUDS (0-10) + body location</td><td>Activate memory network</td></tr>
+<tr><td>4</td><td>Desensitization</td><td>BLS sets; "What comes up?"; continue until SUDS = 0</td><td>Process disturbance</td></tr>
+<tr><td>5</td><td>Installation</td><td>Pair PC with target during BLS; continue until VOC = 7</td><td>Strengthen adaptive belief</td></tr>
+<tr><td>6</td><td>Body scan</td><td>Scan for residual tension with target + PC in mind; BLS any disturbance</td><td>Clear somatic residue</td></tr>
+<tr><td>7</td><td>Closure</td><td>Stabilise; safe place if incomplete; brief on between-session expectations</td><td>Return to equilibrium</td></tr>
+<tr><td>8</td><td>Re-evaluation</td><td>Next session: check maintenance, new material, additional targets</td><td>Guide treatment planning</td></tr>
+</tbody>
+</table>
+
+<p><strong>Key scales:</strong> SUDS (0-10, disturbance), VOC (1-7, belief validity). NC is always present-tense, self-referencing, irrational ("I am powerless"). PC is the desired adaptive belief ("I have choices").</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>AIP model: trauma overwhelms innate processing -> stored in state-specific form -> triggered by current stimuli -> symptoms. EMDR resumes adaptive processing. Mechanism of BLS debated: working memory taxation (van den Hout), orienting response, REM analogy. Evidence: equivalent to TF-CBT for PTSD (WHO, NICE, APA first-line).</p></div>
+<hr>
+<h2>3. MBT — Key Concepts</h2>
+<table>
+<thead><tr><th>Concept</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td><strong>Mentalization</strong></td><td>Understanding behaviour in terms of underlying mental states (feelings, beliefs, desires, intentions) — "holding mind in mind"</td></tr>
+<tr><td><strong>Four dimensions</strong></td><td>Implicit/explicit, self/other, cognitive/affective, internal/external</td></tr>
+<tr><td><strong>Psychic equivalence</strong></td><td>Inner = outer; "I feel it, so it must be true" (pre-mentalizing mode)</td></tr>
+<tr><td><strong>Teleological mode</strong></td><td>Only actions count as proof of mental states: "If you cared, you'd extend the session"</td></tr>
+<tr><td><strong>Pretend mode</strong></td><td>Intellectualised talk disconnected from affect; sounds insightful but changes nothing</td></tr>
+<tr><td><strong>Not-knowing stance</strong></td><td>Genuine curiosity; the therapist does not assume they know the patient's mind</td></tr>
+<tr><td><strong>Stop and rewind</strong></td><td>When mentalizing breaks down, halt and return to the point it was lost</td></tr>
+<tr><td><strong>Affect focus</strong></td><td>Consistently direct attention to emotional experience in the here-and-now</td></tr>
+</tbody>
+</table>
+
+<p><strong>Format:</strong> Individual (1x/week) + group (3x/week) in original model; 18 months. Outpatient adaptations exist.</p>
+<p><strong>Evidence:</strong> Bateman & Fonagy (1999) RCT — superior to TAU for self-harm, suicide attempts, hospital days. 8-year follow-up (2008): only 13% still met BPD criteria vs 87% TAU.</p>
+<hr>
+<h2>4. TFP — Structural Interview and Object Relations</h2>
+<h3>Kernberg's Three Levels</h3>
+<table>
+<thead><tr><th>Dimension</th><th>Neurotic</th><th>Borderline</th><th>Psychotic</th></tr></thead>
+<tbody>
+<tr><td>Identity</td><td>Integrated</td><td>Diffuse (split self/other images)</td><td>Fragmented/merged</td></tr>
+<tr><td>Defences</td><td>Mature (repression, sublimation)</td><td>Primitive (splitting, projective identification, idealisation/devaluation)</td><td>Psychotic (delusional projection)</td></tr>
+<tr><td>Reality testing</td><td>Intact</td><td>Intact but impaired social reality</td><td>Impaired</td></tr>
+</tbody>
+</table>
+
+<h3>TFP Technique Hierarchy</h3>
+<ol>
+  <li>Threats to life</li>
+  <li>Threats to treatment (absences, substance use)</li>
+  <li>Acting out in/outside sessions</li>
+  <li>Contract violations</li>
+  <li>Narcissistic transference</li>
+  <li>Material in "as-if" manner</li>
+</ol>
+
+<p><strong>Key technique:</strong> Clarification -> Confrontation -> Transference interpretation (the primary mutative intervention).</p>
+<p><strong>Format:</strong> Twice weekly, face-to-face, 1-3 years. Detailed treatment contract addressing all anticipated acting-out.</p>
+<p><strong>Evidence:</strong> Clarkin et al. (2007) — only BPD treatment shown to change reflective function and attachment organisation. Doering et al. (2010) — superior to community treatment.</p>
+<hr>
+<h2>5. EFT-C — Three Stages, Nine Steps</h2>
+<table>
+<thead><tr><th>Stage</th><th>Steps</th><th>Focus</th><th>Key Change Event</th></tr></thead>
+<tbody>
+<tr><td><strong>1. De-escalation</strong></td><td>1. Identify conflict issues 2. Identify negative cycle + attachment insecurities 3. Access primary (unacknowledged) emotions 4. Reframe: the cycle is the enemy</td><td>Surface the cycle</td><td>Couple sees the pattern, not each other, as the problem</td></tr>
+<tr><td><strong>2. Restructuring</strong></td><td>5. Promote identification with disowned needs 6. Promote acceptance of partner's new experience 7. Facilitate bonding events</td><td>Create new attachment interactions</td><td><strong>Softening</strong> — blaming partner expresses vulnerability; withdrawer responds with comfort</td></tr>
+<tr><td><strong>3. Consolidation</strong></td><td>8. New solutions to old problems 9. Consolidate new positions and secure cycle</td><td>Cement new patterns</td><td>New, secure interaction cycle replaces old negative cycle</td></tr>
+</tbody>
+</table>
+
+<p><strong>Theoretical basis:</strong> Attachment theory (Bowlby). Adult romantic bonds = attachment bonds. Distress = attachment insecurity. Pursue-withdraw is the most common negative cycle.</p>
+<p><strong>Evidence:</strong> d = 1.3 (Johnson et al., 1999 meta-analysis). 70-75% recovery rate. Gains stable at 2-year follow-up. Contraindicated in controlling domestic violence.</p>
+<hr>
+<h2>6. Transactional Analysis — Ego States and Transactions</h2>
+<h3>Ego States</h3>
+<table>
+<thead><tr><th>State</th><th>Description</th><th>Subdivisions</th></tr></thead>
+<tbody>
+<tr><td><strong>Parent (P)</strong></td><td>Copied from parental figures</td><td>Critical Parent (rules, control) / Nurturing Parent (care, permission)</td></tr>
+<tr><td><strong>Adult (A)</strong></td><td>Here-and-now reality testing</td><td>No subdivisions</td></tr>
+<tr><td><strong>Child (C)</strong></td><td>Preserved childhood patterns</td><td>Free Child (spontaneous) / Adapted Child (compliant or rebellious)</td></tr>
+</tbody>
+</table>
+
+<h3>Transaction Types</h3>
+<table>
+<thead><tr><th>Type</th><th>Pattern</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><strong>Complementary</strong></td><td>Response from addressed ego state; parallel vectors</td><td>Communication continues</td></tr>
+<tr><td><strong>Crossed</strong></td><td>Response from unexpected ego state; vectors cross</td><td>Communication breaks down</td></tr>
+<tr><td><strong>Ulterior</strong></td><td>Social message + covert psychological message simultaneously</td><td>Behaviour follows the psychological level</td></tr>
+</tbody>
+</table>
+
+<p><strong>Key concepts:</strong> Games (repetitive ulterior transactions with a negative payoff), life scripts (unconscious life plan from childhood), stamps (accumulated bad feelings cashed in for dramatic action), 12 injunctions (Goulding & Goulding: Don't be, Don't be you, Don't be close, etc.).</p>
+<hr>
+<h2>7. BPD Treatments — Head-to-Head Comparison</h2>
+<table>
+<thead><tr><th>Feature</th><th>DBT</th><th>MBT</th><th>TFP</th><th>Schema Therapy</th></tr></thead>
+<tbody>
+<tr><td><strong>Founder</strong></td><td>Linehan</td><td>Bateman & Fonagy</td><td>Kernberg</td><td>Young</td></tr>
+<tr><td><strong>Theory</strong></td><td>Biosocial + dialectics</td><td>Attachment + mentalization</td><td>Object relations</td><td>Cognitive-developmental</td></tr>
+<tr><td><strong>Core target</strong></td><td>Emotion dysregulation</td><td>Mentalizing failure</td><td>Split object relations</td><td>Early maladaptive schemas</td></tr>
+<tr><td><strong>Stance</strong></td><td>Dialectical (acceptance + change)</td><td>Not-knowing, curious</td><td>Technically neutral</td><td>Limited reparenting</td></tr>
+<tr><td><strong>Key technique</strong></td><td>Skills training, chain analysis</td><td>Mentalizing the moment</td><td>Transference interpretation</td><td>Imagery rescripting, chair work</td></tr>
+<tr><td><strong>Format</strong></td><td>Individual + group + phone</td><td>Individual + group</td><td>Individual 2x/week</td><td>Individual 1-2x/week</td></tr>
+<tr><td><strong>Duration</strong></td><td>12+ months</td><td>18 months (original)</td><td>1-3 years</td><td>1-3 years</td></tr>
+<tr><td><strong>Landmark RCT</strong></td><td>Linehan (1991, 2006)</td><td>Bateman & Fonagy (1999)</td><td>Clarkin et al. (2007)</td><td>Giesen-Bloo et al. (2006)</td></tr>
+<tr><td><strong>Dropout</strong></td><td>~25%</td><td>~15-25%</td><td>~35-46%</td><td>~20-27%</td></tr>
+<tr><td><strong>Unique strength</strong></td><td>Most evidence; skills for suicidal patients</td><td>Long-term personality change</td><td>Changes personality organisation</td><td>Lowest dropout rates</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>8. Evidence Summary Table</h2>
+<table>
+<thead><tr><th>Modality</th><th>Primary Indication</th><th>Landmark Trial</th><th>Effect Size / Key Result</th></tr></thead>
+<tbody>
+<tr><td>IPT</td><td>Major depression</td><td>Elkin et al. (1989) NIMH TDCRP</td><td>Equivalent to imipramine; best for severe depression</td></tr>
+<tr><td>IPT</td><td>Bulimia nervosa</td><td>Fairburn et al. (1993)</td><td>Equivalent to CBT at 12-month follow-up</td></tr>
+<tr><td>IPT</td><td>Perinatal depression</td><td>O'Hara et al. (2000)</td><td>Effective; preferred when avoiding medication</td></tr>
+<tr><td>EMDR</td><td>PTSD</td><td>Multiple meta-analyses (2013-2023)</td><td>Equivalent to TF-CBT; WHO/NICE/APA first-line</td></tr>
+<tr><td>MBT</td><td>BPD</td><td>Bateman & Fonagy (1999, 2008)</td><td>87% no longer met BPD criteria at 8 years</td></tr>
+<tr><td>TFP</td><td>BPD</td><td>Clarkin et al. (2007)</td><td>Only treatment to improve reflective function + attachment</td></tr>
+<tr><td>EFT-C</td><td>Couple distress</td><td>Johnson et al. (1999) meta-analysis</td><td>d = 1.3; 70-75% recovery rate</td></tr>
+<tr><td>Supportive</td><td>Depression</td><td>De Jonghe et al. (2001)</td><td>Equivalent to psychodynamic therapy at 6 months</td></tr>
+<tr><td>Supportive</td><td>BPD (as active control)</td><td>Clarkin et al. (2007)</td><td>Significant improvement (more than expected)</td></tr>
+<tr><td>Psychodrama</td><td>Various (trauma, grief)</td><td>Kipper & Ritchie (2003) meta-analysis</td><td>d = 0.95 overall</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>9. Supportive vs Expressive Continuum</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Supportive Pole</th><th>Expressive Pole</th></tr></thead>
+<tbody>
+<tr><td>Defences</td><td>Strengthen</td><td>Analyse and modify</td></tr>
+<tr><td>Therapist activity</td><td>Active, directive</td><td>Interpretive, receptive</td></tr>
+<tr><td>Focus</td><td>External stressors, coping</td><td>Internal conflicts, unconscious</td></tr>
+<tr><td>Transference</td><td>Maintained, not interpreted</td><td>Analysed and interpreted</td></tr>
+<tr><td>Regression</td><td>Discouraged</td><td>Tolerated</td></tr>
+<tr><td>Goals</td><td>Symptom relief, functioning</td><td>Personality change, insight</td></tr>
+<tr><td>Patient selection</td><td>Lower ego strength, crisis, psychosis</td><td>Higher ego strength, psychologically minded</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Supportive psychotherapy techniques: ventilation, reassurance, advice/guidance, praise, anticipatory guidance, clarification, suggestion, environmental intervention. It is the most widely practised yet most undertaught modality. Every psychiatrist must be competent in it.</p></div>
+<hr>
+<h2>10. Viva Questions</h2>
+<p><strong>Q1: What are the four problem areas in IPT? Give a clinical example of each.</strong></p>
+<p>Grief (depression after husband's death, with absent mourning), role disputes (marital conflict over division of labour — stage: impasse), role transitions (depression after retirement — loss of professional identity), interpersonal deficits (chronic social isolation with no identifiable precipitant). Only 1-2 areas are selected as focus. The therapist names the area explicitly and obtains the patient's agreement.</p>
+<p><strong>Q2: Describe the eight phases of EMDR.</strong></p>
+<p>History/planning, preparation (safe place, stabilisation), assessment (image + NC + PC + VOC + SUDS + body location), desensitization (BLS until SUDS = 0), installation (strengthen PC until VOC = 7), body scan (clear somatic residue), closure (stabilise, debrief), re-evaluation (next session review). The AIP model proposes that trauma is stored in unprocessed state-specific form; EMDR resumes adaptive processing.</p>
+<p><strong>Q3: What is mentalization? How does it fail in BPD?</strong></p>
+<p>Mentalization is understanding behaviour in terms of underlying mental states — "holding mind in mind." It has four dimensions: implicit/explicit, self/other, cognitive/affective, internal/external. In BPD, mentalizing is present but unstable — it collapses under emotional arousal, especially in attachment contexts. The patient reverts to pre-mentalizing modes: psychic equivalence (inner = outer), teleological mode (only actions count), or pretend mode (intellectual but disconnected from affect).</p>
+<p><strong>Q4: Compare DBT, MBT, TFP, and Schema Therapy for BPD.</strong></p>
+<p>All four are evidence-based. DBT targets emotion dysregulation via skills training (most evidence, best for actively suicidal patients). MBT targets mentalizing failure via a curious, not-knowing stance (best long-term personality change data). TFP targets split object relations via transference interpretation (only treatment shown to change attachment organisation). Schema Therapy targets early maladaptive schemas via imagery rescripting and limited reparenting (lowest dropout rates). They share: structured framework, explicit attention to the therapeutic relationship, and protocols for managing self-harm.</p>
+<p><strong>Q5: What is the difference between supportive and expressive psychotherapy?</strong></p>
+<p>They exist on a continuum. Supportive therapy strengthens defences, uses active techniques (reassurance, advice, ventilation), maintains positive transference without interpreting it, and aims for symptom relief. Expressive therapy analyses defences, interprets transference, tolerates regression, and aims for personality change. Patient selection: supportive for lower ego strength, acute crisis, psychosis; expressive for higher ego strength, psychological mindedness. Most clinical work involves a blend.</p>
+<p><strong>Q6: Describe the key change event in EFT for couples.</strong></p>
+<p>The "softening" — the previously blaming/pursuing partner accesses their primary emotion (fear, sadness, attachment longing beneath the anger) and expresses this vulnerability directly to the withdrawing partner, who has become emotionally re-engaged enough to respond with comfort and reassurance. This creates a corrective emotional experience that restructures the attachment bond and breaks the negative interaction cycle.</p>
+<p><strong>Q7: What is the structural interview in TFP?</strong></p>
+<p>Kernberg's diagnostic tool assessing personality organisation through three dimensions: identity integration, defence mechanisms, and reality testing. The interviewer uses clarification, confrontation, and interpretation during the interview itself and observes the patient's response. If the patient becomes more organised after confrontation, they have borderline-level organisation (identity diffusion + primitive defences + intact reality testing). If they become more disorganised, psychotic-level organisation is indicated.</p>
+<p><strong>Q8: Name three TA games and explain their payoffs.</strong></p>
+<p>"Why Don't You... Yes But" — solicits then rejects all advice; payoff: confirms "nobody can help me." "If It Weren't For You" — blames partner for own limitations; payoff: avoids testing one's own capabilities. "Kick Me" — behaves provocatively until retaliated against, then adopts victim position; payoff: confirms "nobody likes me." All games end with a familiar bad feeling that reinforces the life script.</p>
+<p><strong>Q9: What is the sick role in IPT and why is it therapeutically useful?</strong></p>
+<p>Borrowed from Talcott Parsons. The therapist explicitly tells the patient they are ill (legitimising symptoms), which reduces self-blame and guilt, excuses the patient from obligations they cannot meet, and simultaneously obligates them to work actively toward recovery. It reframes depression from a moral failing to a medical condition. Assigned in Phase 1 of IPT.</p>
+<p><strong>Q10: What are the core techniques of psychodrama?</strong></p>
+<p>Role reversal (protagonist plays the other person — builds empathy), doubling (group member voices protagonist's unspoken thoughts), mirror technique (another enacts the protagonist's role while they watch — confronts blind spots), surplus reality (enacting impossible scenes, e.g., saying goodbye to the deceased), soliloquy (speaking inner thoughts aloud), empty chair (dialogue with absent figure — originally Moreno's technique, later adopted by Perls for Gestalt therapy). Three phases: warm-up, action, sharing.</p>
+<hr>
+<p><em>Clinical Quick Reference — Weave Psychotherapy Vol. 8</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

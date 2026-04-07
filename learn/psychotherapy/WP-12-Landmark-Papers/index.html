@@ -1,0 +1,1184 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Landmark Papers &amp; Trials &mdash; Weave Psychotherapy Vol. 12</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 12</div>
+      <div class="cover-title">Landmark Papers &amp; Trials</div>
+      <div class="cover-subtitle">The Evidence Base — Key RCTs and Meta-Analyses in Psychotherapy</div>
+      <div class="cover-topics">Dodo Bird · NIMH TDCRP · Linehan 1991 · Giesen-Bloo 2006 · Shedler 2010 · Common Factors</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Landmark Papers &amp; Trials &mdash; Weave Psychotherapy Vol. 12</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 12 | Landmark Papers &amp; Trials</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Landmark Papers & Trials in Psychotherapy — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-the-dodo-bird-verdict-and-common-factors" style="color:var(--indigo);text-decoration:none">The Dodo Bird Verdict and Common Factors</a></li>
+  <li><a href="#2-cbt-landmark-trials" style="color:var(--indigo);text-decoration:none">CBT Landmark Trials</a></li>
+  <li><a href="#3-dbt-landmark-trials" style="color:var(--indigo);text-decoration:none">DBT Landmark Trials</a></li>
+  <li><a href="#4-psychodynamic-landmark-trials" style="color:var(--indigo);text-decoration:none">Psychodynamic Landmark Trials</a></li>
+  <li><a href="#5-schema-therapy-landmark-trials" style="color:var(--indigo);text-decoration:none">Schema Therapy Landmark Trials</a></li>
+  <li><a href="#6-exposure-therapy-and-emdr" style="color:var(--indigo);text-decoration:none">Exposure Therapy and EMDR</a></li>
+  <li><a href="#7-family-and-couples-therapy" style="color:var(--indigo);text-decoration:none">Family and Couples Therapy</a></li>
+  <li><a href="#8-act-and-mbct" style="color:var(--indigo);text-decoration:none">ACT and MBCT</a></li>
+  <li><a href="#9-comparative-and-integration-studies" style="color:var(--indigo);text-decoration:none">Comparative and Integration Studies</a></li>
+  <li><a href="#10-process-research" style="color:var(--indigo);text-decoration:none">Process Research</a></li>
+</ol>
+
+<hr>
+<h1>1. THE DODO BIRD VERDICT AND COMMON FACTORS</h1>
+<h2>1.1 Luborsky, Singer & Luborsky (1975) — "Everybody Has Won and All Must Have Prizes"</h2>
+<p>This paper is the origin of the "Dodo bird verdict" in psychotherapy research. Luborsky and colleagues reviewed comparative outcome studies and concluded that different forms of psychotherapy produce roughly equivalent outcomes. The title references the Dodo bird from Alice in Wonderland, who declares after a race that "everybody has won and all must have prizes."</p>
+<p><strong>Design:</strong> Narrative review of comparative outcome studies</p>
+<p><strong>Key finding:</strong> No consistent differences in efficacy between bona fide psychotherapies</p>
+<p><strong>Clinical implication:</strong> The factors common to all therapies (alliance, empathy, expectation) may matter more than technique-specific ingredients</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Dodo bird verdict does NOT claim that therapy is ineffective or that all therapies are equally good for all conditions. It claims that when two bona fide treatments are compared head-to-head for the same condition, differences in outcome are typically small or absent. This is the most misunderstood finding in psychotherapy research.</p></div>
+<h2>1.2 Lambert (1992) — The Pie Chart of Outcome Variance</h2>
+<p>Michael Lambert proposed a model of what accounts for therapeutic change, based on his review of outcome research. His framework became one of the most cited in psychotherapy training.</p>
+<p><strong>The Four Factors:</strong></p>
+<table>
+<thead><tr><th>Factor</th><th>Variance Explained</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Extratherapeutic change</td><td>40%</td><td>Client factors, spontaneous remission, life events</td></tr>
+<tr><td>Therapeutic relationship</td><td>30%</td><td>Alliance, empathy, warmth, positive regard</td></tr>
+<tr><td>Expectancy (placebo)</td><td>15%</td><td>Hope, credibility of treatment rationale</td></tr>
+<tr><td>Technique</td><td>15%</td><td>Specific model-driven interventions</td></tr>
+</tbody>
+</table>
+
+<p><strong>Clinical implication:</strong> The relationship accounts for roughly twice the variance of technique. Training that focuses exclusively on technique while neglecting relational skills is misallocated.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Lambert's 40/30/15/15 split is the single most frequently examined breakdown of therapeutic outcome factors. The exact percentages have been debated, but the rank order is consistent across re-analyses: client/extratherapeutic factors > relationship > expectancy >= technique.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked "what is the most important factor in psychotherapy outcome," the answer is extratherapeutic/client factors (40%). When asked "what is the most important therapist-delivered factor," the answer is the therapeutic relationship (30%).</p></div>
+<h2>1.3 Wampold (2001, 2015) — The Great Psychotherapy Debate</h2>
+<p>Bruce Wampold's book and subsequent meta-analytic work provided the most rigorous quantitative test of the Dodo bird verdict. He introduced the distinction between the <strong>medical model</strong> (specific ingredients cure specific disorders) and the <strong>contextual model</strong> (common factors account for outcomes).</p>
+<p><strong>Design:</strong> Meta-analyses of comparative outcome studies</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>The overall effect size of psychotherapy vs no treatment: d = 0.80 (large)</li>
+  <li>The effect size of differences between bona fide therapies: d = 0.00-0.20 (negligible to small)</li>
+  <li>Therapist effects (variability between therapists within the same treatment) account for 5-9% of outcome variance — larger than the difference between treatments</li>
+  <li>Alliance accounts for approximately r = 0.28 of outcome variance (medium effect)</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Wampold's work means that who delivers the therapy matters more than which therapy is delivered. A skilled CBT therapist and a skilled psychodynamic therapist will get comparable outcomes. A poor therapist delivering an "evidence-based" protocol will get poor outcomes. This has direct implications for training, supervision, and quality assurance.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Wampold's effect size for the overall benefit of psychotherapy (d = 0.80) is comparable to the effect of many medical interventions. Psychotherapy is not a "soft" intervention — its effect size exceeds that of many medications for common conditions.</p></div>
+<hr>
+<h1>2. CBT LANDMARK TRIALS</h1>
+<h2>2.1 Rush, Beck, Kovacs & Hollon (1977) — The First CBT vs Pharmacotherapy Trial</h2>
+<p>This is the trial that put CBT on the map. Aaron Beck's cognitive therapy was tested against imipramine (then the gold-standard antidepressant) for outpatient depression.</p>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 41 outpatients with major depression</p>
+<p><strong>Intervention:</strong> Cognitive therapy (max 20 sessions over 12 weeks) vs imipramine</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Cognitive therapy showed significantly greater improvement on self-report (BDI) and clinician-rated (HRSD) measures</li>
+  <li>79% of CT group showed marked improvement vs 23% of imipramine group</li>
+  <li>CT group had lower dropout rate (5% vs 32%)</li>
+</ul>
+
+<p><strong>Clinical implication:</strong> A psychological treatment could match or exceed pharmacotherapy for depression. This was revolutionary in an era when depression was considered a purely biological illness requiring medication.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Rush et al. (1977) trial has been criticised for its small sample, non-blind design, and possible inadequate pharmacotherapy dosing. But its historical significance is enormous — it launched the entire CBT for depression research programme.</p></div>
+<h2>2.2 Elkin et al. (1989) — NIMH Treatment of Depression Collaborative Research Program (TDCRP)</h2>
+<p>The TDCRP was the first large-scale, multi-site, federally funded trial comparing psychotherapies head-to-head with pharmacotherapy and placebo. It remains one of the most discussed trials in psychotherapy research.</p>
+<p><strong>Design:</strong> Multi-site RCT, 4 arms</p>
+<p><strong>Sample:</strong> N = 250 outpatients with major depression</p>
+<p><strong>Arms:</strong> CBT vs IPT vs imipramine + clinical management vs placebo + clinical management</p>
+<p><strong>Duration:</strong> 16 weeks</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>For the full sample, all active treatments outperformed placebo, but differences between active treatments were not significant</li>
+  <li>For more severely depressed patients (HRSD >= 20): imipramine and IPT outperformed placebo; CBT did not significantly differ from placebo</li>
+  <li>General pattern: imipramine >= IPT >= CBT >= placebo (but most comparisons non-significant)</li>
+  <li>Recovery rates: imipramine 57%, IPT 55%, CBT 51%, placebo 29%</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The TDCRP is frequently cited as evidence that CBT is less effective for severe depression. This interpretation is contested: CBT performance varied dramatically across sites, suggesting therapist competence issues rather than a limitation of the model. Site 2 (University of Oklahoma), where CBT therapist competence was rated lowest, dragged down the CBT results.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The TDCRP taught the field three lasting lessons: (1) multi-site trials require rigorous therapist training and monitoring; (2) severity moderates treatment response; and (3) the placebo response rate in depression trials is substantial (~29%).</p></div>
+<h2>2.3 DeRubeis et al. (2005) — CBT vs Medications for Moderate-to-Severe Depression</h2>
+<p>This trial directly addressed the TDCRP criticism that CBT does not work for severe depression.</p>
+<p><strong>Design:</strong> RCT, 2 sites (University of Pennsylvania, Vanderbilt)</p>
+<p><strong>Sample:</strong> N = 240 outpatients with moderate-to-severe MDD (HRSD >= 20)</p>
+<p><strong>Arms:</strong> Cognitive therapy vs paroxetine vs placebo (8 weeks, then active arms continued to 16 weeks)</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>At 8 weeks: both CT and paroxetine significantly outperformed placebo</li>
+  <li>At 16 weeks: CT and paroxetine showed equivalent response rates (58% vs 58%)</li>
+  <li>Site moderated results — Penn (Beck's institution) had better CT outcomes</li>
+</ul>
+
+<p><strong>Clinical implication:</strong> CBT is effective for moderate-to-severe depression, directly refuting the TDCRP conclusion.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DeRubeis et al. (2005) is the definitive rebuttal to "CBT doesn't work for severe depression." The response rates were identical to medication at 58% each. Know this trial and the TDCRP as a pair — examiners love this comparison.</p></div>
+<h2>2.4 Hollon et al. (2005) — The Enduring Effects of Cognitive Therapy</h2>
+<p>This is the companion paper to DeRubeis et al. (2005), following patients after treatment discontinuation.</p>
+<p><strong>Design:</strong> Naturalistic follow-up of the DeRubeis (2005) RCT</p>
+<p><strong>Sample:</strong> Responders from CT (n = 52) vs responders from paroxetine randomised to continuation medication or placebo withdrawal</p>
+<p><strong>Duration:</strong> 12-month follow-up after 16-week acute treatment</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Prior CT had significantly lower relapse rate (31%) compared to medication withdrawal (76%, p = 0.004)</li>
+  <li>Prior CT was statistically equivalent to continuing medication (31% vs 47%, ns)</li>
+  <li>CT's enduring effect was not due to continued therapy — patients were not receiving any treatment during follow-up</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Hollon et al. (2005) established that CBT has an enduring effect that persists after treatment ends. Medication works while you take it; CBT continues to protect after you stop. This is the single most important argument for CBT in depression guidelines.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The relapse rate after medication discontinuation (76%) is strikingly high. This is why most guidelines now recommend either long-term maintenance medication OR a course of CBT for recurrent depression — not just a single course of antidepressants.</p></div>
+<h2>2.5 Clark et al. (2003, 2006) — CBT for Social Anxiety and PTSD</h2>
+<p>David M. Clark's Oxford group produced two landmark trials that established disorder-specific cognitive therapy as a front-runner for anxiety disorders.</p>
+<h3>Clark et al. (2003) — Social Anxiety Disorder</h3>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 60 with social phobia</p>
+<p><strong>Arms:</strong> Individual CT (Clark & Wells model) vs fluoxetine + self-exposure vs placebo</p>
+<p><strong>Key findings:</strong> CT was significantly superior to both fluoxetine and placebo at post-treatment and follow-up. Effect sizes were very large (d > 1.0 vs placebo).</p>
+<h3>Ehlers, Clark et al. (2003, 2005) — PTSD</h3>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 85 with chronic PTSD (Ehlers et al., 2005 trial)</p>
+<p><strong>Arms:</strong> Cognitive therapy (Ehlers & Clark model) vs self-help booklet vs waitlist</p>
+<p><strong>Key findings:</strong> CT produced large effects (d = 1.27 vs waitlist). 71% achieved reliable and clinically significant change.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Clark's cognitive therapy models for social anxiety and PTSD are now considered among the most effective psychological treatments for any condition. The effect sizes (d > 1.0) exceed typical psychotherapy benchmarks.</p></div>
+<hr>
+<h1>3. DBT LANDMARK TRIALS</h1>
+<h2>3.1 Linehan et al. (1991) — The First RCT of DBT for BPD</h2>
+<p>Marsha Linehan's first RCT was a watershed moment for BPD treatment. Before this trial, the prevailing view was that BPD was untreatable and that patients should be avoided.</p>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 44 women with BPD and recent parasuicide</p>
+<p><strong>Arms:</strong> DBT (1 year) vs treatment as usual (TAU)</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>DBT significantly reduced frequency of parasuicidal acts (including self-harm and suicide attempts)</li>
+  <li>DBT significantly reduced number of inpatient psychiatric days</li>
+  <li>DBT had significantly better treatment retention (83% vs 42%)</li>
+  <li>No significant difference in depression, hopelessness, or suicidal ideation scores</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Linehan (1991) showed DBT reduces self-harm and hospitalisation but NOT depression or suicidal ideation. This distinction matters: DBT targets behavioural dysregulation, not mood per se. When asked about DBT efficacy, specify the outcomes — it reduces the behaviour, not necessarily the distress.</p></div>
+<h2>3.2 Linehan et al. (2006) — DBT vs Community Expert Treatment</h2>
+<p>The major criticism of early DBT trials was that the comparison condition (TAU) was a weak control. This trial addressed that directly.</p>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 101 women with BPD, recent suicidal or self-injurious behaviour</p>
+<p><strong>Arms:</strong> DBT (1 year) vs community treatment by experts (CTBE) — therapists nominated as expert BPD treaters</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>DBT was significantly superior to CTBE on: suicide attempts (hazard ratio 2.66, fewer in DBT), medical severity of self-harm, emergency department visits, and psychiatric hospitalisations</li>
+  <li>DBT had half the rate of suicide attempts compared to CTBE (23% vs 46%)</li>
+  <li>Treatment retention was equivalent</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Linehan (2006) is the strongest evidence for DBT superiority over genuine expert treatment (not just TAU). The comparison was deliberately rigorous — community experts who treated BPD regularly, not randomly assigned novices.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>A key finding was that even expert clinicians without a structured BPD protocol achieved significantly worse outcomes than DBT. Structure, protocol adherence, and skills training matter — clinical experience alone is insufficient for this population.</p></div>
+<h2>3.3 Rathus & Miller (2002) — Adolescent DBT</h2>
+<p><strong>Design:</strong> Quasi-experimental (non-randomised comparison)</p>
+<p><strong>Sample:</strong> N = 111 suicidal adolescents with BPD features</p>
+<p><strong>Arms:</strong> DBT-A (12 weeks, adapted for adolescents) vs TAU (12-week supportive-psychodynamic therapy)</p>
+<p><strong>Key findings:</strong> DBT-A had significantly fewer psychiatric hospitalisations and higher treatment completion. No suicide attempts in the DBT-A group vs 3 in TAU.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Rathus & Miller (2002) is the foundational study for adolescent DBT (DBT-A). Although not a true RCT, it demonstrated feasibility and safety, leading to the later McCauley et al. (2018) definitive trial showing DBT-A reduces self-harm in adolescents.</p></div>
+<hr>
+<h1>4. PSYCHODYNAMIC LANDMARK TRIALS</h1>
+<h2>4.1 Shedler (2010) — The Efficacy of Psychodynamic Psychotherapy</h2>
+<p>Jonathan Shedler's American Psychologist paper was a landmark review that challenged the narrative that psychodynamic therapy lacked an evidence base.</p>
+<p><strong>Design:</strong> Meta-analytic review</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Effect sizes for psychodynamic therapy (d = 0.97 for targeted outcomes, d = 0.73 for general symptom improvement) are as large as those reported for other evidence-based therapies</li>
+  <li>Uniquely, patients who receive psychodynamic therapy continue to improve after treatment ends (the "sleeper effect")</li>
+  <li>Non-psychodynamic therapies may work, in part, because they contain psychodynamic processes (e.g., working alliance, exploration of affect, identification of recurring patterns)</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Shedler (2010) showed that the effect size for psychodynamic therapy (d = 0.97) matches CBT benchmarks. The "sleeper effect" — continuing improvement after termination — was unique to psychodynamic therapy and was not seen with CBT or medication.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If asked "is psychodynamic therapy evidence-based?", cite Shedler (2010) and Leichsenring & Rabung (2008, 2011). The evidence base is smaller than CBT's, but the effect sizes are comparable.</p></div>
+<h2>4.2 Leichsenring & Rabung (2008, 2011) — Long-Term Psychodynamic Psychotherapy Meta-Analyses</h2>
+<p><strong>Design:</strong> Meta-analyses of RCTs and controlled trials of long-term psychodynamic psychotherapy (LTPP, defined as > 1 year or > 50 sessions)</p>
+<p><strong>Samples:</strong> 2008 meta-analysis: 23 studies (N = 1,053). 2011 update: 10 RCTs</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>LTPP showed large effect sizes for overall effectiveness (d = 0.96, 2008), complex mental disorders (d = 1.03, personality disorders: d = 0.97)</li>
+  <li>LTPP was significantly more effective than shorter forms of therapy for complex/comorbid presentations</li>
+  <li>The 2011 update confirmed findings with stricter RCT-only inclusion: LTPP superior to less intensive interventions (d = 0.44)</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>"Complex mental disorders" in these meta-analyses means personality disorders, chronic depression, multiple comorbidities, and treatment-resistant presentations. The finding that LTPP is superior for complexity, not for simple single-diagnosis cases, is clinically important — it guides appropriate treatment matching.</p></div>
+<h2>4.3 Bateman & Fonagy (1999, 2001, 2008) — Mentalisation-Based Treatment for BPD</h2>
+<p>Anthony Bateman and Peter Fonagy developed MBT specifically for BPD and tested it in a landmark partial hospitalisation trial.</p>
+<h3>Bateman & Fonagy (1999) — Original Trial</h3>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 38 with BPD, partial hospitalisation setting</p>
+<p><strong>Arms:</strong> MBT-based partial hospitalisation (18 months) vs standard psychiatric care</p>
+<p><strong>Key findings:</strong> MBT significantly reduced self-harm, suicide attempts, inpatient days, depression, anxiety, and interpersonal distress. Effects appeared after 6 months and continued to increase.</p>
+<h3>Bateman & Fonagy (2001, 2008) — Follow-Up Studies</h3>
+<p><strong>18-month follow-up (2001):</strong> MBT gains were maintained and continued to improve, while the control group showed no change.</p>
+<p><strong>8-year follow-up (2008):</strong> MBT group maintained significantly better functioning. Suicidality and service use remained lower. 13% of MBT patients still met BPD criteria vs 87% of control.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bateman & Fonagy's 8-year follow-up (2008) is the longest follow-up in any BPD treatment trial. Only 13% of MBT patients still met BPD criteria at 8 years vs 87% of controls. This is the strongest longitudinal evidence for any BPD treatment.</p></div>
+<h2>4.4 Clarkin et al. (2007) — TFP vs DBT vs Supportive Therapy for BPD</h2>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 90 women with BPD</p>
+<p><strong>Arms:</strong> Transference-Focused Psychotherapy (TFP, 1 year) vs DBT (1 year) vs psychodynamic supportive therapy (1 year)</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>All three treatments produced significant improvement across multiple domains</li>
+  <li>TFP and DBT significantly reduced suicidality; supportive therapy did not</li>
+  <li>Only TFP significantly improved reflective functioning (mentalisation) and attachment organisation</li>
+  <li>DBT uniquely improved impulsivity-related behaviours</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Clarkin (2007) is the only trial comparing TFP, DBT, and supportive therapy head-to-head. TFP was the only treatment that improved reflective functioning and attachment. DBT was the only one that improved impulsivity. Each modality has a distinct mechanism signature.</p></div>
+<hr>
+<h1>5. SCHEMA THERAPY LANDMARK TRIALS</h1>
+<h2>5.1 Giesen-Bloo et al. (2006) — Schema Therapy vs TFP for BPD</h2>
+<p>This is the largest and most methodologically rigorous trial of any psychotherapy for BPD. It was conducted across four sites in the Netherlands and directly compared two structured, long-term treatments.</p>
+<p><strong>Design:</strong> Multi-centre RCT</p>
+<p><strong>Sample:</strong> N = 86 with BPD (44 ST, 42 TFP), 3-year treatment</p>
+<p><strong>Arms:</strong> Schema therapy (2 sessions/week, 3 years) vs Transference-Focused Psychotherapy (2 sessions/week, 3 years)</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>ST showed significantly greater improvement on all primary outcomes (BPD severity, quality of life, psychopathology)</li>
+  <li>Recovery rate: ST 45.5% vs TFP 24.4%</li>
+  <li>Clinical improvement: ST 65.9% vs TFP 42.9%</li>
+  <li>ST had significantly lower dropout: 26.7% vs 50.6% for TFP</li>
+  <li>Effect sizes favoured ST from year 1 onwards, with advantages increasing over time</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Giesen-Bloo et al. (2006) produced the highest recovery rate ever reported for BPD in an RCT (45.5%). Know this number. The dropout rate (26.7%) was also notably low for a BPD trial, reflecting ST's emphasis on limited reparenting and alliance.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The TFP dropout rate (50.6%) was comparable to dropout from unstructured treatment. The ST dropout rate (26.7%) was half that of TFP. For a population notorious for treatment attrition, this is clinically significant. Limited reparenting and the warm therapeutic stance in ST appear to be protective against dropout.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If asked to compare ST, TFP, DBT, and MBT for BPD, know the trial evidence for each: Giesen-Bloo (2006) for ST, Clarkin (2007) for TFP, Linehan (2006) for DBT, Bateman & Fonagy (1999/2008) for MBT. All show efficacy; ST has the highest recovery rate, MBT has the longest follow-up, DBT has the strongest evidence for reducing self-harm behaviour.</p></div>
+<h2>5.2 Nadort et al. (2009) — Schema Therapy With and Without Phone Crisis Support</h2>
+<p><strong>Design:</strong> Multi-centre RCT</p>
+<p><strong>Sample:</strong> N = 62 with BPD</p>
+<p><strong>Arms:</strong> ST with therapist phone availability between sessions vs ST without phone availability</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Both groups showed large improvements in BPD symptoms, with recovery rates comparable to Giesen-Bloo et al.</li>
+  <li>No significant differences between groups — phone crisis support did not add benefit beyond ST alone</li>
+  <li>This demonstrated ST's effectiveness without requiring 24/7 therapist availability (a criticism often levelled at DBT)</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Nadort et al. (2009) showed that ST's efficacy does not depend on between-session phone contact, making it more practical and less burdensome than DBT for therapists. ST works through the therapeutic relationship in-session, not through crisis coaching.</p></div>
+<h2>5.3 Bamelis et al. (2014) — Schema Therapy for Cluster C Personality Disorders</h2>
+<p><strong>Design:</strong> Multi-centre RCT</p>
+<p><strong>Sample:</strong> N = 323 with Cluster C PDs (avoidant, dependent, obsessive-compulsive), PD NOS, or paranoid PD</p>
+<p><strong>Arms:</strong> ST (50 sessions) vs Clarification-Oriented Psychotherapy (COP) vs TAU</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>ST showed significantly higher recovery rates than COP and TAU (81% vs 60% vs 52% at the 1-year follow-up)</li>
+  <li>ST was more cost-effective per quality-adjusted life year (QALY) gained</li>
+  <li>ST was effective across all Cluster C subtypes</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bamelis (2014) is the largest trial of any psychotherapy for personality disorders (N = 323). It established ST's efficacy beyond BPD — specifically for Cluster C PDs. The 81% recovery rate for ST is remarkable for personality disorders.</p></div>
+<hr>
+<h1>6. EXPOSURE THERAPY AND EMDR</h1>
+<h2>6.1 Foa, Dancu, Hembree et al. (1999, 2005) — Prolonged Exposure for PTSD</h2>
+<p>Edna Foa's work on Prolonged Exposure (PE) is the foundation of trauma-focused treatment.</p>
+<h3>Foa et al. (1999)</h3>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 96 female sexual assault survivors with chronic PTSD</p>
+<p><strong>Arms:</strong> PE vs stress inoculation training (SIT) vs combined PE + SIT vs waitlist</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>All active treatments significantly outperformed waitlist</li>
+  <li>PE alone showed the best overall outcome at follow-up</li>
+  <li>The combined treatment was NOT superior to PE alone — a counterintuitive finding</li>
+</ul>
+
+<h3>Foa et al. (2005)</h3>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 179 women with PTSD</p>
+<p><strong>Arms:</strong> PE vs PE + cognitive restructuring vs waitlist</p>
+<p><strong>Key findings:</strong> PE alone and PE + CR were equally effective. Adding cognitive restructuring did not improve outcomes beyond exposure alone.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Foa's work consistently shows that exposure is the critical ingredient in PTSD treatment. Adding cognitive restructuring, stress inoculation, or other components does not significantly improve outcomes beyond PE alone. Exposure is necessary and may be sufficient.</p></div>
+<h2>6.2 Resick et al. (2002) — Cognitive Processing Therapy vs Prolonged Exposure</h2>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 171 female sexual assault survivors with PTSD</p>
+<p><strong>Arms:</strong> CPT (12 sessions) vs PE (9 sessions) vs minimal attention control</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Both CPT and PE were significantly superior to control</li>
+  <li>CPT and PE showed equivalent outcomes on PTSD severity</li>
+  <li>Both maintained gains at 9-month follow-up</li>
+  <li>CPT showed a slight (non-significant) advantage on guilt cognitions</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>CPT and PE are the two front-line trauma treatments recommended by the VA/DoD guidelines. For clinical matching: PE is preferred when avoidance of trauma memories is the primary maintaining factor. CPT is preferred when "stuck points" (maladaptive beliefs about the trauma) are prominent.</p></div>
+<h2>6.3 Shapiro (1989) — The Original EMDR Study</h2>
+<p><strong>Design:</strong> RCT</p>
+<p><strong>Sample:</strong> N = 22 with traumatic memories (rape, molestation, Vietnam veterans)</p>
+<p><strong>Arms:</strong> EMDR (single session) vs modified flooding with saccades</p>
+<p><strong>Key findings:</strong> EMDR produced significant reductions in subjective distress (SUD scores) and increases in positive cognition validity (VOC scores) after a single session.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Shapiro (1989) has been heavily criticised for: small sample, therapist allegiance (Shapiro administered all treatments), non-blind assessment, and inadequate comparison condition. However, it generated a research programme that has since accumulated strong evidence. Know the criticisms but also know the subsequent positive trials.</p></div>
+<h2>6.4 Bisson et al. (2007) — Cochrane Review of Psychological Treatments for PTSD</h2>
+<p><strong>Design:</strong> Cochrane systematic review and meta-analysis</p>
+<p><strong>Sample:</strong> 38 RCTs</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Trauma-focused CBT (including PE and CPT) and EMDR were the only treatments with sufficient evidence for recommendation</li>
+  <li>Both TF-CBT and EMDR significantly outperformed waitlist and non-trauma-focused therapies</li>
+  <li>No significant difference between TF-CBT and EMDR</li>
+  <li>Non-trauma-focused therapies (supportive counselling, relaxation) showed limited evidence</li>
+  <li>Group CBT was less effective than individual CBT</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Cochrane review (Bisson, 2007) gave NICE and WHO their evidence base for recommending TF-CBT and EMDR as first-line PTSD treatments. The specific finding that trauma-focused approaches outperform non-trauma-focused ones is critical — supportive counselling is not adequate for PTSD.</p></div>
+<hr>
+<h1>7. FAMILY AND COUPLES THERAPY</h1>
+<h2>7.1 Gottman (1999) — The Mathematics of Divorce Prediction</h2>
+<p>John Gottman's research programme, culminating in his book "The Seven Principles for Making Marriage Work," used observational coding of marital interactions to predict divorce with remarkable accuracy.</p>
+<p><strong>Design:</strong> Prospective longitudinal studies with observational coding (Specific Affect Coding System, SPAFF)</p>
+<p><strong>Samples:</strong> Multiple cohorts totalling over 3,000 couples</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>The "Four Horsemen" — criticism, contempt, defensiveness, and stonewalling — predicted divorce with 93.6% accuracy in a 6-year follow-up</li>
+  <li>The ratio of positive to negative interactions during conflict was the strongest predictor. Stable couples showed a 5:1 ratio; divorce-bound couples showed 0.8:1</li>
+  <li>Contempt was the single most toxic behaviour, predicting not only divorce but also physical illness in the recipient</li>
+  <li>Physiological arousal (heart rate, skin conductance) during conflict predicted relationship deterioration</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Gottman's Four Horsemen of the Apocalypse: Criticism, Contempt, Defensiveness, Stonewalling. Contempt is the most damaging. The 5:1 positive-to-negative ratio during conflict is the stability threshold. These are among the most asked questions in couples therapy examinations.</p></div>
+<h2>7.2 Johnson, Hunsley, Greenberg & Schindler (1999) — EFT for Couples</h2>
+<p><strong>Design:</strong> Meta-analysis</p>
+<p><strong>Sample:</strong> 7 studies of Emotionally Focused Couple Therapy (EFT-C)</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Large effect size: d = 1.30 (post-treatment change)</li>
+  <li>70-73% of couples moved to recovery; 90% showed significant improvement</li>
+  <li>Gains were maintained at follow-up (2 years in some studies)</li>
+  <li>Moderators: greater initial distress predicted larger gains; EFT was effective across different presenting problems</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>EFT-C's effect size of d = 1.30 is the largest reported for any couples therapy approach. Know that EFT-C (Johnson) works through accessing attachment emotions and restructuring interactional cycles — it is NOT the same as Greenberg's EFT for individuals, though they share theoretical roots.</p></div>
+<h2>7.3 Leff et al. (2000) — Family Intervention for Schizophrenia</h2>
+<p><strong>Design:</strong> Meta-analysis and critical review of family intervention trials</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Family interventions (psychoeducation, communication training, problem-solving) reduced relapse rates in schizophrenia by approximately 50% compared to standard care</li>
+  <li>9-month relapse: ~25% with family intervention vs ~50% without</li>
+  <li>Family interventions reduced high expressed emotion (EE), the strongest psychosocial predictor of relapse</li>
+  <li>Most effective when: lasting > 6 months, including the patient, and providing concrete coping skills</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>High expressed emotion (criticism, hostility, emotional over-involvement) in family members is one of the most replicated predictors of relapse in schizophrenia. Family interventions targeting EE are now recommended in every major schizophrenia guideline (NICE, APA, PORT). The evidence is strong enough that NOT offering family intervention represents a gap in care.</p></div>
+<hr>
+<h1>8. ACT AND MBCT</h1>
+<h2>8.1 Teasdale et al. (2000) — MBCT Prevents Depression Relapse</h2>
+<p><strong>Design:</strong> Multi-site RCT</p>
+<p><strong>Sample:</strong> N = 145 with recurrent MDD (>= 3 prior episodes), currently in remission</p>
+<p><strong>Arms:</strong> MBCT (8-week group programme) + TAU vs TAU alone</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>For patients with >= 3 prior episodes (77% of sample): MBCT significantly reduced relapse — 37% relapsed vs 66% in TAU (p = 0.004)</li>
+  <li>For patients with only 2 prior episodes: MBCT did NOT reduce relapse</li>
+  <li>MBCT's mechanism: decentering from depressive cognitions, breaking the reactivation of ruminative processing patterns</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Teasdale (2000) showed MBCT prevents relapse in patients with >= 3 prior episodes of depression, NOT in those with only 2 episodes. This specificity is crucial: MBCT works by disrupting cognitive reactivity, which is more established in highly recurrent depression. The 3+ episodes threshold is the standard clinical indication.</p></div>
+<h2>8.2 Kuyken et al. (2015) — MBCT vs Maintenance Antidepressants</h2>
+<p><strong>Design:</strong> Multi-centre RCT (the PREVENT trial)</p>
+<p><strong>Sample:</strong> N = 424 with recurrent MDD (>= 3 episodes), on maintenance antidepressants</p>
+<p><strong>Arms:</strong> MBCT with support to taper antidepressants vs maintenance antidepressants</p>
+<p><strong>Duration:</strong> 24-month follow-up</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>MBCT with antidepressant tapering was non-inferior to maintenance antidepressants for preventing depressive relapse over 24 months</li>
+  <li>Relapse: MBCT 44% vs maintenance medication 47% (hazard ratio 0.89, ns)</li>
+  <li>MBCT was more effective than medication for patients with higher severity of childhood abuse</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kuyken (2015) is the definitive MBCT trial. It established MBCT as a viable alternative to long-term antidepressant maintenance. The finding that childhood abuse survivors benefited more from MBCT than medication suggests MBCT may particularly help patients whose depression is maintained by ruminative processing of early adversity.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Know the triad of MBCT evidence: Teasdale (2000) = prevention, Ma & Teasdale (2004) = replication, Kuyken (2015) = non-inferiority to medication.</p></div>
+<h2>8.3 A-Tjak et al. (2015) — ACT Meta-Analysis</h2>
+<p><strong>Design:</strong> Meta-analysis of RCTs</p>
+<p><strong>Sample:</strong> 39 RCTs across multiple conditions</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>ACT outperformed control conditions (waitlist, placebo, TAU) with a small-to-medium effect: g = 0.57 (95% CI 0.44-0.70)</li>
+  <li>ACT was NOT significantly different from established treatments (CBT): g = 0.06 (ns)</li>
+  <li>ACT was effective for chronic pain (g = 0.62), anxiety disorders (g = 0.51), depression (g = 0.56), and substance use (g = 0.45)</li>
+  <li>Process measures: psychological flexibility mediated outcomes across studies</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>A-Tjak (2015) is the benchmark ACT meta-analysis. ACT works — it outperforms control conditions with medium effect sizes. But it does NOT outperform traditional CBT. The claim that ACT is "better" than CBT is not supported; the claim that ACT is an effective, evidence-based alternative is.</p></div>
+<hr>
+<h1>9. COMPARATIVE AND INTEGRATION STUDIES</h1>
+<h2>9.1 Cuijpers et al. (2008, 2019) — Meta-Analyses of Psychotherapy for Depression</h2>
+<p>Pim Cuijpers and his group at VU Amsterdam have produced the most comprehensive meta-analytic programme in psychotherapy research.</p>
+<h3>Cuijpers et al. (2008)</h3>
+<p><strong>Design:</strong> Meta-analysis</p>
+<p><strong>Sample:</strong> 53 RCTs of psychotherapy for adult depression</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>Overall effect size: d = 0.67 (moderate to large)</li>
+  <li>CBT, behavioural activation, IPT, psychodynamic therapy, and problem-solving therapy all showed significant effects</li>
+  <li>No significant differences between bona fide therapies (supporting the Dodo bird verdict)</li>
+  <li>When corrected for publication bias, the effect size dropped to d = 0.42</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Cuijpers (2008) estimated that publication bias inflates psychotherapy effect sizes by approximately 25%. The corrected effect size (d = 0.42) is still clinically meaningful but more modest than the uncorrected estimate. Always consider publication bias when interpreting psychotherapy meta-analyses.</p></div>
+<h3>Cuijpers et al. (2019) — Updated Network Meta-Analysis</h3>
+<p><strong>Design:</strong> Network meta-analysis</p>
+<p><strong>Sample:</strong> 331 RCTs (N > 34,000)</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>All seven types of psychotherapy were more effective than controls for adult depression</li>
+  <li>Behavioural activation, CBT, IPT, problem-solving therapy, psychodynamic therapy, life review, and third-wave approaches all showed significant effects</li>
+  <li>The effects did not differ significantly between types (again supporting equivalence)</li>
+  <li>Combined psychotherapy + pharmacotherapy was more effective than either alone</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The consistent finding across Cuijpers' meta-analyses is that combination treatment (therapy + medication) outperforms either alone. For moderate-to-severe depression, the evidence strongly supports combination. This is reflected in NICE, APA, and CANMAT guidelines.</p></div>
+<h2>9.2 Steinert et al. (2017) — Psychodynamic Therapy vs CBT</h2>
+<p><strong>Design:</strong> Systematic review and meta-analysis</p>
+<p><strong>Sample:</strong> 23 RCTs directly comparing psychodynamic therapy with CBT</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+  <li>No significant difference in primary outcomes between psychodynamic therapy and CBT: g = -0.07 (95% CI -0.21 to 0.08)</li>
+  <li>Results were consistent across depression, anxiety, and personality disorders</li>
+  <li>Neither approach was consistently superior to the other</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Steinert (2017) is the most cited direct comparison meta-analysis of psychodynamic vs CBT. The effect difference was essentially zero (g = -0.07). Use this to counter the narrative that CBT is "more evidence-based" — it has more trials, but when directly compared, outcomes are equivalent.</p></div>
+<h2>9.3 Barlow's Unified Protocol (UP)</h2>
+<p>The Unified Protocol for Transdiagnostic Treatment of Emotional Disorders (Barlow et al., 2011) represents the integration movement in CBT — treating the shared mechanisms underlying all emotional disorders rather than using disorder-specific protocols.</p>
+<p><strong>Core modules:</strong> Mindful emotion awareness, cognitive flexibility, countering emotional behaviours (exposure), interoceptive awareness</p>
+<p><strong>Key trials:</strong></p>
+<ul>
+  <li>Farchione et al. (2012): N = 37, open trial, significant improvement across anxiety disorders (d = 0.52-1.14)</li>
+  <li>Barlow et al. (2017): N = 223 RCT, UP vs single-disorder protocols vs waitlist. UP was non-inferior to single-disorder protocols and superior to waitlist across all anxiety disorders</li>
+  <li>Cassiello-Robbins et al. (2020): UP showed equivalent outcomes to disorder-specific CBT with similar treatment gains</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Barlow's Unified Protocol is the most researched transdiagnostic CBT. It treats neuroticism (the shared vulnerability across emotional disorders) rather than disorder-specific symptoms. The non-inferiority finding vs disorder-specific protocols is significant — one protocol can treat comorbid anxiety and mood disorders simultaneously.</p></div>
+<hr>
+<h1>10. PROCESS RESEARCH</h1>
+<h2>10.1 Bordin (1979) — The Working Alliance</h2>
+<p>Edward Bordin proposed a pantheoretical model of the therapeutic alliance with three components:</p>
+<ol>
+  <li><strong>Tasks</strong> — agreement on what happens in therapy</li>
+  <li><strong>Goals</strong> — agreement on desired outcomes</li>
+  <li><strong>Bond</strong> — mutual trust, liking, and attachment</li>
+</ol>
+
+<p><strong>Impact:</strong> The Working Alliance Inventory (WAI), based on Bordin's model, became the most widely used alliance measure. Subsequent meta-analyses (Horvath & Symonds, 1991; Horvath et al., 2011) confirmed a consistent relationship between alliance and outcome: r = 0.275 (medium effect), stable across therapies, raters, and time of measurement.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bordin's three alliance components: Tasks, Goals, Bond. The alliance-outcome correlation (r = 0.275) is one of the most replicated findings in psychotherapy research. It accounts for roughly 7.5% of outcome variance — modest but consistent and significant.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The alliance is not just "rapport." It includes agreement on what you are doing (tasks) and why (goals). A therapist who has excellent rapport but uses interventions the patient does not understand or agree with has a poor task alliance — and this predicts poorer outcomes.</p></div>
+<h2>10.2 Safran & Muran (2000) — Alliance Rupture and Repair</h2>
+<p>Jeremy Safran and J. Christopher Muran's programme of research on rupture-repair sequences revolutionised how clinicians understand the therapeutic relationship.</p>
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>Rupture:</strong> A deterioration or strain in the alliance — can be a confrontation (patient expresses anger, dissatisfaction) or a withdrawal (patient disengages, becomes compliant, changes topic)</li>
+  <li><strong>Repair:</strong> The process of recognising, addressing, and resolving the rupture within the therapy</li>
+  <li><strong>Resolution:</strong> Successful repair predicts better outcome than never having a rupture at all</li>
+</ul>
+
+<p><strong>Research findings:</strong></p>
+<ul>
+  <li>Rupture-repair sequences predict positive outcome more strongly than consistently high alliance ratings</li>
+  <li>The ability to repair ruptures distinguishes effective from ineffective therapists</li>
+  <li>Withdrawal ruptures are harder to detect than confrontation ruptures and are more common</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Safran & Muran's key finding: repaired ruptures predict BETTER outcomes than no rupture at all. A therapy that goes smoothly may mean the patient is being compliant rather than engaged. The rupture-repair cycle is itself therapeutic — it provides a corrective emotional experience.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>There are two types of rupture: confrontation (the patient pushes back) and withdrawal (the patient shuts down). Withdrawal ruptures are more dangerous because they are harder to detect. If a patient suddenly becomes agreeable and compliant after previously being engaged, suspect a withdrawal rupture.</p></div>
+<h2>10.3 Kazdin (2007) — Mediators and Mechanisms of Change</h2>
+<p>Alan Kazdin's landmark paper challenged the field to move beyond "does therapy work?" to "how and why does therapy work?"</p>
+<p><strong>Key arguments:</strong></p>
+<ul>
+  <li>Establishing that a treatment works (efficacy) is not the same as understanding why it works (mechanism)</li>
+  <li>A mediator is a statistical concept (a variable that accounts for the treatment-outcome relationship). A mechanism is a causal process (the actual reason change occurs)</li>
+  <li>Most claimed mechanisms in psychotherapy (cognitive change in CBT, insight in psychodynamic therapy, mentalisation in MBT) have not met the criteria for true mechanism demonstration</li>
+  <li>Requirements for mechanism evidence: strong association with outcome, specificity to that treatment, temporal precedence (the mechanism changes before the outcome changes), gradient (more mechanism change = more outcome change), and a plausible theoretical account</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kazdin (2007) distinguished mediators from mechanisms. A mediator is a statistical finding (X accounts for the Y-Z relationship). A mechanism requires temporal precedence, specificity, gradient, and plausibility. Very few psychotherapy "mechanisms" have been truly demonstrated — most remain at the mediator level.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>This paper has practical implications. If we do not know how therapy works, we cannot efficiently train therapists, improve protocols, or match patients to treatments. Kazdin's call to study mechanisms has shaped the next generation of psychotherapy research, including the dismantling studies and process-outcome studies that now dominate the field.</p></div>
+<hr>
+<h1>MASTER TABLE: LANDMARK TRIALS IN PSYCHOTHERAPY</h1>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Comparison</th><th>Key Finding</th><th>Effect Size</th></tr></thead>
+<tbody>
+<tr><td>Luborsky et al.</td><td>1975</td><td>Review</td><td>Multiple</td><td>Various</td><td>Various psychotherapies</td><td>"Dodo bird verdict" — equivalent outcomes</td><td>—</td></tr>
+<tr><td>Rush et al.</td><td>1977</td><td>RCT</td><td>41</td><td>Depression</td><td>CT vs imipramine</td><td>CT superior on all measures</td><td>—</td></tr>
+<tr><td>Bordin</td><td>1979</td><td>Theory</td><td>—</td><td>—</td><td>—</td><td>Working alliance: tasks, goals, bond</td><td>r = 0.275</td></tr>
+<tr><td>Shapiro</td><td>1989</td><td>RCT</td><td>22</td><td>Trauma</td><td>EMDR vs flooding variant</td><td>EMDR reduced distress rapidly</td><td>—</td></tr>
+<tr><td>Elkin et al. (TDCRP)</td><td>1989</td><td>Multi-site RCT</td><td>250</td><td>Depression</td><td>CBT vs IPT vs imipramine vs placebo</td><td>All active > placebo; imipramine best for severe</td><td>d = 0.37 (vs placebo)</td></tr>
+<tr><td>Linehan et al.</td><td>1991</td><td>RCT</td><td>44</td><td>BPD</td><td>DBT vs TAU</td><td>DBT reduced parasuicide + hospitalisations</td><td>—</td></tr>
+<tr><td>Lambert</td><td>1992</td><td>Review</td><td>—</td><td>Various</td><td>—</td><td>40/30/15/15 outcome variance model</td><td>—</td></tr>
+<tr><td>Bateman & Fonagy</td><td>1999</td><td>RCT</td><td>38</td><td>BPD</td><td>MBT partial hospital vs standard care</td><td>MBT reduced self-harm, depression, hospitalisations</td><td>—</td></tr>
+<tr><td>Foa et al.</td><td>1999</td><td>RCT</td><td>96</td><td>PTSD</td><td>PE vs SIT vs combined vs waitlist</td><td>PE alone best at follow-up</td><td>—</td></tr>
+<tr><td>Gottman</td><td>1999</td><td>Longitudinal</td><td>>3000</td><td>Couples</td><td>Observational coding</td><td>Four Horsemen predict divorce (93.6%)</td><td>—</td></tr>
+<tr><td>Johnson et al.</td><td>1999</td><td>Meta-analysis</td><td>7 studies</td><td>Couples</td><td>EFT-C vs controls</td><td>EFT-C d = 1.30; 70-73% recovery</td><td>d = 1.30</td></tr>
+<tr><td>Leff et al.</td><td>2000</td><td>Meta-analysis</td><td>Multiple</td><td>Schizophrenia</td><td>Family intervention vs standard care</td><td>50% relapse reduction</td><td>—</td></tr>
+<tr><td>Safran & Muran</td><td>2000</td><td>Process research</td><td>Multiple</td><td>Various</td><td>—</td><td>Rupture-repair predicts better outcomes</td><td>—</td></tr>
+<tr><td>Teasdale et al.</td><td>2000</td><td>RCT</td><td>145</td><td>Recurrent MDD</td><td>MBCT + TAU vs TAU</td><td>MBCT halved relapse for 3+ episodes</td><td>—</td></tr>
+<tr><td>Wampold</td><td>2001</td><td>Meta-analysis</td><td>Multiple</td><td>Various</td><td>Between-therapy comparisons</td><td>Therapy differences d = 0.00-0.20</td><td>d = 0.80 (vs no tx)</td></tr>
+<tr><td>Rathus & Miller</td><td>2002</td><td>Quasi-exp.</td><td>111</td><td>Adolescent BPD</td><td>DBT-A vs TAU</td><td>DBT-A reduced hospitalisations, 0 suicide attempts</td><td>—</td></tr>
+<tr><td>Resick et al.</td><td>2002</td><td>RCT</td><td>171</td><td>PTSD</td><td>CPT vs PE vs control</td><td>CPT = PE; both superior to control</td><td>—</td></tr>
+<tr><td>Clark et al.</td><td>2003</td><td>RCT</td><td>60</td><td>Social anxiety</td><td>CT vs fluoxetine vs placebo</td><td>CT superior to fluoxetine and placebo</td><td>d > 1.0</td></tr>
+<tr><td>DeRubeis et al.</td><td>2005</td><td>RCT</td><td>240</td><td>Moderate-severe MDD</td><td>CT vs paroxetine vs placebo</td><td>CT = paroxetine (58% response each)</td><td>—</td></tr>
+<tr><td>Foa et al.</td><td>2005</td><td>RCT</td><td>179</td><td>PTSD</td><td>PE vs PE + CR vs waitlist</td><td>PE alone = PE + CR</td><td>—</td></tr>
+<tr><td>Hollon et al.</td><td>2005</td><td>Follow-up</td><td>104</td><td>Depression</td><td>Prior CT vs medication continuation vs withdrawal</td><td>Prior CT relapse 31% vs withdrawal 76%</td><td>—</td></tr>
+<tr><td>Giesen-Bloo et al.</td><td>2006</td><td>Multi-site RCT</td><td>86</td><td>BPD</td><td>ST vs TFP (3 years)</td><td>ST recovery 45.5% vs TFP 24.4%</td><td>—</td></tr>
+<tr><td>Linehan et al.</td><td>2006</td><td>RCT</td><td>101</td><td>BPD</td><td>DBT vs community experts</td><td>DBT halved suicide attempts (23% vs 46%)</td><td>—</td></tr>
+<tr><td>Bisson et al.</td><td>2007</td><td>Cochrane review</td><td>38 RCTs</td><td>PTSD</td><td>Multiple comparisons</td><td>TF-CBT and EMDR recommended; equivalent to each other</td><td>—</td></tr>
+<tr><td>Clarkin et al.</td><td>2007</td><td>RCT</td><td>90</td><td>BPD</td><td>TFP vs DBT vs supportive</td><td>All improved; TFP improved mentalisation; DBT improved impulsivity</td><td>—</td></tr>
+<tr><td>Kazdin</td><td>2007</td><td>Conceptual</td><td>—</td><td>—</td><td>—</td><td>Mediators are not mechanisms; criteria for mechanism evidence</td><td>—</td></tr>
+<tr><td>Cuijpers et al.</td><td>2008</td><td>Meta-analysis</td><td>53 RCTs</td><td>Depression</td><td>Multiple psychotherapies</td><td>d = 0.67 (0.42 corrected for pub bias); no between-therapy differences</td><td>d = 0.67</td></tr>
+<tr><td>Leichsenring & Rabung</td><td>2008</td><td>Meta-analysis</td><td>23 studies</td><td>Complex disorders</td><td>LTPP vs shorter therapies</td><td>LTPP d = 0.96 for complex presentations</td><td>d = 0.96</td></tr>
+<tr><td>Bateman & Fonagy</td><td>2008</td><td>8-year follow-up</td><td>38</td><td>BPD</td><td>MBT vs standard care</td><td>13% still met BPD criteria vs 87% control</td><td>—</td></tr>
+<tr><td>Nadort et al.</td><td>2009</td><td>RCT</td><td>62</td><td>BPD</td><td>ST + phone vs ST alone</td><td>No added benefit of phone support</td><td>—</td></tr>
+<tr><td>Shedler</td><td>2010</td><td>Meta-review</td><td>Multiple</td><td>Various</td><td>Psychodynamic vs benchmarks</td><td>d = 0.97; "sleeper effect" unique to psychodynamic</td><td>d = 0.97</td></tr>
+<tr><td>Bamelis et al.</td><td>2014</td><td>Multi-site RCT</td><td>323</td><td>Cluster C PD</td><td>ST vs COP vs TAU</td><td>ST 81% recovery; largest PD trial</td><td>—</td></tr>
+<tr><td>A-Tjak et al.</td><td>2015</td><td>Meta-analysis</td><td>39 RCTs</td><td>Various</td><td>ACT vs controls and CBT</td><td>ACT g = 0.57 vs controls; g = 0.06 vs CBT (ns)</td><td>g = 0.57</td></tr>
+<tr><td>Kuyken et al.</td><td>2015</td><td>RCT</td><td>424</td><td>Recurrent MDD</td><td>MBCT + taper vs maintenance meds</td><td>MBCT non-inferior to medication over 24 months</td><td>—</td></tr>
+<tr><td>Steinert et al.</td><td>2017</td><td>Meta-analysis</td><td>23 RCTs</td><td>Various</td><td>Psychodynamic vs CBT</td><td>No significant difference: g = -0.07</td><td>g = -0.07</td></tr>
+<tr><td>Cuijpers et al.</td><td>2019</td><td>Network meta-analysis</td><td>331 RCTs</td><td>Depression</td><td>7 psychotherapy types</td><td>All effective; no between-therapy differences; combo > monotherapy</td><td>—</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>KEY NUMBERS TO MEMORISE</h1>
+<table>
+<thead><tr><th>Number</th><th>What It Represents</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>40/30/15/15</td><td>Outcome variance: client/relationship/expectancy/technique</td><td>Lambert (1992)</td></tr>
+<tr><td>d = 0.80</td><td>Overall effect of psychotherapy vs no treatment</td><td>Wampold (2001)</td></tr>
+<tr><td>r = 0.275</td><td>Alliance-outcome correlation</td><td>Horvath et al. (2011)</td></tr>
+<tr><td>5:1</td><td>Positive-to-negative interaction ratio for stable couples</td><td>Gottman (1999)</td></tr>
+<tr><td>45.5%</td><td>ST recovery rate for BPD</td><td>Giesen-Bloo (2006)</td></tr>
+<tr><td>31% vs 76%</td><td>Relapse after prior CT vs medication withdrawal</td><td>Hollon (2005)</td></tr>
+<tr><td>d = 1.30</td><td>EFT-C effect size</td><td>Johnson et al. (1999)</td></tr>
+<tr><td>3+ episodes</td><td>MBCT relapse prevention threshold</td><td>Teasdale (2000)</td></tr>
+<tr><td>93.6%</td><td>Gottman's divorce prediction accuracy</td><td>Gottman (1999)</td></tr>
+<tr><td>13% vs 87%</td><td>BPD criteria at 8-year follow-up (MBT vs control)</td><td>Bateman & Fonagy (2008)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<p><em>Weave Psychotherapy Vol. 12 — Landmark Papers & Trials</em></p>
+<p><em>Dr. Wilfred Dsouza</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Landmark Papers &amp; Trials &mdash; Weave Psychotherapy Vol. 12</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 12 | Landmark Papers &amp; Trials</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Clinical Quick Reference — Landmark Papers & Trials in Psychotherapy</h1>
+<hr>
+<h2>1. Master Landmark Trials Table</h2>
+<h3>Common Factors & Outcome Research</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Luborsky et al.</td><td>1975</td><td>Narrative review</td><td>Multiple</td><td>Dodo bird verdict — no consistent differences between bona fide therapies</td></tr>
+<tr><td>Lambert</td><td>1992</td><td>Review</td><td>—</td><td>Outcome variance: 40% client, 30% relationship, 15% expectancy, 15% technique</td></tr>
+<tr><td>Wampold</td><td>2001</td><td>Meta-analysis</td><td>Multiple</td><td>Therapy vs no treatment d = 0.80; between-therapy differences d = 0.00-0.20</td></tr>
+<tr><td>Wampold</td><td>2015</td><td>Meta-analysis</td><td>Multiple</td><td>Therapist effects (5-9%) > treatment differences; alliance r = 0.28</td></tr>
+</tbody>
+</table>
+
+<h3>CBT Trials</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Rush et al.</td><td>1977</td><td>RCT</td><td>41</td><td>Depression</td><td>First CT vs medication trial; CT superior to imipramine</td></tr>
+<tr><td>Elkin et al. (TDCRP)</td><td>1989</td><td>Multi-site RCT</td><td>250</td><td>Depression</td><td>All active > placebo; CBT struggled in severe depression</td></tr>
+<tr><td>DeRubeis et al.</td><td>2005</td><td>RCT</td><td>240</td><td>Moderate-severe MDD</td><td>CT = paroxetine (58% response each); refuted TDCRP</td></tr>
+<tr><td>Hollon et al.</td><td>2005</td><td>Follow-up</td><td>104</td><td>Depression</td><td>Prior CT relapse 31% vs medication withdrawal 76%</td></tr>
+<tr><td>Clark et al.</td><td>2003</td><td>RCT</td><td>60</td><td>Social anxiety</td><td>CT > fluoxetine > placebo; d > 1.0</td></tr>
+<tr><td>Ehlers & Clark</td><td>2005</td><td>RCT</td><td>85</td><td>Chronic PTSD</td><td>CT d = 1.27 vs waitlist; 71% reliable change</td></tr>
+</tbody>
+</table>
+
+<h3>DBT Trials</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Linehan et al.</td><td>1991</td><td>RCT</td><td>44</td><td>BPD (women)</td><td>DBT reduced parasuicide + hospitalisations; NOT depression</td></tr>
+<tr><td>Rathus & Miller</td><td>2002</td><td>Quasi-exp</td><td>111</td><td>Adolescent BPD</td><td>DBT-A reduced hospitalisations; 0 suicide attempts</td></tr>
+<tr><td>Linehan et al.</td><td>2006</td><td>RCT</td><td>101</td><td>BPD (women)</td><td>DBT halved suicide attempts vs expert clinicians (23% vs 46%)</td></tr>
+</tbody>
+</table>
+
+<h3>Psychodynamic Trials</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Bateman & Fonagy</td><td>1999</td><td>RCT</td><td>38</td><td>BPD</td><td>MBT reduced self-harm, depression, hospitalisations</td></tr>
+<tr><td>Bateman & Fonagy</td><td>2008</td><td>8-yr follow-up</td><td>38</td><td>BPD</td><td>13% still met BPD criteria vs 87% control</td></tr>
+<tr><td>Clarkin et al.</td><td>2007</td><td>RCT</td><td>90</td><td>BPD</td><td>TFP improved mentalisation; DBT improved impulsivity</td></tr>
+<tr><td>Leichsenring & Rabung</td><td>2008</td><td>Meta-analysis</td><td>1,053</td><td>Complex disorders</td><td>LTPP d = 0.96 for complex presentations</td></tr>
+<tr><td>Shedler</td><td>2010</td><td>Meta-review</td><td>Multiple</td><td>Various</td><td>Psychodynamic d = 0.97; unique "sleeper effect"</td></tr>
+</tbody>
+</table>
+
+<h3>Schema Therapy Trials</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Giesen-Bloo et al.</td><td>2006</td><td>Multi-site RCT</td><td>86</td><td>BPD</td><td>ST recovery 45.5% vs TFP 24.4%; ST dropout 26.7% vs TFP 50.6%</td></tr>
+<tr><td>Nadort et al.</td><td>2009</td><td>RCT</td><td>62</td><td>BPD</td><td>ST effective without phone crisis support</td></tr>
+<tr><td>Bamelis et al.</td><td>2014</td><td>Multi-site RCT</td><td>323</td><td>Cluster C PD</td><td>ST recovery 81% vs COP 60% vs TAU 52%; largest PD trial</td></tr>
+</tbody>
+</table>
+
+<h3>Trauma Trials (PE, CPT, EMDR)</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Shapiro</td><td>1989</td><td>RCT</td><td>22</td><td>Trauma</td><td>Original EMDR study; heavily criticised but generative</td></tr>
+<tr><td>Foa et al.</td><td>1999</td><td>RCT</td><td>96</td><td>PTSD (sexual assault)</td><td>PE alone best at follow-up; combined NOT superior</td></tr>
+<tr><td>Resick et al.</td><td>2002</td><td>RCT</td><td>171</td><td>PTSD (sexual assault)</td><td>CPT = PE; both superior to control</td></tr>
+<tr><td>Foa et al.</td><td>2005</td><td>RCT</td><td>179</td><td>PTSD</td><td>PE alone = PE + cognitive restructuring</td></tr>
+<tr><td>Bisson et al.</td><td>2007</td><td>Cochrane review</td><td>38 RCTs</td><td>PTSD</td><td>TF-CBT and EMDR recommended; equivalent to each other</td></tr>
+</tbody>
+</table>
+
+<h3>Family & Couples Therapy</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Gottman</td><td>1999</td><td>Longitudinal</td><td>>3,000</td><td>Couples</td><td>Four Horsemen predict divorce (93.6%); 5:1 ratio</td></tr>
+<tr><td>Johnson et al.</td><td>1999</td><td>Meta-analysis</td><td>7 studies</td><td>Couples</td><td>EFT-C d = 1.30; 70-73% recovery</td></tr>
+<tr><td>Leff et al.</td><td>2000</td><td>Meta-analysis</td><td>Multiple</td><td>Schizophrenia</td><td>Family intervention halved relapse (~25% vs ~50%)</td></tr>
+</tbody>
+</table>
+
+<h3>ACT & MBCT</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Condition</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Teasdale et al.</td><td>2000</td><td>RCT</td><td>145</td><td>Recurrent MDD</td><td>MBCT halved relapse for 3+ episodes (37% vs 66%)</td></tr>
+<tr><td>Kuyken et al.</td><td>2015</td><td>RCT</td><td>424</td><td>Recurrent MDD</td><td>MBCT non-inferior to maintenance antidepressants over 24 months</td></tr>
+<tr><td>A-Tjak et al.</td><td>2015</td><td>Meta-analysis</td><td>39 RCTs</td><td>Various</td><td>ACT g = 0.57 vs controls; equivalent to CBT (g = 0.06, ns)</td></tr>
+</tbody>
+</table>
+
+<h3>Comparative & Process Research</h3>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Design</th><th>N</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td>Bordin</td><td>1979</td><td>Theory paper</td><td>—</td><td>Working alliance = tasks + goals + bond; r = 0.275 with outcome</td></tr>
+<tr><td>Safran & Muran</td><td>2000</td><td>Process research</td><td>Multiple</td><td>Repaired ruptures predict better outcomes than no rupture</td></tr>
+<tr><td>Kazdin</td><td>2007</td><td>Conceptual</td><td>—</td><td>Mediators are not mechanisms; five criteria for mechanism evidence</td></tr>
+<tr><td>Cuijpers et al.</td><td>2008</td><td>Meta-analysis</td><td>53 RCTs</td><td>Depression: d = 0.67 (0.42 corrected for pub bias)</td></tr>
+<tr><td>Steinert et al.</td><td>2017</td><td>Meta-analysis</td><td>23 RCTs</td><td>Psychodynamic vs CBT: g = -0.07 (no difference)</td></tr>
+<tr><td>Cuijpers et al.</td><td>2019</td><td>Network MA</td><td>331 RCTs</td><td>All 7 therapy types effective for depression; combo > mono</td></tr>
+<tr><td>Barlow et al.</td><td>2017</td><td>RCT</td><td>223</td><td>Unified Protocol non-inferior to disorder-specific CBT</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>2. Key Numbers to Memorise</h2>
+<h3>Effect Sizes</h3>
+<table>
+<thead><tr><th>Number</th><th>Meaning</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>d = 0.80</td><td>Overall psychotherapy vs no treatment</td><td>Wampold (2001)</td></tr>
+<tr><td>d = 0.00-0.20</td><td>Differences between bona fide therapies</td><td>Wampold (2001)</td></tr>
+<tr><td>d = 0.67</td><td>Psychotherapy for depression (uncorrected)</td><td>Cuijpers (2008)</td></tr>
+<tr><td>d = 0.42</td><td>Psychotherapy for depression (corrected for pub bias)</td><td>Cuijpers (2008)</td></tr>
+<tr><td>d = 0.97</td><td>Psychodynamic therapy</td><td>Shedler (2010)</td></tr>
+<tr><td>d = 0.96</td><td>LTPP for complex disorders</td><td>Leichsenring & Rabung (2008)</td></tr>
+<tr><td>d = 1.30</td><td>EFT for couples</td><td>Johnson et al. (1999)</td></tr>
+<tr><td>d > 1.0</td><td>Clark's CT for social anxiety</td><td>Clark et al. (2003)</td></tr>
+<tr><td>d = 1.27</td><td>Clark's CT for PTSD</td><td>Ehlers & Clark (2005)</td></tr>
+<tr><td>g = 0.57</td><td>ACT vs control conditions</td><td>A-Tjak et al. (2015)</td></tr>
+<tr><td>g = -0.07</td><td>Psychodynamic vs CBT (no difference)</td><td>Steinert et al. (2017)</td></tr>
+<tr><td>r = 0.275</td><td>Alliance-outcome correlation</td><td>Horvath et al. (2011)</td></tr>
+</tbody>
+</table>
+
+<h3>Percentages and Ratios</h3>
+<table>
+<thead><tr><th>Number</th><th>Meaning</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>40/30/15/15</td><td>Outcome variance: client / relationship / expectancy / technique</td><td>Lambert (1992)</td></tr>
+<tr><td>5-9%</td><td>Outcome variance explained by therapist effects</td><td>Wampold (2001)</td></tr>
+<tr><td>7.5%</td><td>Outcome variance explained by alliance</td><td>Horvath et al. (2011)</td></tr>
+<tr><td>5:1</td><td>Positive-to-negative ratio in stable couples</td><td>Gottman (1999)</td></tr>
+<tr><td>93.6%</td><td>Gottman's divorce prediction accuracy</td><td>Gottman (1999)</td></tr>
+<tr><td>45.5% vs 24.4%</td><td>ST vs TFP recovery in BPD</td><td>Giesen-Bloo (2006)</td></tr>
+<tr><td>31% vs 76%</td><td>Relapse: prior CT vs medication withdrawal</td><td>Hollon et al. (2005)</td></tr>
+<tr><td>23% vs 46%</td><td>Suicide attempts: DBT vs community experts</td><td>Linehan (2006)</td></tr>
+<tr><td>37% vs 66%</td><td>Relapse: MBCT vs TAU (3+ episodes)</td><td>Teasdale (2000)</td></tr>
+<tr><td>13% vs 87%</td><td>BPD criteria at 8-year follow-up: MBT vs control</td><td>Bateman & Fonagy (2008)</td></tr>
+<tr><td>58% vs 58%</td><td>CT vs paroxetine response rate in moderate-severe MDD</td><td>DeRubeis (2005)</td></tr>
+<tr><td>81%</td><td>ST recovery rate for Cluster C PDs</td><td>Bamelis (2014)</td></tr>
+<tr><td>70-73%</td><td>EFT-C couple recovery rate</td><td>Johnson et al. (1999)</td></tr>
+<tr><td>50%</td><td>Relapse reduction from family intervention in schizophrenia</td><td>Leff et al. (2000)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>3. "Who Proved What" Quick Reference</h2>
+<h3>Depression</h3>
+<ul>
+  <li><strong>CBT works for depression:</strong> Rush et al. (1977)</li>
+  <li><strong>CBT works for severe depression:</strong> DeRubeis et al. (2005)</li>
+  <li><strong>CBT has enduring effects:</strong> Hollon et al. (2005)</li>
+  <li><strong>All therapies roughly equivalent:</strong> Cuijpers et al. (2008, 2019)</li>
+  <li><strong>MBCT prevents relapse (3+ episodes):</strong> Teasdale et al. (2000)</li>
+  <li><strong>MBCT = maintenance meds:</strong> Kuyken et al. (2015)</li>
+  <li><strong>Combo > monotherapy:</strong> Cuijpers et al. (2019)</li>
+</ul>
+
+<h3>BPD</h3>
+<ul>
+  <li><strong>DBT reduces self-harm:</strong> Linehan et al. (1991)</li>
+  <li><strong>DBT beats expert treatment:</strong> Linehan et al. (2006)</li>
+  <li><strong>MBT works (longest follow-up):</strong> Bateman & Fonagy (1999, 2008)</li>
+  <li><strong>ST has highest recovery rate:</strong> Giesen-Bloo et al. (2006)</li>
+  <li><strong>TFP improves mentalisation:</strong> Clarkin et al. (2007)</li>
+  <li><strong>DBT-A works for adolescents:</strong> Rathus & Miller (2002)</li>
+</ul>
+
+<h3>Personality Disorders (non-BPD)</h3>
+<ul>
+  <li><strong>ST works for Cluster C PDs:</strong> Bamelis et al. (2014)</li>
+  <li><strong>LTPP best for complex PDs:</strong> Leichsenring & Rabung (2008)</li>
+</ul>
+
+<h3>PTSD</h3>
+<ul>
+  <li><strong>PE is the critical ingredient:</strong> Foa et al. (1999, 2005)</li>
+  <li><strong>CPT = PE:</strong> Resick et al. (2002)</li>
+  <li><strong>EMDR = TF-CBT:</strong> Bisson et al. (2007)</li>
+  <li><strong>Only TF approaches recommended:</strong> Bisson et al. (2007)</li>
+  <li><strong>Clark's CT produces largest effects:</strong> Ehlers & Clark (2005)</li>
+</ul>
+
+<h3>Anxiety Disorders</h3>
+<ul>
+  <li><strong>CT superior to fluoxetine for social anxiety:</strong> Clark et al. (2003)</li>
+  <li><strong>Unified Protocol works transdiagnostically:</strong> Barlow et al. (2017)</li>
+  <li><strong>ACT works but = CBT:</strong> A-Tjak et al. (2015)</li>
+</ul>
+
+<h3>Couples & Family</h3>
+<ul>
+  <li><strong>Four Horsemen predict divorce:</strong> Gottman (1999)</li>
+  <li><strong>EFT-C has largest effect size:</strong> Johnson et al. (1999)</li>
+  <li><strong>Family intervention halves schizophrenia relapse:</strong> Leff et al. (2000)</li>
+</ul>
+
+<h3>Common Factors</h3>
+<ul>
+  <li><strong>Dodo bird verdict:</strong> Luborsky et al. (1975)</li>
+  <li><strong>Relationship > technique:</strong> Lambert (1992), Wampold (2001)</li>
+  <li><strong>Who delivers > what's delivered:</strong> Wampold (2015)</li>
+  <li><strong>Alliance predicts outcome:</strong> Bordin (1979), Horvath et al. (2011)</li>
+  <li><strong>Rupture-repair is therapeutic:</strong> Safran & Muran (2000)</li>
+</ul>
+
+<h3>Psychodynamic Therapy</h3>
+<ul>
+  <li><strong>Evidence base is strong:</strong> Shedler (2010)</li>
+  <li><strong>LTPP for complexity:</strong> Leichsenring & Rabung (2008)</li>
+  <li><strong>Equivalent to CBT in direct comparison:</strong> Steinert et al. (2017)</li>
+</ul>
+
+<hr>
+<h2>4. Timeline of Psychotherapy Research Milestones</h2>
+<table>
+<thead><tr><th>Year</th><th>Milestone</th><th>Significance</th></tr></thead>
+<tbody>
+<tr><td>1975</td><td>Luborsky — Dodo bird verdict</td><td>Launched the common factors debate</td></tr>
+<tr><td>1977</td><td>Rush et al. — CT vs imipramine</td><td>CBT entered the evidence arena</td></tr>
+<tr><td>1979</td><td>Bordin — Working Alliance model</td><td>Pantheoretical alliance framework</td></tr>
+<tr><td>1989</td><td>Elkin et al. — NIMH TDCRP</td><td>First large-scale psychotherapy horse race</td></tr>
+<tr><td>1989</td><td>Shapiro — EMDR introduced</td><td>New trauma treatment paradigm</td></tr>
+<tr><td>1991</td><td>Linehan — First DBT trial</td><td>BPD became treatable</td></tr>
+<tr><td>1992</td><td>Lambert — 40/30/15/15 model</td><td>Defined outcome variance factors</td></tr>
+<tr><td>1999</td><td>Bateman & Fonagy — MBT for BPD</td><td>Mentalisation-based treatment enters evidence</td></tr>
+<tr><td>1999</td><td>Foa — PE for PTSD</td><td>Exposure confirmed as key ingredient</td></tr>
+<tr><td>1999</td><td>Gottman — Divorce prediction</td><td>Couples research became empirical</td></tr>
+<tr><td>1999</td><td>Johnson — EFT-C meta-analysis</td><td>Attachment-based couples therapy validated</td></tr>
+<tr><td>2000</td><td>Teasdale — MBCT prevents relapse</td><td>Mindfulness entered evidence-based practice</td></tr>
+<tr><td>2000</td><td>Safran & Muran — Rupture-repair</td><td>Alliance became a dynamic process, not a static trait</td></tr>
+<tr><td>2001</td><td>Wampold — Great Psychotherapy Debate</td><td>Quantified common vs specific factors</td></tr>
+<tr><td>2002</td><td>Resick — CPT = PE for PTSD</td><td>Two front-line trauma treatments established</td></tr>
+<tr><td>2003</td><td>Clark — CT for social anxiety</td><td>Disorder-specific CBT benchmarks set</td></tr>
+<tr><td>2005</td><td>DeRubeis — CT = medication for severe MDD</td><td>CBT's severe depression limitation refuted</td></tr>
+<tr><td>2005</td><td>Hollon — CT's enduring effect</td><td>CBT protects after discontinuation</td></tr>
+<tr><td>2006</td><td>Giesen-Bloo — ST vs TFP for BPD</td><td>Highest BPD recovery rate in any trial</td></tr>
+<tr><td>2006</td><td>Linehan — DBT vs expert clinicians</td><td>DBT superiority confirmed against rigorous comparator</td></tr>
+<tr><td>2007</td><td>Bisson — Cochrane PTSD review</td><td>TF-CBT and EMDR established as first-line</td></tr>
+<tr><td>2007</td><td>Kazdin — Mechanisms of change</td><td>Shifted field from "does it work" to "how does it work"</td></tr>
+<tr><td>2008</td><td>Leichsenring & Rabung — LTPP meta-analysis</td><td>Long-term psychodynamic therapy validated for complex disorders</td></tr>
+<tr><td>2010</td><td>Shedler — Psychodynamic efficacy review</td><td>Psychodynamic therapy shown to match CBT effect sizes</td></tr>
+<tr><td>2014</td><td>Bamelis — ST for Cluster C PDs</td><td>Largest personality disorder trial; ST efficacy broadened</td></tr>
+<tr><td>2015</td><td>Kuyken — MBCT = maintenance meds</td><td>MBCT established as medication alternative</td></tr>
+<tr><td>2015</td><td>A-Tjak — ACT meta-analysis</td><td>ACT validated; equivalent to CBT</td></tr>
+<tr><td>2017</td><td>Barlow — Unified Protocol</td><td>Transdiagnostic CBT non-inferior to disorder-specific</td></tr>
+<tr><td>2017</td><td>Steinert — Psychodynamic vs CBT</td><td>Direct comparison: no difference (g = -0.07)</td></tr>
+<tr><td>2019</td><td>Cuijpers — Network meta-analysis</td><td>331 RCTs: all therapies work; combo best</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>5. Meta-Analyses Summary Table</h2>
+<table>
+<thead><tr><th>Authors</th><th>Year</th><th>Focus</th><th>Studies</th><th>N</th><th>Main Result</th></tr></thead>
+<tbody>
+<tr><td>Wampold</td><td>2001</td><td>Therapy vs no tx</td><td>Multiple</td><td>Multiple</td><td>d = 0.80</td></tr>
+<tr><td>Cuijpers et al.</td><td>2008</td><td>Psychotherapy for depression</td><td>53 RCTs</td><td>>5,000</td><td>d = 0.67 (0.42 corrected)</td></tr>
+<tr><td>Leichsenring & Rabung</td><td>2008</td><td>LTPP</td><td>23 studies</td><td>1,053</td><td>d = 0.96</td></tr>
+<tr><td>Shedler</td><td>2010</td><td>Psychodynamic therapy</td><td>Multiple</td><td>Multiple</td><td>d = 0.97</td></tr>
+<tr><td>Horvath et al.</td><td>2011</td><td>Alliance-outcome</td><td>>200 studies</td><td>>14,000</td><td>r = 0.275</td></tr>
+<tr><td>A-Tjak et al.</td><td>2015</td><td>ACT</td><td>39 RCTs</td><td>>3,000</td><td>g = 0.57 vs controls</td></tr>
+<tr><td>Steinert et al.</td><td>2017</td><td>PDT vs CBT</td><td>23 RCTs</td><td>>2,500</td><td>g = -0.07 (no difference)</td></tr>
+<tr><td>Cuijpers et al.</td><td>2019</td><td>Psychotherapy for depression</td><td>331 RCTs</td><td>>34,000</td><td>All 7 types effective; combo > mono</td></tr>
+<tr><td>Bisson et al.</td><td>2007</td><td>PTSD treatments</td><td>38 RCTs</td><td>>3,000</td><td>TF-CBT and EMDR first-line</td></tr>
+<tr><td>Johnson et al.</td><td>1999</td><td>EFT-C</td><td>7 studies</td><td>>300</td><td>d = 1.30</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>6. Viva Questions</h2>
+<p><strong>Q1. What is the Dodo bird verdict and who proposed it?</strong></p>
+<p>Luborsky et al. (1975). When bona fide psychotherapies are compared head-to-head, outcome differences are small or absent. Named after the Dodo bird in Alice in Wonderland: "everybody has won and all must have prizes." Supported by Wampold (2001): between-therapy differences d = 0.00-0.20.</p>
+<p><strong>Q2. What are Lambert's four factors of therapeutic outcome?</strong></p>
+<p>Extratherapeutic/client factors (40%), therapeutic relationship (30%), expectancy/placebo (15%), technique (15%). The relationship accounts for twice the variance of technique.</p>
+<p><strong>Q3. What is the strongest evidence that CBT works for severe depression?</strong></p>
+<p>DeRubeis et al. (2005): N = 240, moderate-to-severe MDD. CT and paroxetine had identical response rates (58%). This directly refuted the NIMH TDCRP (Elkin, 1989) finding that CBT was less effective for severe depression.</p>
+<p><strong>Q4. What evidence supports CBT's enduring effect?</strong></p>
+<p>Hollon et al. (2005): relapse rate after prior CT was 31% vs 76% after medication withdrawal. Prior CT was equivalent to continuing medication (47%). CBT provides lasting protection after discontinuation; medication does not.</p>
+<p><strong>Q5. Compare the evidence for DBT, MBT, ST, and TFP in BPD.</strong></p>
+<p>DBT (Linehan, 2006): halved suicide attempts vs expert treatment. MBT (Bateman & Fonagy, 2008): 8-year follow-up, 13% still met BPD criteria. ST (Giesen-Bloo, 2006): highest recovery rate (45.5%), lowest dropout. TFP (Clarkin, 2007): uniquely improved mentalisation. All effective; different mechanisms.</p>
+<p><strong>Q6. What is the evidence for MBCT in preventing depression relapse?</strong></p>
+<p>Teasdale (2000): MBCT halved relapse for patients with 3+ episodes (37% vs 66%). NOT effective for patients with only 2 episodes. Kuyken (2015): MBCT non-inferior to maintenance antidepressants over 24 months.</p>
+<p><strong>Q7. What are the recommended first-line treatments for PTSD?</strong></p>
+<p>Bisson et al. (2007, Cochrane): TF-CBT (including PE and CPT) and EMDR. Both are equivalent to each other. Non-trauma-focused therapies (supportive counselling, relaxation) are not recommended. Exposure is the critical ingredient (Foa, 1999, 2005).</p>
+<p><strong>Q8. What is the working alliance and how does it relate to outcome?</strong></p>
+<p>Bordin (1979): tasks, goals, bond. Alliance-outcome correlation r = 0.275 (~7.5% variance). Most replicated finding in psychotherapy research. Safran & Muran (2000): repaired alliance ruptures predict better outcomes than no rupture.</p>
+<p><strong>Q9. What did Kazdin (2007) argue about mechanisms of change?</strong></p>
+<p>Most claimed mechanisms are actually mediators. True mechanism evidence requires: temporal precedence, specificity, gradient, strong association, and plausibility. Very few psychotherapy mechanisms meet all criteria.</p>
+<p><strong>Q10. What is the evidence that psychodynamic therapy is effective?</strong></p>
+<p>Shedler (2010): d = 0.97, matching CBT benchmarks. Unique "sleeper effect" (continuing improvement post-treatment). Leichsenring & Rabung (2008): LTPP d = 0.96 for complex disorders. Steinert (2017): direct comparison with CBT shows g = -0.07 (no difference).</p>
+<p><strong>Q11. What is Gottman's contribution to couples therapy evidence?</strong></p>
+<p>Prospective longitudinal research with >3,000 couples. Four Horsemen (criticism, contempt, defensiveness, stonewalling) predict divorce at 93.6% accuracy. Stable couples: 5:1 positive-to-negative ratio during conflict. Contempt is the most toxic behaviour.</p>
+<p><strong>Q12. What is the largest psychotherapy trial for personality disorders?</strong></p>
+<p>Bamelis et al. (2014): N = 323. Schema therapy for Cluster C PDs (avoidant, dependent, OCPD) and PD NOS. ST recovery 81% vs COP 60% vs TAU 52%. ST was also more cost-effective.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For viva, know one landmark trial per modality plus one meta-analysis. Minimum set: Rush (1977), Linehan (1991/2006), Bateman & Fonagy (1999), Giesen-Bloo (2006), Foa (1999), Teasdale (2000), Wampold (2001), Shedler (2010), Cuijpers (2019).</p></div>
+<hr>
+<p><em>Weave Psychotherapy Vol. 12 — Landmark Papers & Trials</em></p>
+<p><em>Dr. Wilfred Dsouza</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

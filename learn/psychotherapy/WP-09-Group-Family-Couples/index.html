@@ -1,0 +1,1011 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Group, Family &amp; Couples Therapy &mdash; Weave Psychotherapy Vol. 9</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 9</div>
+      <div class="cover-title">Group, Family &amp; Couples Therapy</div>
+      <div class="cover-subtitle">Yalom, Minuchin, Bowen, Gottman, and Johnson</div>
+      <div class="cover-topics">Yalom&#x27;s Factors · Structural Family · Strategic · Bowen · Gottman Method · EFT-C · Group Dynamics</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Group, Family &amp; Couples Therapy &mdash; Weave Psychotherapy Vol. 9</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 9 | Group, Family &amp; Couples Therapy</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Group, Family & Couples Therapy — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-history-and-foundations-of-group-therapy" style="color:var(--indigo);text-decoration:none">History and Foundations of Group Therapy</a></li>
+  <li><a href="#2-yaloms-11-therapeutic-factors" style="color:var(--indigo);text-decoration:none">Yalom's 11 Therapeutic Factors</a></li>
+  <li><a href="#3-group-composition-and-selection" style="color:var(--indigo);text-decoration:none">Group Composition and Selection</a></li>
+  <li><a href="#4-stages-of-group-development" style="color:var(--indigo);text-decoration:none">Stages of Group Development</a></li>
+  <li><a href="#5-leadership-and-therapist-role" style="color:var(--indigo);text-decoration:none">Leadership and Therapist Role</a></li>
+  <li><a href="#6-types-of-groups" style="color:var(--indigo);text-decoration:none">Types of Groups</a></li>
+  <li><a href="#7-major-schools-of-family-therapy" style="color:var(--indigo);text-decoration:none">Major Schools of Family Therapy</a></li>
+  <li><a href="#8-key-concepts-in-family-therapy" style="color:var(--indigo);text-decoration:none">Key Concepts in Family Therapy</a></li>
+  <li><a href="#9-structural-family-therapy" style="color:var(--indigo);text-decoration:none">Structural Family Therapy</a></li>
+  <li><a href="#10-strategic-family-therapy" style="color:var(--indigo);text-decoration:none">Strategic Family Therapy</a></li>
+  <li><a href="#11-bowen-family-systems-theory" style="color:var(--indigo);text-decoration:none">Bowen Family Systems Theory</a></li>
+  <li><a href="#12-gottman-method-couples-therapy" style="color:var(--indigo);text-decoration:none">Gottman Method Couples Therapy</a></li>
+  <li><a href="#13-emotionally-focused-couples-therapy-eft" style="color:var(--indigo);text-decoration:none">Emotionally Focused Couples Therapy</a></li>
+  <li><a href="#14-behavioral-couples-therapy" style="color:var(--indigo);text-decoration:none">Behavioral Couples Therapy</a></li>
+  <li><a href="#15-evidence-base" style="color:var(--indigo);text-decoration:none">Evidence Base</a></li>
+</ol>
+
+<hr>
+<h1>PART I: GROUP THERAPY</h1>
+<hr>
+<h1>1. HISTORY AND FOUNDATIONS OF GROUP THERAPY</h1>
+<h2>1.1 The Pioneers</h2>
+<p>Group therapy did not emerge from a single theoretical tradition. It was born from convergent experiments across medicine, psychoanalysis, and social psychology.</p>
+<p><strong>Joseph Hersey Pratt (1905)</strong> is considered the father of group therapy. A Boston internist, he organized "thought control classes" for tuberculosis patients — weekly meetings where patients shared their experiences, received education about their illness, and supported each other's morale. Pratt discovered that the group itself was therapeutic: patients who attended regularly had better outcomes than those who did not, independent of any medical intervention. He called this the "class method."</p>
+<p><strong>Jacob Moreno (1931)</strong> coined the term "group psychotherapy" and developed <strong>psychodrama</strong> — a method in which patients enact their conflicts on stage rather than merely talking about them. Moreno introduced the concepts of sociometry (mapping interpersonal preferences and rejections within groups), role-playing, and the "social atom" (the nucleus of interpersonal relationships surrounding each person). He opened the first psychodrama theatre in New York in 1936.</p>
+<p><strong>Samuel Slavson (1934)</strong> brought psychoanalytic theory to group work, founding <strong>activity group therapy</strong> for children and later extending it to adults. He established the American Group Psychotherapy Association (AGPA) in 1943. Slavson's contribution was demonstrating that psychoanalytic principles — transference, resistance, free association — could operate within a group setting.</p>
+<p><strong>Wilfred Bion (1940s)</strong> at the Tavistock Clinic developed a radically different model. Working with soldiers during World War II, Bion proposed that every group simultaneously operates at two levels: the <strong>work group</strong> (task-oriented, rational) and the <strong>basic assumption group</strong> (unconscious, driven by primitive anxieties). He identified three basic assumption states:</p>
+<table>
+<thead><tr><th>Basic Assumption</th><th>Group Behaviour</th><th>Unconscious Fantasy</th></tr></thead>
+<tbody>
+<tr><td><strong>Dependency</strong></td><td>The group looks to the leader for all answers</td><td>An omnipotent figure will take care of us</td></tr>
+<tr><td><strong>Fight-Flight</strong></td><td>The group unites against an external enemy or flees from a task</td><td>Survival depends on fighting or running</td></tr>
+<tr><td><strong>Pairing</strong></td><td>Two members form a special relationship; the group watches with hope</td><td>A messianic event or figure will save us</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bion's three basic assumptions — dependency, fight-flight, and pairing — are among the most frequently examined concepts in group therapy. They describe unconscious group-level dynamics that interfere with the group's stated task.</p></div>
+<p><strong>S.H. Foulkes (1940s-60s)</strong> developed <strong>group analysis</strong> in London. Foulkes saw the group as a matrix — a network of communication where meaning emerges from the connections between members, not from any individual alone. He coined the term "group matrix" and argued that neurosis is fundamentally a disturbance in communication. The therapist's role is a "conductor" who facilitates the flow of communication rather than interpreting individual pathology.</p>
+<p><strong>Irvin Yalom (1970-present)</strong> synthesized the diverse group therapy traditions into a coherent, empirically grounded framework. His textbook <em>The Theory and Practice of Group Psychotherapy</em> (now in its 6th edition with Molyn Leszcz) remains the definitive work. Yalom's central contribution is the identification of 11 therapeutic factors that operate in all effective groups.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For any question on group therapy history, the safe answer includes Pratt (first groups), Moreno (psychodrama, sociometry), Slavson (psychoanalytic groups), Bion (basic assumptions), Foulkes (group analysis/matrix), and Yalom (therapeutic factors). Know the approximate decades and key contributions.</p></div>
+<hr>
+<h1>2. YALOM'S 11 THERAPEUTIC FACTORS</h1>
+<p>Yalom proposed that the curative power of group therapy derives not from any single technique but from a set of interdependent therapeutic factors that operate in every effective group. These 11 factors are the most frequently examined aspect of group therapy in psychiatry examinations.</p>
+<table>
+<thead><tr><th>#</th><th>Factor</th><th>Definition</th><th>Clinical Example</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Instillation of Hope</strong></td><td>Seeing others at different stages of recovery fosters optimism</td><td>A newly diagnosed patient with depression sees another member who has recovered significantly</td></tr>
+<tr><td>2</td><td><strong>Universality</strong></td><td>Realising one is not alone in suffering</td><td>A man with OCD discovers others share intrusive thoughts — "I thought I was the only one"</td></tr>
+<tr><td>3</td><td><strong>Imparting Information</strong></td><td>Psychoeducation and direct advice from therapist or members</td><td>Substance abuse group discusses pharmacology of alcohol withdrawal</td></tr>
+<tr><td>4</td><td><strong>Altruism</strong></td><td>Members benefit from helping others; purpose through giving</td><td>A member who struggled with self-worth discovers she can offer comfort to a grieving peer</td></tr>
+<tr><td>5</td><td><strong>Corrective Recapitulation of the Primary Family Group</strong></td><td>The group re-creates family dynamics, offering a chance to rework early relational patterns</td><td>A woman who was invisible in her family of origin learns to assert her needs in the group</td></tr>
+<tr><td>6</td><td><strong>Development of Socialising Techniques</strong></td><td>Learning basic social skills through feedback and modelling</td><td>A socially anxious member receives gentle feedback that his silence is perceived as hostility</td></tr>
+<tr><td>7</td><td><strong>Imitative Behaviour</strong></td><td>Modelling after the therapist or other members</td><td>A member adopts the therapist's calm, validating communication style in her own life</td></tr>
+<tr><td>8</td><td><strong>Interpersonal Learning</strong></td><td>The group becomes a social microcosm; members enact their relational patterns and receive corrective feedback</td><td>A man who dominates conversations is confronted by peers — for the first time, he hears how his behaviour affects others</td></tr>
+<tr><td>9</td><td><strong>Group Cohesiveness</strong></td><td>The sense of belonging, acceptance, and mutual valuing within the group</td><td>Members consistently attend despite logistical difficulties because "this is the only place I can be myself"</td></tr>
+<tr><td>10</td><td><strong>Catharsis</strong></td><td>Expression of strong emotions within a safe, accepting context</td><td>A member weeps openly about childhood abuse and is met with empathy rather than judgment</td></tr>
+<tr><td>11</td><td><strong>Existential Factors</strong></td><td>Confronting fundamental issues of existence — death, isolation, freedom, meaninglessness</td><td>A terminally ill member's honesty about mortality transforms the group's perspective on their own complaints</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Yalom's 11 therapeutic factors should be memorised as a complete list. The most commonly tested are: universality, interpersonal learning, group cohesiveness, catharsis, and existential factors. Group cohesiveness is to group therapy what the therapeutic alliance is to individual therapy — the foundational condition.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><div class="device">I U I A C D I I G C E</div><p>— Instillation of hope, Universality, Imparting information, Altruism, Corrective recapitulation, Development of socialising techniques, Imitative behaviour, Interpersonal learning, Group cohesiveness, Catharsis, Existential factors. Alternatively, remember: <strong>"HUG A CRISIS ICE"</strong> — Hope, Universality, Group cohesiveness, Altruism, Corrective recapitulation, Recapitulation (socialising), Imitative, Socialising, Interpersonal learning, Catharsis, Existential.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Interpersonal learning is the factor that most distinguishes group therapy from individual therapy. The group functions as a social microcosm — members inevitably reproduce their characteristic relational patterns in the group. Unlike real life, the group provides immediate, honest feedback. This "here and now" focus is the engine of change in process-oriented groups.</p></div>
+<h3>Relative Importance by Group Type</h3>
+<p>The 11 factors do not contribute equally in every group. Their relative importance shifts depending on the group's purpose:</p>
+<table>
+<thead><tr><th>Group Type</th><th>Most Active Factors</th></tr></thead>
+<tbody>
+<tr><td>Inpatient acute</td><td>Instillation of hope, universality, imparting information, group cohesiveness</td></tr>
+<tr><td>Outpatient process</td><td>Interpersonal learning, catharsis, existential factors, group cohesiveness</td></tr>
+<tr><td>Psychoeducation</td><td>Imparting information, universality, instillation of hope</td></tr>
+<tr><td>Support groups</td><td>Universality, altruism, group cohesiveness, catharsis</td></tr>
+<tr><td>DBT skills group</td><td>Imparting information, development of socialising techniques, imitative behaviour</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>3. GROUP COMPOSITION AND SELECTION</h1>
+<h2>3.1 Inclusion and Exclusion Criteria</h2>
+<p>Not every patient benefits from group therapy. Yalom proposed that the single most important selection principle is: <strong>the patient must be able to participate in the group task.</strong> For a process-oriented group, this means the capacity for interpersonal interaction, self-reflection, and emotional tolerance.</p>
+<p><strong>General inclusion criteria:</strong></p>
+<ul>
+  <li>Motivation and willingness to participate</li>
+  <li>Capacity for interpersonal relating</li>
+  <li>Some capacity for self-observation</li>
+  <li>Problems amenable to interpersonal intervention (relationship difficulties, social isolation, low self-esteem)</li>
+  <li>Stable enough to tolerate group affect</li>
+</ul>
+
+<p><strong>General exclusion criteria:</strong></p>
+<ul>
+  <li>Active psychosis with disorganised thinking</li>
+  <li>Severe antisocial personality (exploits the group, cannot empathise)</li>
+  <li>Active suicidality requiring individual containment</li>
+  <li>Brain injury or cognitive impairment preventing group interaction</li>
+  <li>Inability to tolerate a group setting (severe paranoia, extreme social phobia)</li>
+  <li>Active substance intoxication</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The most commonly cited contraindication for outpatient process group therapy is severe antisocial personality. Such patients may dominate, exploit, or traumatise other members without capacity for empathy or self-reflection.</p></div>
+<h2>3.2 Group Size and Structure</h2>
+<ul>
+  <li><strong>Optimal size:</strong> 7-8 members for process-oriented outpatient groups (Yalom). Minimum 5 to maintain viability when members are absent; maximum 10 to allow each member adequate airtime.</li>
+  <li><strong>Inpatient groups:</strong> Can be larger (8-12), with modified goals (symptom management, discharge planning, psychoeducation).</li>
+  <li><strong>Open vs. closed groups:</strong> Closed groups have a fixed membership and defined duration (e.g., 12-session CBT group). Open groups accept new members on a rolling basis as others leave (typical of long-running process groups).</li>
+  <li><strong>Session frequency:</strong> Weekly for outpatient (60-90 minutes); daily for inpatient (45-60 minutes).</li>
+</ul>
+
+<h2>3.3 Heterogeneity vs. Homogeneity</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Homogeneous Groups</th><th>Heterogeneous Groups</th></tr></thead>
+<tbody>
+<tr><td><strong>Composition</strong></td><td>Similar diagnosis or problem</td><td>Mixed diagnoses, diverse backgrounds</td></tr>
+<tr><td><strong>Advantage</strong></td><td>Rapid cohesion, universality, less dropout</td><td>Richer interpersonal learning, broader social microcosm</td></tr>
+<tr><td><strong>Disadvantage</strong></td><td>Narrower range of interaction, may collude in avoidance</td><td>Slower to gel, higher initial dropout</td></tr>
+<tr><td><strong>Best for</strong></td><td>Psychoeducation, support, early treatment, specific diagnoses</td><td>Long-term process, interpersonal growth</td></tr>
+<tr><td><strong>Principle</strong></td><td>Homogeneous for support, heterogeneous for change</td><td>—</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If asked whether groups should be homogeneous or heterogeneous, the answer depends on the goal. For symptom relief and psychoeducation, homogeneity is preferred. For interpersonal growth and personality change, heterogeneity is preferred. Yalom's rule: "Homogeneous for support, heterogeneous for interpersonal learning."</p></div>
+<hr>
+<h1>4. STAGES OF GROUP DEVELOPMENT</h1>
+<p>All groups pass through predictable developmental stages. Two models dominate the literature.</p>
+<h3>Tuckman's Model (1965)</h3>
+<table>
+<thead><tr><th>Stage</th><th>Characteristics</th><th>Therapist Task</th></tr></thead>
+<tbody>
+<tr><td><strong>Forming</strong></td><td>Orientation, tentative engagement, dependency on leader, superficial politeness, search for structure</td><td>Provide structure, set norms, reduce anxiety</td></tr>
+<tr><td><strong>Storming</strong></td><td>Conflict, competition for dominance, challenge to the leader, frustration, testing boundaries</td><td>Normalise conflict, model tolerance, avoid retaliating</td></tr>
+<tr><td><strong>Norming</strong></td><td>Cohesion develops, shared norms emerge, trust deepens, mutual support</td><td>Reinforce group norms, facilitate self-disclosure</td></tr>
+<tr><td><strong>Performing</strong></td><td>Productive work, interpersonal learning, constructive confrontation, genuine intimacy</td><td>Focus on here-and-now, deepen process, interpret patterns</td></tr>
+<tr><td><strong>Adjourning</strong></td><td>Termination, mourning, consolidation of gains, regression</td><td>Process endings, review progress, anticipate relapse</td></tr>
+</tbody>
+</table>
+
+<h3>Clinical Stage Model</h3>
+<table>
+<thead><tr><th>Stage</th><th>Key Process</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td><strong>Early (Initial)</strong></td><td>Engagement, trust-building, norm-setting, here-and-now focus established</td><td>Sessions 1-6</td></tr>
+<tr><td><strong>Transition</strong></td><td>Conflict, resistance, dominance struggles, confrontation of the therapist</td><td>Sessions 6-12</td></tr>
+<tr><td><strong>Working</strong></td><td>Interpersonal learning, emotional exploration, cohesive and productive</td><td>Sessions 12-end</td></tr>
+<tr><td><strong>Termination</strong></td><td>Mourning, consolidation, transfer of gains</td><td>Final 2-4 sessions</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The storming/transition phase is where most premature dropouts occur. Members who survive the conflict phase and enter the norming/working phase show the greatest therapeutic gains. The therapist's task during storming is to normalise conflict, not suppress it.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>A common beginner's error is to rescue the group from conflict during the storming phase. Conflict, if managed well, builds cohesion. The group needs to learn that disagreement does not destroy relationships — this is a corrective emotional experience for members whose families punished conflict.</p></div>
+<hr>
+<h1>5. LEADERSHIP AND THERAPIST ROLE</h1>
+<h2>5.1 Leadership Styles</h2>
+<p>Lieberman, Yalom, and Miles (1973) studied encounter groups and identified four key leadership functions:</p>
+<table>
+<thead><tr><th>Function</th><th>Description</th><th>Too Much</th><th>Too Little</th></tr></thead>
+<tbody>
+<tr><td><strong>Emotional stimulation</strong></td><td>Challenging, confronting, modelling self-disclosure</td><td>Aggressive, overwhelming</td><td>Flat, uninspiring</td></tr>
+<tr><td><strong>Caring</strong></td><td>Warmth, acceptance, genuineness, support</td><td>Overprotective, fosters dependency</td><td>Cold, detached</td></tr>
+<tr><td><strong>Meaning attribution</strong></td><td>Interpreting, labelling patterns, explaining process</td><td>Intellectualised, overly cerebral</td><td>No framework for understanding</td></tr>
+<tr><td><strong>Executive function</strong></td><td>Setting norms, managing time, stopping destructive behaviour</td><td>Rigid, authoritarian</td><td>Chaotic, unsafe</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Lieberman, Yalom & Miles (1973) found that the most effective group leaders combined moderate emotional stimulation with high caring, high meaning attribution, and moderate executive function. The least effective were "aggressive stimulators" (high confrontation, low caring) — these leaders produced the most casualties.</p></div>
+<h2>5.2 Co-Therapy</h2>
+<p>Co-therapy involves two therapists leading a group simultaneously. Advantages include broader observation, modelling of healthy disagreement, gender balance, mutual support, and backup when one therapist is absent. Disadvantages include higher cost, the risk of splitting (members pitting therapists against each other), and the need for co-therapists to process their relationship regularly.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>If co-therapists disagree in session, this is not a failure — it is an opportunity. Openly processing disagreement between therapists models healthy conflict resolution and demonstrates that relationships can survive difference.</p></div>
+<h2>5.3 Common Therapist Errors</h2>
+<ul>
+  <li><strong>Rescuing the group from silence or conflict</strong> — silence is often productive; premature intervention interrupts processing</li>
+  <li><strong>Favouritism</strong> — unconscious alliance with particular members</li>
+  <li><strong>Self-disclosure without purpose</strong> — therapist self-disclosure should be brief, relevant, and in service of the group</li>
+  <li><strong>Allowing monopolising</strong> — one member dominates while others disengage</li>
+  <li><strong>Neglecting the here-and-now</strong> — drifting into storytelling about outside events rather than processing in-group experience</li>
+  <li><strong>Failing to address absences</strong> — unexplained absences carry meaning and must be explored</li>
+</ul>
+
+<hr>
+<h1>6. TYPES OF GROUPS</h1>
+<table>
+<thead><tr><th>Type</th><th>Primary Focus</th><th>Therapeutic Factors Emphasised</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td><strong>Psychoeducational</strong></td><td>Information delivery, skill acquisition</td><td>Imparting information, universality, hope</td><td>Relapse prevention, medication education, illness management</td></tr>
+<tr><td><strong>Process/Interpersonal</strong></td><td>Here-and-now interpersonal interaction</td><td>Interpersonal learning, group cohesiveness, catharsis, existential factors</td><td>Yalom-style outpatient groups</td></tr>
+<tr><td><strong>Support</strong></td><td>Mutual aid, coping with shared adversity</td><td>Universality, altruism, group cohesiveness</td><td>Cancer support, caregiver groups, bereavement</td></tr>
+<tr><td><strong>Skills-Based</strong></td><td>Structured teaching of specific skills</td><td>Imparting information, socialising techniques, imitative behaviour</td><td>DBT skills group, social skills training, anger management</td></tr>
+<tr><td><strong>Psychodrama</strong></td><td>Enactment, role-reversal, emotional release</td><td>Catharsis, corrective recapitulation, interpersonal learning</td><td>Moreno's method; scenes, soliloquy, doubling, role-reversal</td></tr>
+<tr><td><strong>Self-Help/12-Step</strong></td><td>Peer-led recovery and accountability</td><td>Universality, altruism, hope, group cohesiveness</td><td>AA, NA, SMART Recovery, Recovery Inc.</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DBT skills groups are not process groups. They are structured psychoeducational groups that teach four modules: mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness. Individual processing of emotions and crises occurs in individual DBT therapy, not in the skills group. This split is deliberate — Linehan designed it to prevent the emotional contagion and session disruption that occurs when patients with BPD process intense emotions in a group format.</p></div>
+<hr>
+<h1>PART II: FAMILY THERAPY</h1>
+<hr>
+<h1>7. MAJOR SCHOOLS OF FAMILY THERAPY</h1>
+<p>Family therapy emerged in the 1950s from the recognition that individual psychopathology cannot be understood in isolation — it exists within and is maintained by a relational system. The "identified patient" is the symptom-bearer, not necessarily the source of dysfunction.</p>
+<h3>Comparison of Major Schools</h3>
+<table>
+<thead><tr><th>School</th><th>Founder(s)</th><th>Core Concept</th><th>Unit of Analysis</th><th>Primary Technique</th><th>Therapist Stance</th></tr></thead>
+<tbody>
+<tr><td><strong>Structural</strong></td><td>Salvador Minuchin</td><td>Boundaries, subsystems, hierarchy</td><td>Family structure</td><td>Joining, enactment, restructuring</td><td>Active, directive, joins the system</td></tr>
+<tr><td><strong>Strategic</strong></td><td>Jay Haley, MRI Group (Watzlawick, Weakland, Fisch)</td><td>Sequences, power, homeostasis</td><td>Repetitive interaction sequences</td><td>Directives, paradoxical interventions, reframing</td><td>Expert, directive, prescriptive</td></tr>
+<tr><td><strong>Systemic/Milan</strong></td><td>Selvini Palazzoli, Boscolo, Cecchin, Prata</td><td>Circular causality, hypothesis, neutrality</td><td>Belief systems and meaning</td><td>Circular questioning, positive connotation, rituals</td><td>Curious, neutral, hypothesising</td></tr>
+<tr><td><strong>Bowenian</strong></td><td>Murray Bowen</td><td>Differentiation, triangles, multigenerational transmission</td><td>Multigenerational emotional system</td><td>Genogram, coaching, I-position</td><td>Coach, non-anxious presence</td></tr>
+<tr><td><strong>Experiential</strong></td><td>Virginia Satir, Carl Whitaker</td><td>Emotional experience, communication stances, spontaneity</td><td>Immediate affective experience</td><td>Family sculpting, communication stances, I-messages</td><td>Warm, spontaneous, personal</td></tr>
+<tr><td><strong>Narrative</strong></td><td>Michael White, David Epston</td><td>Stories, dominant narratives, externalisation</td><td>Meaning and language</td><td>Externalising the problem, unique outcomes, re-authoring</td><td>Decentred, curious, co-author</td></tr>
+<tr><td><strong>Solution-Focused</strong></td><td>Steve de Shazer, Insoo Kim Berg</td><td>Exceptions, solutions, strengths</td><td>What works already</td><td>Miracle question, scaling, exception finding</td><td>Collaborative, future-focused</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For viva questions, you must be able to name the founder and one distinguishing technique for each school. The most commonly examined are Structural (Minuchin), Strategic (Haley), and Bowenian (Bowen). Narrative and Solution-Focused appear increasingly in modern examinations.</p></div>
+<hr>
+<h1>8. KEY CONCEPTS IN FAMILY THERAPY</h1>
+<h2>8.1 Systems Theory</h2>
+<p>Family therapy is grounded in <strong>general systems theory</strong> (von Bertalanffy, 1968). A system is more than the sum of its parts — the family's properties emerge from the interactions among its members, not from the characteristics of any individual member.</p>
+<p>Core systemic principles:</p>
+<ul>
+  <li><strong>Circular causality</strong> — in a system, cause and effect are not linear. A causes B, which reinforces A. A wife's nagging may be both a cause and consequence of a husband's withdrawal. Asking "who started it?" is meaningless in circular terms.</li>
+  <li><strong>Homeostasis</strong> — systems resist change. When one member improves, another may worsen to maintain the system's equilibrium. This is why individual therapy sometimes fails — the family system sabotages the patient's gains.</li>
+  <li><strong>Equifinality</strong> — the same endpoint can be reached from different starting points. Multiple pathways lead to the same family dysfunction.</li>
+  <li><strong>Feedback loops</strong> — negative feedback maintains stability (homeostasis); positive feedback amplifies deviation (escalation or crisis).</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Homeostasis explains why a patient who improves in individual therapy may relapse when returning to their family. The family system is invested in maintaining its current equilibrium, even if that equilibrium includes pathology. The "identified patient" serves a function in the system.</p></div>
+<h2>8.2 Boundaries</h2>
+<p>Minuchin described three types of boundaries between family subsystems:</p>
+<table>
+<thead><tr><th>Boundary Type</th><th>Description</th><th>Family Pattern</th><th>Clinical Consequence</th></tr></thead>
+<tbody>
+<tr><td><strong>Clear</strong></td><td>Defined but permeable; appropriate exchange of information and emotion</td><td>Healthy, flexible</td><td>Adaptive functioning</td></tr>
+<tr><td><strong>Rigid</strong></td><td>Impermeable; members are isolated and disconnected</td><td>Disengagement</td><td>Emotional isolation, independence without support, delayed help-seeking</td></tr>
+<tr><td><strong>Diffuse</strong></td><td>Overly permeable; no differentiation between members</td><td>Enmeshment</td><td>Over-involvement, loss of autonomy, poor individuation, psychosomatic symptoms</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Minuchin proposed that enmeshed families produce psychosomatic symptoms (anorexia nervosa, asthma, diabetes) because the child's body becomes the vehicle for expressing family conflict that cannot be spoken. The "psychosomatic family" (Minuchin, Rosman & Baker, 1978) has four characteristics: enmeshment, overprotectiveness, rigidity, and lack of conflict resolution.</p></div>
+<h2>8.3 Triangulation</h2>
+<p>A two-person relationship under stress recruits a third person to stabilise itself. This is <strong>triangulation</strong> — the fundamental unit of relational stability (Bowen). The child who is drawn into a marital conflict, the mother-in-law who sides with her son against his wife, the therapist who is pulled to take sides — all are examples of triangulation. Bowen considered triangulation the most important concept in family systems theory.</p>
+<h2>8.4 Other Key Terms</h2>
+<table>
+<thead><tr><th>Term</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td><strong>Identified patient (IP)</strong></td><td>The family member who carries the symptom; "the one who brings the family to treatment"</td></tr>
+<tr><td><strong>Genogram</strong></td><td>A multigenerational family map (typically 3 generations) showing patterns of relationship, illness, and repetition</td></tr>
+<tr><td><strong>Subsystems</strong></td><td>Functional subunits within the family: spousal, parental, sibling</td></tr>
+<tr><td><strong>Hierarchy</strong></td><td>The power structure of the family; clear hierarchy is adaptive</td></tr>
+<tr><td><strong>Parentification</strong></td><td>A child is assigned an adult caretaking role</td></tr>
+<tr><td><strong>Scapegoating</strong></td><td>One member is blamed for the family's dysfunction</td></tr>
+<tr><td><strong>Family myth</strong></td><td>A shared, unchallenged belief that maintains homeostasis ("We are a happy family")</td></tr>
+<tr><td><strong>Double bind</strong></td><td>Bateson's concept: contradictory messages at different levels (verbal vs. nonverbal) from which there is no escape</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The double bind (Bateson, Jackson, Haley & Weakland, 1956) was originally proposed as a communication pattern causing schizophrenia. While this etiological claim has been abandoned, the concept remains clinically useful as a description of paradoxical, "no-win" communication patterns in dysfunctional families.</p></div>
+<hr>
+<h1>9. STRUCTURAL FAMILY THERAPY</h1>
+<h2>9.1 Salvador Minuchin</h2>
+<p>Structural family therapy was developed by Salvador Minuchin at the Philadelphia Child Guidance Clinic in the 1960s-70s. Minuchin worked with disadvantaged, inner-city families and with psychosomatic families (anorexia, asthma). His model is action-oriented, present-focused, and directive.</p>
+<h2>9.2 Core Premise</h2>
+<p>Symptoms arise from dysfunctional family structures — specifically, from inappropriate boundaries, coalitions, and hierarchy. Treatment involves actively restructuring these patterns within the session.</p>
+<h2>9.3 Key Techniques</h2>
+<table>
+<thead><tr><th>Technique</th><th>Description</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>Joining</strong></td><td>The therapist enters the family system by accommodating to its style, language, and affect</td><td>Builds alliance, gains leverage for change</td></tr>
+<tr><td><strong>Enactment</strong></td><td>The therapist asks family members to demonstrate their typical interaction pattern in session</td><td>Makes implicit patterns visible and modifiable</td></tr>
+<tr><td><strong>Restructuring</strong></td><td>Direct intervention to change family organisation — shifting alliances, strengthening boundaries</td><td>Changes the structure that maintains symptoms</td></tr>
+<tr><td><strong>Boundary making</strong></td><td>The therapist creates or reinforces boundaries between subsystems</td><td>Corrects enmeshment or disengagement</td></tr>
+<tr><td><strong>Unbalancing</strong></td><td>The therapist deliberately sides with one family member to shift the power structure</td><td>Disrupts rigid hierarchies and coalitions</td></tr>
+<tr><td><strong>Intensity</strong></td><td>Repeating, prolonging, or amplifying a message until the family registers it</td><td>Overcomes homeostatic resistance</td></tr>
+<tr><td><strong>Complementarity</strong></td><td>Challenging the family's linear view ("he is the problem") and reframing in systemic terms</td><td>Shifts from IP to relational pattern</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Enactment is the hallmark of structural family therapy. Rather than asking the family to describe their problems (which invites rehearsed narratives), the therapist says: "Show me. Turn to your son right now and tell him what you need." The therapist then observes the actual pattern and intervenes in real time.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Minuchin's "lunch session" for anorexia nervosa is a classic technique — the family eats together in session while the therapist observes and intervenes in the feeding dynamics. This enactment makes the enmeshment and conflict avoidance visible.</p></div>
+<hr>
+<h1>10. STRATEGIC FAMILY THERAPY</h1>
+<h2>10.1 Origins</h2>
+<p>Strategic family therapy emerged from two sources: Jay Haley's work (influenced by Milton Erickson's hypnotherapy) and the Mental Research Institute (MRI) in Palo Alto (Watzlawick, Weakland, and Fisch). The MRI group focused on communication and the "attempted solutions" that maintain problems.</p>
+<h2>10.2 Core Premise</h2>
+<p>Problems persist because of the sequences of interaction around them — specifically, the "attempted solutions" that families use to solve the problem actually maintain it. Therapy involves interrupting these self-reinforcing sequences.</p>
+<h2>10.3 Key Techniques</h2>
+<table>
+<thead><tr><th>Technique</th><th>Description</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Directives</strong></td><td>Homework tasks designed to alter the sequence</td><td>"This week, when your son refuses to eat, leave the table without commenting"</td></tr>
+<tr><td><strong>Paradoxical intervention</strong></td><td>Prescribing the symptom or the resistance</td><td>"I want you to argue for exactly 30 minutes every evening at 7 PM"</td></tr>
+<tr><td><strong>Prescribing the symptom</strong></td><td>Asking the patient to deliberately produce the symptom</td><td>"Try to have a panic attack right now in this room"</td></tr>
+<tr><td><strong>Reframing</strong></td><td>Relabelling behaviour to change its meaning within the system</td><td>"Your daughter's rebelliousness is actually her attempt to bring the family together"</td></tr>
+<tr><td><strong>Restraining change</strong></td><td>The therapist discourages change, predicting relapse</td><td>"Don't change too quickly — the family isn't ready"</td></tr>
+<tr><td><strong>Ordeal therapy</strong> (Haley)</td><td>The therapist prescribes a task more burdensome than the symptom</td><td>If insomnia persists, the patient must get up and scrub floors until dawn</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Paradoxical interventions work through two mechanisms: (1) if the patient complies (produces the symptom deliberately), they gain control over it — a previously involuntary symptom becomes voluntary; (2) if the patient rebels (refuses to produce the symptom), the symptom disappears. Either outcome is therapeutic.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Paradoxical interventions require experience and careful case formulation. They should never be used with suicidal or self-harming patients ("I want you to cut yourself tonight" is malpractice, not strategy). They work best with oppositional, control-focused presentations.</p></div>
+<hr>
+<h1>11. BOWEN FAMILY SYSTEMS THEORY</h1>
+<h2>11.1 Murray Bowen</h2>
+<p>Bowen developed his theory at the National Institute of Mental Health (NIMH) in the 1950s, initially studying families of schizophrenic patients. He later expanded his model into a comprehensive theory of the family emotional system. Bowen's theory is the most multigenerational of all family therapy approaches.</p>
+<h2>11.2 Eight Interlocking Concepts</h2>
+<table>
+<thead><tr><th>Concept</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Differentiation of Self</strong></td><td>The capacity to maintain one's own thinking and emotional functioning in the face of family pressure. High differentiation = can be close without being absorbed, can be separate without being cut off. Low differentiation = emotional fusion, reactivity, driven by the approval or anxiety of others. Bowen's "Differentiation of Self Scale" ranges from 0 (complete fusion) to 100 (complete differentiation — theoretical ideal).</td></tr>
+<tr><td><strong>2. Triangles</strong></td><td>The basic unit of the emotional system. Under stress, a two-person relationship becomes unstable and pulls in a third person. Triangles can involve people, substances, or activities (work, affairs).</td></tr>
+<tr><td><strong>3. Nuclear Family Emotional System</strong></td><td>Four patterns through which family tension is managed: (a) marital conflict, (b) dysfunction in one spouse, (c) impairment in one or more children, (d) emotional distance.</td></tr>
+<tr><td><strong>4. Family Projection Process</strong></td><td>Parents project their anxiety and undifferentiation onto a specific child, who becomes the most symptomatic family member. The "chosen" child is often the one who is most emotionally attuned to the mother's anxiety.</td></tr>
+<tr><td><strong>5. Multigenerational Transmission Process</strong></td><td>Differentiation levels are transmitted across generations. Children at the lowest differentiation level in each generation select partners at a similar level — over multiple generations, differentiation progressively decreases in one branch and increases in another.</td></tr>
+<tr><td><strong>6. Emotional Cutoff</strong></td><td>The way people manage unresolved emotional issues with parents/family by reducing or totally cutting off contact. Cutoff creates the illusion of autonomy but the emotional reactivity remains — it simply gets displaced onto new relationships.</td></tr>
+<tr><td><strong>7. Sibling Position</strong></td><td>Based on Walter Toman's work on birth order. Oldest children, youngest children, and middle children develop predictable functional characteristics that influence marital choice and family dynamics.</td></tr>
+<tr><td><strong>8. Societal Emotional Process</strong></td><td>Bowen's extension of family systems theory to society. When societal anxiety rises (economic crisis, war), regression to lower differentiation occurs — scapegoating, polarisation, short-term thinking.</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Differentiation of self is the master concept of Bowen's theory. It is NOT the same as autonomy or independence. A highly differentiated person can be deeply emotionally connected without losing their sense of self. The opposite of differentiation is emotional fusion — being governed by the emotional field of others.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><div class="device">DTFN MESS</div><p>— Differentiation, Triangles, Family projection process, Nuclear family emotional system, Multigenerational transmission, Emotional cutoff, Sibling position, Societal emotional process.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Bowen therapy is not conducted with the whole family in the room. The therapist works primarily with the most motivated individual (often one partner) to increase their differentiation. As this person becomes less reactive, the system shifts around them. Bowen called this "coaching" — the therapist helps the individual plan strategic re-engagements with their family of origin.</p></div>
+<h3>Structural vs. Strategic vs. Bowen: Comparison Table</h3>
+<table>
+<thead><tr><th>Dimension</th><th>Structural (Minuchin)</th><th>Strategic (Haley/MRI)</th><th>Bowenian</th></tr></thead>
+<tbody>
+<tr><td><strong>Focus</strong></td><td>Family structure (boundaries, hierarchy)</td><td>Repetitive interaction sequences</td><td>Multigenerational emotional process</td></tr>
+<tr><td><strong>Time frame</strong></td><td>Present</td><td>Present</td><td>Multigenerational</td></tr>
+<tr><td><strong>Unit of treatment</strong></td><td>Whole family in session</td><td>Varies (family, couple, individual)</td><td>Often one person (coaching)</td></tr>
+<tr><td><strong>Therapist role</strong></td><td>Active director, joins the system</td><td>Expert strategist, directive</td><td>Coach, non-anxious presence</td></tr>
+<tr><td><strong>Key technique</strong></td><td>Enactment, restructuring</td><td>Directives, paradox, reframing</td><td>Genogram, differentiation coaching</td></tr>
+<tr><td><strong>View of symptoms</strong></td><td>Product of dysfunctional structure</td><td>Maintained by attempted solutions</td><td>Expression of low differentiation and triangulation</td></tr>
+<tr><td><strong>Insight required?</strong></td><td>No — action changes structure</td><td>No — behaviour change is the goal</td><td>Yes — self-knowledge enables change</td></tr>
+<tr><td><strong>Duration</strong></td><td>Short to medium term</td><td>Brief (5-20 sessions)</td><td>Long term</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>PART III: COUPLES THERAPY</h1>
+<hr>
+<h1>12. GOTTMAN METHOD COUPLES THERAPY</h1>
+<h2>12.1 The Research Foundation</h2>
+<p>John Gottman's approach is unique in couples therapy: it is built entirely from longitudinal observational research conducted at the University of Washington's "Love Lab" over 40+ years, studying 700+ couples across seven separate studies. Gottman can predict divorce with 91% accuracy by observing a couple interact for as little as 15 minutes.</p>
+<p><strong>Core finding:</strong> Marital success depends not on conflict resolution skill but on the quality of the couple's friendship.</p>
+<h2>12.2 The Four Horsemen of the Apocalypse</h2>
+<p>The four destructive communication patterns that predict divorce:</p>
+<table>
+<thead><tr><th>Horseman</th><th>Definition</th><th>Behavioural Markers</th><th>Antidote</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Criticism</strong></td><td>Global negative statement about partner's character (differs from complaint, which targets a specific behaviour)</td><td>"You always...", "You never...", "What is wrong with you?"</td><td><strong>Gentle start-up / Specific complaint:</strong> "I feel [emotion] about [specific situation] and I need [positive request]"</td></tr>
+<tr><td><strong>2. Contempt</strong></td><td>Expression of superiority and disgust; fuelled by long-simmering negative thoughts</td><td>Sarcasm, cynicism, name-calling, eye-rolling, mockery, sneering, hostile humour</td><td><strong>Fondness and admiration:</strong> Build a daily culture of appreciation; scan for what partner does right</td></tr>
+<tr><td><strong>3. Defensiveness</strong></td><td>Counter-blame: "The problem isn't me, it's you"</td><td>Innocent victim stance, whining, cross-complaining, meeting complaint with complaint</td><td><strong>Accept responsibility:</strong> Even partial — "You have a point. I could have handled that better."</td></tr>
+<tr><td><strong>4. Stonewalling</strong></td><td>Emotional withdrawal — no eye contact, no verbal cues, no facial response</td><td>Disengagement, looking away, leaving the room, emotional shutdown</td><td><strong>Self-soothing:</strong> Take a 20+ minute break when physiologically flooded (HR > 100 bpm); return when calm</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Contempt is the single best predictor of divorce. It differs from criticism in that it expresses superiority and disgust from a position of moral authority. Couples who show contempt have more infectious illness — contempt literally makes you sick.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Four Horsemen predict divorce at 82% accuracy alone. Adding failed repair attempts raises prediction into the 90s. The difference between stable and unstable couples is not the absence of Horsemen but the success of repair attempts.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p><strong>MNEMONIC: C-C-D-S</strong> — Criticism, Contempt, Defensiveness, Stonewalling. ("Criticise, Condemn, Defend, Shut down.")</p></div>
+<h2>12.3 The Sound Relationship House</h2>
+<p>Gottman's architectural metaphor for a healthy marriage:</p>
+<table>
+<thead><tr><th>Level</th><th>Component</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>1 (Base)</strong></td><td>Love Maps</td><td>Detailed cognitive map of partner's inner world — worries, hopes, stresses, preferences</td></tr>
+<tr><td><strong>2</strong></td><td>Fondness & Admiration</td><td>Fundamental sense that partner is worthy of respect and affection; antidote to contempt</td></tr>
+<tr><td><strong>3</strong></td><td>Turning Toward</td><td>Responding to bids for connection; funding the emotional bank account</td></tr>
+<tr><td><strong>4</strong></td><td>Positive Sentiment Override (PSO)</td><td>The resultant state of levels 1-3; benefit of the doubt in ambiguous situations</td></tr>
+<tr><td><strong>5</strong></td><td>Manage Conflict</td><td>Solvable problems (soft start-up, repair, compromise) and perpetual problems (dialogue about dreams)</td></tr>
+<tr><td><strong>6</strong></td><td>Make Life Dreams Come True</td><td>Honour aspirations; overcome gridlock by uncovering hidden dreams</td></tr>
+<tr><td><strong>7 (Top)</strong></td><td>Create Shared Meaning</td><td>Rituals, roles, goals, values — a "culture of two"</td></tr>
+<tr><td><strong>WALLS</strong></td><td>Trust & Commitment</td><td>Weight-bearing walls that protect the entire structure</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Sound Relationship House has 7 levels with Trust and Commitment as the weight-bearing walls. The first three levels (Love Maps, Fondness/Admiration, Turning Toward) build the friendship system. The top levels (Manage Conflict, Life Dreams, Shared Meaning) manage conflict and create purpose.</p></div>
+<h2>12.4 Key Concepts and Data Points</h2>
+<p><strong>The 5:1 Ratio:</strong> Stable, happy marriages maintain at least 5 positive interactions for every 1 negative during conflict. This is the single most replicated finding in marital research.</p>
+<p><strong>Repair Attempts:</strong> Gottman's term for any statement or action that prevents negativity from escalating. Repair attempts are the single most important predictor of marital stability. Their success depends not on eloquence but on the quality of the underlying friendship (PSO).</p>
+<p><strong>Perpetual vs. Solvable Problems:</strong> 69% of marital problems are perpetual (fundamental differences that will never be fully resolved). The difference between happy and unhappy couples is not whether they have perpetual problems but whether they can dialogue about them with humour and acceptance — or become gridlocked.</p>
+<p><strong>Flooding / Diffuse Physiological Arousal (DPA):</strong> When HR exceeds 100 bpm during conflict, the individual enters fight-or-flight. Creative problem-solving becomes physiologically impossible. The only productive response is a 20+ minute self-soothing break.</p>
+<p><strong>Harsh Start-Up:</strong> The outcome of a conversation can be predicted from the first 3 minutes, 96% of the time. Soft start-up (accept responsibility + state feelings + describe situation + state positive need) is critical.</p>
+<p><strong>Bids for Connection:</strong> Married couples turn toward bids 86% of the time; couples who later divorced averaged 33%.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>When assessing a couple, ask about their early history. Positive, vivid recall = fondness/admiration system intact, marriage salvageable. Negative rewriting or inability to remember = poor prognosis. 94% predictive accuracy (Gottman's Oral History Interview).</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The Stress-Reducing Conversation (20-30 minutes daily about external stresses, NOT the marriage) is the single most effective "turning toward" activity. Rules: genuine interest, no unsolicited advice, take partner's side, validate emotions. "When you are in pain, the world stops and I listen."</p></div>
+<hr>
+<h1>13. EMOTIONALLY FOCUSED COUPLES THERAPY (EFT)</h1>
+<h2>13.1 Susan Johnson and Attachment</h2>
+<p>EFT was developed by Sue Johnson and Les Greenberg in the 1980s. It is grounded in <strong>attachment theory</strong> (Bowlby) — the premise that adults, like children, need a secure emotional bond with a primary attachment figure. Relationship distress occurs when this bond is threatened, triggering protest behaviours (anger, anxiety, demands) or withdrawal (shutdown, distance).</p>
+<h2>13.2 Negative Interaction Cycles</h2>
+<p>Johnson identifies predictable self-reinforcing cycles that trap couples:</p>
+<table>
+<thead><tr><th>Cycle</th><th>Pattern</th><th>Underlying Attachment Need</th></tr></thead>
+<tbody>
+<tr><td><strong>Pursue-Withdraw</strong></td><td>One partner escalates with criticism, anger, demands; the other retreats into silence</td><td>Pursuer: "Are you there for me?" Withdrawer: "Am I good enough for you?"</td></tr>
+<tr><td><strong>Withdraw-Withdraw</strong></td><td>Both partners disengage emotionally</td><td>Both: "It's safer not to need anyone"</td></tr>
+<tr><td><strong>Attack-Attack</strong></td><td>Both partners escalate aggressively</td><td>Both: "I must fight for any attention I can get"</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The pursue-withdraw cycle is the most common negative interaction pattern in distressed couples. The pursuer's anger is a protest behaviour (attachment cry); the withdrawer's silence is a protective strategy (avoid further injury). Both are driven by the same underlying fear: loss of the attachment bond.</p></div>
+<h2>13.3 The Three Stages and Nine Steps</h2>
+<table>
+<thead><tr><th>Stage</th><th>Steps</th><th>Focus</th></tr></thead>
+<tbody>
+<tr><td><strong>Stage 1: De-escalation</strong> (Steps 1-4)</td><td>1. Identify the negative interaction cycle. 2. Access the underlying attachment emotions (fear, sadness, shame beneath anger). 3. Reframe the problem in terms of the cycle and unmet attachment needs. 4. Each partner owns their position in the cycle.</td><td>Stop the cycle; both partners see the pattern as the enemy, not each other</td></tr>
+<tr><td><strong>Stage 2: Restructuring the Bond</strong> (Steps 5-7)</td><td>5. Access deeper emotions and needs (vulnerability, longing). 6. Promote acceptance of partner's experience. 7. Facilitate emotional engagement — "Hold Me Tight" conversations (bonding events).</td><td>New patterns of emotional engagement; withdrawer becomes accessible, pursuer softens</td></tr>
+<tr><td><strong>Stage 3: Consolidation</strong> (Steps 8-9)</td><td>8. Facilitate new solutions to old problems (now possible because the bond is secure). 9. Consolidate new cycles of attachment and bonding.</td><td>Integrate gains; old problems become manageable from a base of secure attachment</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The pivotal moment in EFT is the "softening" (Step 7) — when the previously critical, pursuing partner, from a place of vulnerability rather than anger, reaches for the withdrawing partner and asks for what they need. When the withdrawer responds with emotional presence, a "bonding event" occurs. This is the transformative moment of EFT.</p></div>
+<div class="box box-mnemonic"><div class="box-label">Mnemonic</div><p>EFT's three stages map to: <strong>"Stop, Open, Stay"</strong> — Stop the cycle (de-escalation), Open to vulnerability (restructuring), Stay connected (consolidation).</p></div>
+<hr>
+<h1>14. BEHAVIORAL COUPLES THERAPY</h1>
+<h2>14.1 Historical Context</h2>
+<p>Behavioral couples therapy (BCT) was developed by Neil Jacobson and Andrew Christensen in the 1970s-80s, rooted in social learning theory and operant conditioning. It was the first couples therapy to be empirically tested in randomised controlled trials.</p>
+<h2>14.2 Core Premise</h2>
+<p>Relationship distress results from a low ratio of positive to negative exchanges (Jacobson & Margolin, 1979). Distressed couples show:</p>
+<ul>
+  <li>Low rates of rewarding behaviour</li>
+  <li>High rates of punishing behaviour</li>
+  <li>Coercive interaction patterns (one partner's aversive behaviour is reinforced when the other complies to stop it)</li>
+</ul>
+
+<h2>14.3 Key Techniques</h2>
+<table>
+<thead><tr><th>Technique</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Behavioural exchange (BE)</strong></td><td>Partners are assigned to increase positive behaviours toward each other — "caring days," lists of pleasing activities, behavioural contracts</td></tr>
+<tr><td><strong>Communication training</strong></td><td>Teaching active listening, "I-statements," editing before speaking, paraphrasing, validating</td></tr>
+<tr><td><strong>Problem-solving training</strong></td><td>Structured negotiation: define problem specifically, brainstorm solutions, evaluate each, choose one, implement, review</td></tr>
+<tr><td><strong>Acceptance work</strong> (Integrative BCT — Christensen)</td><td>When problems cannot be changed, the focus shifts to emotional acceptance, empathic joining around the problem, unified detachment from the pattern</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Jacobson's own data showed that traditional BCT achieved 35-50% improvement rates with relapse to 18-25% at one year. This honest acknowledgment of BCT's limitations led Christensen to develop Integrative Behavioral Couple Therapy (IBCT), which adds acceptance strategies — recognising that not all relationship problems are solvable.</p></div>
+<hr>
+<h1>15. EVIDENCE BASE</h1>
+<h2>15.1 Couples Therapy Outcomes</h2>
+<table>
+<thead><tr><th>Approach</th><th>Key Evidence</th><th>Limitations</th></tr></thead>
+<tbody>
+<tr><td><strong>Gottman Method</strong></td><td>91% divorce prediction (7 studies). Workshop outcomes: 75% success at 12 months (640 couples), relapse 20% (vs. 30-50% standard). Prevention workshops 3x more effective than intervention for troubled couples.</td><td>Most data from Gottman's own lab; independent replication still growing</td></tr>
+<tr><td><strong>EFT</strong></td><td>70-73% of distressed couples recover; 86% show significant improvement (Johnson et al., 1999). Effect size d = 1.3 (large). Gains maintained at 2-year follow-up. Evidence across cultures and couple types.</td><td>Less evidence for severe personality pathology, active addiction, ongoing domestic violence</td></tr>
+<tr><td><strong>BCT / IBCT</strong></td><td>Traditional BCT: 35-50% recovery, high relapse. IBCT: superior long-term outcomes to traditional BCT at 5-year follow-up (Christensen et al., 2010).</td><td>BCT's behavioural focus may not address deeper emotional needs</td></tr>
+<tr><td><strong>Insight-Oriented Marital Therapy</strong></td><td>Comparable to BCT in some RCTs (Snyder, Wills & Grady-Fletcher, 1991); at 4-year follow-up, 38% of BCT couples had divorced vs. 3% of insight-oriented couples.</td><td>Single study; needs replication</td></tr>
+<tr><td><strong>Group therapy</strong></td><td>Meta-analyses show group therapy is broadly equivalent to individual therapy for most conditions (Burlingame et al., 2003). DBT skills groups are evidence-based for BPD (Linehan et al., 2006).</td><td>Process groups are harder to manualise and study</td></tr>
+</tbody>
+</table>
+
+<h2>15.2 Key Research Findings</h2>
+<ul>
+  <li><strong>Gottman's 5:1 ratio</strong> is the most replicated finding in marital research</li>
+  <li><strong>Contempt</strong> is the single best predictor of divorce and impaired immune function in couples</li>
+  <li><strong>85% of heterosexual stonewallers are men</strong> — males have more reactive cardiovascular systems and recover more slowly from stress</li>
+  <li><strong>69% of marital problems are perpetual</strong> — fundamental differences that cannot be resolved, only managed through dialogue</li>
+  <li><strong>Repair attempts</strong> predict marital stability better than the presence or absence of conflict</li>
+  <li><strong>EFT has the largest effect size</strong> (d = 1.3) of any empirically validated couples therapy</li>
+  <li><strong>67% of couples</strong> experience a significant drop in marital satisfaction after the first baby; the 33% who do not have strong love maps (Shapiro study)</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>When asked "What is the most empirically supported couples therapy?", the answer depends on the metric. EFT has the largest effect sizes in RCTs. The Gottman Method has the strongest observational/predictive research base. BCT/IBCT has the longest history of controlled trials. All three are considered evidence-based.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For exam purposes, remember these numbers: 91% (Gottman's divorce prediction), 5:1 (positive-to-negative ratio), 69% (perpetual problems), 96% (harsh start-up prediction from first 3 minutes), 85% (male stonewallers), 70-73% (EFT recovery rate), 35-50% (traditional BCT recovery rate).</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Couples therapy is contraindicated when there is active, ongoing intimate partner violence with a pattern of coercive control. In such cases, individual safety planning takes priority. Gottman and EFT both screen for domestic violence before beginning couples work.</p></div>
+<hr>
+<p><em>Compiled for the Weave Psychotherapy series. Primary sources: Gottman JM & Silver N (2015) The Seven Principles for Making Marriage Work; Yalom ID & Leszcz M (2020) The Theory and Practice of Group Psychotherapy, 6th edition; Minuchin S (1974) Families and Family Therapy; Bowen M (1978) Family Therapy in Clinical Practice; Haley J (1976) Problem-Solving Therapy; Satir V (1967) Conjoint Family Therapy; Johnson SM (2004) The Practice of Emotionally Focused Couple Therapy; Wolberg LR (1988) The Technique of Psychotherapy, 4th edition.</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Group, Family &amp; Couples Therapy &mdash; Weave Psychotherapy Vol. 9</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 9 | Group, Family &amp; Couples Therapy</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Clinical Quick Reference — Group, Family & Couples Therapy</h1>
+<hr>
+<h2>1. Group Therapy at a Glance</h2>
+<ul>
+  <li><strong>Father of group therapy:</strong> Joseph Hersey Pratt (1905) — "thought control classes" for TB patients</li>
+  <li><strong>Coined "group psychotherapy":</strong> Jacob Moreno (1931) — also developed psychodrama, sociometry</li>
+  <li><strong>Psychoanalytic groups:</strong> Samuel Slavson (1934) — founded AGPA (1943)</li>
+  <li><strong>Basic assumptions:</strong> Wilfred Bion — dependency, fight-flight, pairing (unconscious group dynamics)</li>
+  <li><strong>Group analysis/matrix:</strong> S.H. Foulkes — neurosis as communication disturbance; therapist as "conductor"</li>
+  <li><strong>11 therapeutic factors:</strong> Irvin Yalom — definitive modern framework</li>
+  <li><strong>Optimal group size:</strong> 7-8 (process group); 5 minimum, 10 maximum</li>
+  <li><strong>Session format:</strong> Outpatient: weekly, 60-90 min. Inpatient: daily, 45-60 min</li>
+  <li><strong>Top contraindication:</strong> Severe antisocial personality (exploits group, cannot empathise)</li>
+  <li><strong>Open vs. closed:</strong> Closed = fixed membership + set duration. Open = rolling admission</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bion's three basic assumptions (dependency, fight-flight, pairing) describe unconscious group processes that interfere with the group's rational task. They represent the "work group" vs. "basic assumption group" split.</p></div>
+<hr>
+<h2>2. Yalom's 11 Therapeutic Factors — Master Table</h2>
+<table>
+<thead><tr><th>#</th><th>Factor</th><th>Core Idea</th><th>Most Active In</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Instillation of Hope</td><td>Seeing others recover</td><td>Inpatient, early groups</td></tr>
+<tr><td>2</td><td>Universality</td><td>"I am not alone"</td><td>All groups, especially support</td></tr>
+<tr><td>3</td><td>Imparting Information</td><td>Psychoeducation, advice</td><td>Psychoeducation, DBT skills</td></tr>
+<tr><td>4</td><td>Altruism</td><td>Helping others heals the helper</td><td>Support, 12-step</td></tr>
+<tr><td>5</td><td>Corrective Recapitulation of the Primary Family Group</td><td>Rework early family dynamics in the group</td><td>Long-term process</td></tr>
+<tr><td>6</td><td>Development of Socialising Techniques</td><td>Learn social skills via feedback</td><td>Skills-based, process</td></tr>
+<tr><td>7</td><td>Imitative Behaviour</td><td>Model after therapist/members</td><td>Early groups, skills</td></tr>
+<tr><td>8</td><td>Interpersonal Learning</td><td>Group as social microcosm + corrective feedback</td><td>Process groups (most distinctive factor)</td></tr>
+<tr><td>9</td><td>Group Cohesiveness</td><td>Belonging and acceptance (= alliance in individual therapy)</td><td>All groups (foundational)</td></tr>
+<tr><td>10</td><td>Catharsis</td><td>Safe emotional expression</td><td>Process, psychodrama</td></tr>
+<tr><td>11</td><td>Existential Factors</td><td>Death, isolation, freedom, meaning</td><td>Advanced process groups</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Group cohesiveness is to group therapy what the therapeutic alliance is to individual therapy — the foundational condition without which no other factor operates effectively.</p></div>
+<hr>
+<h2>3. Group Stages Comparison Table</h2>
+<table>
+<thead><tr><th>Tuckman (1965)</th><th>Clinical Model</th><th>Key Process</th><th>Therapist Task</th><th>Dropout Risk</th></tr></thead>
+<tbody>
+<tr><td><strong>Forming</strong></td><td>Early/Initial</td><td>Orientation, dependency, politeness</td><td>Provide structure, set norms</td><td>Low</td></tr>
+<tr><td><strong>Storming</strong></td><td>Transition</td><td>Conflict, dominance struggles, challenge to leader</td><td>Normalise conflict, model tolerance</td><td><strong>Highest</strong></td></tr>
+<tr><td><strong>Norming</strong></td><td>Working (early)</td><td>Cohesion, trust, shared norms</td><td>Reinforce norms, facilitate disclosure</td><td>Low</td></tr>
+<tr><td><strong>Performing</strong></td><td>Working (mature)</td><td>Interpersonal learning, genuine intimacy</td><td>Here-and-now focus, interpret patterns</td><td>Minimal</td></tr>
+<tr><td><strong>Adjourning</strong></td><td>Termination</td><td>Mourning, consolidation, regression</td><td>Process endings, review gains</td><td>N/A</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Most premature dropouts occur during the storming/transition phase. Members who survive this phase and enter the working phase show the greatest therapeutic gains. Never rescue a group from productive conflict.</p></div>
+<hr>
+<h2>4. Family Therapy Schools — Comparison Table</h2>
+<table>
+<thead><tr><th>School</th><th>Founder(s)</th><th>Core Concept</th><th>Key Technique</th><th>Therapist Stance</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td><strong>Structural</strong></td><td>Minuchin</td><td>Boundaries, hierarchy, subsystems</td><td>Joining, enactment, restructuring</td><td>Active director</td><td>Short-medium</td></tr>
+<tr><td><strong>Strategic</strong></td><td>Haley, MRI group</td><td>Attempted solutions maintain problems</td><td>Directives, paradox, reframing</td><td>Expert strategist</td><td>Brief (5-20 sessions)</td></tr>
+<tr><td><strong>Systemic/Milan</strong></td><td>Selvini Palazzoli et al.</td><td>Circular causality, neutrality</td><td>Circular questioning, positive connotation</td><td>Curious, neutral</td><td>Medium</td></tr>
+<tr><td><strong>Bowenian</strong></td><td>Murray Bowen</td><td>Differentiation of self, triangles</td><td>Genogram, coaching, I-position</td><td>Coach</td><td>Long-term</td></tr>
+<tr><td><strong>Experiential</strong></td><td>Satir, Whitaker</td><td>Emotional experience, communication</td><td>Family sculpting, communication stances</td><td>Warm, spontaneous</td><td>Variable</td></tr>
+<tr><td><strong>Narrative</strong></td><td>White & Epston</td><td>Dominant narratives, externalisation</td><td>Externalising, unique outcomes, re-authoring</td><td>Decentred, curious</td><td>Medium</td></tr>
+<tr><td><strong>Solution-Focused</strong></td><td>de Shazer, Berg</td><td>Exceptions, strengths, solutions</td><td>Miracle question, scaling, exception finding</td><td>Collaborative</td><td>Brief</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For viva: name the founder + one distinguishing technique for each school. Most commonly examined: Structural, Strategic, Bowenian.</p></div>
+<hr>
+<h2>5. Key Family Therapy Concepts — Glossary</h2>
+<table>
+<thead><tr><th>Concept</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td><strong>Systems theory</strong></td><td>Family = more than sum of parts; properties emerge from interactions, not individuals</td></tr>
+<tr><td><strong>Circular causality</strong></td><td>Cause and effect are reciprocal, not linear (A causes B, B reinforces A)</td></tr>
+<tr><td><strong>Homeostasis</strong></td><td>System resists change; improvement in IP may trigger deterioration in another member</td></tr>
+<tr><td><strong>Identified patient (IP)</strong></td><td>The symptom-bearer; the member who brings the family to treatment</td></tr>
+<tr><td><strong>Boundaries</strong></td><td>Clear (healthy), rigid (disengaged), or diffuse (enmeshed)</td></tr>
+<tr><td><strong>Enmeshment</strong></td><td>Over-involvement, loss of autonomy, diffuse boundaries (Minuchin)</td></tr>
+<tr><td><strong>Disengagement</strong></td><td>Emotional isolation, rigid boundaries, delayed help-seeking</td></tr>
+<tr><td><strong>Triangulation</strong></td><td>Two-person stress recruits a third to stabilise; Bowen's fundamental unit</td></tr>
+<tr><td><strong>Genogram</strong></td><td>Multigenerational family map (3+ generations); patterns of illness, relationships, repetition</td></tr>
+<tr><td><strong>Parentification</strong></td><td>Child forced into adult caretaking role</td></tr>
+<tr><td><strong>Scapegoating</strong></td><td>One member blamed for family's dysfunction</td></tr>
+<tr><td><strong>Double bind</strong></td><td>Bateson: contradictory messages at different levels from which there is no escape</td></tr>
+<tr><td><strong>Differentiation of self</strong></td><td>Bowen: capacity to maintain self while emotionally connected to others</td></tr>
+<tr><td><strong>Emotional cutoff</strong></td><td>Bowen: managing unresolved issues by cutting off contact (illusory autonomy)</td></tr>
+<tr><td><strong>Family projection process</strong></td><td>Bowen: parents transmit anxiety onto a specific child</td></tr>
+<tr><td><strong>Multigenerational transmission</strong></td><td>Bowen: differentiation levels transmitted across generations</td></tr>
+<tr><td><strong>Psychosomatic family</strong></td><td>Minuchin: enmeshment + overprotectiveness + rigidity + poor conflict resolution</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Homeostasis explains why individual therapy gains collapse when a patient returns to their family. The system is invested in its current equilibrium — even pathological equilibrium.</p></div>
+<hr>
+<h2>6. Gottman's Four Horsemen + Antidotes</h2>
+<table>
+<thead><tr><th>Horseman</th><th>What It Looks Like</th><th>Antidote</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Criticism</strong></td><td>"You always forget. You just don't care." (Global character attack)</td><td><strong>Gentle start-up:</strong> "I feel [emotion] about [situation]. I need [request]."</td></tr>
+<tr><td><strong>2. Contempt</strong></td><td>Sarcasm, eye-rolling, mockery, name-calling (superiority + disgust)</td><td><strong>Fondness & admiration:</strong> Daily appreciation; scan for positives</td></tr>
+<tr><td><strong>3. Defensiveness</strong></td><td>"It's not my fault — what about YOU?" (Counter-blame, victim stance)</td><td><strong>Accept responsibility:</strong> "You have a point. I could have done better."</td></tr>
+<tr><td><strong>4. Stonewalling</strong></td><td>No eye contact, no response, emotional shutdown (85% are men)</td><td><strong>Self-soothing:</strong> 20+ min break when HR > 100 bpm; return when calm</td></tr>
+</tbody>
+</table>
+
+<p><strong>Key numbers:</strong></p>
+<ul>
+  <li>Contempt = single best predictor of divorce</li>
+  <li>Four Horsemen alone = 82% prediction accuracy</li>
+  <li>Four Horsemen + failed repairs = 90%+ accuracy</li>
+  <li>5:1 ratio of positive to negative interactions in stable marriages</li>
+  <li>96% of conversations end on the same note they begin (start-up matters)</li>
+  <li>C-C-D-S mnemonic: Criticise, Condemn, Defend, Shut down</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Contempt differs from criticism in that it conveys superiority and moral disgust. Criticism attacks behaviour; contempt attacks the person's worth. Contempt also predicts infectious illness in the partner receiving it.</p></div>
+<hr>
+<h2>7. Sound Relationship House — Levels</h2>
+<table>
+<thead><tr><th>Level</th><th>Component</th><th>What It Means</th></tr></thead>
+<tbody>
+<tr><td><strong>7 (Top)</strong></td><td>Create Shared Meaning</td><td>Rituals, roles, goals, values — "culture of two"</td></tr>
+<tr><td><strong>6</strong></td><td>Make Life Dreams Come True</td><td>Honour aspirations; overcome gridlock via hidden dreams</td></tr>
+<tr><td><strong>5</strong></td><td>Manage Conflict</td><td>Solvable (soft start-up, repair, compromise) + Perpetual (dialogue, not resolution)</td></tr>
+<tr><td><strong>4</strong></td><td>Positive Sentiment Override</td><td>Benefit of the doubt; result of strong friendship (levels 1-3)</td></tr>
+<tr><td><strong>3</strong></td><td>Turning Toward</td><td>Responding to bids for connection; emotional bank account</td></tr>
+<tr><td><strong>2</strong></td><td>Fondness & Admiration</td><td>Respect, appreciation; antidote to contempt</td></tr>
+<tr><td><strong>1 (Base)</strong></td><td>Love Maps</td><td>Cognitive map of partner's inner world</td></tr>
+<tr><td><strong>WALLS</strong></td><td>Trust & Commitment</td><td>Weight-bearing walls of the entire structure</td></tr>
+</tbody>
+</table>
+
+<p><strong>Key data:</strong></p>
+<ul>
+  <li>69% of problems are perpetual; 31% solvable</li>
+  <li>Couples who turned toward bids: 86% (married) vs. 33% (divorced)</li>
+  <li>67% drop in satisfaction after first baby; protected by strong love maps</li>
+  <li>Magic Six Hours/week maintains the relationship</li>
+  <li>Oral History Interview predicts outcome with 94% accuracy</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The first three levels (Love Maps, Fondness/Admiration, Turning Toward) build the friendship system. Without friendship, conflict management fails — because repair attempts depend on Positive Sentiment Override, which depends on friendship.</p></div>
+<hr>
+<h2>8. EFT Stages — Quick Card</h2>
+<p><strong>Model:</strong> Emotionally Focused Couples Therapy (Sue Johnson, 1980s). Attachment-based. Adults need a secure bond; distress = attachment insecurity.</p>
+<p><strong>Most common negative cycle:</strong> Pursue-Withdraw</p>
+<ul>
+  <li>Pursuer: anger = protest behaviour ("Are you there for me?")</li>
+  <li>Withdrawer: silence = protective shutdown ("Am I good enough?")</li>
+</ul>
+
+<h3>Three Stages, Nine Steps</h3>
+<table>
+<thead><tr><th>Stage</th><th>Steps</th><th>Goal</th><th>Key Moment</th></tr></thead>
+<tbody>
+<tr><td><strong>1. De-escalation</strong></td><td>1. Identify negative cycle 2. Access underlying emotions (fear, shame beneath anger) 3. Reframe: cycle is the enemy, not each other 4. Each partner owns their position</td><td>Stop the cycle</td><td>Both partners see the pattern</td></tr>
+<tr><td><strong>2. Restructuring the Bond</strong></td><td>5. Access deeper needs (vulnerability, longing) 6. Promote acceptance of partner's experience 7. Facilitate emotional engagement — "Hold Me Tight" conversations</td><td>Create new bonding events</td><td><strong>Softening</strong> — pursuer reaches from vulnerability; withdrawer responds with presence</td></tr>
+<tr><td><strong>3. Consolidation</strong></td><td>8. New solutions to old problems (now possible from secure base) 9. Consolidate new cycles of attachment</td><td>Integrate gains</td><td>Secure bond established</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The "softening" at Step 7 is the pivotal, transformative moment of EFT. The previously critical partner reaches from vulnerability (not anger), and the withdrawing partner responds with emotional accessibility. This is the bonding event.</p></div>
+<p><strong>Mnemonic:</strong> EFT stages = <strong>"Stop, Open, Stay"</strong> — Stop the cycle, Open to vulnerability, Stay connected.</p>
+<hr>
+<h2>9. Evidence Snapshot</h2>
+<table>
+<thead><tr><th>Approach</th><th>Recovery Rate</th><th>Effect Size</th><th>Key Stat</th><th>Limitation</th></tr></thead>
+<tbody>
+<tr><td><strong>Gottman Method</strong></td><td>75% at 12 months (workshop data)</td><td>—</td><td>91% divorce prediction accuracy; 20% relapse</td><td>Most data from Gottman's own lab</td></tr>
+<tr><td><strong>EFT</strong></td><td>70-73% recovery</td><td>d = 1.3 (large)</td><td>86% show significant improvement; gains held at 2 years</td><td>Less evidence for severe PD, active addiction, DV</td></tr>
+<tr><td><strong>Traditional BCT</strong></td><td>35-50%</td><td>d = 0.6-0.9</td><td>High relapse (18-25% retained at 1 year)</td><td>Behavioural focus may miss emotional needs</td></tr>
+<tr><td><strong>IBCT</strong></td><td>Superior to BCT long-term</td><td>—</td><td>Better 5-year outcomes than BCT (Christensen, 2010)</td><td>Still limited long-term data</td></tr>
+<tr><td><strong>Group therapy</strong></td><td>Equivalent to individual therapy (meta-analyses)</td><td>Comparable</td><td>DBT skills groups = evidence-based for BPD</td><td>Process groups harder to manualise</td></tr>
+</tbody>
+</table>
+
+<p><strong>Contraindication for couples therapy:</strong> Active intimate partner violence with coercive control pattern. Individual safety planning takes priority.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>EFT has the largest effect size (d = 1.3) of any empirically validated couples therapy. Gottman has the strongest observational/predictive base. BCT/IBCT has the longest RCT history.</p></div>
+<hr>
+<h2>10. Viva Questions with Model Answers</h2>
+<h3>Q1: What are Yalom's therapeutic factors? Which is most important?</h3>
+<p><strong>Answer:</strong> Yalom identified 11 therapeutic factors: instillation of hope, universality, imparting information, altruism, corrective recapitulation of the primary family group, development of socialising techniques, imitative behaviour, interpersonal learning, group cohesiveness, catharsis, and existential factors. Group cohesiveness is the most foundational — it is the group equivalent of the therapeutic alliance. Without cohesiveness, no other factor can operate. In process-oriented outpatient groups, interpersonal learning is the most distinctive and powerful change mechanism.</p>
+<h3>Q2: What are Bion's basic assumptions?</h3>
+<p><strong>Answer:</strong> Bion proposed that all groups operate simultaneously at two levels: the work group (task-oriented, rational) and the basic assumption group (unconscious, primitive). Three basic assumption states exist: (1) Dependency — the group looks to the leader as an omnipotent figure; (2) Fight-flight — the group unites against a perceived enemy or avoids the task; (3) Pairing — two members form a special dyad while the group watches with messianic hope. These assumptions interfere with the group's stated work and must be identified and interpreted.</p>
+<h3>Q3: What is the difference between enmeshment and disengagement?</h3>
+<p><strong>Answer:</strong> Both are descriptions of boundary pathology in Minuchin's structural family therapy. Enmeshment involves diffuse boundaries where family members are over-involved in each other's lives, with poor individual autonomy. Disengagement involves rigid boundaries where members are emotionally isolated and disconnected. Enmeshed families are associated with psychosomatic symptoms; disengaged families present with delayed help-seeking and emotional isolation. Healthy families have clear boundaries — permeable enough for connection, defined enough for autonomy.</p>
+<h3>Q4: Describe the Four Horsemen and their antidotes.</h3>
+<p><strong>Answer:</strong> Gottman identified four destructive communication patterns predicting divorce: (1) Criticism (character attack; antidote: gentle start-up with specific complaint); (2) Contempt (superiority and disgust; antidote: fondness and admiration); (3) Defensiveness (counter-blame; antidote: accepting responsibility); (4) Stonewalling (emotional shutdown; antidote: self-soothing with a 20+ minute break). Contempt is the single best predictor of divorce. The Four Horsemen alone predict divorce at 82%; adding failed repair attempts pushes accuracy above 90%.</p>
+<h3>Q5: What is the Sound Relationship House?</h3>
+<p><strong>Answer:</strong> Gottman's architectural metaphor for a healthy marriage. Seven levels from base to top: Love Maps, Fondness and Admiration, Turning Toward, Positive Sentiment Override, Manage Conflict, Make Life Dreams Come True, and Create Shared Meaning. Trust and Commitment are the weight-bearing walls. The first three levels build the friendship system, which generates PSO — the benefit of the doubt that allows repair attempts to succeed during conflict.</p>
+<h3>Q6: Explain the pursue-withdraw cycle in EFT.</h3>
+<p><strong>Answer:</strong> The pursue-withdraw cycle is the most common negative interaction pattern in distressed couples according to EFT (Sue Johnson). One partner escalates with criticism, anger, and demands (the pursuer), while the other retreats into silence and emotional distance (the withdrawer). Both behaviours are attachment-driven: the pursuer's anger is a protest behaviour masking the question "Are you there for me?", while the withdrawer's silence is a protective strategy against the fear of inadequacy. EFT works by accessing the vulnerable emotions beneath both positions and facilitating new patterns of emotional engagement.</p>
+<h3>Q7: How does Bowen's differentiation of self differ from autonomy?</h3>
+<p><strong>Answer:</strong> Differentiation is not independence or emotional distance. A highly differentiated person can be deeply emotionally connected to others without losing their sense of self — they can be intimate without fusion and separate without cutoff. A person with low differentiation is either fused (governed by others' emotional states, reactive, approval-seeking) or cut off (distanced from family but still reactive, displacing unresolved emotional issues onto new relationships). Autonomy implies separation; differentiation implies the capacity to maintain self while remaining connected.</p>
+<h3>Q8: Compare structural, strategic, and Bowenian family therapy.</h3>
+<p><strong>Answer:</strong> Structural (Minuchin) focuses on present family structure — boundaries, hierarchy, subsystems — using active techniques like joining, enactment, and restructuring. Strategic (Haley/MRI) targets repetitive interaction sequences, using directives and paradoxical interventions to interrupt self-reinforcing problem patterns. Bowenian therapy is multigenerational, focusing on differentiation of self and triangles, working primarily with one motivated individual through coaching. Structural is action-oriented in session; strategic is prescriptive via homework; Bowenian is insight-oriented and long-term.</p>
+<h3>Q9: What is the evidence for EFT?</h3>
+<p><strong>Answer:</strong> EFT has the largest effect size (d = 1.3) of any empirically validated couples therapy. Approximately 70-73% of distressed couples recover, and 86% show significant improvement (Johnson et al., 1999). Gains are maintained at 2-year follow-up. EFT has been validated across diverse cultures and couple types. Limitations include less evidence for couples where one partner has severe personality pathology, active substance dependence, or where there is ongoing domestic violence.</p>
+<h3>Q10: When is couples therapy contraindicated?</h3>
+<p><strong>Answer:</strong> Couples therapy is contraindicated when there is active intimate partner violence with a pattern of coercive control. In this context, conjoint therapy can be weaponised by the abusive partner, who may retaliate against disclosures made in session. Individual safety planning takes priority. Both Gottman and EFT protocols screen for domestic violence before initiating couples work. Other relative contraindications include active psychosis in one partner, active severe substance dependence, or when one partner has already firmly decided to leave the relationship and is using therapy as a vehicle for announcement.</p>
+<hr>
+<p><em>Compiled for the Weave Psychotherapy series. Sources: Gottman & Silver (2015), Yalom & Leszcz (2020), Minuchin (1974), Bowen (1978), Haley (1976), Satir (1967), Johnson (2004), Wolberg (1988).</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

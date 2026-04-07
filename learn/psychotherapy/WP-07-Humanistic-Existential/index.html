@@ -1,0 +1,946 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Humanistic-Existential Therapies &mdash; Weave Psychotherapy Vol. 7</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 7</div>
+      <div class="cover-title">Humanistic-Existential Therapies</div>
+      <div class="cover-subtitle">Rogers, Perls, Yalom, Frankl, and Motivational Interviewing</div>
+      <div class="cover-topics">Person-Centered · Gestalt · Existential · Motivational Interviewing · Maslow · Logotherapy</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Humanistic-Existential Therapies &mdash; Weave Psychotherapy Vol. 7</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 7 | Humanistic-Existential Therapies</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Humanistic-Existential Therapies — Deep Study</h1>
+<hr>
+<h2>PART I: HUMANISTIC THERAPIES</h2>
+<hr>
+<h2>1. Humanistic Psychology — The Third Force</h2>
+<p>Humanistic psychology emerged in the 1950s-1960s as an explicit reaction against both psychoanalysis (too deterministic, focused on pathology) and behaviourism (too mechanistic, ignoring subjective experience). Abraham Maslow coined the term "third force" to position it as an alternative that studied the whole person, emphasising growth, creativity, meaning, and the inherent drive toward self-actualisation.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The "three forces" of psychology: (1) Psychoanalysis, (2) Behaviourism, (3) Humanistic Psychology. Some authors now call Transpersonal Psychology the "fourth force."</p></div>
+<h3>Maslow's Hierarchy of Needs (1954)</h3>
+<p>Maslow proposed that human needs are arranged in a hierarchical pyramid. Lower-level (deficiency) needs must be reasonably satisfied before higher-level (growth) needs become motivationally salient.</p>
+<table>
+<thead><tr><th>Level</th><th>Need</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td>5 (top)</td><td><strong>Self-actualisation</strong></td><td>Creativity, problem-solving, morality, realising full potential</td></tr>
+<tr><td>4</td><td><strong>Esteem</strong></td><td>Achievement, confidence, respect from others, self-respect</td></tr>
+<tr><td>3</td><td><strong>Love/Belonging</strong></td><td>Friendship, family, sexual intimacy, social connection</td></tr>
+<tr><td>2</td><td><strong>Safety</strong></td><td>Security of body, employment, resources, health, property</td></tr>
+<tr><td>1 (base)</td><td><strong>Physiological</strong></td><td>Breathing, food, water, sleep, homeostasis</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Maslow later added three more levels above self-actualisation in his revised model: cognitive needs (knowledge, curiosity), aesthetic needs (beauty, balance), and self-transcendence (connecting to something beyond the self). Most exam questions use the classic five-tier model.</p></div>
+<h3>Key Concepts</h3>
+<ul>
+  <li><strong>Deficiency needs (D-needs):</strong> Levels 1-4. Driven by lack. When unmet, they produce anxiety and preoccupation.</li>
+  <li><strong>Being needs (B-needs):</strong> Self-actualisation. Driven by desire for growth rather than deficit.</li>
+  <li><strong>Peak experiences:</strong> Moments of intense joy, wonder, or ecstasy in which a person feels fully alive, whole, and connected. Maslow found these more common in self-actualising individuals.</li>
+  <li><strong>Self-actualising characteristics:</strong> Acceptance of self and others, spontaneity, problem-centred rather than ego-centred, comfort with solitude, autonomy, freshness of appreciation, democratic values, creativity, resistance to enculturation.</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In clinical practice, Maslow's hierarchy is a useful formulation heuristic. A patient struggling with housing insecurity (level 2) will not benefit from insight-oriented therapy targeting self-actualisation (level 5). Stabilise lower-level needs first.</p></div>
+<hr>
+<h2>2. Person-Centred Therapy (Carl Rogers)</h2>
+<p>Carl Rogers (1902-1987) is the single most influential figure in humanistic therapy. His approach, originally called "non-directive therapy" (1942), then "client-centered therapy" (1951), and finally "person-centred therapy," rests on a radical premise: the client, not the therapist, is the expert on their own experience. The therapist's role is to create the conditions under which the client's innate tendency toward growth — the <strong>actualising tendency</strong> — can operate freely.</p>
+<h3>The Necessary and Sufficient Conditions (1957)</h3>
+<p>Rogers' landmark 1957 paper proposed six conditions that are both necessary and sufficient for therapeutic personality change. Three of these are therapist-provided attitudes, and these are the ones most commonly examined.</p>
+<table>
+<thead><tr><th>Condition</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>1. Two persons in psychological contact</td><td>A relationship exists; each makes a difference to the other</td></tr>
+<tr><td>2. The client is in a state of incongruence</td><td>Client experiences vulnerability or anxiety</td></tr>
+<tr><td>3. <strong>Congruence (Genuineness)</strong></td><td>The therapist is integrated, authentic, and transparent within the relationship</td></tr>
+<tr><td>4. <strong>Unconditional Positive Regard (UPR)</strong></td><td>The therapist accepts the client fully, without conditions of worth or judgment</td></tr>
+<tr><td>5. <strong>Empathic Understanding</strong></td><td>The therapist accurately perceives the client's internal frame of reference and communicates this understanding</td></tr>
+<tr><td>6. Communication of empathy and UPR</td><td>The client perceives, at least to a minimal degree, the therapist's empathy and UPR</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Rogers proposed SIX conditions, not three. Exams often ask about all six. The three therapist-provided conditions (congruence, UPR, empathy) are necessary but not sufficient alone — the client must also perceive them (condition 6).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — CUE:</strong> <strong>C</strong>ongruence, <strong>U</strong>nconditional positive regard, <strong>E</strong>mpathy — the three therapist-provided conditions. "The therapist gives the client a CUE for growth."</p></div>
+<h3>Core Theoretical Constructs</h3>
+<ul>
+  <li><strong>Actualising tendency:</strong> The fundamental motivational force in every organism — the drive toward maintenance, enhancement, and realisation of potential. This is not learned; it is inherent.</li>
+  <li><strong>Organismic valuing process:</strong> An innate capacity to evaluate experiences as growth-promoting or growth-inhibiting. When functioning freely, the person trusts their own felt sense.</li>
+  <li><strong>Self-concept:</strong> The organised, consistent pattern of perceptions and beliefs about "I" or "me."</li>
+  <li><strong>Ideal self:</strong> The self-concept the person would most like to possess.</li>
+  <li><strong>Incongruence:</strong> The discrepancy between the self-concept and actual organismic experience. This is the source of psychological distress.</li>
+  <li><strong>Conditions of worth:</strong> Internalised messages that one is only worthy of love/acceptance when meeting certain standards. These distort the organismic valuing process.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Rogers' theory of psychopathology: distress arises from incongruence between self-concept and experience. Conditions of worth, imposed by significant others, force the person to deny or distort experiences that do not fit the self-concept.</p></div>
+<h3>The Process of Change</h3>
+<p>Rogers described a seven-stage process model (1961) moving from rigidity to fluidity:</p>
+<ol>
+  <li><strong>Stage 1:</strong> Fixed, remote from experience, no desire for change</li>
+  <li><strong>Stage 2:</strong> Slight loosening; problems seen as external</li>
+  <li><strong>Stage 3:</strong> Describes feelings as past objects; emerging awareness of contradictions</li>
+  <li><strong>Stage 4:</strong> More intense feelings described; some ownership of problems</li>
+  <li><strong>Stage 5:</strong> Feelings expressed freely in the present moment; closer to experiencing</li>
+  <li><strong>Stage 6:</strong> A "physiological loosening" — feelings flow, incongruence is experienced viscerally and resolved</li>
+  <li><strong>Stage 7:</strong> New feelings experienced freely; the self is a fluid process, not a fixed entity</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Most clients enter therapy at stages 2-3. The therapist does not push the client through stages but provides the relational conditions for movement. Stage 6 represents a critical moment of change often described as a "felt shift."</p></div>
+<h3>The Non-Directive Stance</h3>
+<p>Rogers was initially strict about non-directivity: the therapist should never advise, interpret, or direct. Later, he softened this to "the locus of evaluation rests with the client." The therapist's primary tools are:</p>
+<ul>
+  <li><strong>Reflection of feeling:</strong> Mirroring the emotional content of what the client says</li>
+  <li><strong>Paraphrasing:</strong> Restating content to show understanding</li>
+  <li><strong>Clarification:</strong> Helping the client articulate what is vaguely felt</li>
+  <li><strong>Silence:</strong> Allowing space for the client's process</li>
+</ul>
+
+<h3>Evidence Base</h3>
+<ul>
+  <li>Truax and Carkhuff (1967) confirmed that therapist empathy, warmth, and genuineness predicted positive outcomes across orientations.</li>
+  <li>Elliott et al. (2004, 2013) meta-analyses: person-centred/experiential therapies show effect sizes comparable to CBT for depression (d = 0.78-0.82).</li>
+  <li>Cooper et al. (2010): person-centred therapy as effective as CBT for depression in a large RCT (PRaCTICED study).</li>
+  <li>NICE guidelines (UK) now include counselling for depression, drawing on the Rogerian tradition.</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked "What is common to all therapies?", answer with Rogers' core conditions. Wolberg (1988) confirms that empathy, warmth, and genuineness predict outcome regardless of orientation. This is the common factors argument.</p></div>
+<hr>
+<h2>3. Gestalt Therapy (Fritz Perls)</h2>
+<p>Friedrich (Fritz) Perls (1893-1970), along with Laura Perls and Paul Goodman, developed Gestalt therapy in the 1940s-1950s. The word "Gestalt" (German for "whole" or "pattern") reflects the therapy's emphasis on integrated awareness. Perls drew from psychoanalysis (he trained under Horney and Reich), Gestalt psychology (Wertheimer, Koffka, Kohler), existentialism, and field theory (Lewin).</p>
+<h3>Core Principles</h3>
+<ul>
+  <li><strong>Awareness:</strong> The central therapeutic goal. Awareness itself is curative. "Lose your mind and come to your senses."</li>
+  <li><strong>Here-and-now:</strong> The only time that exists therapeutically. Past is memory, future is fantasy. Therapy occurs in the present moment.</li>
+  <li><strong>Holism:</strong> Mind and body are not separate. Emotional experience has a bodily dimension.</li>
+  <li><strong>Figure-ground:</strong> Borrowed from Gestalt psychology. Healthy functioning involves a clear figure (need, feeling, concern) emerging from the ground (background of experience), being addressed, and then receding.</li>
+  <li><strong>Unfinished business:</strong> Unexpressed emotions (resentment, guilt, grief) that persist as incomplete Gestalts, demanding closure and consuming psychological energy.</li>
+  <li><strong>Paradoxical theory of change (Beisser, 1970):</strong> Change occurs when a person becomes fully what they are, not when they try to become what they are not.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The paradoxical theory of change (Beisser) is a defining principle of Gestalt therapy. "Change occurs when one becomes what one is, not when one tries to become what one is not." This distinguishes Gestalt from goal-directed therapies.</p></div>
+<h3>Contact Boundary Disturbances</h3>
+<p>Contact is the process of meeting the environment — perceiving, responding, engaging. Healthy contact involves a flexible boundary between self and other. Disturbances in contact are the Gestalt equivalent of defence mechanisms.</p>
+<table>
+<thead><tr><th>Disturbance</th><th>Definition</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Introjection</strong></td><td>Swallowing whole — uncritically absorbing beliefs, values, or standards from others without assimilation</td><td>"I should always put others first" (mother's rule, never questioned)</td></tr>
+<tr><td><strong>Projection</strong></td><td>Attributing disowned parts of the self to others</td><td>A hostile person perceiving everyone as hostile toward them</td></tr>
+<tr><td><strong>Retroflection</strong></td><td>Doing to oneself what one wants to do to others (or doing for oneself what one wants others to do)</td><td>Biting one's lip instead of expressing anger; self-harm</td></tr>
+<tr><td><strong>Deflection</strong></td><td>Avoiding direct contact through humour, abstraction, politeness, or changing the subject</td><td>Laughing when discussing grief; intellectualising feelings</td></tr>
+<tr><td><strong>Confluence</strong></td><td>Loss of boundary between self and other — merging, inability to distinguish own needs from another's</td><td>"We think..." "We feel..." — never "I"</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — I-PRDC:</strong> <strong>I</strong>ntrojection, <strong>P</strong>rojection, <strong>R</strong>etroflection, <strong>D</strong>eflection, <strong>C</strong>onfluence. "I PReDiCt contact boundary problems."</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In practice, identify which contact boundary disturbance predominates. A patient who retroflects anger may present with tension headaches, jaw clenching, or self-harm. Bring awareness to what the body is doing ("What are your fists doing right now?") to re-own the projected action.</p></div>
+<h3>Key Techniques</h3>
+<table>
+<thead><tr><th>Technique</th><th>Description</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>Empty chair</strong></td><td>Client talks to an imagined person (or part of self) in an empty chair</td><td>Resolving unfinished business, expressing unexpressed emotions</td></tr>
+<tr><td><strong>Two-chair (hot seat)</strong></td><td>Client alternates between two chairs representing conflicting parts of self</td><td>Integrating polarities, resolving internal splits</td></tr>
+<tr><td><strong>Exaggeration</strong></td><td>Client amplifies a gesture, posture, or statement</td><td>Bringing peripheral awareness into full consciousness</td></tr>
+<tr><td><strong>Reversal</strong></td><td>Client enacts the opposite of their habitual behaviour</td><td>Exploring the disowned polarity (e.g., passive person practices assertiveness)</td></tr>
+<tr><td><strong>Making the rounds</strong></td><td>Client repeats a statement to each group member</td><td>Owning the statement; testing it in multiple relational contexts</td></tr>
+<tr><td><strong>Dream work</strong></td><td>Each element of the dream is a projection of the self; client "becomes" each element</td><td>Re-owning disowned parts; no Freudian symbol interpretation</td></tr>
+<tr><td><strong>Body awareness</strong></td><td>Directing attention to physical sensations, posture, breathing</td><td>Integrating mind-body; locating emotional experience somatically</td></tr>
+<tr><td><strong>Experiments</strong></td><td>Spontaneous in-session behavioural experiments suggested by the therapist</td><td>Testing new ways of being; experiential rather than cognitive</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In Gestalt dream work, the dreamer becomes every element of the dream (person, object, landscape). Each element is a projected aspect of the self. This is fundamentally different from Freudian dream interpretation (latent content, wish fulfilment).</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Gestalt techniques are heavily tested. Know the difference between empty chair (directed at an external other or absent person) and two-chair/hot seat (directed at internal conflict between two parts of self). Both use chairs, but the purpose differs.</p></div>
+<hr>
+<h2>4. Motivational Interviewing (Miller & Rollnick)</h2>
+<p>Motivational Interviewing (MI) was developed by William Miller (1983) and later elaborated with Stephen Rollnick (1991, 2002, 2013). Though often classified with humanistic therapies due to its Rogerian roots (empathy, autonomy, acceptance), MI is specifically designed for ambivalence about change, particularly in addiction and health behaviour contexts.</p>
+<h3>The Spirit of MI</h3>
+<p>The "spirit" of MI is its heart — more important than any technique. Four interrelated elements:</p>
+<table>
+<thead><tr><th>Element</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Partnership</strong></td><td>MI is done "with" and "for" the client, not "to" or "on" them. Collaborative, not authoritarian.</td></tr>
+<tr><td><strong>Acceptance</strong></td><td>Four components: absolute worth, accurate empathy, autonomy support, affirmation</td></tr>
+<tr><td><strong>Compassion</strong></td><td>Actively promoting the client's welfare and prioritising their needs</td></tr>
+<tr><td><strong>Evocation</strong></td><td>Drawing out the client's own motivations and resources, not installing the therapist's</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — PACE:</strong> <strong>P</strong>artnership, <strong>A</strong>cceptance, <strong>C</strong>ompassion, <strong>E</strong>vocation — the four elements of MI spirit.</p></div>
+<h3>Core Skills — OARS</h3>
+<table>
+<thead><tr><th>Skill</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>O</strong>pen questions</td><td>Questions that invite elaboration rather than yes/no ("What concerns you about your drinking?")</td></tr>
+<tr><td><strong>A</strong>ffirmations</td><td>Statements recognising client strengths, efforts, and values — not praise ("You showed real courage coming here")</td></tr>
+<tr><td><strong>R</strong>eflections</td><td>The primary tool. Simple reflections (repeat/rephrase) and complex reflections (meaning, feeling, amplified, double-sided)</td></tr>
+<tr><td><strong>S</strong>ummaries</td><td>Collecting, linking, and transitional summaries that organise the session and signal transitions</td></tr>
+</tbody>
+</table>
+
+<h3>Change Talk and Sustain Talk</h3>
+<ul>
+  <li><strong>Change talk:</strong> Client statements favouring change. Two types:</li>
+  <li><strong>Preparatory:</strong> Desire ("I want to..."), Ability ("I could..."), Reasons ("Because..."), Need ("I have to...")</li>
+  <li><strong>Mobilising:</strong> Commitment ("I will..."), Activation ("I'm ready to..."), Taking steps ("I started...")</li>
+  <li><strong>Sustain talk:</strong> Arguments for not changing. Normal part of ambivalence, not "resistance."</li>
+  <li><strong>Discord:</strong> Interpersonal friction between client and therapist — a relational signal, not a client trait. Replaces the old concept of "resistance" in MI.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — DARN-CAT:</strong> <strong>D</strong>esire, <strong>A</strong>bility, <strong>R</strong>easons, <strong>N</strong>eed (preparatory) — <strong>C</strong>ommitment, <strong>A</strong>ctivation, <strong>T</strong>aking steps (mobilising). The client DARNs before they CAT.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In MI, "resistance" was replaced by two concepts: <strong>sustain talk</strong> (content — arguments for status quo) and <strong>discord</strong> (process — relational friction). This de-pathologises the client. Discord is always a signal to change therapist behaviour.</p></div>
+<h3>The Readiness Ruler</h3>
+<p>"On a scale of 0-10, how important is it for you to make this change?" followed by "Why a [number given] and not a [lower number]?" This second question is strategic: it evokes change talk by asking the client to argue for their own motivation.</p>
+<h3>Decisional Balance</h3>
+<p>A structured exploration of the pros and cons of both changing and not changing. Creates a 2x2 matrix. Used judiciously — in highly ambivalent clients, it can sometimes increase sustain talk.</p>
+<h3>Stages of Change (Prochaska & DiClemente, 1983)</h3>
+<p>Often taught alongside MI, though developed independently. The Transtheoretical Model proposes that change proceeds through stages:</p>
+<table>
+<thead><tr><th>Stage</th><th>Description</th><th>Therapeutic Task</th></tr></thead>
+<tbody>
+<tr><td><strong>Precontemplation</strong></td><td>Not considering change; unaware or in denial</td><td>Raise awareness; plant seeds of doubt</td></tr>
+<tr><td><strong>Contemplation</strong></td><td>Ambivalent; weighing pros and cons</td><td>Explore ambivalence; tip decisional balance</td></tr>
+<tr><td><strong>Preparation</strong></td><td>Intending to act; making plans</td><td>Strengthen commitment; explore options</td></tr>
+<tr><td><strong>Action</strong></td><td>Actively making changes</td><td>Support self-efficacy; problem-solve barriers</td></tr>
+<tr><td><strong>Maintenance</strong></td><td>Sustaining change over time</td><td>Prevent relapse; consolidate new identity</td></tr>
+<tr><td><strong>Relapse</strong></td><td>Return to earlier behaviour</td><td>Normalise; re-engage the change cycle</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The stages of change model (Transtheoretical Model) was developed by Prochaska and DiClemente (1983), NOT by Miller and Rollnick. MI is often used within the stages framework but they are separate models. This is a common exam trap.</p></div>
+<h3>Evidence Base</h3>
+<ul>
+  <li>MI has the strongest evidence base of any humanistic-derived therapy: 200+ RCTs.</li>
+  <li>Robust evidence for alcohol use disorders (Project MATCH), substance use, medication adherence, diet/exercise, gambling.</li>
+  <li>Effect sizes typically d = 0.25-0.57 — modest but consistent, especially given that MI is often brief (1-4 sessions).</li>
+  <li>MI is often combined with other treatments (MI + CBT, MI + contingency management).</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>MI is not a standalone treatment for severe mental illness. Its power is in resolving ambivalence and enhancing engagement. Use MI in the first sessions to build alliance and clarify motivation, then transition to a structured modality. The MET (Motivational Enhancement Therapy) protocol from Project MATCH is a 4-session manualised version.</p></div>
+<hr>
+<h2>PART II: EXISTENTIAL THERAPIES</h2>
+<hr>
+<h2>5. Existential Therapy — Philosophical Roots</h2>
+<p>Existential therapy is not a technique-driven modality but a philosophical approach to understanding human suffering. It draws on a rich tradition of continental European philosophy.</p>
+<h3>Key Philosophers</h3>
+<table>
+<thead><tr><th>Philosopher</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td><strong>Soren Kierkegaard (1813-1855)</strong></td><td>Father of existentialism. Anxiety as the "dizziness of freedom." The leap of faith. Subjective truth over objective systems.</td></tr>
+<tr><td><strong>Friedrich Nietzsche (1844-1900)</strong></td><td>Will to power. "God is dead" — meaning must be created, not found. Eternal recurrence as a thought experiment for authentic living.</td></tr>
+<tr><td><strong>Martin Heidegger (1889-1976)</strong></td><td>Dasein ("being-there"), thrownness, being-toward-death, authenticity vs. das Man (the "they-self"). Anxiety reveals the nothing underlying existence.</td></tr>
+<tr><td><strong>Jean-Paul Sartre (1905-1980)</strong></td><td>"Existence precedes essence." Radical freedom and radical responsibility. Bad faith (self-deception about one's freedom).</td></tr>
+<tr><td><strong>Maurice Merleau-Ponty (1908-1961)</strong></td><td>Embodied existence. Perception is primary. The lived body as the vehicle of being-in-the-world.</td></tr>
+<tr><td><strong>Martin Buber (1878-1965)</strong></td><td>I-Thou (genuine encounter) vs. I-It (instrumental relating). Authentic dialogue as the foundation of human life.</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>"Existence precedes essence" (Sartre) means humans have no predetermined nature — we create ourselves through choices. This is the philosophical opposite of the medical model, which posits a fixed "nature" (diagnosis) that explains behaviour.</p></div>
+<h3>Core Existential Concepts in Therapy</h3>
+<ul>
+  <li><strong>Thrownness (Geworfenheit):</strong> We did not choose to exist, where we were born, or our body. We are "thrown" into existence and must make something of it.</li>
+  <li><strong>Authenticity vs. inauthenticity:</strong> Living according to one's own values and confronting existential truths vs. conforming to social expectations and avoiding awareness.</li>
+  <li><strong>Angst (existential anxiety):</strong> Not a symptom to be eliminated but a signal of confrontation with existential givens. Distinct from neurotic anxiety.</li>
+  <li><strong>Bad faith (mauvaise foi):</strong> Sartre's term for denying one's freedom — pretending one "has no choice" or is determined by circumstances.</li>
+  <li><strong>Phenomenological method:</strong> Bracketing presuppositions to encounter the client's experience as it actually is, without theoretical overlay.</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>In exam questions, existential anxiety is distinguished from neurotic anxiety. Existential anxiety = confrontation with ultimate concerns (death, freedom, meaninglessness). Neurotic anxiety = avoidance of existential anxiety through defences. The therapeutic goal is not to eliminate anxiety but to live with it courageously.</p></div>
+<hr>
+<h2>6. Yalom's Four Ultimate Concerns</h2>
+<p>Irvin Yalom (b. 1931) is the most influential figure in contemporary existential therapy. In <em>Existential Psychotherapy</em> (1980), he proposed that all psychological conflict ultimately derives from confrontation with four "givens of existence."</p>
+<h3>The Four Concerns — Detailed</h3>
+<h4>6.1 Death</h4>
+<p>The most obvious ultimate concern. The awareness that we will cease to exist and that nothing can be done about it.</p>
+<ul>
+  <li><strong>Core conflict:</strong> Between the wish for continued existence and awareness of inevitable death</li>
+  <li><strong>Defences:</strong> Specialness ("It won't happen to me"), the ultimate rescuer (belief in a saviour figure who will intervene), denial, compulsive heroism</li>
+  <li><strong>Clinical manifestation:</strong> Death anxiety can underlie panic disorder, hypochondriasis, midlife crisis, extreme risk-taking (counterphobic), existential crisis after bereavement or serious illness</li>
+  <li><strong>Therapeutic approach:</strong> Help the client confront mortality directly; use "boundary situations" (death encounters, serious illness, milestones) as catalysts for authentic living</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Yalom's two specific defences against death awareness: (1) <strong>Specialness</strong> — the irrational belief that one is exempt from natural law, and (2) <strong>The Ultimate Rescuer</strong> — the belief in a personal, omnipotent protector who will intervene at the last moment.</p></div>
+<h4>6.2 Freedom</h4>
+<p>Existential freedom is not political freedom but the terrifying recognition that we are the authors of our own lives, that there is no external structure, no grand design, no inherent meaning.</p>
+<ul>
+  <li><strong>Core conflict:</strong> Between groundlessness (no external structure to rely on) and the wish for ground and structure</li>
+  <li><strong>Groundlessness:</strong> Beneath us there is no foundation — we are responsible for our world, our choices, our life design</li>
+  <li><strong>Responsibility:</strong> Freedom and responsibility are inseparable. "I am my choices."</li>
+  <li><strong>Clinical manifestation:</strong> Decision paralysis, compulsive rule-following, displacement of responsibility onto others ("my parents made me this way"), wish for therapist to provide answers</li>
+  <li><strong>Therapeutic approach:</strong> Confront avoidance of responsibility; explore the client's role in creating their own suffering; support ownership of choices</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>When a client repeatedly says "I can't" (implying inability), reframe as "I won't" or "I choose not to" — not punitively, but to restore agency. This is a classic existential technique.</p></div>
+<h4>6.3 Existential Isolation</h4>
+<p>Not interpersonal isolation (loneliness) or intrapersonal isolation (being cut off from one's own feelings), but the fundamental, unbridgeable gap between every human being. No matter how close we are to another person, we can never fully merge; we enter existence alone and leave it alone.</p>
+<ul>
+  <li><strong>Core conflict:</strong> Between awareness of absolute isolation and the wish for contact, protection, and merger</li>
+  <li><strong>Defences:</strong> Fusion with another (losing self in a relationship), compulsive socialising, inability to be alone</li>
+  <li><strong>Clinical manifestation:</strong> Relationship addiction, inability to tolerate solitude, fear of abandonment (which is partly a defence against awareness of existential isolation), serial relationships</li>
+  <li><strong>Therapeutic approach:</strong> Help the client tolerate being alone; distinguish loneliness from existential isolation; use the therapeutic relationship as a model of genuine encounter (I-Thou)</li>
+</ul>
+
+<h4>6.4 Meaninglessness</h4>
+<p>If there is no predetermined design, no divine purpose, what meaning does life have? We are meaning-seeking creatures thrown into a universe that offers no intrinsic meaning.</p>
+<ul>
+  <li><strong>Core conflict:</strong> Between the need for meaning and the apparent indifference of the universe</li>
+  <li><strong>Clinical manifestation:</strong> Existential vacuum (Frankl), nihilism, crushing boredom, midlife crisis, purposelessness after retirement or achievement, "Sunday neurosis"</li>
+  <li><strong>Therapeutic approach:</strong> Help the client create meaning through engagement, creativity, relationship, and self-transcendence. Meaning is not found but forged.</li>
+</ul>
+
+<table>
+<thead><tr><th>Concern</th><th>Core Conflict</th><th>Common Defences</th><th>Clinical Presentation</th></tr></thead>
+<tbody>
+<tr><td><strong>Death</strong></td><td>Wish for permanence vs. mortality</td><td>Specialness, ultimate rescuer, denial</td><td>Panic, hypochondriasis, midlife crisis</td></tr>
+<tr><td><strong>Freedom</strong></td><td>Wish for structure vs. groundlessness</td><td>Displacement of responsibility, compulsive compliance</td><td>Decision paralysis, blaming others</td></tr>
+<tr><td><strong>Isolation</strong></td><td>Wish for merger vs. unbridgeable gap</td><td>Fusion, compulsive socialising</td><td>Relationship addiction, fear of being alone</td></tr>
+<tr><td><strong>Meaninglessness</strong></td><td>Need for meaning vs. cosmic indifference</td><td>Compulsive activity, crusadism, nihilism</td><td>Existential vacuum, boredom, purposelessness</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — DFIM:</strong> <strong>D</strong>eath, <strong>F</strong>reedom, <strong>I</strong>solation, <strong>M</strong>eaninglessness — Yalom's four ultimate concerns. "Don't Forget, I Matter."</p></div>
+<hr>
+<h2>7. Logotherapy (Viktor Frankl)</h2>
+<p>Viktor Frankl (1905-1997), an Austrian psychiatrist and Holocaust survivor, developed logotherapy (from Greek <em>logos</em> = meaning) as the "Third Viennese School of Psychotherapy" after Freud's psychoanalysis (first) and Adler's individual psychology (second).</p>
+<h3>Core Concepts</h3>
+<ul>
+  <li><strong>Will to meaning:</strong> The primary motivational force in humans. Not will to pleasure (Freud) or will to power (Adler/Nietzsche), but the drive to find purpose and significance.</li>
+  <li><strong>Existential vacuum:</strong> The state of inner emptiness resulting from frustrated will to meaning. Manifests as boredom, apathy, or neurosis.</li>
+  <li><strong>Noogenic neurosis:</strong> Neurosis arising from existential/spiritual conflicts (lack of meaning) rather than psychodynamic conflicts. Frankl estimated that 20% of neuroses are noogenic in origin.</li>
+  <li><strong>Tragic triad:</strong> Suffering, guilt, and death — three inescapable aspects of human existence that can be transformed into achievement, change, and responsible action.</li>
+  <li><strong>Attitudinal values:</strong> When suffering is unavoidable, meaning can still be found in the attitude one takes toward it. "When we are no longer able to change a situation, we are challenged to change ourselves."</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Frankl's three pathways to meaning: (1) <strong>Creative values</strong> — what we give to the world (work, deeds), (2) <strong>Experiential values</strong> — what we receive from the world (love, beauty, truth), (3) <strong>Attitudinal values</strong> — the stance we take toward unavoidable suffering. The third is unique to logotherapy.</p></div>
+<h3>Key Techniques</h3>
+<p><strong>Paradoxical intention:</strong> The client is asked to deliberately intend or wish for the very thing they fear. A person with insomnia is asked to try to stay awake as long as possible. A person with a fear of sweating is asked to "try to sweat as much as possible." This breaks the cycle of anticipatory anxiety through humour and detachment.</p>
+<p><strong>Dereflection:</strong> Redirecting attention away from the self (hyper-reflection) toward meaning in the world. Used when excessive self-monitoring (e.g., sexual performance anxiety, insomnia) perpetuates the symptom.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Paradoxical intention in logotherapy is distinct from paradoxical interventions in strategic/systemic therapy. Frankl's version emphasises humour and self-detachment; strategic therapy's version may involve prescribing the symptom to disrupt homeostatic family patterns.</p></div>
+<h3>Man's Search for Meaning (1946)</h3>
+<p>Frankl's account of his experiences in Auschwitz and Dachau is one of the most influential books in psychotherapy. Key insight: those who survived the camps tended to be those who could find or maintain meaning — in love, in future goals, in bearing witness. "He who has a why to live for can bear almost any how" (Nietzsche, quoted by Frankl).</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Logotherapy is particularly valuable in palliative care, bereavement, chronic illness, and age-related existential crises. When symptom reduction is no longer possible, the question shifts from "How can I fix this?" to "What meaning can I find in this suffering?"</p></div>
+<hr>
+<h2>8. Existential-Humanistic Approach (Bugental, Schneider)</h2>
+<p>James Bugental (1915-2008) and Kirk Schneider (b. 1956) represent the American existential-humanistic (E-H) tradition, distinct from the European existential-analytic tradition (Binswanger, Boss) and Yalom's approach.</p>
+<h3>Bugental's Depth Approach</h3>
+<p>Bugental's <em>The Art of the Psychotherapist</em> (1987) emphasised:</p>
+<ul>
+  <li><strong>Presence:</strong> The therapist's full, embodied engagement in the moment. Not a technique but a way of being.</li>
+  <li><strong>Searching:</strong> The client's process of exploring inner experience at increasing depth.</li>
+  <li><strong>Resistance to the life-changing process:</strong> Not Freudian resistance but the natural reluctance to confront existential anxiety.</li>
+  <li><strong>Subjective:</strong> The focus is always on the client's inner, subjective world — not behaviour, cognitions, or the past per se.</li>
+</ul>
+
+<h3>Schneider's Existential-Integrative (EI) Approach</h3>
+<p>Kirk Schneider expanded the E-H tradition into existential-integrative therapy, which uses existential awareness as the overarching framework while incorporating techniques from any modality (CBT, psychodynamic, somatic) as needed. Key concepts:</p>
+<ul>
+  <li><strong>Awe:</strong> The capacity to experience wonder, mystery, and humility before existence. Both expansive (thrill, creativity) and constrictive (dread, smallness).</li>
+  <li><strong>The polarised mind:</strong> Psychological and social pathology arises from the fixation on one pole of experience (e.g., all expansion or all contraction, all control or all helplessness).</li>
+  <li><strong>The liberation of constrictive and expansive capacities:</strong> Health involves fluidity between poles.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bugental identified six "givens of the human condition": embodiment, finitude, ability to act, choice, separate-but-related existence, and the need for meaning. These overlap with but are not identical to Yalom's four concerns.</p></div>
+<hr>
+<h2>9. Comparison Across Approaches</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Rogers (PCT)</th><th>Perls (Gestalt)</th><th>Yalom (Existential)</th><th>Frankl (Logotherapy)</th></tr></thead>
+<tbody>
+<tr><td><strong>Core focus</strong></td><td>Self-concept, actualising tendency</td><td>Awareness, contact, here-and-now</td><td>Ultimate concerns (death, freedom, isolation, meaning)</td><td>Will to meaning</td></tr>
+<tr><td><strong>View of psychopathology</strong></td><td>Incongruence between self and experience</td><td>Disrupted contact; unfinished business</td><td>Avoidance of existential anxiety</td><td>Existential vacuum; frustrated will to meaning</td></tr>
+<tr><td><strong>Therapist role</strong></td><td>Provide facilitative conditions</td><td>Awareness catalyst; experiment guide</td><td>Fellow traveller confronting existential givens</td><td>Socratic guide toward meaning discovery</td></tr>
+<tr><td><strong>Directiveness</strong></td><td>Non-directive (locus of evaluation with client)</td><td>Moderately directive (suggests experiments)</td><td>Semi-directive (confronts existential themes)</td><td>Semi-directive (Socratic dialogue, paradoxical intention)</td></tr>
+<tr><td><strong>Key technique</strong></td><td>Reflection, empathy, UPR</td><td>Empty chair, body awareness, experiments</td><td>Exploration of ultimate concerns; here-and-now encounter</td><td>Paradoxical intention, dereflection</td></tr>
+<tr><td><strong>View of anxiety</strong></td><td>Arises from incongruence</td><td>Arises from blocked awareness</td><td>Existential anxiety is normal; neurotic anxiety is avoidance</td><td>Anticipatory anxiety maintains symptoms</td></tr>
+<tr><td><strong>Time orientation</strong></td><td>Present-focused (client leads)</td><td>Strictly here-and-now</td><td>Present, with openness to all temporal dimensions</td><td>Present and future (meaning-oriented)</td></tr>
+<tr><td><strong>Philosophical base</strong></td><td>Phenomenology, humanism</td><td>Gestalt psychology, existentialism, field theory</td><td>Existential philosophy (Heidegger, Sartre, Kierkegaard)</td><td>Existential philosophy, phenomenology</td></tr>
+<tr><td><strong>Evidence base</strong></td><td>Moderate (RCTs for depression, counselling)</td><td>Limited (mostly qualitative, case studies)</td><td>Limited (process research, case studies, Yalom group studies)</td><td>Moderate (meaning-centered therapies in palliative care)</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Comparison questions are common. Focus on what distinguishes each approach: Rogers = conditions, Perls = awareness and contact, Yalom = ultimate concerns, Frankl = meaning. All share the belief that the client has innate capacity for growth and that the therapeutic relationship is central.</p></div>
+<h3>Humanistic vs. Existential — Core Distinction</h3>
+<table>
+<thead><tr><th>Feature</th><th>Humanistic</th><th>Existential</th></tr></thead>
+<tbody>
+<tr><td><strong>Fundamental assumption</strong></td><td>Humans are inherently good, growth-oriented</td><td>Humans are meaning-seeking beings in an indifferent universe</td></tr>
+<tr><td><strong>View of human nature</strong></td><td>Optimistic (actualising tendency)</td><td>Neither optimistic nor pessimistic — realistic</td></tr>
+<tr><td><strong>Primary concern</strong></td><td>Self-actualisation, authenticity, potential</td><td>Confrontation with existential givens</td></tr>
+<tr><td><strong>Emotional tone</strong></td><td>Warm, affirming, growth-focused</td><td>Confrontational, sober, courage-focused</td></tr>
+<tr><td><strong>View of anxiety</strong></td><td>Symptom of incongruence; reducible</td><td>Inherent to existence; not to be eliminated</td></tr>
+<tr><td><strong>Temporal emphasis</strong></td><td>Present-focused</td><td>Present with awareness of finitude</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In practice, humanistic and existential approaches are often blended. A therapist may use Rogerian empathy as the relational base while exploring Yalomian existential themes. The distinction is more philosophical than practical.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Rogers is humanistic. Yalom and Frankl are existential. Perls is sometimes classified as humanistic, sometimes as existential, and sometimes as its own category. Bugental and Schneider explicitly bridge both traditions (existential-humanistic). May is existential with humanistic sympathies.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — Humanistic = HOPE, Existential = DARE:</strong> Humanistic approaches emphasise <strong>H</strong>ealing, <strong>O</strong>ptimism, <strong>P</strong>otential, <strong>E</strong>mpathy. Existential approaches require <strong>D</strong>eath awareness, <strong>A</strong>uthenticity, <strong>R</strong>esponsibility, <strong>E</strong>xistential courage.</p></div>
+<hr>
+<h2>Summary of Key Exam Points</h2>
+<ol>
+  <li>Third force = humanistic psychology (Maslow). Reaction against psychoanalysis and behaviourism.</li>
+  <li>Rogers proposed 6 necessary and sufficient conditions; 3 are therapist-provided (congruence, UPR, empathy).</li>
+  <li>Rogers' pathology model = incongruence between self-concept and experience, caused by conditions of worth.</li>
+  <li>Gestalt therapy: 5 contact boundary disturbances (introjection, projection, retroflection, deflection, confluence).</li>
+  <li>Gestalt dream work: client becomes every element of the dream (not Freudian interpretation).</li>
+  <li>Paradoxical theory of change (Beisser): change happens when you become what you are, not what you're not.</li>
+  <li>MI spirit = PACE; core skills = OARS; change talk = DARN-CAT.</li>
+  <li>Stages of change (Prochaska & DiClemente) is NOT an MI model — separate but complementary.</li>
+  <li>Yalom's 4 ultimate concerns: death, freedom, isolation, meaninglessness.</li>
+  <li>Frankl's 3 pathways to meaning: creative, experiential, attitudinal values.</li>
+  <li>Paradoxical intention (Frankl) uses humour and self-detachment to break anticipatory anxiety cycles.</li>
+  <li>Existential anxiety is not pathological; neurotic anxiety is the avoidance of existential anxiety.</li>
+</ol>
+
+<hr>
+<table>
+<thead><tr><th>*Weave Psychotherapy Series</th><th>Vol. 7 — Humanistic-Existential Therapies</th><th>D1 Deep Study*</th></tr></thead>
+<tbody>
+</table>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Humanistic-Existential Therapies &mdash; Weave Psychotherapy Vol. 7</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 7 | Humanistic-Existential Therapies</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Humanistic-Existential Therapies — Quick Reference</h1>
+<hr>
+<h2>Maslow's Hierarchy of Needs</h2>
+<table>
+<thead><tr><th>Level</th><th>Need</th><th>Deficiency vs. Growth</th></tr></thead>
+<tbody>
+<tr><td>5</td><td><strong>Self-actualisation</strong> — creativity, morality, full potential</td><td>B-need (growth)</td></tr>
+<tr><td>4</td><td><strong>Esteem</strong> — achievement, confidence, respect</td><td>D-need</td></tr>
+<tr><td>3</td><td><strong>Love/Belonging</strong> — friendship, intimacy, connection</td><td>D-need</td></tr>
+<tr><td>2</td><td><strong>Safety</strong> — security, health, resources</td><td>D-need</td></tr>
+<tr><td>1</td><td><strong>Physiological</strong> — food, water, sleep, homeostasis</td><td>D-need</td></tr>
+</tbody>
+</table>
+
+<ul>
+  <li><strong>Peak experiences:</strong> Moments of transcendent joy/wonder; more common in self-actualisers</li>
+  <li>Later additions: cognitive needs, aesthetic needs, self-transcendence (above level 5)</li>
+</ul>
+
+<hr>
+<h2>Rogers' Person-Centred Therapy — The Six Conditions</h2>
+<table>
+<thead><tr><th>#</th><th>Condition</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Two persons in psychological contact</td><td>Relationship exists</td></tr>
+<tr><td>2</td><td>Client is in incongruence</td><td>Vulnerability or anxiety present</td></tr>
+<tr><td>3</td><td><strong>Congruence (Genuineness)</strong></td><td>Therapist is authentic, integrated</td></tr>
+<tr><td>4</td><td><strong>Unconditional Positive Regard</strong></td><td>Non-judgmental acceptance</td></tr>
+<tr><td>5</td><td><strong>Empathic Understanding</strong></td><td>Accurate perception of client's frame of reference</td></tr>
+<tr><td>6</td><td>Client perceives empathy + UPR</td><td>Minimum perception required</td></tr>
+</tbody>
+</table>
+
+<p><strong>Mnemonic — CUE:</strong> Congruence, Unconditional positive regard, Empathy (therapist-provided conditions 3-5)</p>
+<h3>Key Constructs</h3>
+<ul>
+  <li><strong>Actualising tendency:</strong> Innate drive toward growth and self-realisation</li>
+  <li><strong>Conditions of worth:</strong> "I am lovable only if..." — distorts organismic valuing</li>
+  <li><strong>Incongruence:</strong> Gap between self-concept and actual experience = source of distress</li>
+  <li><strong>Self-concept vs. ideal self:</strong> The greater the gap, the greater the distress</li>
+  <li><strong>Non-directive stance:</strong> Therapist does not advise, interpret, or direct; locus of evaluation stays with client</li>
+</ul>
+
+<h3>Process of Change (7 stages)</h3>
+<ul>
+  <li>Stages 1-2: Rigid, externalises problems</li>
+  <li>Stages 3-4: Emerging awareness, some feeling ownership</li>
+  <li>Stages 5-6: Feelings expressed in present; "felt shift" at stage 6</li>
+  <li>Stage 7: Self as fluid process, new feelings experienced freely</li>
+</ul>
+
+<hr>
+<h2>Gestalt Therapy (Perls) — Contact Boundary Disturbances</h2>
+<table>
+<thead><tr><th>Disturbance</th><th>Definition</th><th>Quick Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Introjection</strong></td><td>Swallowing beliefs/rules without questioning</td><td>"I should always be nice" (mother's rule)</td></tr>
+<tr><td><strong>Projection</strong></td><td>Attributing disowned parts to others</td><td>Hostile person sees hostility everywhere</td></tr>
+<tr><td><strong>Retroflection</strong></td><td>Doing to self what one wants to do to/get from others</td><td>Clenching jaw instead of shouting</td></tr>
+<tr><td><strong>Deflection</strong></td><td>Avoiding contact via humour, abstraction, topic changes</td><td>Laughing when discussing grief</td></tr>
+<tr><td><strong>Confluence</strong></td><td>Merging; no self-other boundary</td><td>"We think..." — never "I think..."</td></tr>
+</tbody>
+</table>
+
+<p><strong>Mnemonic — I-PRDC:</strong> Introjection, Projection, Retroflection, Deflection, Confluence</p>
+<h3>Gestalt Techniques</h3>
+<table>
+<thead><tr><th>Technique</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><strong>Empty chair</strong></td><td>Talk to imagined absent person — resolves unfinished business</td></tr>
+<tr><td><strong>Two-chair / hot seat</strong></td><td>Alternate between conflicting self-parts — integrates polarities</td></tr>
+<tr><td><strong>Exaggeration</strong></td><td>Amplify a gesture/statement — bring awareness to periphery</td></tr>
+<tr><td><strong>Reversal</strong></td><td>Enact opposite of habitual behaviour — explore disowned polarity</td></tr>
+<tr><td><strong>Making the rounds</strong></td><td>Repeat statement to each group member — ownership and testing</td></tr>
+<tr><td><strong>Dream work</strong></td><td>Become every dream element — re-own projected parts (NOT Freudian)</td></tr>
+<tr><td><strong>Body awareness</strong></td><td>Attend to posture, breath, sensation — mind-body integration</td></tr>
+<tr><td><strong>Experiments</strong></td><td>In-session behavioural experiments — experiential testing</td></tr>
+</tbody>
+</table>
+
+<h3>Key Principles</h3>
+<ul>
+  <li><strong>Paradoxical theory of change (Beisser):</strong> Change happens when you fully become what you are, not what you try to be</li>
+  <li><strong>Here-and-now:</strong> Only therapeutically real time is the present</li>
+  <li><strong>Figure-ground:</strong> Healthy = clear figure emerging, being addressed, receding</li>
+  <li><strong>Unfinished business:</strong> Incomplete emotional Gestalts demanding closure</li>
+</ul>
+
+<hr>
+<h2>Motivational Interviewing (Miller & Rollnick)</h2>
+<h3>MI Spirit — PACE</h3>
+<table>
+<thead><tr><th>Element</th><th>Key Idea</th></tr></thead>
+<tbody>
+<tr><td><strong>P</strong>artnership</td><td>Done "with" not "to" the client</td></tr>
+<tr><td><strong>A</strong>cceptance</td><td>Absolute worth, empathy, autonomy, affirmation</td></tr>
+<tr><td><strong>C</strong>ompassion</td><td>Client's welfare is priority</td></tr>
+<tr><td><strong>E</strong>vocation</td><td>Drawing out client's own motivation</td></tr>
+</tbody>
+</table>
+
+<h3>Core Skills — OARS</h3>
+<table>
+<thead><tr><th>Skill</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>O</strong>pen questions</td><td>Invite elaboration, not yes/no</td></tr>
+<tr><td><strong>A</strong>ffirmations</td><td>Recognise strengths and efforts (not praise)</td></tr>
+<tr><td><strong>R</strong>eflections</td><td>Primary tool — simple and complex</td></tr>
+<tr><td><strong>S</strong>ummaries</td><td>Collecting, linking, transitional</td></tr>
+</tbody>
+</table>
+
+<h3>Change Talk — DARN-CAT</h3>
+<table>
+<thead><tr><th>Type</th><th>Components</th></tr></thead>
+<tbody>
+<tr><td><strong>Preparatory</strong></td><td><strong>D</strong>esire, <strong>A</strong>bility, <strong>R</strong>easons, <strong>N</strong>eed</td></tr>
+<tr><td><strong>Mobilising</strong></td><td><strong>C</strong>ommitment, <strong>A</strong>ctivation, <strong>T</strong>aking steps</td></tr>
+</tbody>
+</table>
+
+<ul>
+  <li><strong>Sustain talk:</strong> Arguments for status quo (normal ambivalence)</li>
+  <li><strong>Discord:</strong> Relational friction (not "resistance") — signal to change therapist approach</li>
+  <li><strong>Readiness ruler:</strong> "0-10 how important?" then "Why X and not lower?" (evokes change talk)</li>
+</ul>
+
+<hr>
+<h2>Stages of Change (Prochaska & DiClemente, 1983)</h2>
+<table>
+<thead><tr><th>Stage</th><th>Description</th><th>Therapeutic Task</th></tr></thead>
+<tbody>
+<tr><td><strong>Precontemplation</strong></td><td>Not considering change</td><td>Raise awareness</td></tr>
+<tr><td><strong>Contemplation</strong></td><td>Weighing pros/cons</td><td>Explore ambivalence</td></tr>
+<tr><td><strong>Preparation</strong></td><td>Intending to act</td><td>Strengthen commitment</td></tr>
+<tr><td><strong>Action</strong></td><td>Actively changing</td><td>Support self-efficacy</td></tr>
+<tr><td><strong>Maintenance</strong></td><td>Sustaining gains</td><td>Relapse prevention</td></tr>
+<tr><td><strong>Relapse</strong></td><td>Return to old patterns</td><td>Normalise; re-engage cycle</td></tr>
+</tbody>
+</table>
+
+<p><strong>Note:</strong> This is the Transtheoretical Model — developed independently from MI. Often paired but separate models.</p>
+<hr>
+<h2>Yalom's Four Ultimate Concerns</h2>
+<table>
+<thead><tr><th>Concern</th><th>Core Conflict</th><th>Defences</th><th>Clinical Signs</th></tr></thead>
+<tbody>
+<tr><td><strong>Death</strong></td><td>Permanence wish vs. mortality</td><td>Specialness, ultimate rescuer</td><td>Panic, hypochondriasis, midlife crisis</td></tr>
+<tr><td><strong>Freedom</strong></td><td>Structure wish vs. groundlessness</td><td>Blame, compulsive compliance</td><td>Decision paralysis, externalising responsibility</td></tr>
+<tr><td><strong>Isolation</strong></td><td>Merger wish vs. unbridgeable gap</td><td>Fusion, compulsive socialising</td><td>Relationship addiction, fear of solitude</td></tr>
+<tr><td><strong>Meaninglessness</strong></td><td>Meaning need vs. cosmic indifference</td><td>Crusadism, compulsive activity</td><td>Existential vacuum, boredom, nihilism</td></tr>
+</tbody>
+</table>
+
+<p><strong>Mnemonic — DFIM:</strong> Death, Freedom, Isolation, Meaninglessness — "Don't Forget, I Matter"</p>
+<hr>
+<h2>Logotherapy (Frankl) — Key Concepts</h2>
+<ul>
+  <li><strong>Will to meaning:</strong> Primary human drive (not pleasure or power)</li>
+  <li><strong>Existential vacuum:</strong> Emptiness from frustrated meaning &rarr; boredom, apathy</li>
+  <li><strong>Noogenic neurosis:</strong> Neurosis from spiritual/existential conflict (not psychodynamic)</li>
+  <li><strong>Three pathways to meaning:</strong> Creative values (what we give), experiential values (what we receive), attitudinal values (stance toward suffering)</li>
+  <li><strong>Tragic triad:</strong> Suffering, guilt, death — can be transformed</li>
+  <li><strong>Paradoxical intention:</strong> Intend/wish for the feared outcome &rarr; breaks anticipatory anxiety cycle via humour</li>
+  <li><strong>Dereflection:</strong> Redirect attention from hyper-self-monitoring toward engagement with the world</li>
+</ul>
+
+<hr>
+<h2>Humanistic vs. Existential — Comparison</h2>
+<table>
+<thead><tr><th>Feature</th><th>Humanistic</th><th>Existential</th></tr></thead>
+<tbody>
+<tr><td><strong>Assumption</strong></td><td>Humans inherently growth-oriented</td><td>Humans meaning-seeking in indifferent universe</td></tr>
+<tr><td><strong>Tone</strong></td><td>Optimistic, warm, affirming</td><td>Realistic, confrontational, courageous</td></tr>
+<tr><td><strong>Primary goal</strong></td><td>Self-actualisation</td><td>Authentic engagement with existential givens</td></tr>
+<tr><td><strong>View of anxiety</strong></td><td>Symptom of incongruence (reducible)</td><td>Inherent to existence (not eliminable)</td></tr>
+<tr><td><strong>Key figures</strong></td><td>Rogers, Maslow, Perls</td><td>Yalom, Frankl, May, Bugental</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>Approach Comparison — At a Glance</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Rogers</th><th>Perls</th><th>Yalom</th><th>Frankl</th></tr></thead>
+<tbody>
+<tr><td>Focus</td><td>Self-concept</td><td>Awareness/contact</td><td>Ultimate concerns</td><td>Meaning</td></tr>
+<tr><td>Pathology model</td><td>Incongruence</td><td>Disrupted contact</td><td>Avoidance of existential anxiety</td><td>Existential vacuum</td></tr>
+<tr><td>Therapist role</td><td>Facilitative conditions</td><td>Experiment guide</td><td>Fellow traveller</td><td>Socratic guide</td></tr>
+<tr><td>Directiveness</td><td>Non-directive</td><td>Moderate</td><td>Semi-directive</td><td>Semi-directive</td></tr>
+<tr><td>Signature technique</td><td>Reflection + UPR</td><td>Empty chair</td><td>Confrontation with givens</td><td>Paradoxical intention</td></tr>
+<tr><td>Time focus</td><td>Present</td><td>Strictly here-and-now</td><td>Present + finitude</td><td>Present + future</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>Viva Questions</h2>
+<p><strong>Q1. What are Rogers' six necessary and sufficient conditions for therapeutic change?</strong></p>
+<p>Two persons in contact; client in incongruence; therapist congruent; therapist shows UPR; therapist shows empathic understanding; client perceives empathy and UPR.</p>
+<p><strong>Q2. Differentiate empty chair from two-chair technique in Gestalt therapy.</strong></p>
+<p>Empty chair: client addresses an absent person or imagined other — resolves unfinished business. Two-chair: client alternates between two parts of self — resolves internal conflict/polarities.</p>
+<p><strong>Q3. Name the five contact boundary disturbances in Gestalt therapy.</strong></p>
+<p>Introjection, projection, retroflection, deflection, confluence.</p>
+<p><strong>Q4. What is the MI spirit? List its components.</strong></p>
+<p>The attitudinal foundation of MI: Partnership, Acceptance, Compassion, Evocation (PACE).</p>
+<p><strong>Q5. Distinguish change talk from sustain talk. What replaced "resistance" in MI?</strong></p>
+<p>Change talk = client arguments for change (DARN-CAT). Sustain talk = arguments for status quo. "Resistance" was replaced by sustain talk (content) and discord (process/relational friction).</p>
+<p><strong>Q6. Who developed the Stages of Change model? Is it part of MI?</strong></p>
+<p>Prochaska and DiClemente (1983) — Transtheoretical Model. Developed independently from MI. Often used together but separate frameworks.</p>
+<p><strong>Q7. List Yalom's four ultimate concerns and one defence for each.</strong></p>
+<p>Death (specialness), freedom (displacement of responsibility), isolation (fusion), meaninglessness (compulsive activity/crusadism).</p>
+<p><strong>Q8. What is paradoxical intention? Who developed it?</strong></p>
+<p>Viktor Frankl. Client deliberately intends or wishes for the feared symptom (e.g., "try to stay awake" for insomnia). Breaks anticipatory anxiety through humour and self-detachment.</p>
+<p><strong>Q9. Name Frankl's three pathways to meaning.</strong></p>
+<p>Creative values (giving to the world through work/deeds), experiential values (receiving from the world — love, beauty), attitudinal values (the stance taken toward unavoidable suffering).</p>
+<p><strong>Q10. How does existential anxiety differ from neurotic anxiety?</strong></p>
+<p>Existential anxiety = normal response to confronting ultimate concerns (death, freedom, isolation, meaninglessness). Neurotic anxiety = avoidance of existential anxiety through defences. The goal is not to eliminate existential anxiety but to live with it authentically.</p>
+<hr>
+<table>
+<thead><tr><th>*Weave Psychotherapy Series</th><th>Vol. 7 — Humanistic-Existential Therapies</th><th>D6 Quick Reference*</th></tr></thead>
+<tbody>
+</table>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

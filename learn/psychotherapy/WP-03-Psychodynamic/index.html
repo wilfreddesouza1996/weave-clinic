@@ -1,0 +1,961 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Psychodynamic Therapy &mdash; Weave Psychotherapy Vol. 3</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 3</div>
+      <div class="cover-title">Psychodynamic Therapy</div>
+      <div class="cover-subtitle">From Freud to Modern Psychodynamic — Defence, Transference, and the Unconscious</div>
+      <div class="cover-topics">Defence Mechanisms · Transference · Countertransference · Object Relations · Interpretation · Evidence Base</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Psychodynamic Therapy &mdash; Weave Psychotherapy Vol. 3</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 3 | Psychodynamic Therapy</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Psychodynamic Therapy — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-historical-development" style="color:var(--indigo);text-decoration:none">Historical Development</a></li>
+  <li><a href="#2-core-concepts" style="color:var(--indigo);text-decoration:none">Core Concepts</a></li>
+  <li><a href="#3-defence-mechanisms" style="color:var(--indigo);text-decoration:none">Defence Mechanisms</a></li>
+  <li><a href="#4-transference-and-countertransference" style="color:var(--indigo);text-decoration:none">Transference and Countertransference</a></li>
+  <li><a href="#5-psychodynamic-assessment" style="color:var(--indigo);text-decoration:none">Psychodynamic Assessment</a></li>
+  <li><a href="#6-supportive-vs-expressive-continuum" style="color:var(--indigo);text-decoration:none">Supportive vs Expressive Continuum</a></li>
+  <li><a href="#7-core-techniques" style="color:var(--indigo);text-decoration:none">Core Techniques</a></li>
+  <li><a href="#8-treatment-phases" style="color:var(--indigo);text-decoration:none">Treatment Phases</a></li>
+  <li><a href="#9-disorder-specific-applications" style="color:var(--indigo);text-decoration:none">Disorder-Specific Applications</a></li>
+  <li><a href="#10-evidence-base" style="color:var(--indigo);text-decoration:none">Evidence Base</a></li>
+  <li><a href="#11-brief-psychodynamic-therapies" style="color:var(--indigo);text-decoration:none">Brief Psychodynamic Therapies</a></li>
+</ol>
+
+<hr>
+<h1>1. HISTORICAL DEVELOPMENT</h1>
+<h2>1.1 Sigmund Freud: From Catharsis to Structural Theory</h2>
+<p>Psychodynamic therapy begins with Freud's evolution across three decades of clinical innovation. The trajectory is not a straight line — it is a series of paradigm shifts, each triggered by clinical failure.</p>
+<p><strong>The cathartic method (1880s-1890s).</strong> Collaborating with Josef Breuer, Freud initially believed that "hysterical" symptoms were caused by strangulated affect from traumatic experiences. Under hypnosis, patients recalled traumas and discharged the trapped emotion (abreaction), producing symptom relief. Anna O. (Breuer's patient) was the founding case. But hypnosis was unreliable — not all patients were suggestible, and symptoms often returned.</p>
+<p><strong>Free association (1890s-1900s).</strong> Freud abandoned hypnosis in favour of the "fundamental rule": say whatever comes to mind without censorship. This generated richer material and revealed a crucial phenomenon — patients resisted the process. Resistance became a primary data source rather than an obstacle.</p>
+<p><strong>The topographic model (1900).</strong> In <em>The Interpretation of Dreams</em>, Freud proposed three levels of mental processing: the Conscious (currently aware), the Preconscious (accessible with effort), and the Unconscious (repressed material, accessible only through free association, dreams, slips, and symptoms). The unconscious operates by primary process thinking — condensation, displacement, symbolisation — governed by the pleasure principle.</p>
+<p><strong>The structural model (1923).</strong> The topographic model could not explain why defence mechanisms themselves were unconscious. In <em>The Ego and the Id</em>, Freud replaced it with three agencies: the Id (reservoir of drives, entirely unconscious, governed by the pleasure principle), the Ego (executive functions, partly conscious and partly unconscious, governed by the reality principle, deploying defences), and the Superego (moral conscience and ego ideal, predominantly unconscious, internalised from parental authority). Psychopathology arises from conflict between these agencies, producing signal anxiety that triggers defences, resulting in compromise formations (symptoms).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The structural model (Id, Ego, Superego) replaced the topographic model (Conscious, Preconscious, Unconscious) because the topographic model could not explain unconscious defences. If defences were unconscious, they could not belong to the "conscious" system that was supposed to do the defending. The structural model solved this by giving the Ego both conscious and unconscious components.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Signal anxiety (Freud, 1926) is the ego's alarm system. When forbidden impulses threaten to become conscious, the ego experiences a small dose of anxiety that activates defence mechanisms. This is the mechanism underlying all neurotic symptom formation. It replaced Freud's earlier "toxic anxiety" model (damming up of libido).</p></div>
+<h2>1.2 Ego Psychology: Anna Freud and Heinz Hartmann</h2>
+<p>Anna Freud's <em>The Ego and the Mechanisms of Defence</em> (1936) systematised ten defence mechanisms and established defence analysis as central to psychoanalytic technique. She demonstrated that defences are not just pathological — they are the ego's adaptive tools, present in normal development.</p>
+<p>Heinz Hartmann (1939) extended ego psychology by proposing that the ego has a <strong>conflict-free sphere</strong> — autonomous functions (perception, memory, motor coordination, language) that develop independently of drive conflict. This was a crucial conceptual move: it meant the ego was not merely a battleground between id and superego, but had its own developmental line. Hartmann also introduced the concept of <strong>adaptation</strong> — the ego's capacity to fit itself to the average expectable environment.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Ego psychology's clinical legacy is the principle of defence-before-content. You must identify and work with the defence before interpreting the underlying wish. If a patient intellectualises about their father's death, interpreting the grief directly will fail — the intellectualisation must be addressed first. "I notice you speak about your father's death as though you're reading a textbook. What might happen if you let yourself feel something?"</p></div>
+<h2>1.3 Object Relations Theory: Klein, Winnicott, Fairbairn</h2>
+<p>Object relations theory shifted the fundamental motivation of human beings from drive gratification (Freud) to object seeking — the need for relationship.</p>
+<p><strong>Melanie Klein (1882-1960)</strong> proposed that infants from the earliest months have an internal world populated by phantasied objects (part-objects initially — the good breast and the bad breast). She described two developmental positions: the <strong>paranoid-schizoid position</strong> (splitting, projective identification, persecutory anxiety) and the <strong>depressive position</strong> (integration of good and bad into whole objects, guilt, reparation). Crucially, these are not stages you pass through once — adults oscillate between them throughout life, and psychopathology involves fixation in the paranoid-schizoid position.</p>
+<p><strong>Donald Winnicott (1896-1971)</strong> introduced the <strong>holding environment</strong> (the mother's reliable, consistent caregiving that creates psychological safety), the <strong>transitional object</strong> (the child's first not-me possession, existing in a space between subjective omnipotence and objective reality), and the <strong>true self vs. false self</strong> dichotomy. The false self develops when the mother substitutes her own gesture for the infant's spontaneous gesture — the child then complies with external demands at the cost of authentic experience. Much of psychodynamic therapy is about recovering the true self.</p>
+<p><strong>W.R.D. Fairbairn (1889-1964)</strong> made the most radical departure: libido is not pleasure-seeking but object-seeking. The infant internalises frustrating relationships as <strong>internal object relations</strong> — split into the exciting object (tantalising, never fully satisfying) and the rejecting object (frustrating, abandoning). These internal object relations are then externalised in adult relationships. Fairbairn's model directly influenced Kernberg's understanding of borderline pathology.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Klein's paranoid-schizoid position is characterised by splitting, projective identification, and persecutory anxiety. The depressive position is characterised by integration of good and bad objects, guilt, and the capacity for reparation. BPD is understood as a failure to achieve the depressive position — the patient remains predominantly in the paranoid-schizoid mode, splitting self and others into all-good and all-bad.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — KWFC (Object Relations Pioneers):</strong> <strong>K</strong>lein (paranoid-schizoid/depressive positions, projective identification), <strong>W</strong>innicott (holding environment, true/false self, transitional object), <strong>F</strong>airbairn (object-seeking libido, internal object relations), <strong>C</strong> — not a person but a concept: all three agreed that the fundamental human motivation is connection, not discharge.</p></div>
+<h2>1.4 Self Psychology: Heinz Kohut</h2>
+<p>Kohut (1913-1981) developed self psychology from his work with narcissistic patients who did not fit classical drive theory. The central concept is the <strong>selfobject</strong> — another person experienced not as a separate individual but as a function needed to maintain self-cohesion. Three selfobject needs persist throughout life:</p>
+<ol>
+  <li><strong>Mirroring</strong> — the need to be seen, affirmed, and valued (the gleam in the mother's eye)</li>
+  <li><strong>Idealising</strong> — the need to merge with an admired, calm, powerful other</li>
+  <li><strong>Twinship (alter ego)</strong> — the need to feel alike, to belong</li>
+</ol>
+
+<p>When selfobject needs are met empathically in childhood, the self develops cohesion. When they are traumatically frustrated (not just occasionally — chronic empathic failure), the self remains fragile. Narcissistic pathology represents a developmental arrest — the patient seeks selfobject functions from others in archaic, demanding forms because they were never adequately internalised through <strong>transmuting internalisation</strong> (a gradual process where optimal frustration leads to taking over the selfobject function as one's own).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kohut's three selfobject transferences: mirroring transference (patient needs therapist to admire and validate), idealising transference (patient needs to see therapist as perfect and powerful), twinship transference (patient needs to feel similar to therapist). These are not pathological — they are developmental needs being reactivated for a second chance at internalisation.</p></div>
+<h2>1.5 Attachment Theory: Bowlby and Beyond</h2>
+<p>John Bowlby (1907-1990) bridged psychoanalysis and ethology. He argued that attachment is a primary motivational system — infants are biologically programmed to seek proximity to a caregiver for survival, not for oral gratification. Ainsworth's Strange Situation paradigm identified three organised attachment patterns (secure, anxious-ambivalent, anxious-avoidant) and Main later added disorganised/disoriented attachment (associated with frightened or frightening caregivers).</p>
+<p>Attachment patterns are encoded as <strong>internal working models</strong> — implicit procedural templates for how relationships work. These persist into adulthood and are reactivated in intimate relationships and in therapy.</p>
+<h2>1.6 Relational Psychoanalysis and Mentalization</h2>
+<p><strong>Relational psychoanalysis</strong> (Mitchell, 1988) synthesised object relations, self psychology, and interpersonal theory into a two-person psychology. The analyst is always a participant, never a blank screen. Transference is co-constructed — the patient's projections interact with the therapist's real characteristics.</p>
+<p><strong>Mentalization-Based Treatment</strong> (Fonagy and Bateman) operationalised the concept of <strong>reflective function</strong> — the capacity to understand behaviour in terms of underlying mental states (beliefs, feelings, intentions, desires). Mentalization develops in the context of secure attachment. Disorganised attachment, especially with childhood trauma, produces failures of mentalization that underlie borderline pathology. MBT is now a leading evidence-based treatment for BPD.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The historical trajectory from Freud to Fonagy can be summarised as a progressive widening of the therapeutic lens: from drives (what the patient wants) to defences (how the patient avoids) to objects (who the patient relates to internally) to self (how the patient holds together) to attachment (how the patient connects) to mentalization (how the patient thinks about minds). Each layer adds to, rather than replaces, the previous one.</p></div>
+<hr>
+<h1>2. CORE CONCEPTS</h1>
+<h2>2.1 The Unconscious</h2>
+<p>The unconscious is the foundational axiom of psychodynamic therapy. Gabbard articulates seven basic principles, the first being: "Much of mental life is unconscious." This is not a metaphysical claim — it is grounded in modern cognitive neuroscience. Implicit procedural memory stores relational patterns ("how to be with others") that operate outside awareness. The patient does not consciously choose to recreate maladaptive patterns — they are running on procedural software installed in early attachment relationships.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The unconscious is not a place — it is a mode of processing. Modern neuroscience distinguishes between declarative (explicit) memory (facts and events, hippocampus-dependent, accessible to consciousness) and procedural (implicit) memory (skills and relational patterns, amygdala/basal ganglia-dependent, operating outside awareness). Psychodynamic therapy targets both: insight addresses declarative knowledge; the therapeutic relationship rewrites procedural templates.</p></div>
+<h2>2.2 Defence Mechanisms</h2>
+<p>Defences are the ego's automatic, unconscious strategies for managing anxiety arising from conflict between id impulses, superego prohibitions, and external reality. They are not inherently pathological — mature defences (sublimation, humour, suppression) are adaptive. Pathology is associated with rigid reliance on immature or primitive defences. Vaillant's hierarchy (discussed fully in Section 3) classifies defences from primitive to mature.</p>
+<h2>2.3 Transference</h2>
+<p>Transference is the displacement onto the therapist of feelings, attitudes, and expectations originally directed toward important figures from the past. Freud originally described it as a "stereotype plate" — a fixed template reapplied to new figures. Contemporary views are more nuanced: transference is a co-construction, shaped by the patient's internal world AND the therapist's real characteristics (the constructivist position of Hoffman).</p>
+<h2>2.4 Countertransference</h2>
+<p>Originally defined narrowly as the therapist's unresolved conflicts activated by the patient. The modern "totalist" view (Kernberg, Racker) encompasses all the therapist's emotional responses to the patient. Countertransference is no longer a contaminant — it is a primary data source. The therapist's feelings reveal what the patient is unconsciously inducing.</p>
+<h2>2.5 Resistance</h2>
+<p>Resistance is any force within the patient that opposes the process and goals of therapy. Freud identified five types: repression resistance (ego), transference resistance (displacement of conflicts onto therapist), secondary gain resistance (illness has advantages), superego resistance (need for punishment), and id resistance (repetition compulsion). The contemporary reframe (Kohut): resistance is activity "in the service of psychological survival." The therapist enters more deeply into the resistance rather than trying to remove it.</p>
+<h2>2.6 Free Association</h2>
+<p>The fundamental rule: the patient says whatever comes to mind without censorship. This technique reveals unconscious associations, the operation of defences in real time, and the structure of implicit relational networks. More characteristic of classical psychoanalysis than psychodynamic psychotherapy, but adapted for LTPP.</p>
+<h2>2.7 The Therapeutic Frame</h2>
+<p>The frame consists of: fixed session time, duration, and location; fee; absence of physical contact (handshake excepted); limited self-disclosure; confidentiality; and absence of dual relationships. The frame creates what Winnicott called a "holding environment" — a reliable, predictable container within which the patient can safely regress and explore. Deviations from the frame are always meaningful and should be explored rather than simply corrected.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Boundary crossings (benign, isolated, minor, discussable, non-harmful) must be distinguished from boundary violations (exploitative, repetitive, egregious, not discussable, harmful). A firm handshake is a crossing. A sexual relationship is a violation. The distinction matters clinically, ethically, and legally.</p></div>
+<h2>2.8 The Therapeutic Alliance</h2>
+<p>The collaborative, reality-based aspect of the patient-therapist relationship. Krupnick et al. (1996) found in the NIMH Treatment of Depression Collaborative Research Program that the therapeutic alliance accounted for 21% of outcome variance — more than any specific technique — across all four treatment arms (IPT, CBT, imipramine + clinical management, placebo + clinical management).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The therapeutic alliance accounts for approximately 21% of outcome variance across all therapy modalities, including pharmacotherapy (Krupnick et al. 1996, NIMH TDCRP). This is the single most replicated finding in psychotherapy research.</p></div>
+<hr>
+<h1>3. DEFENCE MECHANISMS</h1>
+<h2>3.1 Vaillant's Hierarchy</h2>
+<p>George Vaillant, drawing on the Grant Study of Adult Development (a 75-year longitudinal study of Harvard men), classified defences into four levels based on their adaptiveness and maturity. Gabbard organises them into three tiers for clinical use: primitive (psychotic/immature), neurotic (higher-level), and mature.</p>
+<p>The clinical utility of this hierarchy is direct: the level of defences a patient predominantly uses tells you their level of personality organisation, which determines the balance of supportive vs. expressive technique.</p>
+<h2>3.2 Complete Defence Mechanisms Table (Vaillant Hierarchy)</h2>
+<h3>Primitive (Immature) Defences</h3>
+<table>
+<thead><tr><th>Defence</th><th>Definition</th><th>Clinical Example</th><th>Typical Pathology</th></tr></thead>
+<tbody>
+<tr><td><strong>Splitting</strong></td><td>Compartmentalising experiences of self and others into all-good and all-bad; bland denial of contradictions when confronted</td><td>"My last therapist was perfect. You're terrible." (Same patient, about the same therapist, 2 weeks apart)</td><td>BPD, narcissistic PD</td></tr>
+<tr><td><strong>Projective identification</strong></td><td>(1) Unconscious projection of self/object representation into another; (2) interpersonal pressure ("nudging") to make the target conform to the projection; (3) therapist contains and processes the projection</td><td>Patient unconsciously projects helplessness; therapist finds themselves unusually directive and overprotective</td><td>BPD, severe personality disorders</td></tr>
+<tr><td><strong>Projection</strong></td><td>Perceiving unacceptable inner impulses as existing in another person; target is not pressured to enact the projection (unlike PI)</td><td>Paranoid patient: "People at work are plotting against me" (disowned hostility)</td><td>Paranoid PD, psychotic disorders</td></tr>
+<tr><td><strong>Denial</strong></td><td>Avoiding awareness of external reality by disregarding sensory data</td><td>Patient with advanced alcoholism: "I can stop whenever I want — I just don't want to"</td><td>Substance use disorders, mania</td></tr>
+<tr><td><strong>Dissociation</strong></td><td>Disrupting identity, memory, consciousness, or perception to retain illusion of control</td><td>Trauma survivor reports no memory of abuse period; presents with depersonalisation</td><td>PTSD, dissociative disorders</td></tr>
+<tr><td><strong>Idealisation</strong></td><td>Attributing exaggerated positive qualities to others to avoid anxiety or negative feelings</td><td>"You are the only doctor who truly understands me. No one else even comes close."</td><td>Narcissistic PD, BPD</td></tr>
+<tr><td><strong>Devaluation</strong></td><td>Attributing exaggerated negative qualities to others</td><td>"My therapist is incompetent, and the entire profession is a scam."</td><td>Narcissistic PD, BPD</td></tr>
+<tr><td><strong>Acting out</strong></td><td>Enacting unconscious wishes or fantasies impulsively to avoid experiencing the associated affect</td><td>Patient has unprotected sex with a stranger after a session exploring abandonment</td><td>BPD, antisocial PD</td></tr>
+<tr><td><strong>Somatisation</strong></td><td>Converting emotional pain into physical symptoms without identifiable organic pathology</td><td>Chronic back pain that intensifies every time the patient's mother visits</td><td>Somatic symptom disorder</td></tr>
+<tr><td><strong>Regression</strong></td><td>Returning to an earlier developmental phase to avoid current tensions</td><td>Hospitalised adult curls into foetal position, demands to be fed</td><td>Severe stress, psychosis</td></tr>
+<tr><td><strong>Schizoid fantasy</strong></td><td>Retreating into a private internal world to avoid interpersonal anxiety and emotional closeness</td><td>Patient has elaborate fantasy life but no close relationships; reports "I live inside my head"</td><td>Schizoid PD</td></tr>
+</tbody>
+</table>
+
+<h3>Neurotic (Higher-Level) Defences</h3>
+<table>
+<thead><tr><th>Defence</th><th>Definition</th><th>Clinical Example</th><th>Typical Pathology</th></tr></thead>
+<tbody>
+<tr><td><strong>Repression</strong></td><td>Expelling unacceptable ideas/feelings from consciousness; differs from denial (repression = internal content; denial = external reality)</td><td>Patient cannot recall childhood abuse despite corroborating evidence</td><td>Hysteria, conversion, dissociative amnesia</td></tr>
+<tr><td><strong>Displacement</strong></td><td>Shifting feelings from one object to a less threatening one</td><td>Anger at boss &rarr; kicking the dog at home</td><td>Phobias, generalised anxiety</td></tr>
+<tr><td><strong>Reaction formation</strong></td><td>Transforming an unacceptable wish into its opposite</td><td>Unconscious hatred of a sibling expressed as excessive, suffocating concern</td><td>OCD, certain character styles</td></tr>
+<tr><td><strong>Intellectualisation</strong></td><td>Excessive abstract ideation to avoid experiencing difficult feelings</td><td>Discussing parent's death in terms of actuarial statistics rather than grief</td><td>OCPD, avoidant PD</td></tr>
+<tr><td><strong>Isolation of affect</strong></td><td>Separating an idea from its associated emotion</td><td>Calmly describing childhood physical abuse with no discernible affect</td><td>OCD, trauma</td></tr>
+<tr><td><strong>Rationalisation</strong></td><td>Offering plausible but untrue explanations for unacceptable behaviour</td><td>"I only hit him because he needs to learn discipline"</td><td>Ubiquitous; substance use, personality disorders</td></tr>
+<tr><td><strong>Undoing</strong></td><td>Negating aggressive, sexual, or shameful implications by elaborating, clarifying, or performing the opposite</td><td>Washing hands repeatedly after "dirty" thoughts (OCD ritual as undoing)</td><td>OCD</td></tr>
+<tr><td><strong>Sexualisation</strong></td><td>Endowing an object or behaviour with sexual significance to ward off anxiety or transform negative experience into exciting one</td><td>Patient flirts intensely whenever therapy touches painful material</td><td>Histrionic PD, trauma survivors</td></tr>
+<tr><td><strong>Introjection</strong></td><td>Internalising aspects of a significant person, especially to deal with loss</td><td>Developing the mannerisms and voice of a deceased parent</td><td>Grief, depression</td></tr>
+<tr><td><strong>Identification</strong></td><td>Internalising qualities of another person; experienced as part of the self (more integrated than introjection)</td><td>Child of alcoholic becomes a substance abuse counsellor</td><td>Normative development; identification with the aggressor in abuse</td></tr>
+</tbody>
+</table>
+
+<h3>Mature Defences</h3>
+<table>
+<thead><tr><th>Defence</th><th>Definition</th><th>Clinical Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Sublimation</strong></td><td>Transforming socially objectionable aims into socially acceptable and valued ones</td><td>Aggressive impulses channelled into competitive surgery</td></tr>
+<tr><td><strong>Humour</strong></td><td>Finding comic or ironic elements in difficult situations; allows distance without denial</td><td>Terminal patient: "At least I'll never have to do my taxes again"</td></tr>
+<tr><td><strong>Suppression</strong></td><td>Consciously deciding not to attend to a feeling or impulse; differs from repression (conscious vs. unconscious)</td><td>"I know I'm angry, but I'll deal with it after this meeting"</td></tr>
+<tr><td><strong>Altruism</strong></td><td>Committing to others' needs constructively; can serve narcissistic repair or genuine generosity</td><td>Volunteering at a crisis centre after surviving one's own suicidal period</td></tr>
+<tr><td><strong>Anticipation</strong></td><td>Delaying gratification by planning for future accomplishments; realistic worry</td><td>Studying diligently for exams months in advance</td></tr>
+<tr><td><strong>Asceticism</strong></td><td>Eliminating pleasurable aspects of experience due to internal conflict; can serve spiritual goals</td><td>Fasting and renunciation as a response to guilt</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Splitting and projective identification are the hallmark defences of borderline personality organisation. Repression is the hallmark of neurotic personality organisation. The presence of mature defences (sublimation, humour, suppression) indicates healthy adaptation. The Grant Study found that men who used predominantly mature defences had better physical health, better marriages, greater career success, and less psychopathology over a 75-year follow-up.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked to identify defence mechanisms in a clinical vignette, follow this sequence: (1) What is the patient avoiding? (2) How are they avoiding it? (3) At what developmental level does the avoidance operate? Primitive defences distort external reality or the boundary between self and other. Neurotic defences distort internal experience. Mature defences channel impulses adaptively.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — SPA-DIRSS (Primitive Defences):</strong> <strong>S</strong>plitting, <strong>P</strong>rojective identification, <strong>A</strong>cting out, <strong>D</strong>enial, <strong>I</strong>dealisation/devaluation, <strong>R</strong>egression, <strong>S</strong>omatisation, <strong>S</strong>chizoid fantasy.</p></div>
+<hr>
+<h1>4. TRANSFERENCE AND COUNTERTRANSFERENCE</h1>
+<h2>4.1 Types of Transference</h2>
+<p>Transference is universal — it occurs in all relationships, not only in therapy. The therapeutic setting intensifies it through the frame (regular meetings, asymmetric disclosure, frustration of wishes).</p>
+<table>
+<thead><tr><th>Type</th><th>Description</th><th>Key Features</th></tr></thead>
+<tbody>
+<tr><td><strong>Positive transference</strong></td><td>Warm, trusting, admiring feelings toward the therapist</td><td>Facilitates alliance; do NOT interpret unless it becomes resistance</td></tr>
+<tr><td><strong>Negative transference</strong></td><td>Hostile, contemptuous, mistrustful feelings</td><td>Must be interpreted when it impedes therapy; unrecognised negative transference destroys treatment</td></tr>
+<tr><td><strong>Erotic transference</strong></td><td>Sexual/romantic feelings toward the therapist</td><td>Often conceals aggression underneath; interpret the function, not just the content</td></tr>
+<tr><td><strong>Erotised transference</strong></td><td>More fixed, demanding, insistent form of erotic transference; patient demands gratification</td><td>Resistant to interpretation; may require limit-setting; associated with severe pathology</td></tr>
+<tr><td><strong>Selfobject transference (Kohut)</strong></td><td>Patient experiences therapist as extension of self: mirroring, idealising, or twinship</td><td>These are developmental needs, not distortions — interpret empathically, not as "resistance"</td></tr>
+<tr><td><strong>Transference neurosis</strong></td><td>Intense, pervasive recreation of infantile conflicts with the therapist as primary object</td><td>Classical goal of psychoanalysis; emerges in high-frequency work</td></tr>
+<tr><td><strong>Transference resistance</strong></td><td>Opposition to therapy based on fantasies about how the therapist views the patient</td><td>"You must think I'm pathetic" — this belief becomes the focus rather than the underlying material</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Gabbard's rule: "Interpret transference when it becomes a resistance." If positive transference is facilitating the work, do not fix what isn't broken. If a patient's idealisation is allowing them to explore painful material they couldn't before, leave it alone. Interpret when the transference starts blocking progress — when the patient cannot discuss anything because they are preoccupied with the therapist's opinion of them.</p></div>
+<h2>4.2 Transference Interpretation</h2>
+<p>The <strong>triangle of insight</strong> (Menninger, 1958; Malan's triangle of person) links three relational domains: (1) the transference relationship with the therapist, (2) current extratransference relationships, and (3) past relationships (typically parental). A complete transference interpretation connects all three: "You seem to be expecting me to criticise you [transference], just as you expect your boss to [current], which reminds me of what you described about your father [past]."</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>In a viva, if asked about transference interpretation, always mention three things: (1) timing — interpret when resistance, not when facilitating; (2) the triangle of insight — connect T, C, and P; (3) tentativeness — "I wonder if..." rather than "You are projecting your father onto me."</p></div>
+<h2>4.3 Concordant vs. Complementary Countertransference</h2>
+<p>Heinrich Racker (1968) distinguished two forms of countertransference:</p>
+<p><strong>Concordant countertransference:</strong> The therapist identifies with the patient's projected self-representation. This is closely related to empathy — the therapist feels what the patient feels. A patient describing humiliation, and the therapist feeling a knot in their own stomach, is concordant CT.</p>
+<p><strong>Complementary countertransference:</strong> The therapist identifies with the patient's projected object representation. The therapist enacts the role of the patient's internal object. A patient who was controlled by an authoritarian parent induces the therapist to become directive and rigid — the therapist is now playing the parent. This is more diagnostically informative and more dangerous if unrecognised.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The key marker of problematic countertransference is "I'm not myself" — abnormally angry, unusually forgiving, atypically bored, excessively protective, or uncharacteristically attracted. Any departure from the therapist's baseline emotional range with this particular patient should trigger self-reflection: "What is this patient inducing in me, and what does it reveal about their internal object world?"</p></div>
+<h2>4.4 Projective Identification</h2>
+<p>Projective identification (Klein, 1946) is the most clinically important primitive defence. Gabbard operationalises it as a three-step interpersonal process:</p>
+<ol>
+  <li><strong>Projection:</strong> The patient unconsciously projects a self-representation or object representation into the therapist</li>
+  <li><strong>Interpersonal pressure:</strong> The patient exerts subtle but real behavioural pressure ("nudging") that recruits the therapist into enacting the projected role</li>
+  <li><strong>Containment (in therapy):</strong> The therapist tolerates, contains, and mentally processes the projection without retaliating or collapsing. The modified contents are then available for reintrojection by the patient</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Projective identification differs from simple projection in that it includes interpersonal pressure. In projection, the patient attributes their hostility to others ("people are plotting against me") but does not actually change the other person's behaviour. In projective identification, the patient's unconscious communication actually transforms the therapist's experience — the therapist FEELS hostile, controlled, helpless, or seductive in a way that reflects the patient's internal world.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Winnicott's principle is the therapeutic antidote to projective identification: "The patient must destroy the therapist, and the therapist must survive." The patient needs the therapist to be durable — to tolerate the projected affect without retaliating, withdrawing, or collapsing. This survival is itself mutative. The patient learns that their destructiveness does not actually destroy the object.</p></div>
+<hr>
+<h1>5. PSYCHODYNAMIC ASSESSMENT</h1>
+<h2>5.1 The Structural Interview</h2>
+<p>Kernberg's structural interview is designed to diagnose the patient's level of personality organisation (neurotic vs. borderline vs. psychotic) through a systematic assessment of three domains:</p>
+<ol>
+  <li><strong>Identity integration vs. identity diffusion</strong> — Can the patient describe themselves and important others in nuanced, integrated ways? Or are descriptions vague, contradictory, or split into all-good/all-bad?</li>
+  <li><strong>Predominant defence level</strong> — Does the patient use mature and neurotic defences (repression, reaction formation, intellectualisation) or primitive defences (splitting, projective identification, denial)?</li>
+  <li><strong>Reality testing</strong> — Can the patient distinguish between internal and external origins of perceptions? Is empathy for social criteria of reality intact?</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kernberg's three criteria for level of personality organisation: identity (integrated vs. diffuse), defences (high-level vs. primitive), and reality testing (intact vs. impaired). Neurotic level = integrated identity + high-level defences + intact reality testing. Borderline level = identity diffusion + primitive defences + intact reality testing (except under stress). Psychotic level = identity diffusion + primitive defences + impaired reality testing.</p></div>
+<h3>Level of Personality Organisation (Kernberg)</h3>
+<table>
+<thead><tr><th>Domain</th><th>Neurotic Level</th><th>Borderline Level</th></tr></thead>
+<tbody>
+<tr><td>Identity</td><td>Stable, integrated; whole objects</td><td>Diffuse; partial objects split into all-good/all-bad</td></tr>
+<tr><td>Superego</td><td>Well-integrated, can be punitive</td><td>Minimal integration; guilt fluctuates wildly</td></tr>
+<tr><td>Defences</td><td>Repression-based (reaction formation, intellectualisation, isolation)</td><td>Splitting-based (PI, idealisation, devaluation, denial)</td></tr>
+<tr><td>Reality testing</td><td>Intact</td><td>Intact in structured settings; lapses under stress</td></tr>
+<tr><td>Ego functions</td><td>Good impulse control, consistent judgment</td><td>Impulsivity, impaired judgment, poor frustration tolerance</td></tr>
+<tr><td>Pathology type</td><td>Conflict-based</td><td>Deficits alongside conflicts</td></tr>
+<tr><td>Reflective function</td><td>Intact</td><td>Impaired</td></tr>
+</tbody>
+</table>
+
+<h2>5.2 Psychodynamic Formulation</h2>
+<p>The psychodynamic formulation has three components (Sperry et al., 1992; Gabbard):</p>
+<ol>
+  <li><strong>Descriptive summary</strong> — Presenting problems, stressors, and clinical picture</li>
+  <li><strong>Explanatory hypotheses</strong> — Biopsychosocial explanatory framework integrating developmental history, attachment patterns, core conflicts, predominant defences, internal object relations, and self-structure</li>
+  <li><strong>Predictive statement</strong> — How these dynamics will manifest in treatment (predicted transference, likely resistances, probable course)</li>
+</ol>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>A psychodynamic formulation is NOT a list of diagnoses. It is a narrative that answers: "Why is this particular patient presenting with these particular symptoms at this particular time?" The stressor reactivates a core conflict (or attachment injury), which overwhelms the patient's habitual defences, producing the presenting symptoms.</p></div>
+<h2>5.3 Trial Interpretation</h2>
+<p>During assessment, the clinician offers a tentative interpretation and observes the patient's response. A patient who responds with curiosity, new associations, and emotional engagement demonstrates psychological-mindedness and suitability for exploratory work. A patient who dismisses, rigidifies, or deteriorates may be better suited for supportive approaches.</p>
+<p><strong>Suitability for exploratory LTPP:</strong> strong motivation, significant suffering that drives change, good frustration tolerance, psychological-mindedness, capacity for analogy and metaphor, and at least one meaningful past relationship.</p>
+<hr>
+<h1>6. SUPPORTIVE VS EXPRESSIVE CONTINUUM</h1>
+<h2>6.1 Not a Dichotomy, a Continuum</h2>
+<p>Gabbard emphasises that supportive and expressive techniques are not separate therapies — they exist on a continuum, and every session involves a dynamic mix of both. The same therapist, with the same patient, may use primarily expressive interventions in one session and primarily supportive interventions in the next, depending on the patient's state.</p>
+<h2>6.2 Comparison Table</h2>
+<table>
+<thead><tr><th>Feature</th><th>Supportive End</th><th>Expressive End</th></tr></thead>
+<tbody>
+<tr><td><strong>Primary goal</strong></td><td>Ego strengthening, stabilisation, improved functioning</td><td>Structural personality change, insight into unconscious conflict</td></tr>
+<tr><td><strong>Frequency</strong></td><td>Once weekly or less</td><td>Two to three times weekly</td></tr>
+<tr><td><strong>Defences</strong></td><td>Bolstered, reinforced</td><td>Explored, interpreted</td></tr>
+<tr><td><strong>Transference</strong></td><td>Positive transference fostered, not interpreted</td><td>Transference analysed as primary data</td></tr>
+<tr><td><strong>Patient organisation</strong></td><td>Borderline level, ego weaknesses, psychosis</td><td>Neurotic level, good ego strengths</td></tr>
+<tr><td><strong>Key interventions</strong></td><td>Advice, praise, empathic validation, psychoeducation, encouragement</td><td>Interpretation, confrontation, observation, free association</td></tr>
+<tr><td><strong>Therapist stance</strong></td><td>More active, directive when needed</td><td>More neutral, follows patient's lead</td></tr>
+<tr><td><strong>Unconscious material</strong></td><td>Not pursued; focus on conscious coping</td><td>Actively explored through dreams, associations, enactments</td></tr>
+<tr><td><strong>Regression</strong></td><td>Actively prevented</td><td>Tolerated and utilised therapeutically</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Wallerstein (1986) Menninger Psychotherapy Research Project — a 30-year prospective study of 42 patients — found that supportive treatment produced as much structural change as expressive therapy. This challenged the dogma that only insight produces "real" change. The finding suggests that the therapeutic relationship itself is mutative, regardless of whether the therapist interprets or supports.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The practical decision of where on the continuum to work is driven by the patient's ego strength. When in doubt, start more supportive and move toward expressive as the alliance strengthens and you understand the patient's capacity. You can always increase expressiveness; repairing damage from premature depth is harder.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If a viva question presents a patient with identity diffusion, primitive defences, and poor frustration tolerance — the answer is supportive-expressive therapy with supportive emphasis. If the patient has integrated identity, neurotic defences, and psychological-mindedness — expressive emphasis. Never answer "supportive therapy" or "expressive therapy" as absolutes; always say "therapy with supportive/expressive emphasis."</p></div>
+<hr>
+<h1>7. CORE TECHNIQUES</h1>
+<h2>7.1 The Intervention Hierarchy</h2>
+<p>Gabbard presents interventions on a continuum from most expressive to most supportive:</p>
+<p><strong>Interpretation &rarr; Observation &rarr; Confrontation &rarr; Clarification &rarr; Encouragement to elaborate &rarr; Empathic validation &rarr; Psychoeducation &rarr; Advice/Praise</strong></p>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — "I Often Confront Clearly, Encouraging Empathy And Praise":</strong> Interpretation, Observation, Confrontation, Clarification, Encouragement to elaborate, Empathic validation, Advice/Praise. From most expressive (left) to most supportive (right).</p></div>
+<h2>7.2 Clarification</h2>
+<p>Bringing clarity to vague, diffuse, or disconnected material. The therapist checks their understanding. "If I understand correctly, you're saying that every time your husband compliments you, you feel suspicious rather than pleased?" Clarification is non-threatening and alliance-building.</p>
+<h2>7.3 Confrontation</h2>
+<p>Drawing the patient's attention to something they are avoiding. Despite the adversarial connotation, confrontation in psychodynamic therapy can be gentle and empathic. It addresses discrepancies — between what the patient says and does, between their stated goals and their behaviour, between their self-image and the therapist's observation. Example: "You say the relationship is fine, but you've described three incidents this week where you cried yourself to sleep."</p>
+<h2>7.4 Interpretation</h2>
+<p>Making conscious what was previously unconscious, or pointing out unrecognised connections between feelings, behaviours, and unconscious motivations. This is the signature technique of psychodynamic therapy.</p>
+<p><strong>Types of interpretation:</strong></p>
+<ul>
+  <li><strong>Defence interpretation:</strong> "I notice that whenever we approach the topic of your father, you start making jokes. I wonder if the humour serves to keep some painful feelings at a distance."</li>
+  <li><strong>Transference interpretation:</strong> "It seems like you're expecting me to judge you, the way you felt judged by your mother."</li>
+  <li><strong>Genetic interpretation:</strong> "The rage you feel toward your boss may connect to the helplessness you felt as a child when your father would silence you."</li>
+</ul>
+
+<p><strong>Principles:</strong> Deliver tentatively ("I wonder if..."). Interpret surface before depth. Interpret defence before content. Formulate the interpretation internally four times before speaking. Time the interpretation for when the patient is close to the awareness themselves.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Gabbard's key rule: "Interpret transference when it becomes a resistance." Do not interpret positive transference that is facilitating therapeutic work. Do not interpret negative transference that the patient is already reflecting on productively. Interpret when the transference blocks further exploration.</p></div>
+<h2>7.5 Working Through</h2>
+<p>Working through is not a single event but a repetitive process of encountering the same patterns, defences, and conflicts across multiple contexts and relationships until insight is integrated and behaviour changes. Schafer (1983): working through involves analysing resistances "again and again, patiently, through a seemingly endless series of repetitions, permutations, combinations, and variations." The neuroscience frame: old neural networks involving maladaptive self-other representations are gradually weakened while new networks involving different modes of relatedness are strengthened.</p>
+<h2>7.6 Empathic Validation</h2>
+<p>Immersion in the patient's subjective experience. "I can appreciate why you would feel horrible in that situation." This is not agreement with the patient's conclusions — it is validation of their emotional experience. Especially crucial early in treatment for building alliance, and throughout treatment with patients who experienced emotional invalidation (trauma, BPD). Killingmo (1995) described <strong>affirmative interventions</strong> that remove doubt about the patient's experience of reality — essential for patients whose feelings were denied by caregivers.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Empathic validation is not a "lower" technique than interpretation. It is the foundation that makes interpretation possible. Without validation, interpretation is experienced as attack. The patient who hears "I wonder if you're angry at me" without first feeling understood will hear "You're being irrational and I'm going to prove it."</p></div>
+<hr>
+<h1>8. TREATMENT PHASES</h1>
+<h2>8.1 Opening Phase</h2>
+<p><strong>Tasks:</strong> Establish rapport, build therapeutic alliance, set the frame (time, fee, cancellation policy), assess and formulate, identify a preliminary focus, and manage initial resistances. The therapist's primary stance is empathic, curious, and non-judgmental.</p>
+<p>Around session 8, the idealised image of the therapist often crumbles — the patient realises the therapist is not omnipotent. This triggers a transference crisis with possible symptom recurrence. This is a predictable developmental milestone, not a treatment failure.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Wolberg identifies session 8 as the typical point where idealisation collapses. The patient's initial improvement (from non-specific factors: hope, placebo, catharsis) gives way to the emergence of transference and resistance. The "honeymoon phase" ending is a sign that the real work is beginning.</p></div>
+<h2>8.2 Middle Phase</h2>
+<p>The longest and most complex phase. <strong>Tasks:</strong> Identify recurring transference-countertransference patterns, interpret defences and conflicts, work with dreams and fantasies, process resistance, and promote mentalization.</p>
+<p>The <strong>triangle of insight</strong> (Menninger) guides the work: the therapist identifies parallel patterns across (1) the transference, (2) current relationships, and (3) past relationships. When the same dynamic appears in all three domains, interpretation becomes powerful because the patient can see the pattern themselves.</p>
+<p>This phase typically involves cycles of insight &rarr; resistance &rarr; deeper exploration &rarr; new insight. Progress is non-linear. Periods of apparent stagnation are often periods of consolidation.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Working through is the backbone of the middle phase. A single interpretation, no matter how accurate, rarely produces lasting change. The same core conflict must be encountered and interpreted repeatedly across different contexts — with the therapist, with the spouse, with the parent, in dreams, in fantasies — before the old patterns loosen their grip.</p></div>
+<h2>8.3 Termination</h2>
+<p><strong>Triggers for termination:</strong> mutual agreement that goals are met, preplanned end (time-limited design), forced endings (therapist graduation, relocation, payer discontinuation), unilateral termination by patient or therapist.</p>
+<p>Termination work is not a postscript — it is a therapeutic phase in its own right. Symptoms often return as a protest against impending loss. Memories of prior abandonments and separations surface with renewed intensity. The patient's characteristic defences against loss (denial, regression, flight into health, devaluation of therapy) become the final focus of analytic work.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>"Flight into health" — the patient's premature claim of cure — often serves a resistance function. Rule of thumb (Gabbard): the first time a patient brings up termination, it probably represents resistance rather than genuine readiness. Explore what is being avoided.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Fewer than 20% of patients in community mental health settings have a mutually negotiated termination (Beck et al. 1987). Most terminations are unilateral — the patient drops out. This is a clinical reality, not a treatment failure. Understanding why patients leave (and working to reduce premature termination through alliance monitoring) is as important as understanding the ideal termination process.</p></div>
+<hr>
+<h1>9. DISORDER-SPECIFIC APPLICATIONS</h1>
+<h2>9.1 Depression</h2>
+<p>Psychodynamic therapy for depression addresses both the depressive symptoms and the underlying characterological substrate. Blatt's distinction is clinically useful: <strong>introjective</strong> depression (self-critical, perfectionistic, driven by self-worth concerns — responds to insight through interpretation) vs. <strong>anaclitic</strong> depression (dependent, relationship-focused, driven by loss and abandonment — responds to the therapeutic relationship itself).</p>
+<p>Key targets: unconscious self-punishment (superego pathology), loss of internalised good objects, turning aggression against the self (Freud's "Mourning and Melancholia"), and the distinction between introspection (curious, future-oriented) and rumination (regretful, past-oriented).</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Distinguish introspection from rumination in depressed patients. Introspection is reflective, open-ended, and oriented toward understanding. Rumination is repetitive, self-critical, and oriented toward blame. The psychodynamic therapist helps the patient shift from rumination to introspection — from "Why did I ruin everything?" to "What was happening inside me when I made that choice?"</p></div>
+<h2>9.2 Personality Disorders</h2>
+<h3>Borderline Personality Disorder</h3>
+<p>The two leading evidence-based psychodynamic treatments for BPD are:</p>
+<p><strong>Transference-Focused Psychotherapy (TFP)</strong> — developed by Kernberg, Clarkin, and Yeomans. Based on object relations theory. The primary therapeutic action is interpretation of the dominant object relations dyad as it is activated in the transference. The therapist names the self-representation, the object representation, and the linking affect. TFP aims for identity integration — helping the patient move from splitting (all-good/all-bad) to a more integrated view of self and others.</p>
+<p><strong>Mentalization-Based Treatment (MBT)</strong> — developed by Fonagy and Bateman. Based on attachment theory. The primary therapeutic action is the restoration of mentalization — the capacity to understand behaviour in terms of mental states. The therapist adopts a "not-knowing" stance, actively curious about what the patient and others might be thinking and feeling. Bateman and Fonagy (1999, 2001) demonstrated in an RCT that MBT in a partial hospital setting produced significant improvement in depression, interpersonal functioning, hospitalisation, and self-harm at 18 months, with continued improvement at follow-up.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>TFP and MBT are both evidence-based psychodynamic treatments for BPD. TFP targets identity diffusion through transference interpretation. MBT targets mentalizing failure through a curious, not-knowing therapeutic stance. TFP is more confrontational; MBT is more validating. Both require structured training.</p></div>
+<h3>Narcissistic Personality Disorder</h3>
+<p>Two approaches dominate: Kernberg's confrontational approach (interpreting grandiosity as a defence against underlying envy and emptiness) and Kohut's empathic approach (treating grandiosity as a developmental arrest requiring empathic mirroring for resumption of growth). Most contemporary clinicians integrate both, matching the approach to the patient's level of functioning.</p>
+<h3>Cluster C Personality Disorders</h3>
+<p>Avoidant, dependent, and obsessive-compulsive personality disorders have the strongest evidence base for LTPP. These patients are typically at the neurotic level of personality organisation and respond well to exploratory technique.</p>
+<h2>9.3 Anxiety Disorders</h2>
+<p>Psychodynamic understanding of anxiety centres on signal anxiety — the ego's alarm triggered by forbidden impulses approaching consciousness. Generalised anxiety reflects chronic, diffuse signal anxiety with poor identification of specific triggers. Panic disorder involves catastrophic misinterpretation of autonomic signals. Social anxiety involves projection of critical superego onto external figures.</p>
+<p>LTPP is indicated when brief treatments (CBT, medication) have failed, when anxiety symptoms are embedded in characterological patterns, or when the patient shows interest in understanding the meaning of their anxiety.</p>
+<h2>9.4 Trauma</h2>
+<p>Psychodynamic approaches to trauma integrate Freud's concept of traumatic helplessness (overwhelming of the ego's stimulus barrier), object relations understanding (internalised abuser-victim dyads), and attachment theory (disorganised attachment as a core sequela of relational trauma). The therapist serves as a container for unbearable affects that the patient cannot yet process alone.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Transference interpretation is "high-risk, high-gain" with borderline patients (Gabbard et al. 1994). The risk is destabilisation — a premature or inaccurate transference interpretation can shatter a fragile alliance. The gain is that no other intervention reaches the core pathology as directly. The precondition is a holding environment of empathic validation.</p></div>
+<hr>
+<h1>10. EVIDENCE BASE</h1>
+<h2>10.1 The Shedler (2010) Meta-Analysis</h2>
+<p>Jonathan Shedler's landmark paper "The Efficacy of Psychodynamic Psychotherapy" (American Psychologist, 2010) compiled evidence from multiple meta-analyses and RCTs. Key findings:</p>
+<ul>
+  <li>Effect sizes for psychodynamic therapy (0.97 for overall outcome) are as large as those reported for other evidence-based therapies including CBT</li>
+  <li>Patients who receive psychodynamic therapy continue to improve after treatment ends — effect sizes increase at follow-up, unlike CBT where gains tend to be maintained but not increased</li>
+  <li>The "active ingredients" of psychodynamic therapy (focus on affect, identification of recurring themes, discussion of past experiences, focus on interpersonal relationships, focus on the therapeutic relationship, exploration of wishes/fantasies) are present in effective CBT as well — suggesting that when CBT works, it may work partly through psychodynamic mechanisms</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Shedler (2010) identified the "sleeper effect" — psychodynamic therapy effect sizes INCREASE at follow-up. This suggests patients internalise a way of thinking about their experience that continues to produce change after treatment ends. This is not observed with CBT, where gains are maintained but typically do not increase.</p></div>
+<h2>10.2 Leichsenring Studies</h2>
+<p>Falk Leichsenring and colleagues have produced several influential meta-analyses:</p>
+<ul>
+  <li><strong>Leichsenring & Rabung (2008, JAMA):</strong> LTPP was significantly superior to less intensive treatments for personality disorders, chronic mental disorders, and multiple mental disorders (overall effect size d = 1.8 for target problems)</li>
+  <li><strong>Leichsenring & Rabung (2011):</strong> Updated meta-analysis confirming LTPP superiority for complex disorders</li>
+  <li><strong>Leichsenring et al. (2004):</strong> Short-term psychodynamic therapy was effective for depression, anxiety, somatoform, and personality disorders</li>
+</ul>
+
+<h2>10.3 NICE Guidelines</h2>
+<p>The UK National Institute for Health and Care Excellence (NICE) recommends psychodynamic therapy for:</p>
+<ul>
+  <li>Depression (as an option when CBT has failed or is not preferred)</li>
+  <li>BPD (MBT is a recommended treatment)</li>
+  <li>Complex PTSD (when other approaches have been insufficient)</li>
+  <li>Self-harm (psychodynamic interpersonal therapy is specifically recommended)</li>
+</ul>
+
+<h2>10.4 Evidence Summary Table</h2>
+<table>
+<thead><tr><th>Study</th><th>Design</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>Shedler (2010)</td><td>Meta-analysis of meta-analyses</td><td>Effect size 0.97; gains increase at follow-up ("sleeper effect")</td></tr>
+<tr><td>Leichsenring & Rabung (2008)</td><td>Meta-analysis, JAMA</td><td>LTPP superior for complex/chronic disorders (d = 1.8)</td></tr>
+<tr><td>Bateman & Fonagy (1999, 2001)</td><td>RCT, BPD (n=38)</td><td>MBT: significant improvement sustained at 18-month follow-up</td></tr>
+<tr><td>Krupnick et al. (1996)</td><td>NIMH TDCRP</td><td>Alliance accounts for 21% of outcome variance across all modalities</td></tr>
+<tr><td>Svartberg et al. (2004)</td><td>RCT, Cluster C PD</td><td>Dynamic therapy 54% recovered vs. 42% CBT at 2-year follow-up</td></tr>
+<tr><td>Winston et al. (1994)</td><td>RCT, Cluster C PD</td><td>Significant improvement vs. waitlist; sustained at 1.5-year follow-up</td></tr>
+<tr><td>Wallerstein (1986)</td><td>30-year prospective, n=42</td><td>Supportive therapy produced as much structural change as expressive</td></tr>
+<tr><td>Anderson & Lambert (1995)</td><td>Meta-analysis, 26 studies</td><td>Short-term dynamic therapy equally effective as other therapies at follow-up</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The evidence base for psychodynamic therapy has expanded dramatically since 2000. The common myth that psychodynamic therapy is "not evidence-based" reflects a lag in public awareness, not a gap in the literature. Shedler (2010) directly addresses this misconception and should be cited whenever the evidence question arises.</p></div>
+<hr>
+<h1>11. BRIEF PSYCHODYNAMIC THERAPIES</h1>
+<h2>11.1 Overview</h2>
+<p>Brief psychodynamic therapies (typically 12-40 sessions) were developed to make psychodynamic principles accessible within time-limited constraints. They differ from LTPP in their use of a focal problem, active therapist stance, time pressure as a therapeutic tool, and selective (not comprehensive) exploration of dynamics.</p>
+<h2>11.2 Comparison of Major Brief Psychodynamic Approaches</h2>
+<table>
+<thead><tr><th>Feature</th><th>Malan (Brief Focal)</th><th>Davanloo (Intensive STDP)</th><th>Strupp (TLDP)</th><th>Luborsky (SE Therapy)</th><th>Mann (Time-Limited)</th><th>Sifneos (STAPP)</th></tr></thead>
+<tbody>
+<tr><td><strong>Sessions</strong></td><td>20-30</td><td>20-40</td><td>25</td><td>16-25</td><td>Exactly 12</td><td>12-20</td></tr>
+<tr><td><strong>Focus</strong></td><td>Focal conflict (triangle of conflict + triangle of person)</td><td>Unconscious rage, grief</td><td>Cyclical maladaptive pattern (CMP)</td><td>Core conflictual relationship theme (CCRT)</td><td>Separation-individuation</td><td>Oedipal conflict</td></tr>
+<tr><td><strong>Therapist style</strong></td><td>Active, interpretive</td><td>Highly confrontational, relentless</td><td>Collaborative, interpersonal</td><td>Supportive-expressive</td><td>Empathic, time-conscious</td><td>Anxiety-provoking</td></tr>
+<tr><td><strong>Time pressure</strong></td><td>Moderate</td><td>Intense (session-by-session pressure)</td><td>End date set at start</td><td>Flexible within range</td><td>Central therapeutic tool (12-session limit as metaphor for mortality)</td><td>Moderate</td></tr>
+<tr><td><strong>Patient selection</strong></td><td>Circumscribed neurotic conflict</td><td>Higher ego strength, capacity for emotional experiencing</td><td>Interpersonal difficulties</td><td>Broad (uses continuum)</td><td>Good ego strength, one central issue</td><td>High motivation, circumscribed Oedipal focus, above-average intelligence</td></tr>
+<tr><td><strong>Key technique</strong></td><td>Triangle of conflict (impulse/feeling, defence, anxiety) linked to triangle of person (T, C, P)</td><td>Head-on collision with defences; unlocking the unconscious in session</td><td>Identifying CMP in the T-C-P triangle</td><td>Identifying CCRT across narratives; accuracy of interpretation predicts outcome</td><td>Central issue connected to time-limited frame</td><td>Anxiety-provoking questions that challenge defences</td></tr>
+<tr><td><strong>Termination</strong></td><td>Interpretive</td><td>Interpretive</td><td>Active processing of loss</td><td>Gradual tapering</td><td>Termination = metaphor for all separations, losses, and death</td><td>Interpretive</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Malan's two triangles: the <strong>triangle of conflict</strong> (hidden feeling/impulse, defence, anxiety) and the <strong>triangle of person</strong> (therapist/transference, current figures, past figures). The therapeutic task is to link the two triangles — showing how the same conflict plays out across all three relational domains. This is the conceptual foundation of brief psychodynamic therapy.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Luborsky's <strong>Core Conflictual Relationship Theme (CCRT)</strong> comprises three components: a wish (toward the other), an expected response from the other, and a response of the self. Research shows that accuracy of interpretation matching the CCRT predicts better outcome both within and across sessions (Crits-Christoph 1988; Silberschatz 1986).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — MDS-LMS (Brief Dynamic Pioneers):</strong> <strong>M</strong>alan (focal), <strong>D</strong>avanloo (intensive), <strong>S</strong>trupp (cyclical maladaptive pattern), <strong>L</strong>uborsky (CCRT), <strong>M</strong>ann (time-limited, 12 sessions), <strong>S</strong>ifneos (anxiety-provoking, Oedipal). Remember: "Malicious Davanloo Squeezes Like a Mighty Surgeon" — reflecting Davanloo's confrontational style.</p></div>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked about brief vs. long-term psychodynamic therapy, emphasise these differences: brief therapy requires a clear focal conflict, an active therapist, and good patient selection (higher ego strength, circumscribed problems). LTPP is indicated for personality disorders, chronic mental disorders, and patients with pervasive patterns requiring deeper structural change. Brief therapy targets symptoms and focal conflicts; LTPP targets character structure.</p></div>
+<hr>
+<p><em>Deep Study compiled from: Gabbard GO (2017) Long-Term Psychodynamic Psychotherapy: A Basic Text, 3rd ed. American Psychiatric Publishing; Wolberg LR (1988) The Technique of Psychotherapy, 4th ed. International Psychotherapy Institute; Shedler J (2010) The Efficacy of Psychodynamic Psychotherapy. American Psychologist 65(2):98-109; Leichsenring F, Rabung S (2008) Effectiveness of Long-term Psychodynamic Psychotherapy. JAMA 300(13):1551-1565; Bateman A, Fonagy P (2001) Treatment of Borderline Personality Disorder With Psychoanalytically Oriented Partial Hospitalization. American Journal of Psychiatry 158(1):36-42.</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Psychodynamic Therapy &mdash; Weave Psychotherapy Vol. 3</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 3 | Psychodynamic Therapy</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Psychodynamic Therapy — Clinical Quick Reference</h1>
+<hr>
+<h2>1. Psychodynamic Therapy at a Glance</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Definition</strong></td><td>Therapy involving careful attention to the therapist-patient interaction, with thoughtfully timed interpretation of transference and resistance in a two-person field</td></tr>
+<tr><td><strong>Duration</strong></td><td>LTPP: >24 sessions or >6 months (open-ended or time-limited). Brief: 12-40 sessions</td></tr>
+<tr><td><strong>Frequency</strong></td><td>Expressive: 2-3x/week. Supportive: 1x/week or less</td></tr>
+<tr><td><strong>Theoretical models</strong></td><td>Ego psychology, object relations, self psychology, attachment theory</td></tr>
+<tr><td><strong>Core mechanism</strong></td><td>Insight (interpretation) + relationship (new object experience) working synergistically</td></tr>
+<tr><td><strong>Primary targets</strong></td><td>Unconscious conflict, defence patterns, transference, internal object relations, self-structure</td></tr>
+<tr><td><strong>Therapeutic relationship</strong></td><td>Primary tool, not merely vehicle for techniques. Transference and countertransference are central data</td></tr>
+<tr><td><strong>Change theory</strong></td><td>Weakening maladaptive neural networks + strengthening new adaptive associative linkages</td></tr>
+<tr><td><strong>Best evidence</strong></td><td>Personality disorders (esp. Cluster C, BPD via TFP/MBT), chronic/complex depression, treatment-resistant anxiety</td></tr>
+<tr><td><strong>Contraindications</strong></td><td>Active substance abuse, OCD symptoms directly (use ERP + SSRI), antisocial PD without remorse</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>LTPP is defined as >24 sessions or >6 months (Gabbard). This operational cutoff separates it from brief dynamic therapies. Two subtypes: time-limited (predetermined end) and open-ended (naturalistic termination).</p></div>
+<h3>Seven Basic Principles (Gabbard)</h3>
+<ol>
+  <li>Much of mental life is <strong>unconscious</strong></li>
+  <li><strong>Childhood</strong> experiences + genetic factors shape the adult</li>
+  <li>Patient's <strong>transference</strong> is a primary source of understanding</li>
+  <li>Therapist's <strong>countertransference</strong> reveals what patient induces in others</li>
+  <li><strong>Resistance</strong> to therapy is a major focus</li>
+  <li>Symptoms serve <strong>multiple functions</strong> (overdetermination)</li>
+  <li>Therapy aims for <strong>authenticity</strong> and uniqueness</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — SURMCRA:</strong> <strong>S</strong>ubjectivity, <strong>U</strong>nconscious, <strong>R</strong>esistance, <strong>M</strong>ultiple functions, <strong>C</strong>hildhood + genetics, <strong>R</strong>esponse of therapist (CT), <strong>A</strong>ttribution to therapist (transference).</p></div>
+<hr>
+<h2>2. Defence Mechanisms Master Table (Vaillant Hierarchy)</h2>
+<h3>Primitive (Immature) Defences</h3>
+<table>
+<thead><tr><th>Defence</th><th>Definition</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Splitting</td><td>All-good/all-bad compartmentalisation of self/others</td><td>"My last doctor was amazing; you're useless"</td></tr>
+<tr><td>Projective identification</td><td>Project representation + pressure target to enact it</td><td>Patient's helplessness makes therapist overprotective</td></tr>
+<tr><td>Projection</td><td>Attribute own impulses to others (no interpersonal pressure)</td><td>"Everyone at work hates me" (disowned hostility)</td></tr>
+<tr><td>Denial</td><td>Disregard external reality</td><td>Alcoholic: "I can stop anytime"</td></tr>
+<tr><td>Dissociation</td><td>Disrupt identity/memory/consciousness</td><td>No memory of abuse; depersonalisation</td></tr>
+<tr><td>Idealisation</td><td>Exaggerated positive attribution</td><td>"Only you truly understand me"</td></tr>
+<tr><td>Devaluation</td><td>Exaggerated negative attribution</td><td>"Therapy is a total waste"</td></tr>
+<tr><td>Acting out</td><td>Impulsive enactment to avoid affect</td><td>Unprotected sex after painful session</td></tr>
+<tr><td>Somatisation</td><td>Emotional pain &rarr; physical symptoms</td><td>Back pain worsens when mother visits</td></tr>
+<tr><td>Regression</td><td>Return to earlier developmental phase</td><td>Adult curls into foetal position under stress</td></tr>
+<tr><td>Schizoid fantasy</td><td>Retreat into internal world</td><td>Rich fantasy life, no real relationships</td></tr>
+</tbody>
+</table>
+
+<h3>Neurotic (Higher-Level) Defences</h3>
+<table>
+<thead><tr><th>Defence</th><th>Definition</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Repression</td><td>Expel unacceptable ideas from consciousness (internal)</td><td>Cannot recall childhood abuse</td></tr>
+<tr><td>Displacement</td><td>Shift feelings to less threatening target</td><td>Angry at boss &rarr; kicks dog</td></tr>
+<tr><td>Reaction formation</td><td>Transform wish into its opposite</td><td>Hatred &rarr; excessive concern</td></tr>
+<tr><td>Intellectualisation</td><td>Abstract ideation to avoid feelings</td><td>Discusses parent's death via statistics</td></tr>
+<tr><td>Isolation of affect</td><td>Separate idea from emotion</td><td>Describes abuse calmly, no affect</td></tr>
+<tr><td>Rationalisation</td><td>Plausible but untrue justification</td><td>"I hit him because he needs to learn"</td></tr>
+<tr><td>Undoing</td><td>Negate implications by opposite action</td><td>OCD handwashing after "dirty" thoughts</td></tr>
+<tr><td>Sexualisation</td><td>Endow object with sexual significance to avoid anxiety</td><td>Flirting whenever therapy gets painful</td></tr>
+<tr><td>Introjection</td><td>Internalise aspects of significant other</td><td>Adopt mannerisms of deceased parent</td></tr>
+<tr><td>Identification</td><td>Become like another; integrated into self</td><td>Abuse survivor becomes therapist</td></tr>
+</tbody>
+</table>
+
+<h3>Mature Defences</h3>
+<table>
+<thead><tr><th>Defence</th><th>Definition</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Sublimation</td><td>Channel objectionable aims into valued activity</td><td>Aggression &rarr; competitive sport</td></tr>
+<tr><td>Humour</td><td>Find comic/ironic elements; distance without denial</td><td>Terminal patient jokes about taxes</td></tr>
+<tr><td>Suppression</td><td>Consciously postpone attending to feeling</td><td>"I'll deal with this anger after the meeting"</td></tr>
+<tr><td>Altruism</td><td>Constructive service to others</td><td>Suicide survivor volunteers at crisis line</td></tr>
+<tr><td>Anticipation</td><td>Realistic planning for future</td><td>Studying months before exams</td></tr>
+<tr><td>Asceticism</td><td>Renounce pleasure due to conflict</td><td>Fasting as guilt response</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Splitting + projective identification = borderline level. Repression-based defences = neurotic level. Mature defences = healthy adaptation. The Grant Study showed mature-defence users had better health, marriages, and careers over 75 years.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — SPA-DIRSS (Primitive Defences):</strong> <strong>S</strong>plitting, <strong>P</strong>rojective identification, <strong>A</strong>cting out, <strong>D</strong>enial, <strong>I</strong>dealisation/devaluation, <strong>R</strong>egression, <strong>S</strong>omatisation, <strong>S</strong>chizoid fantasy.</p></div>
+<hr>
+<h2>3. Transference Types Quick Card</h2>
+<table>
+<thead><tr><th>Type</th><th>Description</th><th>Management</th></tr></thead>
+<tbody>
+<tr><td><strong>Positive</strong></td><td>Warm, trusting feelings</td><td>Foster; do NOT interpret unless it becomes resistance</td></tr>
+<tr><td><strong>Negative</strong></td><td>Hostile, contemptuous</td><td>Interpret when it impedes work; unrecognised negative transference kills therapy</td></tr>
+<tr><td><strong>Erotic</strong></td><td>Sexual/romantic feelings</td><td>Interpret the function (often conceals aggression); maintain boundaries</td></tr>
+<tr><td><strong>Erotised</strong></td><td>Fixed, demanding erotic; insists on gratification</td><td>Limit-set; associated with severe pathology; resistant to interpretation</td></tr>
+<tr><td><strong>Selfobject — Mirroring</strong></td><td>Needs therapist to admire/validate</td><td>Empathic responsiveness; interpret only when arrested development</td></tr>
+<tr><td><strong>Selfobject — Idealising</strong></td><td>Needs therapist to be perfect/powerful</td><td>Allow idealisation initially; interpret when it impedes growth</td></tr>
+<tr><td><strong>Selfobject — Twinship</strong></td><td>Needs to feel similar to therapist</td><td>Normalise; developmental need, not distortion</td></tr>
+<tr><td><strong>Transference neurosis</strong></td><td>Pervasive recreation of infantile conflicts</td><td>Classical analytic goal; emerges in high-frequency work</td></tr>
+<tr><td><strong>Transference resistance</strong></td><td>Opposition based on fantasies about therapist's view</td><td>Focus on the belief about the therapist rather than underlying material</td></tr>
+</tbody>
+</table>
+
+<h3>Triangle of Insight (Menninger/Malan)</h3>
+<p>A complete interpretation links patterns across all three points: "You expect me to [T], just as you expect your boss to [C], which is what your father did [P]."</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Concordant countertransference = therapist identifies with patient's self (empathy). Complementary countertransference = therapist identifies with patient's object (enacts the role of abuser/parent). Complementary CT is more diagnostically informative and more dangerous if unrecognised.</p></div>
+<hr>
+<h2>4. Supportive vs Expressive Decision Tree</h2>
+<table>
+<thead><tr><th>Feature</th><th>Supportive Emphasis</th><th>Expressive Emphasis</th></tr></thead>
+<tbody>
+<tr><td>Goal</td><td>Stabilisation, functioning</td><td>Structural personality change</td></tr>
+<tr><td>Defences</td><td>Reinforce</td><td>Interpret</td></tr>
+<tr><td>Transference</td><td>Foster positive; don't interpret</td><td>Analyse as primary data</td></tr>
+<tr><td>Regression</td><td>Prevent</td><td>Tolerate/utilise</td></tr>
+<tr><td>Frequency</td><td>≤1x/week</td><td>2-3x/week</td></tr>
+<tr><td>Interventions</td><td>Advice, praise, validation, psychoeducation</td><td>Interpretation, confrontation, observation</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Wallerstein (1986) Menninger Project: supportive therapy produced as much structural change as expressive therapy over 30 years. The relationship is mutative regardless of whether the therapist interprets or supports.</p></div>
+<hr>
+<h2>5. Core Techniques Checklist</h2>
+<h3>Intervention Continuum (Most Expressive &rarr; Most Supportive)</h3>
+<table>
+<thead><tr><th>Technique</th><th>What It Does</th><th>When to Use</th></tr></thead>
+<tbody>
+<tr><td><strong>Interpretation</strong></td><td>Makes unconscious conscious; connects wishes, defences, and relationships</td><td>When patient is close to awareness; defence before content</td></tr>
+<tr><td><strong>Observation</strong></td><td>Notes behaviour/affect without explaining</td><td>When you want patient to discover meaning themselves</td></tr>
+<tr><td><strong>Confrontation</strong></td><td>Points out what is being avoided; addresses discrepancies</td><td>When patient avoids important material; can be gentle</td></tr>
+<tr><td><strong>Clarification</strong></td><td>Checks understanding; summarises; rephrases</td><td>Alliance-building; when material is vague or diffuse</td></tr>
+<tr><td><strong>Encouragement to elaborate</strong></td><td>"Tell me more"</td><td>When patient falls silent or gives thin material</td></tr>
+<tr><td><strong>Empathic validation</strong></td><td>Immersion in patient's experience</td><td>Foundation of all work; essential early and with trauma/BPD</td></tr>
+<tr><td><strong>Psychoeducation</strong></td><td>Teach about illness, treatment, or patterns</td><td>Supportive emphasis; normalise experience</td></tr>
+<tr><td><strong>Advice/Praise</strong></td><td>Direct guidance; reinforce adaptive behaviour</td><td>Most supportive end; use with ego-weak patients</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — "I Often Confront Clearly, Encouraging Empathy And Praise":</strong> Interpretation, Observation, Confrontation, Clarification, Encouragement, Empathic validation, Advice/Praise.</p></div>
+<h3>Interpretation Checklist</h3>
+<ul>
+  <li>[ ] Identify the defence first, then the underlying content</li>
+  <li>[ ] Time it: is the patient close to awareness?</li>
+  <li>[ ] Deliver tentatively: "I wonder if..."</li>
+  <li>[ ] Formulate internally four times before speaking</li>
+  <li>[ ] Link to triangle of insight (T-C-P) when possible</li>
+  <li>[ ] Monitor alliance after delivering — did it land or destabilise?</li>
+  <li>[ ] Interpret transference only when it becomes resistance</li>
+</ul>
+
+<hr>
+<h2>6. Disorder-Specific Applications Table</h2>
+<table>
+<thead><tr><th>Disorder</th><th>Psychodynamic Understanding</th><th>Recommended Approach</th><th>Key Techniques</th></tr></thead>
+<tbody>
+<tr><td><strong>Depression</strong></td><td>Superego pathology; loss of internalised good objects; aggression turned against self (Freud)</td><td>LTPP + medication; distinguish introjective (insight) vs. anaclitic (relationship)</td><td>Introspection vs. rumination distinction; address self-punishment</td></tr>
+<tr><td><strong>BPD</strong></td><td>Identity diffusion; splitting/PI; mentalizing failure; disorganised attachment</td><td>TFP (Kernberg) or MBT (Fonagy/Bateman); structured protocols</td><td>TFP: interpret dominant object relations dyad. MBT: restore mentalization via curious stance</td></tr>
+<tr><td><strong>Narcissistic PD</strong></td><td>Fragile self; selfobject failure; grandiosity as defence vs. developmental arrest</td><td>Kernberg (confront grandiosity) vs. Kohut (empathic mirroring); integrate both</td><td>Selfobject transference; transmuting internalisation; empathic rupture-repair</td></tr>
+<tr><td><strong>Cluster C PDs</strong></td><td>Neurotic-level conflict; repression-based defences</td><td>LTPP with expressive emphasis; strongest evidence base</td><td>Standard interpretation, defence analysis, transference work</td></tr>
+<tr><td><strong>GAD</strong></td><td>Chronic diffuse signal anxiety; poor identification of triggers</td><td>LTPP when brief treatments fail</td><td>Explore meaning of anxiety; uncover underlying conflicts</td></tr>
+<tr><td><strong>Panic disorder</strong></td><td>Catastrophic misinterpretation of signal anxiety; autonomic cascade</td><td>LTPP for treatment-resistant cases; CBT first-line</td><td>Explore dynamic origins; address separation-individuation</td></tr>
+<tr><td><strong>Social anxiety</strong></td><td>Projection of critical superego onto external figures</td><td>LTPP for characterological substrate</td><td>Interpret projected self-criticism; analyse transference</td></tr>
+<tr><td><strong>PTSD / Complex trauma</strong></td><td>Overwhelmed ego; internalised abuser-victim dyads; disorganised attachment</td><td>LTPP for complex/treatment-resistant cases</td><td>Containment; process unbearable affects; address dissociation</td></tr>
+<tr><td><strong>Anorexia nervosa</strong></td><td>Control as defence; body as object; early relational disturbance</td><td>Extended LTPP as part of multimodal treatment (Dare 2001)</td><td>Address control, perfectionism, meaning of body</td></tr>
+<tr><td><strong>OCD</strong></td><td>Signal anxiety &rarr; defence (undoing, isolation); NOT primary indication for LTPP</td><td>Use ERP + SSRI first; LTPP only for characterological substrate</td><td>Address isolation of affect; characterological work</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>7. Evidence Snapshot</h2>
+<table>
+<thead><tr><th>Study</th><th>Year</th><th>Design</th><th>Key Finding</th></tr></thead>
+<tbody>
+<tr><td><strong>Shedler</strong></td><td>2010</td><td>Meta-analysis of meta-analyses</td><td>Effect size 0.97; <strong>sleeper effect</strong> — gains INCREASE at follow-up</td></tr>
+<tr><td><strong>Leichsenring & Rabung</strong></td><td>2008</td><td>Meta-analysis (JAMA)</td><td>LTPP superior for complex disorders (d = 1.8)</td></tr>
+<tr><td><strong>Bateman & Fonagy</strong></td><td>1999-2001</td><td>RCT, BPD (n=38)</td><td>MBT: significant improvement; continued gains at 18-month follow-up</td></tr>
+<tr><td><strong>Krupnick et al.</strong></td><td>1996</td><td>NIMH TDCRP</td><td>Alliance = 21% of outcome variance across all modalities</td></tr>
+<tr><td><strong>Svartberg et al.</strong></td><td>2004</td><td>RCT, Cluster C PD</td><td>Dynamic therapy: 54% recovered vs. 42% CBT at 2-year follow-up</td></tr>
+<tr><td><strong>Winston et al.</strong></td><td>1994</td><td>RCT, Cluster C PD</td><td>Significant improvement vs. waitlist; sustained at 1.5 years</td></tr>
+<tr><td><strong>Wallerstein</strong></td><td>1986</td><td>30-year prospective (n=42)</td><td>Supportive therapy = as much structural change as expressive</td></tr>
+<tr><td><strong>Anderson & Lambert</strong></td><td>1995</td><td>Meta-analysis (26 studies)</td><td>Short-term dynamic therapy equivalent to other therapies at follow-up</td></tr>
+<tr><td><strong>Crits-Christoph</strong></td><td>1988</td><td>Correlational</td><td>Accuracy of CCRT interpretation predicts outcome</td></tr>
+<tr><td><strong>Consumer Reports</strong></td><td>1995</td><td>Survey</td><td>Patient satisfaction increased with increasing therapy duration</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The "sleeper effect" (Shedler 2010): psychodynamic therapy effect sizes INCREASE at follow-up because patients internalise a reflective process. CBT gains are maintained but typically do not increase. This is the strongest argument for psychodynamic therapy's unique contribution.</p></div>
+<hr>
+<h2>8. Comparison: Psychodynamic vs CBT vs Other Therapies</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Psychodynamic</th><th>CBT</th><th>Humanistic/Experiential</th><th>DBT</th></tr></thead>
+<tbody>
+<tr><td><strong>Focus</strong></td><td>Unconscious conflict, transference, internal objects</td><td>Conscious cognitions, behavioural patterns</td><td>Subjective experience, self-actualisation</td><td>Emotion regulation, distress tolerance</td></tr>
+<tr><td><strong>Change mechanism</strong></td><td>Insight + relationship (new object experience)</td><td>Cognitive restructuring + behavioural experiments</td><td>Empathic relationship, experiencing</td><td>Skills training + validation + dialectics</td></tr>
+<tr><td><strong>Therapist role</strong></td><td>Participant-observer; uses own reactions as data</td><td>Collaborative empiricist; structured agenda</td><td>Facilitator; genuine, empathic, congruent</td><td>Coach + validator; dialectical</td></tr>
+<tr><td><strong>Therapeutic relationship</strong></td><td>Primary tool (transference, CT, alliance)</td><td>Important vehicle but not primary tool</td><td>Necessary and sufficient (Rogers)</td><td>Central but skill delivery equally important</td></tr>
+<tr><td><strong>Time frame</strong></td><td>Long-term (>6 months) typical; brief variants exist</td><td>Time-limited (12-20 sessions typical)</td><td>Variable; often open-ended</td><td>1 year standard (comprehensive DBT)</td></tr>
+<tr><td><strong>Structure</strong></td><td>Low; patient-led agenda</td><td>High; therapist sets agenda, homework</td><td>Low; client-led</td><td>High; manual-driven, diary cards</td></tr>
+<tr><td><strong>Homework</strong></td><td>Rarely assigned formally</td><td>Central (thought records, behavioural experiments)</td><td>Not typically</td><td>Diary cards, skills practice, chain analysis</td></tr>
+<tr><td><strong>Effect size</strong></td><td>0.97 (Shedler 2010)</td><td>0.95-1.2 (various meta-analyses)</td><td>0.80-1.0</td><td>Moderate-large for BPD (Linehan)</td></tr>
+<tr><td><strong>Follow-up pattern</strong></td><td>Gains increase (sleeper effect)</td><td>Gains maintained</td><td>Variable</td><td>Maintained with continued practice</td></tr>
+<tr><td><strong>Best for</strong></td><td>Personality disorders, chronic depression, characterological problems</td><td>Specific symptom syndromes (depression, anxiety, OCD)</td><td>Existential concerns, growth, mild-moderate issues</td><td>BPD, chronic suicidality, emotion dysregulation</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>When CBT works, it may work partly through psychodynamic mechanisms. Shedler (2010) noted that the "active ingredients" identified in effective CBT (focus on affect, interpersonal relationships, recurring themes, past experiences) overlap substantially with psychodynamic techniques.</p></div>
+<hr>
+<h2>9. Key Figures Timeline</h2>
+<table>
+<thead><tr><th>Year</th><th>Figure</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td>1895</td><td><strong>Breuer & Freud</strong></td><td>Cathartic method; <em>Studies on Hysteria</em></td></tr>
+<tr><td>1900</td><td><strong>Freud</strong></td><td><em>The Interpretation of Dreams</em>; topographic model (Cs/Pcs/Ucs)</td></tr>
+<tr><td>1917</td><td><strong>Freud</strong></td><td><em>Mourning and Melancholia</em>; depression as aggression turned inward</td></tr>
+<tr><td>1923</td><td><strong>Freud</strong></td><td><em>The Ego and the Id</em>; structural model (Id/Ego/Superego)</td></tr>
+<tr><td>1926</td><td><strong>Freud</strong></td><td><em>Inhibitions, Symptoms and Anxiety</em>; signal anxiety theory</td></tr>
+<tr><td>1936</td><td><strong>Anna Freud</strong></td><td><em>The Ego and the Mechanisms of Defence</em>; 10 defence mechanisms</td></tr>
+<tr><td>1939</td><td><strong>Hartmann</strong></td><td>Conflict-free ego sphere; adaptation; ego psychology</td></tr>
+<tr><td>1946</td><td><strong>Klein</strong></td><td>Projective identification; paranoid-schizoid and depressive positions</td></tr>
+<tr><td>1951</td><td><strong>Winnicott</strong></td><td>Transitional objects; holding environment; true/false self</td></tr>
+<tr><td>1952</td><td><strong>Fairbairn</strong></td><td>Object-seeking libido; internal object relations</td></tr>
+<tr><td>1958</td><td><strong>Menninger</strong></td><td>Triangle of insight (T-C-P)</td></tr>
+<tr><td>1966</td><td><strong>Malan</strong></td><td>Brief focal therapy; triangle of conflict + triangle of person</td></tr>
+<tr><td>1968</td><td><strong>Racker</strong></td><td>Concordant vs. complementary countertransference</td></tr>
+<tr><td>1971</td><td><strong>Kohut</strong></td><td><em>The Analysis of the Self</em>; selfobject needs (mirroring, idealising, twinship)</td></tr>
+<tr><td>1975</td><td><strong>Kernberg</strong></td><td><em>Borderline Conditions and Pathological Narcissism</em>; structural interview; levels of personality organisation</td></tr>
+<tr><td>1977</td><td><strong>Kohut</strong></td><td><em>The Restoration of the Self</em>; self psychology fully articulated</td></tr>
+<tr><td>1977</td><td><strong>Vaillant</strong></td><td><em>Adaptation to Life</em>; defence mechanism hierarchy (Grant Study)</td></tr>
+<tr><td>1984</td><td><strong>Luborsky</strong></td><td>Core conflictual relationship theme (CCRT)</td></tr>
+<tr><td>1988</td><td><strong>Mitchell</strong></td><td>Relational psychoanalysis; two-person psychology</td></tr>
+<tr><td>1999</td><td><strong>Bateman & Fonagy</strong></td><td>MBT for BPD; mentalization-based treatment RCT</td></tr>
+<tr><td>2006</td><td><strong>Clarkin, Yeomans, Kernberg</strong></td><td>TFP manual for BPD published</td></tr>
+<tr><td>2010</td><td><strong>Shedler</strong></td><td>"The Efficacy of Psychodynamic Psychotherapy" — landmark evidence review</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>10. Viva Questions (10 with Model Answers)</h2>
+<h3>Q1: What are the four theoretical models underpinning psychodynamic therapy?</h3>
+<p><strong>Model answer:</strong> Ego psychology (Freud, Anna Freud, Hartmann — focus on drive-defence conflict, compromise formations), object relations (Klein, Winnicott, Fairbairn, Kernberg — focus on internalised relationship patterns), self psychology (Kohut — focus on self-cohesion and selfobject needs), and attachment theory (Bowlby, Fonagy — focus on internal working models and mentalization). These are not competing theories but complementary lenses applied based on clinical presentation.</p>
+<h3>Q2: Explain projective identification and its three steps.</h3>
+<p><strong>Model answer:</strong> Projective identification (Klein 1946, operationalised by Gabbard) has three steps: (1) The patient unconsciously projects a self-representation or object representation into the therapist; (2) The patient exerts interpersonal pressure ("nudging") that makes the therapist actually experience and potentially enact the projected role; (3) In a therapeutic context, the therapist contains, processes, and metabolises the projection without retaliating. The processed material is then available for reintrojection by the patient. PI differs from simple projection because it includes interpersonal pressure that actually transforms the recipient's experience.</p>
+<h3>Q3: What is the difference between concordant and complementary countertransference?</h3>
+<p><strong>Model answer:</strong> Racker (1968) described concordant countertransference as the therapist identifying with the patient's projected self-representation — closely related to empathy (feeling what the patient feels). Complementary countertransference is the therapist identifying with the patient's projected object representation — enacting the role of the patient's internal object (e.g., becoming controlling like the patient's authoritarian parent). Complementary CT is more diagnostically informative and more dangerous if unrecognised, as it recreates the pathogenic relationship.</p>
+<h3>Q4: When should you interpret transference?</h3>
+<p><strong>Model answer:</strong> Gabbard's rule: interpret transference when it becomes a resistance. If positive transference facilitates therapeutic work, do not interpret it. If negative transference is being productively reflected upon, do not interrupt. Interpret when the transference blocks further exploration — when the patient cannot discuss material because they are preoccupied with the therapist, or when transferential feelings are being acted out rather than reflected upon. Deliver tentatively and link to the triangle of insight (T-C-P).</p>
+<h3>Q5: Compare supportive and expressive psychodynamic approaches.</h3>
+<p><strong>Model answer:</strong> These are not separate therapies but a continuum. Supportive emphasis: reinforces defences, fosters positive transference without interpreting it, uses advice/validation/psychoeducation, prevents regression, indicated for borderline-level personality organisation. Expressive emphasis: interprets defences, analyses transference, uses free association and interpretation, tolerates regression, indicated for neurotic-level personality organisation. The decision is driven by the patient's ego strength, and most therapy involves a dynamic mix of both.</p>
+<h3>Q6: What is the "sleeper effect" in psychodynamic therapy research?</h3>
+<p><strong>Model answer:</strong> Shedler (2010) identified the "sleeper effect" — effect sizes for psychodynamic therapy INCREASE at follow-up, meaning patients continue to improve after treatment ends. This is attributed to patients internalising a reflective process (a way of understanding their own experience) that continues producing change independently. This pattern differs from CBT, where gains are typically maintained but do not increase at follow-up. The sleeper effect is the strongest evidence for psychodynamic therapy's unique mechanism of change.</p>
+<h3>Q7: What are Kernberg's three criteria for assessing level of personality organisation?</h3>
+<p><strong>Model answer:</strong> Identity (integrated vs. diffuse — can the patient describe self and others in nuanced, stable terms?), predominant defence level (high-level/repression-based vs. primitive/splitting-based), and reality testing (intact vs. impaired). Neurotic level: integrated identity + high-level defences + intact reality testing. Borderline level: identity diffusion + primitive defences + reality testing intact in structured settings but lapses under stress. Psychotic level: identity diffusion + primitive defences + impaired reality testing.</p>
+<h3>Q8: Describe Malan's two triangles.</h3>
+<p><strong>Model answer:</strong> The triangle of conflict: hidden feeling/impulse (H), defence (D), and anxiety (A). Anxiety signals the emergence of a forbidden impulse, triggering a defence. The triangle of person: the therapist/transference (T), current figures (C), and past figures (P). The therapeutic task is to link the two triangles — showing how the same conflict (the same impulse generating the same anxiety, triggering the same defence) plays out in all three relational domains. This dual-triangle framework is the conceptual foundation of brief psychodynamic therapy.</p>
+<h3>Q9: What is mentalization and why is it relevant to BPD?</h3>
+<p><strong>Model answer:</strong> Mentalization (Fonagy) is the capacity to understand behaviour — one's own and others' — in terms of underlying mental states (beliefs, feelings, desires, intentions). It develops in the context of secure attachment: the caregiver's capacity to "hold the child's mind in mind" enables the child to develop a reflective function. In BPD, disorganised attachment (often with childhood trauma) impairs mentalization — patients cannot reliably infer mental states and oscillate between psychic equivalence (inner = outer) and pretend mode (inner disconnected from outer). MBT (Bateman & Fonagy) restores mentalization through a curious, not-knowing therapeutic stance.</p>
+<h3>Q10: What is the negative therapeutic reaction and how should it be managed?</h3>
+<p><strong>Model answer:</strong> The negative therapeutic reaction occurs when a patient deteriorates in response to accurate, helpful interpretations. Three causes: (1) narcissistic envy of the therapist's insight — being helped is humiliating; (2) revenge against internalised parental figures projected onto the therapist — defeating the therapist's expectations; (3) refusal to give the therapist gratification — maintaining power through deprivation. Management: first rule out technical error (wrong interpretation, poor timing). Then interpret the dynamic itself: "I notice that every time we make progress, you seem to get worse. I wonder if there's something about being helped that feels unbearable." Some patients improve only after termination — to deprive the therapist of witnessing the improvement.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The negative therapeutic reaction is one of the most commonly asked viva topics. Always mention three causes (envy, revenge, deprivation) and the paradox that some patients change only after termination.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — NTR:</strong> <strong>N</strong>arcissistic injury from being helped, <strong>T</strong>riumph over therapist (revenge), <strong>R</strong>efusal to give therapist gratification.</p></div>
+<hr>
+<p><em>Quick Reference compiled from: Gabbard GO (2017) Long-Term Psychodynamic Psychotherapy 3e; Wolberg LR (1988) The Technique of Psychotherapy 4e; Shedler J (2010) American Psychologist 65(2):98-109; Leichsenring F, Rabung S (2008) JAMA 300(13):1551-1565.</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

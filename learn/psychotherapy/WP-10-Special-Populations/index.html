@@ -1,0 +1,1087 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Psychotherapy for Special Populations &mdash; Weave Psychotherapy Vol. 10</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 10</div>
+      <div class="cover-title">Psychotherapy for Special Populations</div>
+      <div class="cover-subtitle">Children, Adolescents, Elderly, Psychosis, and Cultural Considerations</div>
+      <div class="cover-topics">Child Therapy · Adolescent DBT · CBTp · Cultural Formulation · Perinatal · Trauma</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Psychotherapy for Special Populations &mdash; Weave Psychotherapy Vol. 10</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 10 | Psychotherapy for Special Populations</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Psychotherapy for Special Populations — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-child-and-adolescent-therapy" style="color:var(--indigo);text-decoration:none">Child and Adolescent Therapy</a></li>
+  <li><a href="#2-therapy-for-older-adults" style="color:var(--indigo);text-decoration:none">Therapy for Older Adults</a></li>
+  <li><a href="#3-therapy-for-psychosis" style="color:var(--indigo);text-decoration:none">Therapy for Psychosis</a></li>
+  <li><a href="#4-cultural-considerations" style="color:var(--indigo);text-decoration:none">Cultural Considerations</a></li>
+  <li><a href="#5-perinatal-mental-health" style="color:var(--indigo);text-decoration:none">Perinatal Mental Health</a></li>
+  <li><a href="#6-intellectual-disability" style="color:var(--indigo);text-decoration:none">Intellectual Disability</a></li>
+  <li><a href="#7-trauma-and-complex-ptsd" style="color:var(--indigo);text-decoration:none">Trauma and Complex PTSD</a></li>
+  <li><a href="#8-lgbtq-populations" style="color:var(--indigo);text-decoration:none">LGBTQ+ Populations</a></li>
+</ol>
+
+<hr>
+<h1>1. CHILD AND ADOLESCENT THERAPY</h1>
+<h2>1.1 Developmental Considerations</h2>
+<p>Children and adolescents are not miniature adults. Every therapeutic intervention must be filtered through the lens of developmental stage — cognitive capacity, emotional vocabulary, abstract reasoning ability, attachment organisation, and social context all shape what is possible in the therapy room.</p>
+<p><strong>Piaget's stages</strong> provide the scaffolding for therapy adaptation:</p>
+<table>
+<thead><tr><th>Stage</th><th>Age</th><th>Therapeutic Implication</th></tr></thead>
+<tbody>
+<tr><td>Sensorimotor</td><td>0–2</td><td>Therapy is parent-directed; focus on attachment, parent-infant interaction</td></tr>
+<tr><td>Preoperational</td><td>2–7</td><td>Concrete, egocentric thinking; use play, art, puppets; cannot reflect on own cognition</td></tr>
+<tr><td>Concrete operational</td><td>7–11</td><td>Can follow rules, classify, reason about concrete events; CBT possible with simplification</td></tr>
+<tr><td>Formal operational</td><td>12+</td><td>Abstract reasoning emerges; standard CBT adaptable; can engage in metacognition</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The capacity for metacognition (thinking about one's own thinking) does not reliably emerge until age 11–12. This is why standard CBT — which requires identifying and evaluating automatic thoughts — is difficult to deliver before this age. Younger children benefit more from behavioural strategies, play-based approaches, and parent-mediated interventions.</p></div>
+<p><strong>Key developmental principles for child therapy:</strong></p>
+<ul>
+  <li><strong>Therapeutic alliance looks different</strong> — rapport with the child AND the parent system is essential. A child cannot self-refer, pay for sessions, or control their environment.</li>
+  <li><strong>Informed consent</strong> requires age-appropriate explanation and assent from the child plus legal consent from parents/guardians.</li>
+  <li><strong>Confidentiality</strong> must be negotiated carefully — children deserve privacy, but parents have a right to know about safety concerns. Establish clear rules at the outset.</li>
+  <li><strong>Attention span</strong> is shorter. Sessions are typically 30–45 minutes for younger children, 50 minutes for adolescents.</li>
+  <li><strong>Externalising vs. internalising</strong> presentations differ in engagement — externalising children may resist therapy (brought by frustrated parents), while internalising children may be compliant but emotionally avoidant.</li>
+</ul>
+
+<h2>1.2 Play Therapy</h2>
+<p>Play is the natural language of children. Where adults use words to communicate their inner world, children use symbolic play, art, and action. Therapeutic play allows the child to express conflicts, process trauma, and rehearse new relational patterns in a safe, contained environment.</p>
+<p><strong>Two major traditions:</strong></p>
+<p><strong>Non-directive (Child-Centred) Play Therapy — Virginia Axline (1947)</strong></p>
+<ul>
+  <li>Based on Rogers' client-centred principles adapted for children</li>
+  <li>Eight principles: establish warm rapport; accept the child completely; create permissiveness; recognise and reflect feelings; respect the child's ability to solve problems; let the child lead; therapy is gradual; only set limits for safety, reality, and responsibility</li>
+  <li>Therapist follows the child's lead without interpretation</li>
+  <li>Evidence base: moderate for internalising problems, anxiety, trauma in under-10s</li>
+</ul>
+
+<p><strong>Directive Play Therapy</strong></p>
+<ul>
+  <li>Therapist introduces structured activities with therapeutic goals</li>
+  <li>Includes cognitive-behavioural play therapy (CBPT), theraplay, sandtray therapy</li>
+  <li>CBPT (Knell, 1993): uses puppets, dolls, stories to teach cognitive restructuring, problem-solving, and coping to children aged 3–8</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Play therapy is not "just playing." A trained play therapist observes themes (control, aggression, nurturance, chaos), tracks metaphorical content, and uses the therapeutic relationship within play as the vehicle for change. When a child repeatedly crashes a toy ambulance, that is communication — not recreation.</p></div>
+<h2>1.3 CBT Adaptations for Children and Adolescents</h2>
+<p><strong>Kendall's Coping Cat programme</strong> (Kendall et al., 1997) is the gold standard CBT protocol for childhood anxiety disorders (ages 7–13). It uses the FEAR acronym:</p>
+<table>
+<thead><tr><th>Step</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>F</strong></td><td>Feeling frightened? (recognise somatic and emotional cues)</td></tr>
+<tr><td><strong>E</strong></td><td>Expecting bad things to happen? (identify anxious self-talk)</td></tr>
+<tr><td><strong>A</strong></td><td>Actions and attitudes that can help (develop coping plan)</td></tr>
+<tr><td><strong>R</strong></td><td>Results and rewards (self-evaluate and self-reinforce)</td></tr>
+</tbody>
+</table>
+
+<p>The programme proceeds in two phases: (1) skill-building (8 sessions of psychoeducation, relaxation, cognitive restructuring, problem-solving) and (2) practice/exposure (8 sessions of graded in-vivo exposure using a fear hierarchy). RCTs show 60–80% of children no longer meet diagnostic criteria at post-treatment, with gains maintained at 7-year follow-up (Kendall et al., 2004).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kendall's Coping Cat is the most studied CBT programme for child anxiety. The FEAR acronym and the two-phase structure (skill-building then exposure) are frequently examined. It has been adapted across cultures (e.g., Cool Kids in Australia by Rapee et al.).</p></div>
+<p><strong>CBT for adolescent depression</strong> — the Treatment for Adolescents with Depression Study (TADS, 2004) compared fluoxetine, CBT, combination, and placebo for adolescent major depression. Key finding: combination treatment (fluoxetine + CBT) was superior to either alone. CBT alone was not significantly better than placebo at 12 weeks but caught up by 36 weeks.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>TADS is a landmark trial. Remember: at 12 weeks, combination > fluoxetine > CBT = placebo. At 36 weeks, all active treatments converge. CBT alone had the slowest onset but added protection against suicidality when combined with fluoxetine.</p></div>
+<h2>1.4 Parent Training Programmes</h2>
+<p>Parent training is the first-line psychosocial intervention for conduct problems in children aged 3–11 (NICE CG158). It works by modifying the coercive parent-child interaction cycles described by Patterson's social learning theory.</p>
+<table>
+<thead><tr><th>Programme</th><th>Developer</th><th>Age Range</th><th>Format</th><th>Key Features</th></tr></thead>
+<tbody>
+<tr><td><strong>Webster-Stratton Incredible Years</strong></td><td>Carolyn Webster-Stratton</td><td>3–8</td><td>Group (12–20 sessions)</td><td>Video modelling, collaborative approach, pyramid (child, parent, teacher components), strongest evidence base for conduct disorder</td></tr>
+<tr><td><strong>Triple P (Positive Parenting Program)</strong></td><td>Matt Sanders (Queensland)</td><td>0–16</td><td>5 levels of escalating intensity</td><td>Universal to targeted; population-level public health model; Level 4 (10 sessions) for clinical problems</td></tr>
+<tr><td><strong>Parent Management Training (PMT)</strong></td><td>Alan Kazdin</td><td>3–13</td><td>Individual (12–20 sessions)</td><td>Based on operant conditioning; token economies; therapist works primarily with parents</td></tr>
+<tr><td><strong>Parent-Child Interaction Therapy (PCIT)</strong></td><td>Sheila Eyberg</td><td>2–7</td><td>Dyadic, live coaching via bug-in-ear</td><td>Two phases: CDI (child-directed interaction — like play therapy) then PDI (parent-directed interaction — commands and compliance); real-time coaching</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — WITP</strong> (parent training programmes): <strong>W</strong>ebster-Stratton (video + group), <strong>I</strong>ncredible Years = same, <strong>T</strong>riple P (5 levels, population model), <strong>P</strong>MIT/PCIT (operant/live coaching).</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>PCIT is unique because the therapist coaches the parent in real-time through an earpiece while the parent interacts with the child. It has strong evidence for conduct problems AND child physical abuse prevention. The CDI phase maps onto attachment-enhancing interaction; the PDI phase maps onto behavioural management.</p></div>
+<h2>1.5 Adolescent DBT: The Rathus and Miller Model</h2>
+<p>Rathus and Miller adapted Linehan's standard DBT for multiproblem, suicidal adolescents at Montefiore Medical Center, producing the most comprehensive adolescent DBT model available.</p>
+<h3>The Biosocial Model in Adolescent Context</h3>
+<p>The transaction between biological vulnerability (high emotional sensitivity, high reactivity, slow return to baseline) and an invalidating environment produces chronic emotional dysregulation. In adolescents, this manifests as identity confusion, impulsivity, self-harm, interpersonal chaos, and family conflict. Critically, the model is <strong>transactional</strong> — teens can invalidate their parents, and parents may have their own biological vulnerabilities.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The biosocial model is not a blame model. Teaching it to families requires emphasising that neither party caused the problem alone — it is the fit between the adolescent's temperament and the environment's response that creates dysregulation. The "fire in a fireplace" metaphor works well: once the fire is burning (biological sensitivity), adding small logs (daily stressors) reignites it quickly.</p></div>
+<h3>Five Modules (vs. Four in Standard Adult DBT)</h3>
+<table>
+<thead><tr><th>Module</th><th>Problem Area Addressed</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td>Core Mindfulness</td><td>Confusion about self, reduced awareness</td><td>2 weeks (repeated before each module)</td></tr>
+<tr><td>Distress Tolerance</td><td>Impulsivity, crisis behaviours</td><td>4 weeks</td></tr>
+<tr><td>Walking the Middle Path</td><td>Adolescent-family dialectical conflicts</td><td>4 weeks</td></tr>
+<tr><td>Emotion Regulation</td><td>Emotional dysregulation</td><td>4 weeks</td></tr>
+<tr><td>Interpersonal Effectiveness</td><td>Interpersonal problems</td><td>4 weeks</td></tr>
+</tbody>
+</table>
+
+<p><strong>Walking the Middle Path</strong> is the fifth module unique to adolescent DBT, addressing:</p>
+<ol>
+  <li><strong>Dialectics</strong> — moving from "either/or" to "both/and" thinking</li>
+  <li><strong>Validation</strong> — six levels (Linehan's hierarchy: listening, reflection, mind-reading, validation by past history, validation by current context, radical genuineness)</li>
+  <li><strong>Behaviour change</strong> — positive/negative reinforcement, shaping, extinction, punishment</li>
+</ol>
+
+<h3>Three Adolescent-Specific Dialectical Dilemmas</h3>
+<table>
+<thead><tr><th>Dilemma</th><th>Loose Pole</th><th>Strict Pole</th><th>Middle Path</th></tr></thead>
+<tbody>
+<tr><td>Leniency vs. Authoritarian Control</td><td>No rules, no monitoring</td><td>Rigid rules, extreme consequences</td><td>Authoritative parenting — firm limits with warmth</td></tr>
+<tr><td>Normalising Pathological vs. Pathologising Normative</td><td>Minimising self-harm ("everyone does it")</td><td>Treating normal teen behaviour as dangerous</td><td>Use developmental norms as guide</td></tr>
+<tr><td>Forcing Autonomy vs. Fostering Dependence</td><td>Cutting support prematurely</td><td>Helicopter parenting</td><td>"Holding on while letting go"</td></tr>
+</tbody>
+</table>
+
+<h3>Key Structural Adaptations</h3>
+<ul>
+  <li><strong>Multifamily skills group</strong> — parents attend alongside adolescents (3–5 families, 2-hour sessions)</li>
+  <li><strong>Phone coaching extended to parents</strong></li>
+  <li><strong>24-week cycle</strong> (vs. one year in adult DBT)</li>
+  <li><strong>Simplified language</strong>, developmentally appropriate examples</li>
+  <li><strong>TIPP skills</strong> for crisis management (Temperature, Intense exercise, Paced breathing, Progressive relaxation)</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The TIPP skills are the "emergency kit" of adolescent DBT. Temperature (cold water on face) activates the mammalian dive reflex, rapidly reducing heart rate via parasympathetic activation. This is the fastest skill in the DBT toolkit — effective within 30 seconds.</p></div>
+<h3>Evidence Base</h3>
+<p>The Mehlum et al. (2014) Norwegian RCT is the strongest evidence: 16-week DBT with multifamily format vs. enhanced usual care produced significant reductions in self-harm and suicidal ideation in adolescents. Additional quasi-experimental studies support DBT for adolescents with BPD features, bipolar disorder, eating disorders, and externalising disorders.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For adolescent self-harm, DBT (Rathus-Miller model) has the strongest evidence. For adolescent depression, CBT + SSRI (TADS model). For adolescent anxiety, CBT (Coping Cat/Cool Kids). For conduct disorder in younger children, parent training (Webster-Stratton, Triple P, PCIT).</p></div>
+<hr>
+<h1>2. THERAPY FOR OLDER ADULTS</h1>
+<h2>2.1 Age-Related Considerations</h2>
+<p>Therapy with older adults (typically defined as 65+) requires adaptation across multiple domains: cognitive changes, sensory decline, cohort effects, medical comorbidity, loss and bereavement, and existential concerns about mortality and legacy.</p>
+<p><strong>Cognitive changes with ageing:</strong></p>
+<ul>
+  <li>Processing speed declines</li>
+  <li>Working memory capacity reduces</li>
+  <li>Episodic memory retrieval slows</li>
+  <li>Crystallised intelligence (vocabulary, general knowledge) is preserved or improves</li>
+  <li>Executive function may decline, particularly set-shifting and inhibition</li>
+</ul>
+
+<p><strong>Practical adaptations:</strong></p>
+<ul>
+  <li>Slower pacing, shorter sessions if needed</li>
+  <li>Written summaries and handouts (larger font)</li>
+  <li>Repetition and rehearsal of key points</li>
+  <li>Involve carers/family where appropriate</li>
+  <li>Check hearing and vision; adjust seating, lighting, volume</li>
+  <li>Address transportation, mobility, and scheduling barriers</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Older adults are consistently underrepresented in psychotherapy research and underreferred for psychological treatment. The assumption that "you can't teach an old dog new tricks" is empirically wrong — CBT, IPT, and problem-solving therapy all show efficacy in late-life depression comparable to outcomes in younger adults.</p></div>
+<h2>2.2 Laidlaw's Comprehensive Conceptualisation (CCCF) Model</h2>
+<p>Ken Laidlaw developed the <strong>Comprehensive Conceptualisation Framework for CBT with Older Adults</strong> (Laidlaw, 2015), which augments the standard Beckian case formulation with four cohort-specific factors:</p>
+<table>
+<thead><tr><th>Factor</th><th>Description</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Cohort beliefs</strong></td><td>Generational attitudes shaped by historical context</td><td>"You don't talk about feelings"; "Mental illness is shameful"; wartime stoicism</td></tr>
+<tr><td><strong>Role transitions and investments</strong></td><td>Losses of occupational, social, and family roles</td><td>Retirement, empty nest, widowhood, becoming a carer, loss of driving licence</td></tr>
+<tr><td><strong>Intergenerational linkages</strong></td><td>Relationships with younger generations; legacy concerns</td><td>Grandparenting role, family conflict, dependency anxieties</td></tr>
+<tr><td><strong>Socio-cultural context</strong></td><td>Ageism, social isolation, poverty, institutional living</td><td>"I'm just a burden"; internalised ageism; reduced social network</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — CRIS</strong> (Laidlaw's four factors): <strong>C</strong>ohort beliefs, <strong>R</strong>ole transitions, <strong>I</strong>ntergenerational linkages, <strong>S</strong>ocio-cultural context.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Laidlaw's CCCF model does not replace the standard CBT formulation — it wraps around it. The hot cross bun (thoughts-feelings-behaviours-physiology) sits at the centre, but the four additional factors provide the context that makes the formulation meaningful for an older person. Without them, the therapist risks pathologising normal ageing or missing the social determinants of distress.</p></div>
+<h2>2.3 Life Review Therapy and Reminiscence</h2>
+<p><strong>Life review therapy</strong> (Butler, 1963) is a structured therapeutic intervention based on Erikson's eighth stage of psychosocial development: <strong>ego integrity vs. despair</strong>. The goal is to help older adults integrate their life experiences into a coherent, meaningful narrative, resolving regrets and affirming identity.</p>
+<p><strong>Types:</strong></p>
+<ul>
+  <li><strong>Simple reminiscence</strong> — unstructured sharing of memories; improves well-being and socialisation</li>
+  <li><strong>Life review</strong> — structured, therapist-guided evaluation of the whole life span; targets unresolved conflicts, guilt, and incomplete mourning</li>
+  <li><strong>Life review therapy</strong> — formally structured therapeutic protocol; may use timelines, photographs, writing, or audio recording</li>
+</ul>
+
+<p>Evidence: Cochrane review (Huang et al., 2015) found life review/reminiscence significantly reduced depressive symptoms in older adults, with moderate effect sizes. It is particularly suitable for care home residents and those with mild cognitive impairment.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Life review therapy is not "just chatting about the past." It is based on Erikson's ego integrity vs. despair stage and has Cochrane-level evidence for reducing depression in older adults. It is the one therapy specifically designed for the existential tasks of later life.</p></div>
+<h2>2.4 Bereavement and Loss</h2>
+<p>Older adults face cumulative losses: spouse, friends, siblings, health, independence, cognitive capacity, home, and social role. Most bereavement follows a natural course of adjustment. Complicated grief (prolonged grief disorder — now in ICD-11 and DSM-5-TR) requires intervention when grief remains intense, pervasive, and functionally impairing beyond 6–12 months.</p>
+<p><strong>Complicated Grief Treatment (CGT — Shear et al., 2005):</strong></p>
+<ul>
+  <li>Integrates CBT, IPT, and motivational interviewing techniques</li>
+  <li>Dual process model (Stroebe & Schut, 1999): oscillation between loss-oriented and restoration-oriented coping</li>
+  <li>Imaginal revisiting of the death narrative (exposure component)</li>
+  <li>Situational revisiting of avoided activities/places</li>
+  <li>Evidence: RCT showed CGT superior to IPT for complicated grief</li>
+</ul>
+
+<h2>2.5 Capacity Issues</h2>
+<p>When working with older adults, therapists must assess capacity to consent to treatment. In England and Wales, the Mental Capacity Act (2005) presumes capacity unless demonstrated otherwise. Capacity is decision-specific and time-specific.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>In viva questions on older adult therapy, always mention: (1) Laidlaw's CCCF model for adapted CBT, (2) life review therapy based on Erikson, (3) the importance of screening for cognitive impairment (using MoCA/MMSE) before starting cognitively demanding therapy, and (4) the need to address practical barriers (transport, hearing, vision, carer involvement).</p></div>
+<hr>
+<h1>3. THERAPY FOR PSYCHOSIS</h1>
+<h2>3.1 CBT for Psychosis (CBTp)</h2>
+<p>CBT for psychosis is the most evidence-based psychological intervention for schizophrenia-spectrum disorders and is recommended by NICE (CG178, 2014) for all people with psychosis or schizophrenia. The approach was developed primarily by Kingdon and Turkington (1994) and Morrison (2001).</p>
+<h3>The Normalising Approach</h3>
+<p>The foundation of CBTp is the <strong>normalising rationale</strong>: psychotic experiences exist on a continuum with normal experience. Hearing voices, paranoid thinking, and unusual beliefs are not categorically different from common experiences like hearing your name called when alone, suspecting others are talking about you, or holding superstitious beliefs.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The normalising rationale is central to CBTp. It reduces stigma, shame, and hopelessness. It does NOT mean telling the patient their experiences are "normal" — it means demonstrating that these experiences lie on a continuum and that stress, sleep deprivation, isolation, and trauma can push anyone along that continuum.</p></div>
+<h3>Working with Delusions</h3>
+<p>CBTp does not aim to eliminate delusions by frontal assault. Instead, the approach is collaborative and Socratic:</p>
+<ol>
+  <li><strong>Build a shared formulation</strong> — understand the delusion's development in context (trauma, isolation, life events)</li>
+  <li><strong>Identify maintaining factors</strong> — safety behaviours, confirmation bias, social isolation</li>
+  <li><strong>Peripheral questioning</strong> — start with less emotionally charged beliefs before approaching core delusions</li>
+  <li><strong>Examine evidence</strong> — "What makes you believe this? Is there any other explanation?"</li>
+  <li><strong>Behavioural experiments</strong> — test predictions arising from delusional beliefs</li>
+  <li><strong>Reality testing</strong> — gentle, collaborative, never confrontational</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Never directly challenge a delusion. The therapeutic stance in CBTp is one of "curious uncertainty" — neither agreeing with the delusion nor arguing against it. The therapist holds the position: "I can see this feels very real to you. I'm interested in understanding it better. Could we look at it together?"</p></div>
+<h3>Working with Hallucinations</h3>
+<table>
+<thead><tr><th>Technique</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Normalising</td><td>Explain prevalence of voice-hearing in general population (5–15%)</td></tr>
+<tr><td>Formulation</td><td>Understand the voice in context — when did it start? Whose voice? What triggers it?</td></tr>
+<tr><td>Beliefs about voices</td><td>Address omnipotence ("the voice is all-powerful"), omniscience ("the voice knows everything"), compliance beliefs ("I must obey") — Chadwick & Birchwood (1994)</td></tr>
+<tr><td>Coping strategy enhancement</td><td>Build on existing coping; add new strategies (distraction, focusing, subvocalisation)</td></tr>
+<tr><td>Reattribution</td><td>Help the patient consider that the voice may be internally generated</td></tr>
+<tr><td>Behavioural experiments</td><td>Test voice predictions (e.g., "the voice says if I go out, something bad will happen" — test this)</td></tr>
+</tbody>
+</table>
+
+<h3>Behavioural Experiments for Paranoia</h3>
+<p>Freeman et al. (2015) developed a cognitive model of persecutory delusions emphasising the role of safety behaviours. Dropping safety behaviours (avoidance, hypervigilance, checking) through graded behavioural experiments is the primary intervention.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+  <li>Identify the threat belief and safety behaviour</li>
+  <li>Predict what will happen without the safety behaviour</li>
+  <li>Drop the safety behaviour (with therapist support)</li>
+  <li>Evaluate the outcome against the prediction</li>
+  <li>Update the belief</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Freeman's cognitive model of paranoia identifies six maintenance factors: anxiety processes, worry, negative self-beliefs, sleep disturbance, reasoning biases (jumping to conclusions), and safety behaviours. The jumping-to-conclusions bias (JTC) is measured by the beads task — individuals with paranoia make decisions based on less evidence than controls.</p></div>
+<h2>3.2 Family Intervention for Schizophrenia</h2>
+<p>Family intervention is recommended by NICE for all families of people with schizophrenia. The approach emerged from research on <strong>expressed emotion (EE)</strong> — a measure of the family's emotional climate.</p>
+<h3>Expressed Emotion (Brown, Birley & Wing, 1972)</h3>
+<table>
+<thead><tr><th>Component</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Critical comments</strong></td><td>Negative remarks about the patient's behaviour (tone and content)</td></tr>
+<tr><td><strong>Hostility</strong></td><td>Generalised negative attitude toward the patient as a person</td></tr>
+<tr><td><strong>Emotional overinvolvement (EOI)</strong></td><td>Excessive concern, self-sacrificing behaviour, overprotectiveness</td></tr>
+</tbody>
+</table>
+
+<p>High EE (high criticism and/or EOI) predicts relapse: 9-month relapse rates are approximately 50% in high-EE families vs. 20% in low-EE families (Bebbington & Kuipers, 1994).</p>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — CHE</strong> (Expressed Emotion components): <strong>C</strong>ritical comments, <strong>H</strong>ostility, <strong>E</strong>motional overinvolvement. Two of three (critical comments + hostility OR EOI) = high EE.</p></div>
+<h3>Family Intervention Models</h3>
+<table>
+<thead><tr><th>Model</th><th>Key Features</th></tr></thead>
+<tbody>
+<tr><td><strong>Kuipers, Leff & Lam</strong> (psychoeducational)</td><td>Education about schizophrenia, stress-vulnerability model, communication training, problem-solving, relapse prevention; 10+ sessions over 3–9 months</td></tr>
+<tr><td><strong>Falloon (behavioural family therapy)</strong></td><td>Structured problem-solving and communication skills training at home; more behavioural focus</td></tr>
+<tr><td><strong>McFarlane (multifamily groups)</strong></td><td>Multiple families meet together; reduces isolation, provides mutual support; problem-solving workshops</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Family intervention should be offered for at least 10 sessions over 3–9 months (NICE CG178). It reduces relapse by approximately 20% over standard care. It must include at least one of: psychoeducation, communication training, problem-solving. It does NOT require the patient's attendance at every session.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>High EE is not "bad parenting" — it is an understandable response to living with a person who has a severe and unpredictable illness. Reframing EE as a measure of distress rather than fault is essential for therapeutic engagement with families.</p></div>
+<hr>
+<h1>4. CULTURAL CONSIDERATIONS</h1>
+<h2>4.1 Why Culture Matters in Psychotherapy</h2>
+<p>All psychotherapy occurs within a cultural context. The major psychotherapy models (CBT, psychodynamic, humanistic) were developed predominantly within Western, Educated, Industrialised, Rich, Democratic (WEIRD) societies. Their assumptions about selfhood, emotional expression, family structure, and the goals of therapy are culturally specific.</p>
+<p><strong>Key areas where culture shapes therapy:</strong></p>
+<ul>
+  <li><strong>Concept of self</strong> — individualist (Western: autonomous self, personal goals) vs. collectivist (Asian, African, Latin American: relational self, family/community goals)</li>
+  <li><strong>Emotional expression</strong> — norms about displaying emotion; alexithymia vs. emotional expressiveness; somatisation as culturally patterned idiom of distress</li>
+  <li><strong>Help-seeking</strong> — stigma, explanatory models, preference for traditional/religious healers, trust in medical systems</li>
+  <li><strong>Therapeutic relationship</strong> — expectations about authority, directiveness, self-disclosure, formality</li>
+  <li><strong>Family involvement</strong> — in many cultures, excluding family from treatment is unthinkable</li>
+</ul>
+
+<h2>4.2 Kleinman's Explanatory Models</h2>
+<p>Arthur Kleinman (1980) introduced the concept of <strong>explanatory models</strong> — the beliefs that patients, families, and clinicians hold about the nature, cause, course, and appropriate treatment of illness. Every person brings an explanatory model to the clinical encounter, and mismatches between patient and clinician models are a major source of non-adherence and therapeutic failure.</p>
+<p><strong>Eight questions to elicit an explanatory model:</strong></p>
+<ol>
+  <li>What do you call your problem?</li>
+  <li>What do you think caused it?</li>
+  <li>Why do you think it started when it did?</li>
+  <li>What does your illness do to you?</li>
+  <li>How severe is it? Will it last a long time?</li>
+  <li>What do you fear most about your illness?</li>
+  <li>What kind of treatment do you think you should receive?</li>
+  <li>What are the most important results you hope to achieve?</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Kleinman's explanatory model framework is the intellectual ancestor of the DSM-5 Cultural Formulation Interview. Always elicit the patient's explanatory model before imposing a biomedical or psychological framework. A patient who attributes depression to "evil eye" or "karma" will not engage with cognitive restructuring unless the therapist first understands and respects their framework.</p></div>
+<h2>4.3 The DSM-5 Cultural Formulation Interview (CFI)</h2>
+<p>The CFI is a 16-question semi-structured interview included in DSM-5 (APA, 2013) designed to systematically assess the cultural context of psychiatric presentations.</p>
+<h3>Four Domains of the CFI</h3>
+<table>
+<thead><tr><th>Domain</th><th>Focus</th><th>Sample Questions</th></tr></thead>
+<tbody>
+<tr><td><strong>Cultural definition of the problem</strong></td><td>How the patient understands their problem</td><td>"What brings you here today? How would you describe your problem?"</td></tr>
+<tr><td><strong>Cultural perceptions of cause, context, and support</strong></td><td>Perceived causes, role of cultural identity, social stressors, social supports</td><td>"Why do you think this is happening to you? Are there any aspects of your background that are important?"</td></tr>
+<tr><td><strong>Cultural factors affecting self-coping and past help-seeking</strong></td><td>Barriers to care, past treatment, self-coping, family/community resources</td><td>"What have you done on your own to cope? Have you sought help from others?"</td></tr>
+<tr><td><strong>Cultural factors affecting current help-seeking</strong></td><td>Expectations, preferences, barriers for current treatment</td><td>"What kind of help do you think would be most useful? Is there anything about the way services are provided that might be a problem?"</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — DPCH</strong> (CFI domains): <strong>D</strong>efinition of problem, <strong>P</strong>erceptions of cause, <strong>C</strong>oping and past help-seeking, <strong>H</strong>elp-seeking (current).</p></div>
+<h2>4.4 Therapy Adaptations Across Cultures</h2>
+<p><strong>Bernal's ecological validity framework</strong> (Bernal et al., 1995) identifies eight dimensions for culturally adapting therapies:</p>
+<table>
+<thead><tr><th>Dimension</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Language</td><td>Therapy in patient's preferred language; bilingual therapists; interpreters</td></tr>
+<tr><td>Persons</td><td>Therapist-patient ethnic/cultural match; cultural knowledge</td></tr>
+<tr><td>Metaphors</td><td>Culturally resonant symbols, stories, proverbs</td></tr>
+<tr><td>Content</td><td>Cultural knowledge integrated into case formulation</td></tr>
+<tr><td>Concepts</td><td>Treatment concepts framed in culturally consistent terms</td></tr>
+<tr><td>Goals</td><td>Aligned with cultural values (e.g., family harmony vs. individual autonomy)</td></tr>
+<tr><td>Methods</td><td>Adapted techniques (e.g., involvement of elders, spiritual practices)</td></tr>
+<tr><td>Context</td><td>Social, economic, and political realities acknowledged</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Cultural adaptation does not mean watering down evidence-based therapy. Meta-analyses (Griner & Smith, 2006; Benish et al., 2011) show that culturally adapted therapies produce larger effect sizes than unadapted versions, particularly for depression and anxiety in ethnic minority populations.</p></div>
+<h2>4.5 Working with Interpreters</h2>
+<p>When therapist and patient do not share a language, professional interpreters are essential. Family members should not serve as interpreters (risk of filtering, power dynamics, confidentiality breaches, emotional burden on the family member).</p>
+<p><strong>Guidelines:</strong></p>
+<ul>
+  <li>Pre-session briefing with interpreter (explain purpose, confidentiality, request verbatim translation)</li>
+  <li>Speak to the patient, not the interpreter ("Tell me about..." not "Ask him about...")</li>
+  <li>Use short sentences; pause for translation</li>
+  <li>Post-session debrief with interpreter (emotional impact, cultural observations)</li>
+</ul>
+
+<h2>4.6 Therapist Cultural Competence</h2>
+<p>Sue and Sue (2015) describe three components of multicultural competence:</p>
+<ol>
+  <li><strong>Awareness</strong> of own cultural values, biases, and assumptions</li>
+  <li><strong>Knowledge</strong> of the worldview, history, and values of culturally diverse groups</li>
+  <li><strong>Skills</strong> — ability to use culturally appropriate interventions</li>
+</ol>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Cultural competence is not a destination — it is an ongoing process. The shift in the literature is now toward "cultural humility" (Tervalon & Murray-Garcia, 1998): a lifelong commitment to self-evaluation, addressing power imbalances, and being a learner rather than an expert on another person's culture.</p></div>
+<hr>
+<h1>5. PERINATAL MENTAL HEALTH</h1>
+<h2>5.1 Scope of the Problem</h2>
+<p>Perinatal mental health covers the period from conception to one year postpartum. Depression affects 10–15% of women in the perinatal period; anxiety disorders are equally prevalent but underrecognised. Untreated perinatal depression is associated with preterm birth, low birth weight, impaired mother-infant bonding, and adverse child developmental outcomes.</p>
+<h2>5.2 Therapy Approaches</h2>
+<h3>CBT for Perinatal Depression</h3>
+<p>Adapted CBT addresses:</p>
+<ul>
+  <li>Activity scheduling (counteracting withdrawal and fatigue)</li>
+  <li>Cognitive restructuring of maternal cognitions ("I'm a bad mother," "My baby doesn't love me")</li>
+  <li>Behavioural activation despite sleep deprivation and reduced positive reinforcement</li>
+  <li>Problem-solving for practical stressors (childcare, finances, relationship conflict)</li>
+</ul>
+
+<p>Evidence: NICE (CG192, 2014) recommends CBT or IPT as first-line psychological treatments for mild-moderate perinatal depression.</p>
+<h3>IPT for Perinatal Depression</h3>
+<p>Interpersonal therapy (IPT) is particularly well-suited to the perinatal period because its four problem areas map directly onto common perinatal stressors:</p>
+<table>
+<thead><tr><th>IPT Problem Area</th><th>Perinatal Application</th></tr></thead>
+<tbody>
+<tr><td>Role transition</td><td>Transition to motherhood; identity shift; loss of autonomy</td></tr>
+<tr><td>Interpersonal dispute</td><td>Partner conflict; renegotiating roles; in-law involvement</td></tr>
+<tr><td>Grief</td><td>Pregnancy loss, stillbirth, loss of the "expected" birth experience</td></tr>
+<tr><td>Interpersonal deficit</td><td>Social isolation, loss of work relationships, limited support network</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>IPT has the strongest evidence for perinatal depression, comparable to CBT. It is the only therapy where the four problem areas map almost perfectly onto the perinatal experience (role transition to motherhood, partner disputes about parenting, grief for the pre-baby self/lifestyle, and social isolation).</p></div>
+<h3>Mother-Infant Relationship Interventions</h3>
+<ul>
+  <li><strong>Video Interaction Guidance (VIG)</strong> — filming mother-infant interaction and reviewing with the mother, highlighting moments of attuned communication</li>
+  <li><strong>Circle of Security</strong> — attachment-based intervention; helps parents recognise their infant's cues and respond sensitively</li>
+  <li><strong>Parent-Infant Psychotherapy</strong> — psychodynamic approach addressing how the parent's own attachment history (ghosts in the nursery) affects interaction with the baby</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Treating the mother's depression alone is necessary but not sufficient. If the mother-infant relationship has been disrupted, targeted relationship-focused intervention is needed in addition to individual therapy. The infant's developmental window is narrow — delays in bonding have cumulative effects.</p></div>
+<hr>
+<h1>6. INTELLECTUAL DISABILITY</h1>
+<h2>6.1 Prevalence and Context</h2>
+<p>People with intellectual disability (ID) have rates of mental health problems 3–4 times higher than the general population, yet access to psychological therapy is disproportionately low. Historical nihilism ("they can't do therapy") is both empirically wrong and ethically indefensible.</p>
+<h2>6.2 Adapted CBT</h2>
+<p>CBT can be effectively adapted for people with mild-moderate ID. Key adaptations:</p>
+<table>
+<thead><tr><th>Adaptation</th><th>Rationale</th></tr></thead>
+<tbody>
+<tr><td>Simplified language</td><td>Match to cognitive and linguistic level</td></tr>
+<tr><td>Concrete examples</td><td>Abstract concepts replaced with visual aids, pictures, role plays</td></tr>
+<tr><td>Shorter sessions</td><td>30 minutes; more frequent</td></tr>
+<tr><td>Repetition</td><td>Overlearning through repeated practice</td></tr>
+<tr><td>Involve carers</td><td>To reinforce skills between sessions; generalisation</td></tr>
+<tr><td>Visual aids</td><td>Traffic light systems for emotions; faces for mood ratings; picture thought records</td></tr>
+<tr><td>Behavioural emphasis</td><td>Greater emphasis on behavioural strategies (activity scheduling, graded exposure) than cognitive techniques</td></tr>
+<tr><td>Slower pace</td><td>More sessions needed; slower progression through treatment</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Royal College of Psychiatrists' CR175 report confirms that psychological therapies can and should be offered to people with intellectual disability, with appropriate adaptations. The key adaptations are: simplification, concreteness, repetition, visual aids, carer involvement, and behavioural emphasis.</p></div>
+<h2>6.3 Behavioural Approaches</h2>
+<p>For people with severe-profound ID, behavioural approaches remain the primary intervention:</p>
+<ul>
+  <li><strong>Functional analysis</strong> — identifying the function of challenging behaviour (attention, escape, sensory stimulation, tangible gain)</li>
+  <li><strong>Positive Behavioural Support (PBS)</strong> — proactive, person-centred approach that modifies the environment and teaches replacement behaviours</li>
+  <li><strong>Active Support</strong> — structured but flexible approach to enabling engagement in meaningful activities</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — AEST</strong> (functions of challenging behaviour): <strong>A</strong>ttention, <strong>E</strong>scape, <strong>S</strong>ensory, <strong>T</strong>angible.</p></div>
+<hr>
+<h1>7. TRAUMA AND COMPLEX PTSD</h1>
+<h2>7.1 Phase-Based Treatment</h2>
+<p>The ICD-11 recognises Complex PTSD (CPTSD) as a distinct diagnosis comprising core PTSD symptoms (re-experiencing, avoidance, hyperarousal) plus Disturbances of Self-Organisation (DSO): affect dysregulation, negative self-concept, and interpersonal difficulties. The International Society for Traumatic Stress Studies (ISTSS, 2019) recommends a phase-based approach for CPTSD:</p>
+<h3>Three Phases</h3>
+<table>
+<thead><tr><th>Phase</th><th>Focus</th><th>Interventions</th></tr></thead>
+<tbody>
+<tr><td><strong>Phase 1: Stabilisation</strong></td><td>Safety, psychoeducation, affect regulation, building therapeutic alliance</td><td>Grounding techniques, distress tolerance skills, emotion regulation, establishing safety, addressing substance use, building coping resources</td></tr>
+<tr><td><strong>Phase 2: Trauma Processing</strong></td><td>Working through traumatic memories</td><td>EMDR, Prolonged Exposure (PE), Cognitive Processing Therapy (CPT), Narrative Exposure Therapy (NET)</td></tr>
+<tr><td><strong>Phase 3: Integration and Reconnection</strong></td><td>Rebuilding identity, relationships, and meaning</td><td>Interpersonal work, vocational rehabilitation, re-establishing life roles, relapse prevention, addressing grief and loss</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The phase-based model originates from Judith Herman's "Trauma and Recovery" (1992): Safety &rarr; Remembrance and Mourning &rarr; Reconnection. The ISTSS guidelines endorse this framework but note that phases are not strictly sequential — patients may need to return to stabilisation during processing.</p></div>
+<h2>7.2 Contraindications for Trauma Processing</h2>
+<p>Trauma processing (Phase 2) should NOT be started when:</p>
+<ul>
+  <li>Active suicidality or self-harm</li>
+  <li>Ongoing abuse or unsafe living situation</li>
+  <li>Severe dissociation (DES score > 30) without stabilisation</li>
+  <li>Active substance dependence (not stable recovery)</li>
+  <li>Insufficient affect regulation skills</li>
+  <li>Acute psychosis</li>
+  <li>Inadequate therapeutic alliance</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Premature exposure to trauma material in an unstabilised patient risks retraumatisation, dissociative crisis, or dropout. The stabilisation phase is not a delay to "real" therapy — it IS therapy. Many complex trauma patients spend months in Phase 1, and some may never need formal trauma processing if stabilisation and skills development produce sufficient recovery.</p></div>
+<h2>7.3 Evidence-Based Trauma Therapies</h2>
+<table>
+<thead><tr><th>Therapy</th><th>Developer</th><th>Key Feature</th><th>Best Evidence For</th></tr></thead>
+<tbody>
+<tr><td><strong>Prolonged Exposure (PE)</strong></td><td>Edna Foa</td><td>Imaginal + in-vivo exposure; emotional processing theory</td><td>Single-incident PTSD</td></tr>
+<tr><td><strong>Cognitive Processing Therapy (CPT)</strong></td><td>Patricia Resick</td><td>Written trauma account + cognitive restructuring of stuck points</td><td>PTSD including sexual assault</td></tr>
+<tr><td><strong>EMDR</strong></td><td>Francine Shapiro</td><td>Bilateral stimulation during trauma recall; adaptive information processing model</td><td>PTSD (NICE-recommended alongside TF-CBT)</td></tr>
+<tr><td><strong>Narrative Exposure Therapy (NET)</strong></td><td>Neuner & Schauer</td><td>Lifeline exercise; contextualise multiple traumas chronologically</td><td>Refugees, multiple/sequential trauma</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For PTSD in adults, NICE (NG116) recommends trauma-focused CBT (PE or CPT) or EMDR as first-line treatments. Both should be offered for a minimum of 8–12 sessions. Non-trauma-focused therapies (supportive counselling, relaxation) are NOT recommended as stand-alone treatments for PTSD.</p></div>
+<hr>
+<h1>8. LGBTQ+ POPULATIONS</h1>
+<h2>8.1 The Minority Stress Model</h2>
+<p>Ilan Meyer (2003) proposed the <strong>minority stress model</strong> to explain the elevated rates of mental health problems in sexual and gender minority populations. The model identifies distal and proximal stressors:</p>
+<table>
+<thead><tr><th>Stressor Type</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td><strong>Distal (external)</strong></td><td>Discrimination, violence, prejudice events, microaggressions, rejection</td></tr>
+<tr><td><strong>Proximal (internal)</strong></td><td>Internalised homophobia/transphobia, expectations of rejection, concealment of identity</td></tr>
+</tbody>
+</table>
+
+<p>The stressors are additive and interact with general life stressors. Resilience factors include community connectedness, social support, and positive identity development.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Meyer's minority stress model is the dominant framework for understanding mental health disparities in LGBTQ+ populations. It explicitly states that elevated rates of depression, anxiety, substance use, and suicidality are NOT caused by being LGBTQ+ per se, but by the chronic stress of living in a stigmatising society. This distinction is critical — it locates the problem in the environment, not the identity.</p></div>
+<h2>8.2 Affirmative Therapy Principles</h2>
+<p>Affirmative therapy is not a separate modality — it is a set of principles that should inform all therapy with LGBTQ+ clients, regardless of the specific approach used (CBT, psychodynamic, systemic, etc.).</p>
+<p><strong>Core principles:</strong></p>
+<ol>
+  <li>Sexual orientation and gender identity are normal aspects of human diversity — not pathology</li>
+  <li>The therapist has a responsibility to understand LGBTQ+ lives, culture, and challenges</li>
+  <li>Therapy explores how minority stress contributes to presenting problems</li>
+  <li>The therapist examines their own biases and assumptions</li>
+  <li>The therapist supports the client's self-determination regarding identity, disclosure, and relationships</li>
+  <li>Conversion/reparative therapy is harmful and unethical (condemned by WHO, APA, RCPsych, and all major professional bodies)</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Affirmative therapy does not mean that every presenting problem is about being LGBTQ+. Many LGBTQ+ clients present with issues unrelated to identity. The therapist holds both truths: (1) being LGBTQ+ may be entirely irrelevant to this particular problem, AND (2) the background radiation of minority stress is always worth checking as a contributing factor.</p></div>
+<h2>8.3 Identity-Specific Considerations</h2>
+<p><strong>Transgender and gender-diverse clients:</strong></p>
+<ul>
+  <li>Use chosen name and pronouns without hesitation</li>
+  <li>Understand the gender dysphoria assessment process (if relevant) without making all therapy about gender</li>
+  <li>Be aware of intersecting stressors: transphobia, employment discrimination, family rejection, medical barriers</li>
+  <li>Therapy may address gender identity exploration, transition-related decisions, or unrelated mental health concerns</li>
+</ul>
+
+<p><strong>Bisexual individuals:</strong></p>
+<ul>
+  <li>Face "double discrimination" — biphobia from both heterosexual and gay/lesbian communities</li>
+  <li>Higher rates of depression, anxiety, and suicidality than gay/lesbian individuals (bisexual invisibility, identity invalidation)</li>
+  <li>Therapists should validate bisexual identity without assuming it is a "phase" or "confusion"</li>
+</ul>
+
+<p><strong>Intersectionality:</strong></p>
+<ul>
+  <li>LGBTQ+ individuals from ethnic minority backgrounds face compounded minority stress</li>
+  <li>Religious LGBTQ+ individuals may face identity conflict requiring sensitive exploration</li>
+  <li>Older LGBTQ+ adults may have lived through periods of criminalisation and carry specific cohort trauma</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>If asked about therapy with LGBTQ+ clients, lead with Meyer's minority stress model, then affirmative therapy principles, then the ethical prohibition on conversion therapy. Mention intersectionality. This demonstrates conceptual depth beyond surface-level cultural sensitivity.</p></div>
+<hr>
+<h1>SPECIAL POPULATION x RECOMMENDED THERAPY MATRIX</h1>
+<table>
+<thead><tr><th>Population</th><th>First-Line Psychological Therapy</th><th>Key Adaptation</th><th>Evidence Level</th></tr></thead>
+<tbody>
+<tr><td>Child anxiety (7–13)</td><td>CBT (Coping Cat/Cool Kids)</td><td>FEAR steps, graded exposure, parental involvement</td><td>Strong (multiple RCTs)</td></tr>
+<tr><td>Child conduct disorder (3–11)</td><td>Parent training (Webster-Stratton, Triple P, PCIT)</td><td>Work primarily with parents; operant principles</td><td>Strong (NICE CG158)</td></tr>
+<tr><td>Adolescent depression</td><td>CBT + SSRI (combination)</td><td>TADS model; slower onset for CBT alone</td><td>Strong (TADS RCT)</td></tr>
+<tr><td>Adolescent self-harm/suicidality</td><td>DBT (Rathus-Miller model)</td><td>5 modules, multifamily group, 24 weeks</td><td>Moderate-Strong (Mehlum RCT)</td></tr>
+<tr><td>Late-life depression</td><td>CBT (Laidlaw CCCF), IPT, problem-solving therapy</td><td>Pace, repetition, sensory accommodations, CRIS factors</td><td>Moderate-Strong</td></tr>
+<tr><td>Psychosis</td><td>CBTp + family intervention</td><td>Normalising approach, behavioural experiments, EE reduction</td><td>Strong (NICE CG178)</td></tr>
+<tr><td>Perinatal depression</td><td>CBT or IPT</td><td>Role transition focus; mother-infant work</td><td>Strong (NICE CG192)</td></tr>
+<tr><td>Intellectual disability</td><td>Adapted CBT, PBS</td><td>Simplification, visual aids, carer involvement, behavioural emphasis</td><td>Moderate</td></tr>
+<tr><td>PTSD (single-incident)</td><td>TF-CBT (PE/CPT) or EMDR</td><td>8–12 sessions minimum</td><td>Strong (NICE NG116)</td></tr>
+<tr><td>Complex PTSD</td><td>Phase-based: stabilisation &rarr; processing &rarr; integration</td><td>Phase 1 may take months; contraindications for premature processing</td><td>Moderate (ISTSS guidelines)</td></tr>
+<tr><td>LGBTQ+ populations</td><td>Any evidence-based therapy + affirmative principles</td><td>Minority stress awareness; no conversion therapy</td><td>Consensus/Moderate</td></tr>
+<tr><td>Cultural minorities</td><td>Culturally adapted evidence-based therapy</td><td>CFI, explanatory models, language, family involvement</td><td>Moderate (meta-analyses)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>SUMMARY OF CALLOUTS</h1>
+<h2>Exam Pearls (15)</h2>
+<ol>
+  <li>Metacognition emerges at 11–12; CBT difficult before this age</li>
+  <li>Kendall's Coping Cat — FEAR acronym, two-phase structure</li>
+  <li>TADS — combination > fluoxetine > CBT = placebo at 12 weeks</li>
+  <li>PCIT — real-time coaching via earpiece; evidence for abuse prevention</li>
+  <li>TIPP skills — dive reflex via cold water, fastest DBT skill</li>
+  <li>Older adults underreferred for therapy; efficacy comparable to younger adults</li>
+  <li>Life review therapy based on Erikson's ego integrity vs. despair</li>
+  <li>Normalising rationale central to CBTp — continuum model</li>
+  <li>Freeman's paranoia model — JTC bias, safety behaviours, six maintenance factors</li>
+  <li>Family intervention: 10+ sessions, reduces relapse by ~20%</li>
+  <li>Kleinman's explanatory models — ancestor of DSM-5 CFI</li>
+  <li>IPT's four problem areas map perfectly onto perinatal stressors</li>
+  <li>Royal College confirms psychological therapies should be offered to people with ID</li>
+  <li>Phase-based model from Herman (1992): Safety &rarr; Remembrance &rarr; Reconnection</li>
+  <li>Meyer's minority stress model — problem in the environment, not the identity</li>
+</ol>
+
+<h2>Clinical Anchors (7)</h2>
+<ol>
+  <li>Play therapy — trained therapist observes themes, not "just playing"</li>
+  <li>Biosocial model — not a blame model; "fire in a fireplace" metaphor</li>
+  <li>CBTp — "curious uncertainty" stance; never directly challenge delusions</li>
+  <li>High EE — reframe as distress, not fault</li>
+  <li>Cultural adaptation produces larger effect sizes than unadapted therapy</li>
+  <li>Mother-infant relationship needs targeted intervention beyond treating maternal depression</li>
+  <li>Affirmative therapy — being LGBTQ+ may be irrelevant to the presenting problem; check minority stress as background</li>
+</ol>
+
+<h2>Exam Strategies (4)</h2>
+<ol>
+  <li>TADS results by timepoint</li>
+  <li>Match population to first-line therapy (table above)</li>
+  <li>Older adult therapy viva: mention CCCF, life review, cognitive screening, practical barriers</li>
+  <li>LGBTQ+ therapy: Meyer &rarr; affirmative principles &rarr; conversion therapy prohibition &rarr; intersectionality</li>
+</ol>
+
+<h2>Mnemonics (4)</h2>
+<ol>
+  <li><strong>WITP</strong> — parent training programmes</li>
+  <li><strong>CRIS</strong> — Laidlaw's four cohort-specific factors</li>
+  <li><strong>CHE</strong> — Expressed Emotion components</li>
+  <li><strong>DPCH</strong> — CFI domains</li>
+  <li><strong>AEST</strong> — Functions of challenging behaviour in ID</li>
+</ol>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Psychotherapy for Special Populations &mdash; Weave Psychotherapy Vol. 10</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 10 | Psychotherapy for Special Populations</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Psychotherapy for Special Populations — Quick Reference</h1>
+<hr>
+<h2>1. Child Therapy Modalities by Age</h2>
+<table>
+<thead><tr><th>Age</th><th>Cognitive Stage</th><th>Recommended Modalities</th><th>Rationale</th></tr></thead>
+<tbody>
+<tr><td>0–2</td><td>Sensorimotor</td><td>Parent-infant psychotherapy, VIG, Circle of Security</td><td>Child cannot participate directly; work through parent-infant dyad</td></tr>
+<tr><td>2–4</td><td>Early preoperational</td><td>Non-directive play therapy (Axline), Theraplay, PCIT</td><td>Symbolic play as communication; parent coaching</td></tr>
+<tr><td>4–7</td><td>Late preoperational</td><td>CBPT (Knell), directive play therapy, parent training</td><td>Can follow simple instructions; limited metacognition</td></tr>
+<tr><td>7–11</td><td>Concrete operational</td><td>CBT (Coping Cat), group CBT, parent training as adjunct</td><td>Can classify, follow rules; exposure hierarchies possible</td></tr>
+<tr><td>12–17</td><td>Formal operational</td><td>Standard CBT adapted, DBT (Rathus-Miller), IPT-A</td><td>Abstract reasoning; metacognition available; identity work</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>2. Parent Training Programmes Comparison</h2>
+<table>
+<thead><tr><th>Feature</th><th>Webster-Stratton (Incredible Years)</th><th>Triple P</th><th>PMT (Kazdin)</th><th>PCIT (Eyberg)</th></tr></thead>
+<tbody>
+<tr><td><strong>Age range</strong></td><td>3–8</td><td>0–16</td><td>3–13</td><td>2–7</td></tr>
+<tr><td><strong>Format</strong></td><td>Group (12–20 sessions)</td><td>5 levels (universal &rarr; intensive)</td><td>Individual (12–20)</td><td>Dyadic, live coaching</td></tr>
+<tr><td><strong>Unique feature</strong></td><td>Video modelling, collaborative</td><td>Population-level public health model</td><td>Operant, token economies</td><td>Bug-in-ear real-time coaching</td></tr>
+<tr><td><strong>Components</strong></td><td>Child + parent + teacher pyramid</td><td>Level 1–5 escalation</td><td>Parent-only sessions</td><td>CDI (relationship) + PDI (compliance)</td></tr>
+<tr><td><strong>Target</strong></td><td>Conduct disorder, ODD</td><td>Universal prevention &rarr; clinical treatment</td><td>Conduct problems</td><td>Conduct problems + abuse prevention</td></tr>
+<tr><td><strong>Evidence</strong></td><td>Strongest for conduct disorder</td><td>Strong at population level</td><td>Strong</td><td>Strong; unique abuse prevention data</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>3. Adolescent DBT — Key Facts</h2>
+<table>
+<thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Developers</td><td>Jill H. Rathus & Alec L. Miller</td></tr>
+<tr><td>Population</td><td>Multiproblem, suicidal adolescents</td></tr>
+<tr><td>Modules</td><td>5: Mindfulness, Distress Tolerance, Walking the Middle Path, Emotion Regulation, Interpersonal Effectiveness</td></tr>
+<tr><td>Unique module</td><td>Walking the Middle Path (dialectics, validation, behaviour change)</td></tr>
+<tr><td>Format</td><td>Multifamily group (parents + teens), 2-hour sessions, 3–5 families</td></tr>
+<tr><td>Duration</td><td>24 weeks (one full cycle)</td></tr>
+<tr><td>Modes</td><td>Individual therapy, multifamily skills group, phone coaching (teens + parents), therapist consultation team</td></tr>
+<tr><td>Key adaptations</td><td>Simplified language, developmentally appropriate examples, shorter sessions</td></tr>
+<tr><td>Biosocial model</td><td>Biological vulnerability (sensitivity + reactivity + slow return) × invalidating environment</td></tr>
+<tr><td>Adolescent dilemmas</td><td>Leniency vs. authoritarian; normalising pathological vs. pathologising normative; forcing autonomy vs. fostering dependence</td></tr>
+<tr><td>Crisis skills</td><td>TIPP: Temperature (dive reflex), Intense exercise, Paced breathing, Progressive relaxation</td></tr>
+<tr><td>Key RCT</td><td>Mehlum et al. (2014) — DBT > enhanced usual care for self-harm</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>4. CBTp — Key Techniques Checklist</h2>
+<table>
+<thead><tr><th>Technique</th><th>Target Symptom</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Normalising rationale</td><td>All psychotic experiences</td><td>Continuum model; reduces shame and hopelessness</td></tr>
+<tr><td>Shared formulation</td><td>Delusions, hallucinations</td><td>Develop collaborative understanding in context (stress, trauma, life events)</td></tr>
+<tr><td>Peripheral questioning</td><td>Delusions</td><td>Start with less charged beliefs; work inward</td></tr>
+<tr><td>Socratic questioning</td><td>Delusions</td><td>"What evidence supports this? Is there another explanation?"</td></tr>
+<tr><td>Behavioural experiments</td><td>Paranoia, delusions</td><td>Drop safety behaviours; test predictions</td></tr>
+<tr><td>Beliefs about voices work</td><td>Hallucinations</td><td>Challenge omnipotence, omniscience, compliance beliefs (Chadwick & Birchwood)</td></tr>
+<tr><td>Coping strategy enhancement</td><td>Hallucinations</td><td>Build on existing coping; add distraction, subvocalisation</td></tr>
+<tr><td>Reattribution</td><td>Hallucinations</td><td>Consider internal generation of voices</td></tr>
+<tr><td>Activity scheduling</td><td>Negative symptoms</td><td>Combat withdrawal, apathy, social isolation</td></tr>
+<tr><td>Relapse prevention</td><td>All</td><td>Identify early warning signs; develop action plan</td></tr>
+</tbody>
+</table>
+
+<p><strong>Freeman's 6 maintenance factors for paranoia:</strong> anxiety, worry, negative self-beliefs, sleep problems, reasoning biases (JTC), safety behaviours.</p>
+<hr>
+<h2>5. Expressed Emotion and Family Intervention</h2>
+<table>
+<thead><tr><th>Component</th><th>Definition</th><th>Threshold</th></tr></thead>
+<tbody>
+<tr><td>Critical comments</td><td>Negative remarks about behaviour (tone + content)</td><td>≥6 on CFI = high</td></tr>
+<tr><td>Hostility</td><td>Generalised rejection of the person</td><td>Present/absent</td></tr>
+<tr><td>Emotional overinvolvement</td><td>Overprotection, self-sacrifice, excessive concern</td><td>Rated 0–5; ≥3 = high</td></tr>
+</tbody>
+</table>
+
+<p><strong>High EE</strong> = elevated critical comments/hostility OR high EOI &rarr; ~50% 9-month relapse rate (vs. ~20% low EE).</p>
+<p><strong>NICE recommendation:</strong> Family intervention for all with schizophrenia; ≥10 sessions over 3–9 months; includes psychoeducation + communication training + problem-solving.</p>
+<hr>
+<h2>6. Cultural Formulation Interview (CFI) — Steps</h2>
+<table>
+<thead><tr><th>Step</th><th>Domain</th><th>Key Questions</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Cultural definition of problem</td><td>"What brings you here? How would you describe your problem? What do you call it?"</td></tr>
+<tr><td>2</td><td>Cultural perceptions of cause</td><td>"Why do you think this is happening? Any aspects of background/identity relevant?"</td></tr>
+<tr><td>3</td><td>Stressors and supports</td><td>"What stresses make it worse? Who/what helps?"</td></tr>
+<tr><td>4</td><td>Role of cultural identity</td><td>"Is your cultural background important to this problem? How?"</td></tr>
+<tr><td>5</td><td>Past coping and help-seeking</td><td>"What have you done on your own? Sought help from traditional healers/religious leaders?"</td></tr>
+<tr><td>6</td><td>Current help-seeking</td><td>"What kind of help would be most useful? Barriers to treatment?"</td></tr>
+</tbody>
+</table>
+
+<p><strong>Kleinman's 8 questions</strong> for explanatory models: name, cause, timing, mechanism, severity/duration, fears, expected treatment, hoped results.</p>
+<p><strong>Bernal's 8 adaptation dimensions:</strong> Language, Persons, Metaphors, Content, Concepts, Goals, Methods, Context.</p>
+<hr>
+<h2>7. Phase-Based Trauma Treatment</h2>
+<table>
+<thead><tr><th>Phase</th><th>Goal</th><th>Interventions</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td><strong>1: Stabilisation</strong></td><td>Safety, affect regulation, coping</td><td>Grounding, distress tolerance, psychoeducation, substance use, therapeutic alliance</td><td>Weeks to months</td></tr>
+<tr><td><strong>2: Processing</strong></td><td>Work through traumatic memories</td><td>PE, CPT, EMDR, NET</td><td>8–12+ sessions</td></tr>
+<tr><td><strong>3: Integration</strong></td><td>Rebuild identity, relationships, meaning</td><td>Interpersonal work, vocational rehab, relapse prevention, grief work</td><td>Open-ended</td></tr>
+</tbody>
+</table>
+
+<p><strong>Contraindications for Phase 2:</strong> active suicidality, ongoing abuse, severe dissociation (DES >30), active substance dependence, insufficient affect regulation, acute psychosis, poor therapeutic alliance.</p>
+<p><strong>Trauma therapy comparison:</strong></p>
+<table>
+<thead><tr><th>Therapy</th><th>Key Mechanism</th><th>Best For</th></tr></thead>
+<tbody>
+<tr><td>Prolonged Exposure (Foa)</td><td>Imaginal + in-vivo exposure</td><td>Single-incident PTSD</td></tr>
+<tr><td>CPT (Resick)</td><td>Trauma account + stuck points</td><td>PTSD including sexual assault</td></tr>
+<tr><td>EMDR (Shapiro)</td><td>Bilateral stimulation + AIP model</td><td>PTSD (NICE first-line)</td></tr>
+<tr><td>NET (Neuner/Schauer)</td><td>Lifeline, chronological contextualisation</td><td>Refugees, multiple traumas</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>8. Special Populations x Therapy Matrix</h2>
+<table>
+<thead><tr><th>Population</th><th>First-Line Therapy</th><th>Key Evidence</th></tr></thead>
+<tbody>
+<tr><td>Child anxiety (7–13)</td><td>CBT (Coping Cat)</td><td>60–80% remission; Kendall RCTs</td></tr>
+<tr><td>Child conduct (3–11)</td><td>Parent training</td><td>NICE CG158</td></tr>
+<tr><td>Adolescent depression</td><td>CBT + SSRI</td><td>TADS (2004)</td></tr>
+<tr><td>Adolescent self-harm</td><td>DBT (Rathus-Miller)</td><td>Mehlum et al. (2014)</td></tr>
+<tr><td>Late-life depression</td><td>CBT (CCCF model), IPT</td><td>Laidlaw (2015)</td></tr>
+<tr><td>Psychosis</td><td>CBTp + family intervention</td><td>NICE CG178</td></tr>
+<tr><td>Perinatal depression</td><td>CBT or IPT</td><td>NICE CG192</td></tr>
+<tr><td>Intellectual disability</td><td>Adapted CBT + PBS</td><td>RCPsych CR175</td></tr>
+<tr><td>PTSD</td><td>TF-CBT or EMDR</td><td>NICE NG116</td></tr>
+<tr><td>Complex PTSD</td><td>Phase-based treatment</td><td>ISTSS (2019)</td></tr>
+<tr><td>LGBTQ+</td><td>Any EBT + affirmative principles</td><td>Meyer (2003)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>9. Key Mnemonics</h2>
+<table>
+<thead><tr><th>Mnemonic</th><th>Stands For</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td><strong>FEAR</strong></td><td>Feeling frightened, Expecting bad things, Actions to help, Results and rewards</td><td>Coping Cat (child anxiety CBT)</td></tr>
+<tr><td><strong>TIPP</strong></td><td>Temperature, Intense exercise, Paced breathing, Progressive relaxation</td><td>Adolescent DBT crisis skills</td></tr>
+<tr><td><strong>CRIS</strong></td><td>Cohort beliefs, Role transitions, Intergenerational linkages, Socio-cultural context</td><td>Laidlaw's CCCF for older adults</td></tr>
+<tr><td><strong>CHE</strong></td><td>Critical comments, Hostility, Emotional overinvolvement</td><td>Expressed Emotion components</td></tr>
+<tr><td><strong>DPCH</strong></td><td>Definition of problem, Perceptions of cause, Coping/help-seeking (past), Help-seeking (current)</td><td>CFI domains</td></tr>
+<tr><td><strong>AEST</strong></td><td>Attention, Escape, Sensory, Tangible</td><td>Functions of challenging behaviour (ID)</td></tr>
+<tr><td><strong>WITP</strong></td><td>Webster-Stratton, Incredible Years, Triple P, PCIT/PMT</td><td>Parent training programmes</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>10. Viva Questions</h2>
+<p><strong>Q1. What are the key adaptations needed when delivering CBT to a 7-year-old child?</strong></p>
+<p>Shorter sessions (30–45 min), simplified language, concrete examples (not abstract thought records), visual aids, behavioural emphasis over cognitive techniques, parental involvement for reinforcement, play-based delivery where appropriate, and developmental stage-appropriate content. Metacognition is limited before age 11–12, so focus on behavioural experiments and exposure rather than cognitive restructuring.</p>
+<p><strong>Q2. Describe the biosocial model of adolescent DBT.</strong></p>
+<p>The biosocial model explains chronic emotional dysregulation through the transactional interaction between biological vulnerability (high emotional sensitivity, high reactivity, slow return to baseline) and a pervasively invalidating environment (punishing emotion, reinforcing escalation, oversimplifying solutions). The model is transactional — both teen and family contribute. Rathus and Miller added three adolescent-specific dialectical dilemmas: leniency vs. authoritarian control, normalising pathological vs. pathologising normative, forcing autonomy vs. fostering dependence.</p>
+<p><strong>Q3. What is Laidlaw's CCCF model and why is it needed?</strong></p>
+<p>The Comprehensive Conceptualisation Framework adds four cohort-specific factors to the standard CBT formulation for older adults: Cohort beliefs (generational attitudes), Role transitions (retirement, widowhood), Intergenerational linkages (grandparenting, legacy), and Socio-cultural context (ageism, isolation). It is needed because standard CBT formulations may pathologise normal ageing or miss social determinants unique to later life.</p>
+<p><strong>Q4. How does CBTp approach working with delusions?</strong></p>
+<p>CBTp uses the normalising rationale (continuum model) and collaborative Socratic exploration rather than direct confrontation. Steps: build a shared formulation, identify maintaining factors (safety behaviours, confirmation bias), use peripheral questioning (start with less charged beliefs), examine evidence collaboratively, design behavioural experiments to test delusional predictions, and gentle reality testing. The stance is "curious uncertainty" — neither agreeing nor arguing.</p>
+<p><strong>Q5. What is expressed emotion, and how does it affect schizophrenia relapse?</strong></p>
+<p>Expressed emotion (EE) comprises critical comments, hostility, and emotional overinvolvement. High EE families have ~50% 9-month relapse rates vs. ~20% in low EE families. Family intervention targeting EE reduction (psychoeducation, communication training, problem-solving) is recommended by NICE for at least 10 sessions over 3–9 months and reduces relapse by approximately 20%.</p>
+<p><strong>Q6. Describe the DSM-5 Cultural Formulation Interview.</strong></p>
+<p>The CFI is a 16-question semi-structured interview covering four domains: cultural definition of the problem, cultural perceptions of cause/context/support, cultural factors affecting past coping and help-seeking, and cultural factors affecting current help-seeking. It is based on Kleinman's explanatory model framework and aims to systematically assess cultural context to improve diagnostic accuracy and treatment engagement.</p>
+<p><strong>Q7. What is the phase-based approach to Complex PTSD?</strong></p>
+<p>Three phases: (1) Stabilisation — safety, affect regulation, therapeutic alliance, grounding, distress tolerance; (2) Trauma processing — PE, CPT, EMDR, or NET; (3) Integration — rebuilding identity, relationships, and meaning. Contraindications for Phase 2 include active suicidality, ongoing abuse, severe dissociation, active substance dependence, and insufficient affect regulation. Based on Herman (1992).</p>
+<p><strong>Q8. What is Meyer's minority stress model?</strong></p>
+<p>Meyer (2003) explains LGBTQ+ mental health disparities through distal stressors (discrimination, violence, prejudice) and proximal stressors (internalised homophobia/transphobia, concealment, expectations of rejection). Elevated rates of depression, anxiety, and suicidality are attributed to chronic minority stress, not to sexual/gender identity itself. This model informs affirmative therapy principles.</p>
+<p><strong>Q9. What therapy is recommended for perinatal depression and why is IPT particularly suitable?</strong></p>
+<p>NICE recommends CBT or IPT as first-line for mild-moderate perinatal depression. IPT is particularly suitable because its four problem areas map directly onto perinatal stressors: role transition (to motherhood), interpersonal disputes (partner conflict about parenting), grief (pregnancy loss or loss of pre-baby identity), and interpersonal deficits (social isolation). Mother-infant relationship interventions (VIG, Circle of Security) may also be needed.</p>
+<p><strong>Q10. How should CBT be adapted for people with intellectual disability?</strong></p>
+<p>Key adaptations: simplified language matched to cognitive level, concrete examples with visual aids (traffic lights, picture thought records), shorter sessions (30 min), more frequent sessions, greater repetition and overlearning, stronger behavioural emphasis over cognitive techniques, carer involvement for generalisation, and slower overall pace. Functional analysis and positive behavioural support are the primary approaches for severe-profound ID.</p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

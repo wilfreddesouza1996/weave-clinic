@@ -1,0 +1,927 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Behaviour Therapy &mdash; Weave Psychotherapy Vol. 5</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 5</div>
+      <div class="cover-title">Behaviour Therapy</div>
+      <div class="cover-subtitle">Conditioning, Exposure, and Behavioral Activation</div>
+      <div class="cover-topics">Classical Conditioning · Operant Conditioning · Exposure · Desensitization · Behavioral Activation · Social Learning</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Behaviour Therapy &mdash; Weave Psychotherapy Vol. 5</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 5 | Behaviour Therapy</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Behaviour Therapy — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-historical-development" style="color:var(--indigo);text-decoration:none">Historical Development</a></li>
+  <li><a href="#2-classical-conditioning" style="color:var(--indigo);text-decoration:none">Classical Conditioning</a></li>
+  <li><a href="#3-operant-conditioning" style="color:var(--indigo);text-decoration:none">Operant Conditioning</a></li>
+  <li><a href="#4-social-learning-theory" style="color:var(--indigo);text-decoration:none">Social Learning Theory</a></li>
+  <li><a href="#5-systematic-desensitization" style="color:var(--indigo);text-decoration:none">Systematic Desensitization</a></li>
+  <li><a href="#6-exposure-therapy" style="color:var(--indigo);text-decoration:none">Exposure Therapy</a></li>
+  <li><a href="#7-behavioral-activation" style="color:var(--indigo);text-decoration:none">Behavioral Activation</a></li>
+  <li><a href="#8-aversion-therapy" style="color:var(--indigo);text-decoration:none">Aversion Therapy</a></li>
+  <li><a href="#9-biofeedback-and-relaxation" style="color:var(--indigo);text-decoration:none">Biofeedback and Relaxation</a></li>
+  <li><a href="#10-token-economy-and-contingency-management" style="color:var(--indigo);text-decoration:none">Token Economy and Contingency Management</a></li>
+  <li><a href="#11-assertiveness-training" style="color:var(--indigo);text-decoration:none">Assertiveness Training</a></li>
+  <li><a href="#12-evidence-base" style="color:var(--indigo);text-decoration:none">Evidence Base</a></li>
+</ol>
+
+<hr>
+<h1>1. HISTORICAL DEVELOPMENT</h1>
+<h2>1.1 From Laboratory to Clinic</h2>
+<p>Behaviour therapy emerged from a deliberate rejection of psychoanalytic introspection in favour of observable, measurable behaviour change. Its roots are entirely empirical — each major figure brought laboratory science into the consulting room.</p>
+<p><strong>Ivan Pavlov (1849–1936)</strong> established the foundation. Working in his St. Petersburg laboratory on digestive physiology (for which he won the 1904 Nobel Prize), he observed that dogs began salivating not just to food but to stimuli associated with food — the laboratory assistant's footsteps, the sound of a metronome. He called this a "conditioned reflex" and spent decades systematically mapping the laws of acquisition, extinction, spontaneous recovery, stimulus generalisation, and discrimination. Pavlov never practised psychotherapy, but his work gave the field its first mechanistic language for learned responses.</p>
+<p><strong>John B. Watson (1878–1958)</strong> translated Pavlovian conditioning into a manifesto. His 1913 paper "Psychology as the Behaviorist Views It" declared that psychology must abandon introspection and study only observable behaviour. In 1920, Watson and Rosalie Rayner demonstrated conditioned fear in "Little Albert" — an 11-month-old infant who was taught to fear a white rat by pairing it with a loud noise. The experiment was ethically indefensible by modern standards, but it proved that emotional responses could be acquired through conditioning.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Watson's Little Albert experiment demonstrated fear acquisition through classical conditioning. Mary Cover Jones (1924) demonstrated fear elimination in "Little Peter" using counterconditioning — pairing a feared rabbit with food (the child's favourite). Jones is often called the "mother of behaviour therapy."</p></div>
+<p><strong>B.F. Skinner (1904–1990)</strong> shifted the focus from respondent (Pavlovian) conditioning to operant conditioning. His key insight: behaviour is controlled primarily by its consequences, not by preceding stimuli. Through decades of work with pigeons and rats in the "Skinner box," he mapped the laws of reinforcement, punishment, shaping, extinction, and schedules of reinforcement. His 1953 book <em>Science and Human Behavior</em> extended these principles to human psychology. Skinner never used the word "therapy," preferring "behaviour modification."</p>
+<p><strong>Joseph Wolpe (1915–1997)</strong> was the first to build a complete clinical method from conditioning principles. A South African psychiatrist, Wolpe demonstrated in the 1950s that neurotic anxiety in cats could be eliminated by feeding them in progressively more anxiety-provoking environments — the principle of reciprocal inhibition. His 1958 book <em>Psychotherapy by Reciprocal Inhibition</em> introduced systematic desensitization and launched behaviour therapy as a clinical discipline.</p>
+<p><strong>Albert Bandura (b. 1925)</strong> expanded the behavioural framework beyond direct conditioning. His 1961 Bobo doll experiment showed that children could acquire aggressive behaviours simply by watching a model — no direct reinforcement required. His 1977 <em>Social Learning Theory</em> introduced self-efficacy and reciprocal determinism, bridging behaviourism and cognitive psychology.</p>
+<p><strong>Isaac Marks (b. 1935)</strong> brought exposure therapy into mainstream psychiatry at the Maudsley Hospital, London. His 1987 book <em>Fears, Phobias, and Rituals</em> synthesised decades of clinical research demonstrating that direct exposure — not relaxation, not insight — was the active ingredient in fear reduction. Marks' work on exposure and response prevention (ERP) for OCD remains the gold standard.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The "three waves" of behaviour therapy: (1) Classical and operant conditioning (1950s–1960s), (2) Cognitive-behavioural integration (1970s–1980s, Beck, Ellis), (3) Acceptance and mindfulness-based approaches (1990s–present, ACT, MBCT, DBT). Each wave added to rather than replaced the previous one.</p></div>
+<h2>1.2 Timeline of Key Developments</h2>
+<table>
+<thead><tr><th>Year</th><th>Figure</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td>1897</td><td>Pavlov</td><td>Classical conditioning described</td></tr>
+<tr><td>1913</td><td>Watson</td><td>Behaviourist manifesto</td></tr>
+<tr><td>1920</td><td>Watson & Rayner</td><td>Little Albert experiment</td></tr>
+<tr><td>1924</td><td>Mary Cover Jones</td><td>Little Peter — counterconditioning</td></tr>
+<tr><td>1938</td><td>Skinner</td><td><em>The Behavior of Organisms</em> — operant conditioning</td></tr>
+<tr><td>1953</td><td>Skinner</td><td><em>Science and Human Behavior</em></td></tr>
+<tr><td>1958</td><td>Wolpe</td><td><em>Psychotherapy by Reciprocal Inhibition</em></td></tr>
+<tr><td>1961</td><td>Bandura</td><td>Bobo doll experiment</td></tr>
+<tr><td>1966</td><td>Azrin & Ayllon</td><td>Token economy in psychiatric hospitals</td></tr>
+<tr><td>1969</td><td>Bandura</td><td><em>Principles of Behavior Modification</em></td></tr>
+<tr><td>1974</td><td>Lewinsohn</td><td>Behavioural model of depression</td></tr>
+<tr><td>1977</td><td>Bandura</td><td>Self-efficacy theory</td></tr>
+<tr><td>1986</td><td>Foa & Kozak</td><td>Emotional processing theory of exposure</td></tr>
+<tr><td>1987</td><td>Marks</td><td><em>Fears, Phobias, and Rituals</em></td></tr>
+<tr><td>1996</td><td>Craske & Barlow</td><td>Inhibitory learning model of exposure</td></tr>
+<tr><td>2001</td><td>Martell et al.</td><td>Behavioural Activation for Depression</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>2. CLASSICAL CONDITIONING</h1>
+<h2>2.1 Pavlov's Experimental Paradigm</h2>
+<p>Classical (respondent) conditioning involves learning through association. An initially neutral stimulus acquires the ability to elicit a response by being paired with a stimulus that naturally produces that response.</p>
+<p><strong>Key terms:</strong></p>
+<ul>
+  <li><strong>Unconditioned stimulus (US):</strong> Naturally elicits a response without learning (e.g., food &rarr; salivation)</li>
+  <li><strong>Unconditioned response (UR):</strong> The natural, unlearned response to the US</li>
+  <li><strong>Conditioned stimulus (CS):</strong> A previously neutral stimulus that, after pairing with the US, comes to elicit a response</li>
+  <li><strong>Conditioned response (CR):</strong> The learned response to the CS</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — "UNCLES CONDITION NEPHEWS":</strong> UNConditioned = natural/unlearned. Conditioned = learned. The US is the uncle (naturally powerful), the CS is the nephew (acquires power through association).</p></div>
+<h2>2.2 Core Phenomena</h2>
+<p><strong>Acquisition</strong> — the phase during which the CS-US pairing is established. Optimal conditioning occurs when the CS precedes the US by approximately 0.5 seconds (forward delay conditioning). Simultaneous presentation produces weaker conditioning; backward pairing (US before CS) typically produces no conditioning.</p>
+<p><strong>Extinction</strong> — repeated presentation of the CS without the US leads to gradual weakening of the CR. Critically, extinction is NOT "unlearning." The original CS-US association remains intact; extinction creates a new, inhibitory association (CS &rarr; no US) that competes with the original. This has profound clinical implications for exposure therapy.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Extinction is new learning, not erasure. The original fear memory is not deleted — it is suppressed by a new inhibitory memory. This explains why extinguished fears can return (spontaneous recovery, renewal, reinstatement). Clinically, this is why relapse occurs after successful exposure therapy and why exposure must be conducted in multiple contexts.</p></div>
+<p><strong>Spontaneous recovery</strong> — after a rest period following extinction, the CR reappears at reduced strength. This demonstrates that the original association survives extinction.</p>
+<p><strong>Stimulus generalisation</strong> — the CR is elicited not only by the original CS but by stimuli similar to it. The more similar the stimulus, the stronger the response (generalisation gradient). Clinically, this explains why a person bitten by a German Shepherd may fear all dogs, or why a trauma survivor may be triggered by any loud noise, not just gunshots.</p>
+<p><strong>Stimulus discrimination</strong> — the organism learns to respond to the CS but not to similar stimuli. Achieved through differential reinforcement (CS+ paired with US; CS- not paired). Pavlov demonstrated that forcing extremely fine discriminations produced "experimental neurosis" in dogs — agitation, aggression, and breakdown of previously established conditioned responses.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Pavlov's experimental neurosis is a laboratory analogue of anxiety disorders. When the environment becomes unpredictable — when the organism cannot discriminate safe from dangerous — the result is chronic autonomic arousal and behavioural disorganisation. This maps directly onto the experience of generalised anxiety disorder, where the patient cannot discriminate genuine threats from safe situations.</p></div>
+<p><strong>Higher-order conditioning</strong> — once a CS reliably elicits a CR, it can serve as a US to condition a new, second-order CS. A metronome (CS1) paired with food produces salivation. A light (CS2) paired with the metronome then also produces salivation — without ever being directly paired with food. Higher-order conditioning is weaker and extinguishes faster, but it explains how complex fear networks develop in anxiety disorders.</p>
+<h2>2.3 Clinical Applications of Classical Conditioning</h2>
+<table>
+<thead><tr><th>Phenomenon</th><th>Clinical Application</th></tr></thead>
+<tbody>
+<tr><td>Acquisition</td><td>Fear conditioning in phobias, PTSD</td></tr>
+<tr><td>Extinction</td><td>Exposure therapy, systematic desensitization</td></tr>
+<tr><td>Spontaneous recovery</td><td>Relapse after successful treatment</td></tr>
+<tr><td>Generalisation</td><td>Spread of phobic avoidance, trigger expansion in PTSD</td></tr>
+<tr><td>Discrimination</td><td>Discriminative exposure (safety vs. danger signals)</td></tr>
+<tr><td>Higher-order conditioning</td><td>Complex fear networks, conditioned drug cues</td></tr>
+<tr><td>Interoceptive conditioning</td><td>Panic disorder (bodily sensations as CS for fear)</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When answering questions on classical conditioning in clinical contexts, always distinguish between the acquisition model (how symptoms develop) and the extinction model (how treatment works). Examiners test whether you understand that exposure therapy works through extinction — and that extinction is new learning, not erasure.</p></div>
+<hr>
+<h1>3. OPERANT CONDITIONING</h1>
+<h2>3.1 Skinner's Framework</h2>
+<p>Operant conditioning governs behaviour controlled by its consequences. Unlike classical conditioning (where the organism is passive), operant conditioning involves the organism acting on its environment and being shaped by the results.</p>
+<h3>The Four Contingencies</h3>
+<table>
+<thead><tr><th>Stimulus Added</th><th>Stimulus Removed</th></tr></thead>
+<tbody>
+<tr><td><strong>Behaviour Increases</strong></td><td>Positive Reinforcement (add something desirable)</td><td>Negative Reinforcement (remove something aversive)</td></tr>
+<tr><td><strong>Behaviour Decreases</strong></td><td>Positive Punishment (add something aversive)</td><td>Negative Punishment (remove something desirable)</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — "POSITIVE = PLUS, NEGATIVE = MINUS":</strong> "Positive" and "negative" do NOT mean good and bad. Positive = adding a stimulus. Negative = removing a stimulus. "Reinforcement" = behaviour increases. "Punishment" = behaviour decreases. This 2x2 grid is the entire system.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The most commonly confused pair: negative reinforcement vs. punishment. Negative reinforcement INCREASES behaviour by removing an aversive stimulus. A patient takes a benzodiazepine (behaviour) &rarr; anxiety decreases (aversive stimulus removed) &rarr; pill-taking increases. This is negative reinforcement, not positive reinforcement (nothing pleasant was added) and not punishment (the behaviour increased, not decreased).</p></div>
+<h2>3.2 Schedules of Reinforcement</h2>
+<p>The pattern of reinforcement delivery profoundly affects behaviour.</p>
+<table>
+<thead><tr><th>Schedule</th><th>Definition</th><th>Response Pattern</th><th>Extinction Rate</th><th>Clinical Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Continuous (CRF)</strong></td><td>Every response reinforced</td><td>Steady but moderate rate</td><td>Fastest</td><td>Teaching new behaviours — every correct response praised</td></tr>
+<tr><td><strong>Fixed Ratio (FR)</strong></td><td>Reinforcement after set number of responses</td><td>High rate with post-reinforcement pause</td><td>Fast</td><td>Piecework pay; token economy (e.g., 5 tasks = 1 token)</td></tr>
+<tr><td><strong>Variable Ratio (VR)</strong></td><td>Reinforcement after unpredictable number of responses</td><td>Highest, steadiest rate</td><td>Slowest (most resistant)</td><td>Gambling; intermittent reassurance-seeking in OCD</td></tr>
+<tr><td><strong>Fixed Interval (FI)</strong></td><td>Reinforcement after set time period</td><td>"Scallop" — accelerating near reinforcement time</td><td>Moderate</td><td>Checking clock before appointment; medication schedules</td></tr>
+<tr><td><strong>Variable Interval (VI)</strong></td><td>Reinforcement after unpredictable time period</td><td>Steady, moderate rate</td><td>Slow</td><td>Random supervisor visits; slot machine timing element</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Variable ratio schedules produce the most persistent behaviour and the slowest extinction. This is why gambling is so addictive (reinforcement is unpredictable in timing and magnitude) and why intermittent partner abuse creates powerful trauma bonds (affection is delivered on a VR schedule).</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>In anxiety disorders, avoidance behaviour is maintained by negative reinforcement on a continuous schedule — every avoidance reduces anxiety. Safety behaviours in social anxiety, reassurance-seeking in OCD, and escape in panic disorder all follow this pattern. The clinical task is to break this reinforcement contingency through exposure (preventing the avoidance and allowing anxiety to habituate).</p></div>
+<h2>3.3 Shaping and Chaining</h2>
+<p><strong>Shaping</strong> (successive approximations) — reinforcing behaviours that progressively resemble the target behaviour. Used when the target behaviour never occurs spontaneously and therefore cannot be directly reinforced. Wolberg notes: "Start with response remotely similar to target, differentially reinforce as it approaches the goal."</p>
+<p><strong>Chaining</strong> — linking a sequence of individual behaviours into a complex chain where each step serves as both a reinforcer for the previous step and a discriminative stimulus for the next. Taught using backward chaining (last step first) or forward chaining (first step first). Used in rehabilitation, developmental disabilities, and skills training.</p>
+<h2>3.4 Clinical Applications</h2>
+<ul>
+  <li><strong>Token economy</strong> — systematic application of operant principles in institutional settings (psychiatric wards, classrooms, prisons)</li>
+  <li><strong>Contingency management</strong> — reinforcement of drug-free urines in substance use treatment</li>
+  <li><strong>Behavioural parent training</strong> — teaching parents to use differential reinforcement instead of punishment</li>
+  <li><strong>Applied behaviour analysis (ABA)</strong> — structured operant conditioning for autism spectrum disorder</li>
+  <li><strong>Habit reversal training</strong> — for tics, trichotillomania, skin-picking</li>
+</ul>
+
+<hr>
+<h1>4. SOCIAL LEARNING THEORY</h1>
+<h2>4.1 Bandura's Contribution</h2>
+<p>Albert Bandura's social learning theory (later renamed social cognitive theory) was a direct challenge to radical behaviourism's insistence that all learning requires direct reinforcement. Bandura demonstrated that humans learn extensively through observation — watching what others do and what happens to them.</p>
+<h3>The Bobo Doll Experiment (1961)</h3>
+<p>Children watched an adult model either (a) attack an inflatable Bobo doll (punching, kicking, hitting with a mallet while shouting "Sock him!"), (b) play quietly with other toys, or (c) no model exposure. When subsequently placed in a room with the Bobo doll, children who had watched the aggressive model reproduced specific aggressive acts — including novel acts the model had performed. No direct reinforcement was given to the children at any point.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Bobo doll experiment demonstrated observational learning (vicarious conditioning). A follow-up study showed that consequences to the MODEL mattered: children who saw the model rewarded for aggression imitated more; children who saw the model punished imitated less. But when offered incentives, all groups could reproduce the behaviours equally — proving that learning and performance are distinct. Children learned regardless of consequences; they performed based on expected consequences.</p></div>
+<h2>4.2 Key Concepts</h2>
+<p><strong>Observational learning (modelling)</strong> — requires four processes:</p>
+<ol>
+  <li><strong>Attention</strong> — observer must attend to the model's behaviour</li>
+  <li><strong>Retention</strong> — observer must encode and remember the behaviour</li>
+  <li><strong>Reproduction</strong> — observer must be capable of performing the behaviour</li>
+  <li><strong>Motivation</strong> — observer must have reason to perform the behaviour</li>
+</ol>
+
+<p><strong>Self-efficacy</strong> — the individual's belief in their capacity to execute the behaviours needed to produce a specific outcome. Self-efficacy is domain-specific (a person may have high self-efficacy for driving but low for public speaking). It is the single strongest predictor of whether someone will attempt a feared task — more predictive than actual skill level.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Self-efficacy is a critical mediator of exposure therapy outcomes. A patient who completes an exposure hierarchy successfully but attributes the success to luck or the therapist's presence will not develop self-efficacy and will relapse. The therapist must explicitly process attributions: "You did that. Not me, not the medication — you walked into that situation and stayed."</p></div>
+<p><strong>Reciprocal determinism</strong> — behaviour, personal factors (cognitions, emotions, biology), and the environment all influence each other bidirectionally. This was Bandura's fundamental critique of both radical behaviourism (environment &rarr; behaviour) and psychodynamic theory (internal drives &rarr; behaviour). All three components are in constant, reciprocal interaction.</p>
+<p><strong>Sources of self-efficacy</strong> (in order of potency):</p>
+<ol>
+  <li><strong>Mastery experiences</strong> — personal success (strongest source)</li>
+  <li><strong>Vicarious experiences</strong> — seeing others succeed</li>
+  <li><strong>Verbal persuasion</strong> — encouragement from others</li>
+  <li><strong>Physiological/emotional states</strong> — interpreting arousal as capability or incapability</li>
+</ol>
+
+<h2>4.3 Clinical Applications of Modelling</h2>
+<ul>
+  <li><strong>Participant modelling</strong> — therapist demonstrates approach to feared stimulus, then guides patient through graded exposure (Bandura, 1969). More effective than observation alone.</li>
+  <li><strong>Coping models</strong> — models who display initial anxiety but gradually master the task are more effective than "mastery models" who show no distress. The coping model normalises anxiety and demonstrates that it is manageable.</li>
+  <li><strong>Social skills training</strong> — modelling, role-play, and feedback to teach interpersonal behaviours. Used in schizophrenia, social anxiety, autism spectrum disorder.</li>
+  <li><strong>Video self-modelling</strong> — patients watch edited videos of themselves performing desired behaviours successfully.</li>
+</ul>
+
+<hr>
+<h1>5. SYSTEMATIC DESENSITIZATION</h1>
+<h2>5.1 Wolpe's Reciprocal Inhibition</h2>
+<p>Joseph Wolpe's systematic desensitization is built on the principle of reciprocal inhibition: "If a response inhibitory of anxiety can be made to occur in the presence of anxiety-evoking stimuli, it will weaken the bond between these stimuli and the anxiety" (Wolpe, 1958).</p>
+<p>The logic: anxiety and relaxation are physiologically incompatible states (opposing autonomic activation). If you can teach a patient to be deeply relaxed while imagining a feared stimulus, the relaxation response will inhibit the anxiety response and weaken the conditioned fear.</p>
+<h2>5.2 Three Steps</h2>
+<table>
+<thead><tr><th>Step</th><th>Procedure</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>1. Relaxation training</td><td>Teach progressive muscle relaxation (PMR)</td><td>16 muscle groups &rarr; 7 &rarr; 4; typically 4–6 sessions to master</td></tr>
+<tr><td>2. Anxiety hierarchy</td><td>Construct a ranked list of feared situations</td><td>10–20 items, rated 0–100 SUDs; evenly spaced across the range</td></tr>
+<tr><td>3. Graded imaginal exposure</td><td>Pair relaxation with imagined feared scenes</td><td>Start at lowest item; progress when anxiety = 0; 3–4 scenes per session</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In systematic desensitization, progression up the hierarchy is ALWAYS controlled by the patient's reported anxiety. You never move to the next item until the current item elicits zero anxiety on two consecutive presentations. If anxiety rises above 25 SUDs, the patient signals (e.g., raises a finger) and returns to relaxation before re-attempting the item.</p></div>
+<h2>5.3 In-Vivo vs. Imaginal</h2>
+<p><strong>Imaginal desensitization</strong> — patient imagines feared situations while relaxed. Advantages: safe, controllable, practical for situations difficult to recreate (flying, storms). Disadvantage: some patients cannot generate vivid imagery; generalisation to real life may be limited.</p>
+<p><strong>In-vivo desensitization</strong> — patient confronts real feared stimuli in graded steps while using relaxation skills. Generally more effective than imaginal. Wolpe acknowledged this but used imaginal desensitization when in-vivo was impractical.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Lazarus (1961) compared systematic desensitization to insight-oriented therapy for phobias: 13/18 patients (72%) recovered with desensitization vs. 2/17 (12%) with insight therapy. This was one of the earliest controlled demonstrations that behaviour therapy outperformed traditional psychotherapy for specific conditions.</p></div>
+<h2>5.4 Mechanism Debate</h2>
+<p>Wolpe attributed the effect to reciprocal inhibition — a Pavlovian counterconditioning process. Later research questioned this: relaxation may not be essential (exposure alone works), and the effect may be mediated by habituation or inhibitory learning rather than counterconditioning. Systematic desensitization has been largely superseded by direct exposure therapy for most anxiety disorders, but it remains useful when patients are too anxious to tolerate direct exposure or when a gradual approach is needed.</p>
+<hr>
+<h1>6. EXPOSURE THERAPY</h1>
+<h2>6.1 The Central Principle</h2>
+<p>Exposure therapy is the single most effective psychological intervention for anxiety disorders. The principle is straightforward: systematic, repeated confrontation with feared stimuli in the absence of the feared outcome leads to fear reduction.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Any exam question on "most effective psychological treatment for anxiety disorders" almost certainly has exposure therapy (or a variant of it) as the answer. ERP for OCD, prolonged exposure for PTSD, in-vivo exposure for specific phobias, interoceptive exposure for panic disorder.</p></div>
+<h2>6.2 Theoretical Models</h2>
+<p><strong>Habituation model</strong> — repeated, prolonged exposure leads to a natural decrease in the fear response. Fear peaks and then declines within a session (within-session habituation) and across sessions (between-session habituation). Limitation: habituation does not fully explain fear return or context-dependent relapse.</p>
+<p><strong>Emotional processing theory (Foa & Kozak, 1986)</strong> — effective exposure requires: (1) activation of the fear structure (the patient must actually feel afraid), (2) incorporation of information incompatible with the pathological elements of the fear structure. Two indicators of successful processing: within-session habituation and between-session habituation.</p>
+<p><strong>Inhibitory learning model (Craske et al., 2008)</strong> — the dominant current model. Exposure does not erase the original fear memory. Instead, it creates a new, inhibitory association (CS &rarr; no US) that competes with the original excitatory association (CS &rarr; US). The original fear memory and the new safety memory coexist; the context determines which is retrieved.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The inhibitory learning model has changed how we deliver exposure therapy. Key clinical implications: (1) maximise expectancy violation (do not use relaxation during exposure — let anxiety rise), (2) vary contexts (do exposure in multiple locations, times, states), (3) use deepened extinction (combine multiple feared stimuli), (4) occasional reinforced extinction (sometimes pair CS with US to prevent prediction-based safety learning), (5) remove safety signals (no therapist reassurance, no subtle avoidance).</p></div>
+<h2>6.3 Types of Exposure</h2>
+<table>
+<thead><tr><th>Type</th><th>Method</th><th>Primary Indication</th></tr></thead>
+<tbody>
+<tr><td><strong>In-vivo</strong></td><td>Direct confrontation with real feared stimulus</td><td>Specific phobias, social anxiety, agoraphobia</td></tr>
+<tr><td><strong>Imaginal</strong></td><td>Vivid mental imagery of feared scenario</td><td>PTSD (prolonged exposure), fears that cannot be recreated</td></tr>
+<tr><td><strong>Interoceptive</strong></td><td>Deliberate induction of feared body sensations</td><td>Panic disorder (e.g., hyperventilation, spinning, straw-breathing)</td></tr>
+<tr><td><strong>Virtual reality (VR)</strong></td><td>Computer-simulated feared environment</td><td>Phobias (flying, heights), PTSD, where in-vivo is impractical</td></tr>
+<tr><td><strong>Flooding</strong></td><td>Prolonged, intense exposure to maximum fear stimulus</td><td>Rapid fear reduction; high dropout risk</td></tr>
+<tr><td><strong>Graded exposure</strong></td><td>Systematic progression up a fear hierarchy</td><td>Standard approach for most anxiety disorders</td></tr>
+<tr><td><strong>Exposure and response prevention (ERP)</strong></td><td>Exposure to obsessional trigger + prevention of compulsive ritual</td><td>OCD (gold standard treatment)</td></tr>
+</tbody>
+</table>
+
+<h2>6.4 Key Procedural Principles</h2>
+<ol>
+  <li><strong>Exposure must be prolonged</strong> — sessions of 45–90 minutes; premature termination reinforces avoidance</li>
+  <li><strong>Exposure must be repeated</strong> — multiple sessions (typically 8–20) needed for between-session habituation</li>
+  <li><strong>Exposure must be predictable and controlled</strong> — patient retains sense of agency</li>
+  <li><strong>Safety behaviours must be eliminated</strong> — subtle avoidance (e.g., carrying a water bottle "just in case," avoiding eye contact during social exposure) maintains the fear structure</li>
+  <li><strong>Expectancy violation is key</strong> — the patient must learn that the feared outcome does NOT happen</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The biggest error therapists make with exposure is ending it too early. If a patient with contamination OCD touches a doorknob and immediately washes their hands, the exposure is not just ineffective — it is counter-therapeutic, because it reinforces the belief that touching the doorknob was genuinely dangerous and that washing "saved" them. Response prevention is not a supplementary add-on; it is the mechanism by which exposure works in OCD.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — "PROVE IT WRONG":</strong> The goal of every exposure is for the patient to Predict what will happen, Remain in the situation until the prediction is tested, Observe what actually happens, Verify the disconfirmation, and Evaluate what was learned. (Craske et al.)</p></div>
+<hr>
+<h1>7. BEHAVIORAL ACTIVATION</h1>
+<h2>7.1 Lewinsohn's Model</h2>
+<p>Peter Lewinsohn (1974) proposed that depression results from a low rate of response-contingent positive reinforcement. The depressed person either (a) receives few pleasant events, (b) has few events available that are reinforcing, or (c) lacks the skills to obtain reinforcement from the environment. The resulting withdrawal and inactivity further reduce reinforcement opportunities, creating a self-maintaining cycle.</p>
+<div class="box box-pearl"><div class="box-label">Pathway</div><p>Triggering event &rarr; Reduced activity &rarr; Fewer positive reinforcements &rarr; Low mood &rarr; Further withdrawal &rarr; Fewer reinforcements &rarr; Deepening depression</p></div>
+<h2>7.2 Activity Scheduling</h2>
+<p>Lewinsohn's Pleasant Events Schedule identified activities correlated with positive mood. Treatment involved systematically increasing engagement in pleasant activities. Beck's cognitive therapy incorporated activity scheduling as a core behavioural component — rating activities for both mastery (sense of accomplishment) and pleasure (enjoyment) on a 0–10 scale.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Beck's activity scheduling principle (described in Beck, 2021, Ch. 7): "Inactivity maintains depression through a vicious cycle: depressed mood leads to negative thoughts, which lead to inactivity, which prevents opportunities for mastery/pleasure/connection, which reinforces depression." Activity scheduling breaks this cycle by increasing contact with reinforcement BEFORE the patient feels motivated. The key insight: action precedes motivation, not the other way around.</p></div>
+<h2>7.3 Modern Behavioural Activation (BA)</h2>
+<p>Martell, Addis, and Dimidjian (2001) developed a stand-alone Behavioural Activation treatment that stripped cognitive therapy back to its behavioural roots. Their rationale came from the landmark component analysis by Jacobson et al. (1996), which found that the behavioural activation component of CBT was as effective as the full CBT package — cognitive restructuring added nothing.</p>
+<p><strong>Core principles of modern BA:</strong></p>
+<ol>
+  <li>Focus on changing what the patient does, not what they think</li>
+  <li>Identify patterns of avoidance and withdrawal</li>
+  <li>Use activity monitoring and scheduling</li>
+  <li>Target activation in line with values and life goals</li>
+  <li>Treat rumination as a form of avoidance behaviour (not a cognitive distortion)</li>
+  <li>Use graded task assignment for overwhelming goals</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Dimidjian et al. (2006) trial compared BA, cognitive therapy, and antidepressant medication (paroxetine) for major depression. For severely depressed patients, BA was as effective as medication and significantly more effective than cognitive therapy. This was a landmark finding because BA is simpler, cheaper, and easier to disseminate than full CBT.</p></div>
+<h2>7.4 BA Techniques</h2>
+<table>
+<thead><tr><th>Technique</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Activity monitoring</td><td>Track all activities hour-by-hour; rate mood 0–10</td></tr>
+<tr><td>Activity scheduling</td><td>Plan specific activities at specific times</td></tr>
+<tr><td>Mastery and pleasure ratings</td><td>Rate each activity for accomplishment (M) and enjoyment (P)</td></tr>
+<tr><td>Graded task assignment</td><td>Break large tasks into small, sequential steps</td></tr>
+<tr><td>Values assessment</td><td>Identify what matters to the patient across life domains</td></tr>
+<tr><td>Behavioural experiments</td><td>Test negative predictions about activity outcomes</td></tr>
+<tr><td>TRAP/TRAC model</td><td>Trigger &rarr; Response &rarr; Avoidance Pattern (TRAP) replaced by Trigger &rarr; Response &rarr; Alternative Coping (TRAC)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>8. AVERSION THERAPY</h1>
+<h2>8.1 Principles</h2>
+<p>Aversion therapy pairs an undesirable behaviour or stimulus with an aversive consequence, aiming to create a conditioned aversion. The theoretical basis is classical conditioning: if the CS (e.g., taste of alcohol) is repeatedly paired with a US (e.g., nausea from emetic agent), the CS should come to elicit a CR (nausea, avoidance).</p>
+<h2>8.2 Methods</h2>
+<p><strong>Chemical aversion</strong> — the most historically significant form. Emetine or apomorphine administered before alcohol consumption produces violent nausea paired with the taste and smell of alcohol. Antabuse (disulfiram) works differently — it is not classical conditioning but an operant deterrent (patient avoids alcohol because they know it will make them ill).</p>
+<p><strong>Electrical aversion</strong> — mild electric shock paired with the target behaviour or its cues. Used historically for alcohol dependence, sexual deviations, and smoking. Rapidly delivered and precisely controllable, but patient acceptance is low.</p>
+<p><strong>Covert sensitization (Cautela, 1967)</strong> — the patient imagines the undesirable behaviour and then imagines an intensely aversive consequence (nausea, social humiliation). No physical aversive stimulus is used. More ethical and practical than chemical or electrical methods, but efficacy evidence is limited.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Aversion therapy has largely fallen out of clinical use for several reasons: (1) poor long-term efficacy — conditioned aversions extinguish rapidly, (2) ethical concerns — especially historical misuse in "conversion therapy" for homosexuality, (3) high dropout rates — patients dislike the procedures, (4) better alternatives exist (motivational interviewing, contingency management, pharmacotherapy). The one area where aversion-based principles retain some role is in disulfiram therapy for alcohol dependence, which is more accurately understood as pharmacological deterrence than classical conditioning.</p></div>
+<h2>8.3 Ethical Concerns and Current Status</h2>
+<p>The history of aversion therapy includes deeply unethical applications — "conversion therapy" using electric shocks or emetics to attempt to change sexual orientation. These practices caused significant harm and are now banned or condemned by every major professional body. Contemporary behaviour therapy has moved decisively toward positive, reinforcement-based approaches. Aversion therapy is included here for historical completeness and because it appears on examinations.</p>
+<hr>
+<h1>9. BIOFEEDBACK AND RELAXATION</h1>
+<h2>9.1 Progressive Muscle Relaxation (Jacobson, 1938)</h2>
+<p>Edmund Jacobson developed PMR based on the observation that mental and muscular tension are linked. The technique involves systematically tensing and then releasing muscle groups, training the patient to discriminate between tension and relaxation and to achieve deep muscular relaxation voluntarily.</p>
+<p><strong>Standard protocol:</strong> 16 muscle groups (dominant hand/forearm, dominant biceps, non-dominant hand/forearm, non-dominant biceps, forehead, upper cheeks/nose, lower cheeks/jaw, neck/throat, chest/shoulders/upper back, abdomen, dominant thigh, dominant calf, dominant foot, non-dominant thigh, non-dominant calf, non-dominant foot) &rarr; 7 groups &rarr; 4 groups &rarr; relaxation by recall (no tension phase) &rarr; cue-controlled relaxation (deep breath + cue word).</p>
+<h2>9.2 Applied Relaxation (Öst, 1987)</h2>
+<p>Lars-Göran Öst developed applied relaxation as a coping skill for anxiety. The technique trains the patient to achieve rapid relaxation (in 20–30 seconds) and deploy it in anxiety-provoking real-world situations.</p>
+<p><strong>Stages:</strong> PMR &rarr; Release-only relaxation &rarr; Cue-controlled relaxation &rarr; Differential relaxation &rarr; Rapid relaxation &rarr; Application in real situations. Total training: 8–12 sessions.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Applied relaxation is distinct from simple PMR. PMR is a relaxation exercise done at home. Applied relaxation is a coping skill used in real time — the patient learns to detect early signs of anxiety, deploy rapid relaxation, and re-engage with the situation. Öst showed it was as effective as exposure for panic disorder and generalised anxiety disorder.</p></div>
+<h2>9.3 Biofeedback</h2>
+<p>Biofeedback provides real-time physiological data (muscle tension, skin conductance, heart rate, EEG, temperature) to the patient, who then learns to modify these parameters voluntarily.</p>
+<table>
+<thead><tr><th>Type</th><th>Measurement</th><th>Primary Applications</th></tr></thead>
+<tbody>
+<tr><td>EMG biofeedback</td><td>Muscle tension</td><td>Tension headaches, TMJ, chronic pain, bruxism</td></tr>
+<tr><td>Thermal biofeedback</td><td>Skin temperature</td><td>Raynaud's disease, migraine</td></tr>
+<tr><td>EEG biofeedback (neurofeedback)</td><td>Brainwave patterns</td><td>ADHD (controversial), epilepsy, insomnia</td></tr>
+<tr><td>HRV biofeedback</td><td>Heart rate variability</td><td>Anxiety, depression, PTSD, stress management</td></tr>
+<tr><td>GSR/EDA biofeedback</td><td>Skin conductance</td><td>Anxiety, stress, phobias</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For exam purposes, know that biofeedback has its strongest evidence base for tension-type headaches, Raynaud's disease, and chronic pain (EMG/thermal biofeedback). Evidence for psychiatric applications (anxiety, depression, ADHD) is growing but not yet at the level of first-line recommendation. Wolberg notes Miller's (1978) finding that biofeedback for hypertension had "limited utility."</p></div>
+<hr>
+<h1>10. TOKEN ECONOMY AND CONTINGENCY MANAGEMENT</h1>
+<h2>10.1 Token Economy</h2>
+<p>Developed by Ayllon and Azrin (1968), the token economy is a systematic application of operant conditioning in institutional settings. Patients earn tokens (secondary reinforcers) for performing desired behaviours and exchange them for backup reinforcers (privileges, items, activities).</p>
+<p><strong>Key design principles:</strong></p>
+<ol>
+  <li>Target behaviours clearly defined and observable</li>
+  <li>Tokens delivered immediately after desired behaviour</li>
+  <li>Token-to-backup-reinforcer exchange rate is clear and consistent</li>
+  <li>Reinforcers are individualised (what one patient values, another may not)</li>
+  <li>Shaping used for complex behaviours — start by reinforcing approximations</li>
+</ol>
+
+<p><strong>Applications:</strong> Originally developed for chronic psychiatric inpatients (schizophrenia), token economies have been used in classrooms, residential facilities, and juvenile justice settings.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The token economy at Anna State Hospital (Ayllon & Azrin, 1968) demonstrated that chronic psychiatric patients who had been considered "unmotivated" or "deteriorated" showed dramatic improvements in self-care, social interaction, and ward behaviour when appropriate reinforcement contingencies were implemented. The implication: what looked like negative symptoms of schizophrenia was partly an artefact of a non-reinforcing institutional environment.</p></div>
+<h2>10.2 Contingency Management (CM) in Substance Use</h2>
+<p>Contingency management is the most effective behavioural intervention for substance use disorders, particularly stimulant use disorders for which no effective pharmacotherapy exists.</p>
+<p><strong>Voucher-based reinforcement (Higgins et al., 1991)</strong> — patients provide drug-free urine samples and receive vouchers exchangeable for goods/services. Voucher values increase with consecutive negative samples and reset to the initial value if a positive sample occurs (escalating with reset).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Meta-analyses consistently show that contingency management has the largest effect size of any psychosocial intervention for substance use disorders (effect sizes 0.4–0.6). Despite this evidence, implementation remains limited due to: (1) ethical objections to "paying patients not to use drugs," (2) cost concerns (though CM is cost-effective when hospitalisations are reduced), (3) philosophical resistance from 12-step-oriented treatment programmes.</p></div>
+<hr>
+<h1>11. ASSERTIVENESS TRAINING</h1>
+<h2>11.1 Origins</h2>
+<p>Andrew Salter (1949) introduced "conditioned reflex therapy," which emphasised the expression of excitatory emotions (feelings, desires, disagreement) as the antidote to pathological inhibition. Wolpe and Lazarus adopted and formalised this into assertiveness training as a component of behaviour therapy.</p>
+<h2>11.2 The Assertiveness Spectrum</h2>
+<table>
+<thead><tr><th>Style</th><th>Characteristics</th><th>Consequence</th></tr></thead>
+<tbody>
+<tr><td>Passive</td><td>Fails to express needs; avoids conflict</td><td>Resentment, low self-esteem, exploitation</td></tr>
+<tr><td>Aggressive</td><td>Expresses needs at others' expense; hostile</td><td>Alienation, guilt, damaged relationships</td></tr>
+<tr><td>Passive-aggressive</td><td>Indirect expression of hostility</td><td>Confusion, mistrust, escalation</td></tr>
+<tr><td>Assertive</td><td>Expresses needs directly, respectfully</td><td>Mutual respect, need satisfaction, self-efficacy</td></tr>
+</tbody>
+</table>
+
+<h2>11.3 Techniques</h2>
+<ol>
+  <li><strong>Psychoeducation</strong> — distinguish assertive from aggressive and passive</li>
+  <li><strong>Modelling</strong> — therapist demonstrates assertive responses</li>
+  <li><strong>Behavioural rehearsal (role-play)</strong> — patient practises assertive responses in session</li>
+  <li><strong>Feedback and coaching</strong> — therapist provides specific, constructive feedback</li>
+  <li><strong>Graded real-world practice</strong> — start with low-stakes situations and progress</li>
+  <li><strong>Cognitive restructuring</strong> — address beliefs that block assertiveness ("If I say no, they'll reject me")</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Assertiveness training is a core component of social skills training in schizophrenia rehabilitation, anger management programmes, and treatments for social anxiety disorder. Wolpe considered assertive behaviour to be reciprocally inhibitory to anxiety — expressing feelings and desires is physiologically incompatible with anxious avoidance.</p></div>
+<hr>
+<h1>12. EVIDENCE BASE</h1>
+<h2>12.1 Evidence Summary by Disorder</h2>
+<table>
+<thead><tr><th>Disorder</th><th>Intervention</th><th>Evidence Level</th><th>Key Findings</th></tr></thead>
+<tbody>
+<tr><td><strong>Specific phobias</strong></td><td>In-vivo exposure</td><td>Very strong (Grade A)</td><td>Single-session exposure (Öst) effective in ~90% of cases; fastest treatment in all of psychotherapy</td></tr>
+<tr><td><strong>OCD</strong></td><td>ERP</td><td>Very strong (Grade A)</td><td>60–70% of patients achieve clinically significant improvement; as effective as SRIs; combination may be superior</td></tr>
+<tr><td><strong>PTSD</strong></td><td>Prolonged Exposure (PE)</td><td>Strong (Grade A)</td><td>Foa et al.: PE as effective as CPT and EMDR; recommended by all major guidelines</td></tr>
+<tr><td><strong>Panic disorder</strong></td><td>Interoceptive exposure + in-vivo exposure</td><td>Strong (Grade A)</td><td>Clark (1986), Barlow (2002): exposure to feared sensations is the active ingredient</td></tr>
+<tr><td><strong>Social anxiety</strong></td><td>Exposure + social skills training</td><td>Strong (Grade A)</td><td>Combined with cognitive restructuring in Clark & Wells model</td></tr>
+<tr><td><strong>GAD</strong></td><td>Applied relaxation</td><td>Moderate (Grade B)</td><td>Öst: applied relaxation equivalent to CBT in some trials</td></tr>
+<tr><td><strong>Depression</strong></td><td>Behavioural Activation</td><td>Strong (Grade A)</td><td>Dimidjian et al. (2006): BA = medication > CT for severe depression</td></tr>
+<tr><td><strong>Substance use</strong></td><td>Contingency management</td><td>Strong (Grade A)</td><td>Largest effect size of any psychosocial intervention for stimulant dependence</td></tr>
+<tr><td><strong>Insomnia</strong></td><td>Stimulus control + sleep restriction</td><td>Strong (Grade A)</td><td>Behavioural interventions = first-line; superior to hypnotics long-term</td></tr>
+<tr><td><strong>Chronic pain</strong></td><td>Operant behavioural programme</td><td>Moderate (Grade B)</td><td>Fordyce (1976): reinforcement of "well behaviour," extinction of pain behaviour</td></tr>
+</tbody>
+</table>
+
+<h2>12.2 Behaviour Therapy vs. CBT</h2>
+<p>The relationship between behaviour therapy (BT) and cognitive behaviour therapy (CBT) is often misunderstood.</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>On exams, distinguish clearly between BT and CBT. BT focuses on changing behaviour directly (exposure, reinforcement, skills training) without targeting cognitions. CBT adds cognitive restructuring — identifying and modifying dysfunctional thoughts and beliefs. The Jacobson et al. (1996) dismantling study and Dimidjian et al. (2006) trial suggest that the behavioural component alone may be sufficient for depression. For anxiety disorders, the core mechanism is exposure — a purely behavioural intervention — though cognitive strategies may enhance engagement and prevent relapse.</p></div>
+<h2>12.3 Key Behavioural Techniques Summary</h2>
+<table>
+<thead><tr><th>Technique</th><th>Mechanism</th><th>Primary Developer</th><th>Key Indication</th></tr></thead>
+<tbody>
+<tr><td>Systematic desensitization</td><td>Reciprocal inhibition / counterconditioning</td><td>Wolpe (1958)</td><td>Phobias (historical; largely replaced by exposure)</td></tr>
+<tr><td>In-vivo exposure</td><td>Habituation / inhibitory learning</td><td>Marks (1987)</td><td>Specific phobias, agoraphobia</td></tr>
+<tr><td>ERP</td><td>Exposure + response prevention</td><td>Foa & Kozak (1986)</td><td>OCD</td></tr>
+<tr><td>Prolonged Exposure</td><td>Emotional processing</td><td>Foa (1986)</td><td>PTSD</td></tr>
+<tr><td>Interoceptive exposure</td><td>Extinction of fear of bodily sensations</td><td>Barlow (1988)</td><td>Panic disorder</td></tr>
+<tr><td>Flooding</td><td>Massive exposure / extinction</td><td>Stampfl (1967)</td><td>Phobias (rapid but high dropout)</td></tr>
+<tr><td>Behavioural Activation</td><td>Increase response-contingent reinforcement</td><td>Lewinsohn (1974), Martell (2001)</td><td>Depression</td></tr>
+<tr><td>Token economy</td><td>Operant conditioning / secondary reinforcement</td><td>Ayllon & Azrin (1968)</td><td>Institutional settings, schizophrenia</td></tr>
+<tr><td>Contingency management</td><td>Operant reinforcement of abstinence</td><td>Higgins (1991)</td><td>Substance use disorders</td></tr>
+<tr><td>Aversion therapy</td><td>Classical conditioning of aversion</td><td>Cautela (1967)</td><td>Historical; alcohol dependence</td></tr>
+<tr><td>Assertiveness training</td><td>Reciprocal inhibition / skills training</td><td>Salter (1949), Wolpe (1958)</td><td>Social anxiety, interpersonal deficits</td></tr>
+<tr><td>Applied relaxation</td><td>Coping skill deployment</td><td>Öst (1987)</td><td>GAD, panic disorder</td></tr>
+<tr><td>Biofeedback</td><td>Physiological self-regulation</td><td>Various (1960s–70s)</td><td>Headache, chronic pain, Raynaud's</td></tr>
+<tr><td>Social skills training</td><td>Modelling + rehearsal + feedback</td><td>Bandura (1969)</td><td>Schizophrenia, social anxiety</td></tr>
+<tr><td>Habit reversal</td><td>Awareness + competing response</td><td>Azrin & Nunn (1973)</td><td>Tics, trichotillomania</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC — "BEST FACE":</strong> Key behavioural techniques for exams: <strong>B</strong>ehavioural Activation, <strong>E</strong>xposure (all forms), <strong>S</strong>ystematic desensitization, <strong>T</strong>oken economy, <strong>F</strong>looding, <strong>A</strong>ssertiveness training, <strong>C</strong>ontingency management, <strong>E</strong>RP.</p></div>
+<hr>
+<p><em>End of D1: Behaviour Therapy — Deep Study</em></p>
+<p><em>Weave Psychotherapy Vol. 5 | Weave — Centre for Integrative Psychiatry</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Behaviour Therapy &mdash; Weave Psychotherapy Vol. 5</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 5 | Behaviour Therapy</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Behaviour Therapy — Quick Reference</h1>
+<hr>
+<h2>1. Key Figures Timeline</h2>
+<table>
+<thead><tr><th>Year</th><th>Figure</th><th>Contribution</th><th>Why It Matters</th></tr></thead>
+<tbody>
+<tr><td>1897</td><td>Pavlov</td><td>Classical conditioning</td><td>Foundation — all learned emotional responses</td></tr>
+<tr><td>1913</td><td>Watson</td><td>Behaviourist manifesto</td><td>Psychology as science of observable behaviour</td></tr>
+<tr><td>1920</td><td>Watson & Rayner</td><td>Little Albert</td><td>Fear is conditioned (acquired)</td></tr>
+<tr><td>1924</td><td>Mary Cover Jones</td><td>Little Peter</td><td>Fear is deconditioned — first behaviour therapy</td></tr>
+<tr><td>1938</td><td>Skinner</td><td>Operant conditioning</td><td>Behaviour shaped by consequences</td></tr>
+<tr><td>1949</td><td>Salter</td><td>Conditioned reflex therapy</td><td>Precursor to assertiveness training</td></tr>
+<tr><td>1958</td><td>Wolpe</td><td>Systematic desensitization</td><td>Reciprocal inhibition — first systematic clinical method</td></tr>
+<tr><td>1961</td><td>Bandura</td><td>Bobo doll experiment</td><td>Observational learning without direct reinforcement</td></tr>
+<tr><td>1966</td><td>Ayllon & Azrin</td><td>Token economy</td><td>Operant conditioning in institutions</td></tr>
+<tr><td>1967</td><td>Stampfl</td><td>Flooding/implosive therapy</td><td>Massive exposure without relaxation</td></tr>
+<tr><td>1974</td><td>Lewinsohn</td><td>Behavioural model of depression</td><td>Low reinforcement &rarr; depression</td></tr>
+<tr><td>1977</td><td>Bandura</td><td>Self-efficacy theory</td><td>Belief in capability predicts behaviour</td></tr>
+<tr><td>1986</td><td>Foa & Kozak</td><td>Emotional processing theory</td><td>How exposure works — fear activation + disconfirmation</td></tr>
+<tr><td>1987</td><td>Marks</td><td>Exposure as core mechanism</td><td>Direct exposure > relaxation-based approaches</td></tr>
+<tr><td>1987</td><td>Öst</td><td>Applied relaxation</td><td>Rapid relaxation as coping skill</td></tr>
+<tr><td>1996</td><td>Craske</td><td>Inhibitory learning model</td><td>Exposure = new learning, not erasure</td></tr>
+<tr><td>2006</td><td>Dimidjian et al.</td><td>BA for severe depression</td><td>BA = medication > cognitive therapy</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>2. Classical vs. Operant Conditioning</h2>
+<table>
+<thead><tr><th>Feature</th><th>Classical Conditioning</th><th>Operant Conditioning</th></tr></thead>
+<tbody>
+<tr><td><strong>Pioneer</strong></td><td>Pavlov (1897)</td><td>Skinner (1938)</td></tr>
+<tr><td><strong>Alternative name</strong></td><td>Respondent conditioning</td><td>Instrumental conditioning</td></tr>
+<tr><td><strong>Learning mechanism</strong></td><td>Association between stimuli (CS-US pairing)</td><td>Association between behaviour and consequence</td></tr>
+<tr><td><strong>Role of organism</strong></td><td>Passive (responds to stimuli)</td><td>Active (operates on environment)</td></tr>
+<tr><td><strong>Response type</strong></td><td>Involuntary/reflexive (salivation, fear, nausea)</td><td>Voluntary/skeletal (pressing lever, studying, avoidance)</td></tr>
+<tr><td><strong>Key element</strong></td><td>Stimulus pairing (contiguity)</td><td>Reinforcement/punishment (contingency)</td></tr>
+<tr><td><strong>Extinction</strong></td><td>CS presented without US &rarr; CR weakens</td><td>Behaviour no longer reinforced &rarr; behaviour weakens</td></tr>
+<tr><td><strong>Clinical relevance</strong></td><td>Phobias, PTSD, panic, conditioned drug cues</td><td>Avoidance behaviour, substance use, institutional behaviour</td></tr>
+<tr><td><strong>Treatment approach</strong></td><td>Exposure, systematic desensitization</td><td>Token economy, contingency management, BA</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>3. Reinforcement and Punishment Grid</h2>
+<table>
+<thead><tr><th>Add Stimulus (+)</th><th>Remove Stimulus (−)</th></tr></thead>
+<tbody>
+<tr><td><strong>Behaviour &uarr;</strong></td><td><strong>Positive Reinforcement</strong> — Praise after homework &rarr; more homework</td><td><strong>Negative Reinforcement</strong> — Take anxiolytic &rarr; anxiety removed &rarr; more pill-taking</td></tr>
+<tr><td><strong>Behaviour &darr;</strong></td><td><strong>Positive Punishment</strong> — Scold after misbehaviour &rarr; less misbehaviour</td><td><strong>Negative Punishment</strong> — Remove phone after outburst &rarr; fewer outbursts</td></tr>
+</tbody>
+</table>
+
+<p><strong>Remember:</strong> Positive/negative = add/remove. Reinforcement/punishment = increase/decrease.</p>
+<hr>
+<h2>4. Schedules of Reinforcement</h2>
+<table>
+<thead><tr><th>Schedule</th><th>Pattern</th><th>Response Rate</th><th>Extinction</th><th>Clinical Example</th></tr></thead>
+<tbody>
+<tr><td>Continuous (CRF)</td><td>Every response reinforced</td><td>Moderate</td><td>Fastest</td><td>Teaching new behaviour</td></tr>
+<tr><td>Fixed Ratio (FR)</td><td>After N responses</td><td>High + pause</td><td>Fast</td><td>Token economy (5 tasks = 1 token)</td></tr>
+<tr><td>Variable Ratio (VR)</td><td>After ~N responses (unpredictable)</td><td>Highest, steady</td><td><strong>Slowest</strong></td><td>Gambling; reassurance-seeking</td></tr>
+<tr><td>Fixed Interval (FI)</td><td>After set time</td><td>Scallop pattern</td><td>Moderate</td><td>Medication schedules</td></tr>
+<tr><td>Variable Interval (VI)</td><td>After ~set time (unpredictable)</td><td>Steady, moderate</td><td>Slow</td><td>Random check-ins</td></tr>
+</tbody>
+</table>
+
+<p><strong>Exam rule:</strong> VR = most resistant to extinction. This is why gambling and intermittent reinforcement create the strongest habits.</p>
+<hr>
+<h2>5. Exposure Therapy Types</h2>
+<table>
+<thead><tr><th>Type</th><th>Method</th><th>Indication</th><th>Key Detail</th></tr></thead>
+<tbody>
+<tr><td>In-vivo</td><td>Real-world confrontation</td><td>Specific phobias, agoraphobia</td><td>Most effective form</td></tr>
+<tr><td>Imaginal</td><td>Mental imagery of feared situation</td><td>PTSD, fears hard to recreate</td><td>Core of Prolonged Exposure (Foa)</td></tr>
+<tr><td>Interoceptive</td><td>Induce feared body sensations</td><td>Panic disorder</td><td>Hyperventilation, spinning, straw-breathing</td></tr>
+<tr><td>Virtual reality</td><td>Computer-simulated environment</td><td>Flying phobia, heights, PTSD</td><td>Growing evidence; practical for inaccessible stimuli</td></tr>
+<tr><td>Flooding</td><td>Maximum-intensity prolonged exposure</td><td>Rapid fear reduction needed</td><td>High dropout; rarely first-line</td></tr>
+<tr><td>Graded</td><td>Systematic hierarchy progression</td><td>Standard for most anxiety disorders</td><td>Patient-controlled pace</td></tr>
+<tr><td>ERP</td><td>Exposure + ritual prevention</td><td>OCD</td><td>Gold standard; 60-70% response</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>6. Systematic Desensitization — Step-by-Step</h2>
+<table>
+<thead><tr><th>Step</th><th>Action</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Relaxation training</td><td>PMR: 16 &rarr; 7 &rarr; 4 muscle groups; 4-6 sessions</td></tr>
+<tr><td>2</td><td>Build anxiety hierarchy</td><td>10-20 items rated 0-100 SUDs; evenly spaced</td></tr>
+<tr><td>3</td><td>Pair relaxation + imagery</td><td>Start at lowest; advance when anxiety = 0 on 2 trials</td></tr>
+<tr><td>4</td><td>Progress up hierarchy</td><td>3-4 items per session; if SUDs > 25, return to relaxation</td></tr>
+<tr><td>5</td><td>In-vivo transfer</td><td>Apply in real situations once imaginal hierarchy completed</td></tr>
+</tbody>
+</table>
+
+<p><strong>Mechanism:</strong> Reciprocal inhibition (Wolpe) — relaxation inhibits anxiety.</p>
+<p><strong>Now largely replaced by:</strong> Direct exposure therapy (relaxation not essential).</p>
+<hr>
+<h2>7. Behavioural Activation — Core Techniques</h2>
+<table>
+<thead><tr><th>Technique</th><th>What It Does</th></tr></thead>
+<tbody>
+<tr><td>Activity monitoring</td><td>Hourly tracking of all activities + mood rating 0-10</td></tr>
+<tr><td>Activity scheduling</td><td>Plan specific activities at specific times (action before motivation)</td></tr>
+<tr><td>Mastery/Pleasure ratings</td><td>Rate each activity for accomplishment (M) and enjoyment (P)</td></tr>
+<tr><td>Graded task assignment</td><td>Break overwhelming goals into small sequential steps</td></tr>
+<tr><td>Values assessment</td><td>Identify what matters across life domains</td></tr>
+<tr><td>TRAP &rarr; TRAC</td><td>Trigger &rarr; Response &rarr; Avoidance Pattern &rarr; replace with &rarr; Alternative Coping</td></tr>
+</tbody>
+</table>
+
+<p><strong>Key evidence:</strong> Dimidjian et al. (2006) — BA = paroxetine > cognitive therapy for severe depression.</p>
+<hr>
+<h2>8. Complete Behavioural Techniques Catalogue</h2>
+<table>
+<thead><tr><th>Technique</th><th>Mechanism</th><th>Developer</th><th>Primary Indication</th></tr></thead>
+<tbody>
+<tr><td>Systematic desensitization</td><td>Counterconditioning</td><td>Wolpe (1958)</td><td>Phobias</td></tr>
+<tr><td>In-vivo exposure</td><td>Habituation/inhibitory learning</td><td>Marks (1987)</td><td>Phobias, agoraphobia</td></tr>
+<tr><td>ERP</td><td>Exposure + response prevention</td><td>Foa (1986)</td><td>OCD</td></tr>
+<tr><td>Prolonged Exposure</td><td>Emotional processing</td><td>Foa (1986)</td><td>PTSD</td></tr>
+<tr><td>Interoceptive exposure</td><td>Extinction of fear of sensations</td><td>Barlow (1988)</td><td>Panic disorder</td></tr>
+<tr><td>Flooding</td><td>Massive extinction</td><td>Stampfl (1967)</td><td>Phobias</td></tr>
+<tr><td>Behavioural Activation</td><td>&uarr; Response-contingent reinforcement</td><td>Lewinsohn/Martell</td><td>Depression</td></tr>
+<tr><td>Token economy</td><td>Operant secondary reinforcement</td><td>Ayllon & Azrin (1968)</td><td>Institutions, schizophrenia</td></tr>
+<tr><td>Contingency management</td><td>Operant reinforcement of abstinence</td><td>Higgins (1991)</td><td>Substance use</td></tr>
+<tr><td>Assertiveness training</td><td>Skills training + reciprocal inhibition</td><td>Salter/Wolpe</td><td>Social anxiety, interpersonal</td></tr>
+<tr><td>Applied relaxation</td><td>Rapid coping skill</td><td>Öst (1987)</td><td>GAD, panic</td></tr>
+<tr><td>PMR</td><td>Muscular tension-relaxation</td><td>Jacobson (1938)</td><td>Anxiety, insomnia, pain</td></tr>
+<tr><td>Biofeedback (EMG)</td><td>Physiological self-regulation</td><td>Various (1960s)</td><td>Headache, chronic pain</td></tr>
+<tr><td>Social skills training</td><td>Modelling + rehearsal + feedback</td><td>Bandura (1969)</td><td>Schizophrenia, social anxiety</td></tr>
+<tr><td>Habit reversal</td><td>Awareness + competing response</td><td>Azrin & Nunn (1973)</td><td>Tics, trichotillomania</td></tr>
+<tr><td>Aversion therapy</td><td>Conditioned aversion</td><td>Various</td><td>Historical; largely abandoned</td></tr>
+<tr><td>Covert sensitization</td><td>Imaginal aversive pairing</td><td>Cautela (1967)</td><td>Substance use (limited evidence)</td></tr>
+<tr><td>Shaping</td><td>Successive approximations</td><td>Skinner</td><td>Developmental disabilities, ABA</td></tr>
+<tr><td>Participant modelling</td><td>Model demonstrates + guides patient</td><td>Bandura (1969)</td><td>Phobias</td></tr>
+<tr><td>Stimulus control</td><td>Alter antecedent conditions</td><td>Bootzin (1972)</td><td>Insomnia</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>9. Evidence Summary by Disorder</h2>
+<table>
+<thead><tr><th>Disorder</th><th>First-Line Behavioural Tx</th><th>Grade</th><th>NNT / Effect Size</th></tr></thead>
+<tbody>
+<tr><td>Specific phobias</td><td>In-vivo exposure (single session, Öst)</td><td>A</td><td>~90% response rate</td></tr>
+<tr><td>OCD</td><td>ERP</td><td>A</td><td>NNT ~3; d = 1.1-1.5</td></tr>
+<tr><td>PTSD</td><td>Prolonged Exposure</td><td>A</td><td>d = 1.0-1.5</td></tr>
+<tr><td>Panic disorder</td><td>Interoceptive + in-vivo exposure</td><td>A</td><td>70-80% panic-free</td></tr>
+<tr><td>Social anxiety</td><td>Exposure + social skills</td><td>A</td><td>d = 0.8-1.2</td></tr>
+<tr><td>GAD</td><td>Applied relaxation</td><td>B</td><td>Equivalent to CBT</td></tr>
+<tr><td>Depression</td><td>Behavioural Activation</td><td>A</td><td>BA = medication for severe MDD</td></tr>
+<tr><td>Stimulant use</td><td>Contingency management</td><td>A</td><td>d = 0.4-0.6 (largest for any psychosocial Tx)</td></tr>
+<tr><td>Insomnia</td><td>Stimulus control + sleep restriction</td><td>A</td><td>Superior to hypnotics long-term</td></tr>
+<tr><td>Chronic pain</td><td>Operant behavioural programme</td><td>B</td><td>&darr; pain behaviour, &uarr; function</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>10. High-Yield Exam Pearls</h2>
+<ol>
+  <li><strong>Extinction ≠ erasure.</strong> Extinction creates a new inhibitory memory that competes with the original fear. Explains spontaneous recovery, renewal, and reinstatement.</li>
+  <li><strong>Negative reinforcement ≠ punishment.</strong> Negative reinforcement INCREASES behaviour by removing something aversive (e.g., avoidance reduces anxiety &rarr; avoidance increases).</li>
+  <li><strong>Variable ratio = most resistant to extinction.</strong> Explains gambling addiction and intermittent reinforcement effects.</li>
+  <li><strong>Bobo doll:</strong> Learning ≠ performance. All children learned; only those who expected reward performed.</li>
+  <li><strong>Self-efficacy</strong> is the strongest predictor of whether a patient will attempt a feared task.</li>
+  <li><strong>Lazarus (1961):</strong> Desensitization cured 72% vs. 12% with insight therapy for phobias.</li>
+  <li><strong>Dimidjian (2006):</strong> BA = medication > cognitive therapy for severe depression.</li>
+  <li><strong>ERP for OCD:</strong> 60-70% achieve clinically significant improvement. Response prevention is the mechanism, not a supplement.</li>
+  <li><strong>Safety behaviours</strong> maintain fear structures. Must be eliminated during exposure.</li>
+  <li><strong>Token economies</strong> showed that "negative symptoms" in chronic schizophrenia were partly environmental artefacts.</li>
+  <li><strong>Mary Cover Jones</strong> (1924) = "mother of behaviour therapy" — first systematic fear elimination.</li>
+  <li><strong>Inhibitory learning model</strong> (Craske): maximise expectancy violation, vary contexts, remove safety signals, deepen extinction.</li>
+</ol>
+
+<hr>
+<h2>11. Viva Questions</h2>
+<p><strong>Q1: What is the difference between classical and operant conditioning? Give a clinical example of each.</strong></p>
+<p>Classical: involuntary response learned through stimulus pairing (CS-US). Example: a patient develops nausea (CR) entering a hospital (CS) after chemotherapy (US). Operant: voluntary behaviour shaped by consequences. Example: a patient avoids social situations (operant behaviour) because avoidance reduces anxiety (negative reinforcement).</p>
+<p><strong>Q2: Explain the principle of reciprocal inhibition and its clinical application.</strong></p>
+<p>Wolpe (1958): if a response that inhibits anxiety (e.g., relaxation) is made to occur in the presence of anxiety-evoking stimuli, the anxiety response is weakened. Application: systematic desensitization — patient is trained in PMR, then imagines feared stimuli while relaxed, progressing up a hierarchy.</p>
+<p><strong>Q3: Why do extinguished fears sometimes return? What are the clinical implications?</strong></p>
+<p>Extinction is new learning, not erasure. The original CS-US association persists; a new inhibitory association (CS &rarr; no US) competes with it. Return of fear occurs via: spontaneous recovery (passage of time), renewal (change of context), reinstatement (re-exposure to US). Implication: exposure must be conducted in multiple contexts, and patients need relapse prevention planning.</p>
+<p><strong>Q4: Compare flooding and systematic desensitization.</strong></p>
+<p>Flooding: prolonged, intense exposure to the maximum feared stimulus without relaxation. Works through extinction/habituation. Fast but distressing; high dropout. Desensitization: graded exposure paired with relaxation. Works through reciprocal inhibition/counterconditioning. Slower but better tolerated. Both effective, but direct exposure (graded or prolonged) without relaxation is now preferred.</p>
+<p><strong>Q5: What is Behavioural Activation and what is its evidence base for depression?</strong></p>
+<p>BA is a structured treatment that increases engagement in valued, rewarding activities to break the depression-withdrawal cycle (Lewinsohn, 1974; Martell, 2001). Jacobson et al. (1996) showed the behavioural component of CBT was as effective as full CBT. Dimidjian et al. (2006) showed BA was equivalent to paroxetine and superior to cognitive therapy for severe depression.</p>
+<p><strong>Q6: Describe the four schedules of reinforcement and their clinical significance.</strong></p>
+<p>FR: reinforcement after fixed number of responses — post-reinforcement pause. VR: after variable number — highest, steadiest rate; most resistant to extinction (gambling). FI: after fixed time — scallop pattern. VI: after variable time — steady, moderate rate. Clinically: VR explains persistence of gambling and reassurance-seeking; understanding schedules informs design of token economies and contingency management.</p>
+<p><strong>Q7: What is ERP and why is response prevention essential?</strong></p>
+<p>Exposure and Response Prevention for OCD: patient is exposed to obsessional triggers (contamination, harm cues) while the compulsive ritual is blocked. Without response prevention, exposure alone is counter-therapeutic — completing the ritual reinforces the belief that the ritual prevented the feared outcome. ERP has Grade A evidence; 60-70% response rate.</p>
+<p><strong>Q8: Explain Bandura's concept of self-efficacy and its four sources.</strong></p>
+<p>Self-efficacy = belief in one's capability to perform a specific behaviour. Four sources (in order of potency): (1) mastery experiences (personal success — strongest), (2) vicarious experiences (seeing similar others succeed), (3) verbal persuasion (encouragement), (4) physiological/emotional states (interpreting arousal as capability vs. incapability). Self-efficacy predicts treatment engagement and outcome across disorders.</p>
+<p><strong>Q9: What are the ethical concerns with aversion therapy?</strong></p>
+<p>(1) Historical misuse in "conversion therapy" for homosexuality — caused significant harm, now banned by professional bodies. (2) Poor long-term efficacy — conditioned aversions extinguish rapidly. (3) High dropout due to unpleasant procedures. (4) Questions about informed consent when patients are desperate or coerced. (5) Better alternatives now available (MI, CM, pharmacotherapy). Current use is extremely limited.</p>
+<p><strong>Q10: Compare the habituation model and inhibitory learning model of exposure therapy.</strong></p>
+<p>Habituation model: fear naturally decreases with prolonged, repeated exposure (within- and between-session habituation). Inhibitory learning model (Craske): exposure creates a new inhibitory memory (CS &rarr; no US) that competes with the original excitatory memory (CS &rarr; US). The inhibitory model better explains fear return and has changed clinical practice: maximise expectancy violation, vary contexts, remove safety behaviours, use deepened extinction, avoid reliance on within-session fear reduction as a progress marker.</p>
+<hr>
+<p><em>End of D6: Behaviour Therapy — Quick Reference</em></p>
+<p><em>Weave Psychotherapy Vol. 5 | Weave — Centre for Integrative Psychiatry</em></p>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

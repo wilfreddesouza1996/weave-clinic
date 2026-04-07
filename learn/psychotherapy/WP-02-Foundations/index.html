@@ -1,0 +1,1110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Foundations of Psychotherapy &mdash; Weave Psychotherapy Vol. 2</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 2</div>
+      <div class="cover-title">Foundations of Psychotherapy</div>
+      <div class="cover-subtitle">Common Factors, Therapeutic Alliance, and the Art of the Interview</div>
+      <div class="cover-topics">Common Factors · Therapeutic Alliance · Psychiatric Interview · CASE Approach · Ethics · Research Methods</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Foundations of Psychotherapy &mdash; Weave Psychotherapy Vol. 2</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 2 | Foundations of Psychotherapy</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Foundations of Psychotherapy -- Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-history-of-psychotherapy" style="color:var(--indigo);text-decoration:none">History of Psychotherapy</a></li>
+  <li><a href="#2-common-factors" style="color:var(--indigo);text-decoration:none">Common Factors</a></li>
+  <li><a href="#3-the-therapeutic-alliance" style="color:var(--indigo);text-decoration:none">The Therapeutic Alliance</a></li>
+  <li><a href="#4-therapist-factors" style="color:var(--indigo);text-decoration:none">Therapist Factors</a></li>
+  <li><a href="#5-the-psychiatric-interview" style="color:var(--indigo);text-decoration:none">The Psychiatric Interview</a></li>
+  <li><a href="#6-case-approach-for-suicide-assessment" style="color:var(--indigo);text-decoration:none">CASE Approach for Suicide Assessment</a></li>
+  <li><a href="#7-ethics-in-psychotherapy" style="color:var(--indigo);text-decoration:none">Ethics in Psychotherapy</a></li>
+  <li><a href="#8-research-methods-in-psychotherapy" style="color:var(--indigo);text-decoration:none">Research Methods in Psychotherapy</a></li>
+  <li><a href="#9-indications-and-contraindications" style="color:var(--indigo);text-decoration:none">Indications and Contraindications</a></li>
+  <li><a href="#10-stages-of-therapy" style="color:var(--indigo);text-decoration:none">Stages of Therapy</a></li>
+</ol>
+
+<hr>
+<h1>1. HISTORY OF PSYCHOTHERAPY</h1>
+<h2>1.1 Pre-Scientific Roots</h2>
+<p>Psychotherapy did not begin with Freud. Healing through psychological means is as old as human civilisation. Ancient practices -- temple sleep in Greek Asclepieia, shamanic rituals, confession in religious traditions, philosophical counsel in Stoic and Buddhist practice -- all shared a common structure: a sufferer seeks a designated healer, who uses words, rituals, and relationship to reduce distress. These are, in essence, the first common factors.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The earliest systematic psychological healing in Western history can be traced to the Greek temples of Asclepius (circa 500 BCE), where "incubation" (temple sleep) was used to induce healing dreams. The priest-healer interpreted these dreams -- a practice echoing down to psychoanalysis.</p></div>
+<h2>1.2 Mesmer to Janet: The Birth of the Dynamic Unconscious</h2>
+<p>Franz Anton Mesmer (1734-1815) introduced "animal magnetism" -- a theory of invisible fluid causing illness. His technique (group sessions, dramatic crises, magnetic passes) was discredited scientifically, but the phenomena he produced were real: altered states of consciousness, symptom relief, and suggestibility. The French Royal Commission (1784, featuring Benjamin Franklin) concluded Mesmer's effects were due to "imagination" -- which is to say, they were psychological.</p>
+<p>The Marquis de Puysegur discovered "artificial somnambulism" (hypnotic trance) in Mesmer's patients. James Braid (1843) coined the term "hypnotism" and relocated the phenomenon from physics to psychology. Jean-Martin Charcot at the Salpetriere used hypnosis to study hysteria, demonstrating that symptoms could be produced and removed by suggestion. His student Pierre Janet developed the concept of dissociation and the subconscious -- laying groundwork that Freud would build on and transform.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Janet, not Freud, first described dissociation and the subconscious. Janet's concept of "desagregation" (disaggregation of consciousness) directly influenced Freud and Breuer's theory of hysteria. Janet felt Freud received credit for ideas that were originally his.</p></div>
+<h2>1.3 Breuer and Freud: The Talking Cure</h2>
+<p>Josef Breuer's treatment of Anna O. (1880-1882) is conventionally cited as the birth of psychotherapy. Anna O. herself coined the term "talking cure." Breuer discovered that symptoms remitted when their traumatic origins were recalled under hypnosis and the associated affect was discharged -- the method of catharsis. Freud collaborated with Breuer on <em>Studies on Hysteria</em> (1895), then went further: he abandoned hypnosis in favour of free association, developed the topographic model (conscious/preconscious/unconscious), introduced the concepts of transference and resistance, and built the structural model (id/ego/superego). Psychoanalysis became the first systematic psychotherapy with a comprehensive theory of mind, pathology, and treatment.</p>
+<h2>1.4 The Divergences: Jung, Adler, Rank, and Beyond</h2>
+<p>Carl Gustav Jung broke with Freud in 1913 over the nature of the unconscious. Jung proposed the collective unconscious, archetypes, individuation, and psychological types (introversion/extraversion). His approach -- analytical psychology -- was more spiritual and less reductively sexual than Freud's.</p>
+<p>Alfred Adler departed even earlier (1911), rejecting the primacy of sexuality in favour of the inferiority complex and the striving for superiority. Adlerian individual psychology emphasised social interest, birth order, and lifestyle analysis. His influence on later cognitive and humanistic approaches is often underestimated.</p>
+<p>Otto Rank emphasised birth trauma and separation-individuation. His time-limited therapy (1920s) directly influenced modern brief dynamic approaches (Mann, Davanloo).</p>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC -- FAR-J:</strong> The four early psychoanalytic pioneers: <strong>F</strong>reud (drives), <strong>A</strong>dler (inferiority/social interest), <strong>R</strong>ank (separation/birth trauma), <strong>J</strong>ung (collective unconscious/archetypes).</p></div>
+<h2>1.5 Neo-Freudians and Ego Psychology</h2>
+<p>Harry Stack Sullivan developed interpersonal psychiatry, emphasising that personality is "the relatively enduring pattern of recurrent interpersonal situations." Karen Horney challenged Freud's views on feminine psychology and introduced the concept of basic anxiety arising from disturbed parent-child relationships. Erich Fromm linked psychoanalysis with social philosophy. Frieda Fromm-Reichmann pioneered psychotherapy with psychotic patients. Anna Freud and Heinz Hartmann developed ego psychology, shifting focus from the id to the adaptive functions of the ego.</p>
+<h2>1.6 The Humanistic Revolution</h2>
+<p>Carl Rogers (1951) introduced client-centred therapy, proposing that the therapist's empathy, unconditional positive regard, and congruence were necessary and sufficient conditions for therapeutic change. This was a radical departure from the analyst's interpretive authority. Abraham Maslow contributed the hierarchy of needs and the concept of self-actualisation. Fritz Perls developed Gestalt therapy, emphasising awareness, present-moment experience, and personal responsibility. Rollo May and Irvin Yalom brought existential philosophy into the consulting room, focusing on death, freedom, isolation, and meaninglessness as ultimate concerns.</p>
+<h2>1.7 Behaviourism and Its Cognitive Turn</h2>
+<p>John B. Watson (1913) launched behaviourism. B.F. Skinner developed operant conditioning and radical behaviourism. Joseph Wolpe introduced systematic desensitisation (1958) based on reciprocal inhibition. Hans Eysenck's (1952) provocative claim that psychotherapy was no more effective than spontaneous remission galvanised outcome research. Albert Ellis created Rational Emotive Therapy (1955) -- the first cognitive therapy, identifying irrational beliefs as the source of emotional disturbance. Aaron Beck developed cognitive therapy for depression (1960s-70s), identifying automatic thoughts, cognitive distortions, and core beliefs. The merger of behavioural and cognitive approaches produced CBT -- the most researched psychotherapy in history.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Eysenck (1952) claimed that approximately two-thirds of neurotic patients improved within two years whether they received therapy or not. This claim was methodologically flawed (his control group calculations were questionable), but it forced the field to take outcome research seriously and ultimately led to the RCT era in psychotherapy.</p></div>
+<h2>1.8 Key Figures Timeline</h2>
+<table>
+<thead><tr><th>Period</th><th>Figure</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td>1780s</td><td>Mesmer</td><td>Animal magnetism; suggestive healing</td></tr>
+<tr><td>1880s</td><td>Charcot, Janet</td><td>Hypnosis, dissociation, subconscious</td></tr>
+<tr><td>1895</td><td>Breuer & Freud</td><td>Cathartic method; <em>Studies on Hysteria</em></td></tr>
+<tr><td>1900s</td><td>Freud</td><td>Psychoanalysis; free association; structural model</td></tr>
+<tr><td>1911</td><td>Adler</td><td>Individual psychology; inferiority complex</td></tr>
+<tr><td>1913</td><td>Jung</td><td>Analytical psychology; collective unconscious</td></tr>
+<tr><td>1920s</td><td>Rank</td><td>Birth trauma; time-limited therapy</td></tr>
+<tr><td>1930s</td><td>Sullivan</td><td>Interpersonal theory</td></tr>
+<tr><td>1940s</td><td>Horney, Fromm</td><td>Neo-Freudian revisions</td></tr>
+<tr><td>1951</td><td>Rogers</td><td>Client-centred therapy; core conditions</td></tr>
+<tr><td>1952</td><td>Eysenck</td><td>Challenge to therapy efficacy</td></tr>
+<tr><td>1955</td><td>Ellis</td><td>Rational Emotive Therapy</td></tr>
+<tr><td>1958</td><td>Wolpe</td><td>Systematic desensitisation</td></tr>
+<tr><td>1960s</td><td>Perls</td><td>Gestalt therapy</td></tr>
+<tr><td>1960s</td><td>Beck</td><td>Cognitive therapy for depression</td></tr>
+<tr><td>1960s</td><td>Skinner</td><td>Behaviour modification; token economies</td></tr>
+<tr><td>1970s</td><td>Bandura</td><td>Social learning; modelling; self-efficacy</td></tr>
+<tr><td>1980s</td><td>Yalom</td><td>Existential psychotherapy</td></tr>
+<tr><td>1990s</td><td>Linehan</td><td>DBT for borderline personality disorder</td></tr>
+<tr><td>2000s</td><td>Young</td><td>Schema Therapy</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>2. COMMON FACTORS</h1>
+<h2>2.1 The Common Factors Hypothesis</h2>
+<p>Saul Rosenzweig (1936) first proposed that all psychotherapies share "common factors" that account for their roughly equivalent outcomes -- the observation later called the Dodo Bird Verdict ("everybody has won, and all must have prizes"). Wolberg endorses this view: "radical divergences in technique are more apparent than real -- distinctions vanish once semantic differences are resolved." His entire textbook is structured around the insight that common elements operate across all therapies.</p>
+<h2>2.2 Frank and Frank's Four Features of Healing</h2>
+<p>Jerome Frank and Julia Frank (<em>Persuasion and Healing</em>, 1991) identified four features shared by all effective healing relationships across cultures:</p>
+<ol>
+  <li><strong>An emotionally charged, confiding relationship</strong> with a helping person</li>
+  <li><strong>A healing setting</strong> -- a designated space perceived as safe and associated with healing</li>
+  <li><strong>A rationale, conceptual scheme, or myth</strong> -- an explanation for the patient's distress and a method for resolving it</li>
+  <li><strong>A ritual or procedure</strong> -- requiring active participation of both patient and healer, believed by both to be the means of restoring health</li>
+</ol>
+
+<p>Frank argued that the specific content of the myth and the specific nature of the ritual matter less than their presence and their plausibility to the patient. The mechanism is <strong>morale restoration</strong> -- the patient arrives demoralised, and the therapeutic relationship, rationale, and ritual work together to restore a sense of mastery and hope.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Frank and Frank's model explains why diverse therapies (psychoanalysis, CBT, shamanic rituals, faith healing) all produce roughly equivalent outcomes in meta-analyses. The specific technique is embedded within a healing structure; what heals is the structure itself. This does not mean techniques are irrelevant, but that they operate within and through these common factors.</p></div>
+<h2>2.3 Wampold's Contextual Model</h2>
+<p>Bruce Wampold (<em>The Great Psychotherapy Debate</em>, 2001, 2015) formalised the common factors position into the Contextual Model. He argues that psychotherapy works through three pathways:</p>
+<ol>
+  <li><strong>The real relationship</strong> -- genuine human connection, empathy, positive regard</li>
+  <li><strong>Expectations</strong> -- the patient expects to improve (hope, placebo); the therapist believes in the treatment</li>
+  <li><strong>Specific ingredients</strong> -- therapeutic actions consistent with the model's explanation (exposure in CBT, interpretation in psychodynamic therapy, chair work in EFT)</li>
+</ol>
+
+<p>Wampold's meta-analyses consistently show that specific ingredients account for a small fraction of outcome variance compared to common factors. His estimate: specific techniques account for approximately 1% of outcome variance, while the therapeutic relationship accounts for 5-9%.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Wampold does NOT argue that techniques are useless. He argues that techniques work because they are embedded in a coherent rationale delivered within a genuine relationship. A therapist who delivers an evidence-based technique without believing in it or without establishing alliance will see poor outcomes.</p></div>
+<h2>2.4 Lambert's Outcome Variance Model</h2>
+<p>Michael Lambert (1992, revised 2013) decomposed psychotherapy outcomes into four contributing factors:</p>
+<table>
+<thead><tr><th>Factor</th><th>Variance (%)</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><strong>Extratherapeutic factors</strong></td><td>40%</td><td>Patient variables, life events, social support, spontaneous remission, fortuitous circumstances</td></tr>
+<tr><td><strong>Therapeutic relationship</strong></td><td>30%</td><td>Alliance, empathy, warmth, acceptance, encouragement of risk-taking</td></tr>
+<tr><td><strong>Expectancy (placebo)</strong></td><td>15%</td><td>Hope, credibility of treatment rationale, expectation of improvement</td></tr>
+<tr><td><strong>Model/technique</strong></td><td>15%</td><td>Specific therapeutic interventions unique to each approach</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Lambert's 40-30-15-15 model is one of the most frequently examined breakdowns in psychotherapy research. The key takeaway: factors outside therapy (40%) and the therapeutic relationship (30%) together account for 70% of outcome variance. Specific techniques contribute only 15%. This does not invalidate technique-specific research, but contextualises it.</p></div>
+<h2>2.5 Wolberg's Five Nonspecific Healing Factors</h2>
+<p>Wolberg identifies five extratherapeutic forces operating in all therapies:</p>
+<table>
+<thead><tr><th>Factor</th><th>Mechanism</th></tr></thead>
+<tbody>
+<tr><td><strong>Placebo effect</strong></td><td>Faith in healer, method, or substance; mediated by endorphins; Beecher (1955): 35.2% effectiveness</td></tr>
+<tr><td><strong>Relationship dimension</strong></td><td>Corrective emotional experience; modelling; introjection of therapist's healthy attitudes</td></tr>
+<tr><td><strong>Emotional catharsis</strong></td><td>Motor outlet for tension; relief of guilt; softening of harsh superego</td></tr>
+<tr><td><strong>Suggestion</strong></td><td>Regulated by: significance of suggesting agency, content significance, anxiety mobilised, critical judgment</td></tr>
+<tr><td><strong>Group dynamics</strong></td><td>Identification, conformity pressure, social learning, corrective group experience</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC -- PRESS:</strong> Five nonspecific healing factors: <strong>P</strong>lacebo, <strong>R</strong>elationship, <strong>E</strong>motional catharsis, <strong>S</strong>uggestion, <strong>S</strong>ocial/group dynamics.</p></div>
+<hr>
+<h1>3. THE THERAPEUTIC ALLIANCE</h1>
+<h2>3.1 Bordin's Working Alliance Model</h2>
+<p>Edward Bordin (1979) proposed a pantheoretical model of the working alliance comprising three interdependent components:</p>
+<ol>
+  <li><strong>Goals</strong> -- mutual agreement on what therapy is trying to achieve</li>
+  <li><strong>Tasks</strong> -- agreement on what activities constitute the work of therapy (e.g., homework, free association, exposure)</li>
+  <li><strong>Bond</strong> -- the quality of the personal attachment between patient and therapist, characterised by mutual trust, liking, respect, and a sense of common purpose</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Bordin's model is pantheoretical -- it applies across all modalities. A CBT therapist and a psychoanalytic therapist can both assess alliance using the same three components. The specific goals, tasks, and bond quality will differ, but the structure is identical.</p></div>
+<h2>3.2 Alliance as Predictor of Outcome</h2>
+<p>The therapeutic alliance is the most robust predictor of psychotherapy outcome across all modalities and diagnoses. Meta-analyses consistently find:</p>
+<ul>
+  <li><strong>Horvath & Symonds (1991):</strong> r = 0.26 (moderate effect size) across 24 studies</li>
+  <li><strong>Martin, Garske & Davis (2000):</strong> r = 0.22 across 79 studies</li>
+  <li><strong>Fluckiger et al. (2018):</strong> r = 0.278 across 295 independent studies (N > 30,000)</li>
+</ul>
+
+<p>The alliance-outcome correlation holds regardless of whether the alliance is rated by the patient, therapist, or observer, and regardless of the type of therapy. Early alliance (by session 3-5) is particularly predictive.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Alliance is not a confound to be controlled -- it IS a therapeutic ingredient. When a patient rates the alliance as strong by session 3, the prognosis improves significantly. When the alliance is weak early, the therapist must address it directly or risk dropout.</p></div>
+<h2>3.3 Alliance Rupture and Repair (Safran & Muran)</h2>
+<p>Jeremy Safran and J. Christopher Muran developed a model of alliance rupture and repair that treats ruptures not as failures but as therapeutic opportunities.</p>
+<p><strong>Two types of rupture:</strong></p>
+<ul>
+  <li><strong>Withdrawal ruptures</strong> -- patient disengages (silence, compliance without engagement, topic avoidance, vague responses)</li>
+  <li><strong>Confrontation ruptures</strong> -- patient directly challenges the therapist, therapy, or its value (anger, dissatisfaction, demands)</li>
+</ul>
+
+<p><strong>Repair process:</strong></p>
+<ol>
+  <li>Therapist notices the rupture (often through countertransference signals)</li>
+  <li>Therapist draws attention to the rupture without defensiveness</li>
+  <li>Patient and therapist explore what happened</li>
+  <li>The underlying relational pattern (often linked to early attachment) becomes material for therapy</li>
+  <li>Successful repair strengthens the alliance beyond its pre-rupture level</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Safran and Muran's research shows that successfully repaired ruptures are associated with BETTER outcomes than therapies with no ruptures at all. The repair process itself is therapeutic -- it provides a corrective relational experience where the patient learns that conflict does not destroy relationships.</p></div>
+<hr>
+<h1>4. THERAPIST FACTORS</h1>
+<h2>4.1 Rogers' Necessary and Sufficient Conditions</h2>
+<p>Carl Rogers (1957) proposed six conditions necessary and sufficient for therapeutic personality change:</p>
+<table>
+<thead><tr><th>#</th><th>Condition</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Psychological contact</td><td>Two persons are in meaningful contact</td></tr>
+<tr><td>2</td><td>Client incongruence</td><td>The client is in a state of vulnerability or anxiety</td></tr>
+<tr><td>3</td><td>Therapist congruence</td><td>The therapist is genuine and integrated in the relationship</td></tr>
+<tr><td>4</td><td>Unconditional positive regard</td><td>The therapist accepts every aspect of the client's experience non-judgmentally</td></tr>
+<tr><td>5</td><td>Empathic understanding</td><td>The therapist experiences and communicates the client's internal frame of reference</td></tr>
+<tr><td>6</td><td>Client perception</td><td>The client perceives (at least minimally) the therapist's empathy and positive regard</td></tr>
+</tbody>
+</table>
+
+<p>The three "therapist-offered" conditions -- congruence, unconditional positive regard, and empathy -- became known as the core conditions or Rogers' Triad.</p>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC -- EUG:</strong> Rogers' core conditions: <strong>E</strong>mpathy, <strong>U</strong>nconditional positive regard, <strong>G</strong>enuineness (congruence).</p></div>
+<h2>4.2 Truax and Carkhuff's Research</h2>
+<p>Robert Truax and Charles Carkhuff (1967) conducted a landmark 10-year review of therapist effectiveness. Their findings:</p>
+<ul>
+  <li>Patients of therapists with HIGH levels of empathy, warmth, and genuineness <strong>improved</strong></li>
+  <li>Patients of therapists with LOW levels of these qualities <strong>deteriorated</strong> -- they got worse than they would have without treatment</li>
+  <li>This finding held across diagnostic groups, theoretical orientations, and therapy lengths</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Truax and Carkhuff's finding that patients can deteriorate with poorly delivered therapy is critical. A person with emotional problems is better off with NO treatment than with an emotionally inadequate therapist -- the bad relationship blocks the patient from seeking other resources and activates regressive defences (Wolberg).</p></div>
+<h2>4.3 Therapist Effects Research</h2>
+<p>Therapist effects (variance in outcomes attributable to the therapist rather than the treatment) consistently account for 5-9% of outcome variance -- larger than the effect of specific techniques (~1%). Key findings:</p>
+<ul>
+  <li><strong>Wampold & Brown (2005):</strong> Therapist effects accounted for ~8% of outcome variance in a managed care sample of 6,146 patients</li>
+  <li><strong>Baldwin & Imel (2013):</strong> Some therapists consistently outperform others regardless of the type of therapy they deliver</li>
+  <li><strong>Nissen-Lie et al. (2013):</strong> The most effective therapists show "professional self-doubt" -- a healthy questioning of their own effectiveness -- combined with strong interpersonal skills</li>
+</ul>
+
+<h2>4.4 Facilitative vs Harmful Therapist Behaviours</h2>
+<table>
+<thead><tr><th>Facilitative</th><th>Harmful</th></tr></thead>
+<tbody>
+<tr><td>Empathic attunement</td><td>Emotional detachment ("one cannot hatch an egg in a refrigerator" -- Wolberg)</td></tr>
+<tr><td>Warmth and positive regard</td><td>Excessive hostility or criticism</td></tr>
+<tr><td>Flexibility and responsiveness</td><td>Rigid adherence to protocol regardless of patient needs</td></tr>
+<tr><td>Genuine interest in the patient</td><td>Narcissistic self-involvement</td></tr>
+<tr><td>Awareness of countertransference</td><td>Blind countertransference acting-out</td></tr>
+<tr><td>Cultural humility</td><td>Imposing own values or cultural framework</td></tr>
+<tr><td>Appropriate self-disclosure</td><td>Boundary violations</td></tr>
+<tr><td>Repair of alliance ruptures</td><td>Defensiveness when challenged</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Wolberg identifies detachment and excessive hostility as the two therapist qualities most inimical to therapeutic progress. Countertransference is not always harmful -- it can alert the therapist to the patient's impact on others. The key is awareness: recognising it, understanding how it manifests, and taking steps to resolve it.</p></div>
+<hr>
+<h1>5. THE PSYCHIATRIC INTERVIEW</h1>
+<h2>5.1 Shea's Approach: Structure and Engagement</h2>
+<p>Shea defines the interview as a verbal and nonverbal dialogue between two participants whose behaviours affect each other's communication patterns. Seven goals of the assessment interview:</p>
+<ol>
+  <li>Establish therapeutic alliance</li>
+  <li>Collect valid database</li>
+  <li>Develop compassionate understanding</li>
+  <li>Make tentative diagnosis</li>
+  <li>Formulate treatment plan</li>
+  <li>Decrease patient anxiety</li>
+  <li>Instil hope and ensure return</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>For Shea, thorough data gathering IS effective engagement -- these are not competing priorities. When done sensitively, the process of asking detailed, specific questions communicates genuine interest and builds trust.</p></div>
+<h2>5.2 Interview Phases and Structure</h2>
+<table>
+<thead><tr><th>Phase</th><th>Duration</th><th>Focus</th></tr></thead>
+<tbody>
+<tr><td>Introduction</td><td>1-2 min</td><td>Greeting, orientation, setting expectations</td></tr>
+<tr><td>Opening</td><td>5-7 min</td><td>Nondirective; 30-90% open-ended questions; scouting (PACE)</td></tr>
+<tr><td>Body</td><td>30-35 min</td><td>Systematic exploration of content regions; blended expansions</td></tr>
+<tr><td>Closing</td><td>5-10 min</td><td>Psychoeducation, treatment planning, feedback, ensuring return</td></tr>
+<tr><td>Termination</td><td>1-2 min</td><td>Farewell, logistics, scheduling</td></tr>
+</tbody>
+</table>
+
+<p><strong>PACE</strong> (scouting period assessment):</p>
+<ul>
+  <li><strong>P</strong>atient's perspectives and conscious agenda</li>
+  <li><strong>A</strong>ssessment of mental status</li>
+  <li><strong>C</strong>linician's perspective and unconscious agenda</li>
+  <li><strong>E</strong>valuation of the interview itself</li>
+</ul>
+
+<h2>5.3 Facilics: The Architecture of the Interview</h2>
+<p>Shea coined "facilics" for the study of interview structure. Three core concepts:</p>
+<p><strong>Regions</strong> -- Content regions (10 standard areas: HPI, diagnostic, patient perspective, mental status, social history, family history, lethality, past psychiatric history, developmental history, medical history) and process regions (free facilitation, resistance, psychodynamic).</p>
+<p><strong>Expansions</strong> -- How a clinician explores within a region. Stilted expansions feel like interrogation; blended expansions feel conversational and maintain engagement. The difference lies in using natural language flow rather than checklist-style questioning.</p>
+<p><strong>Gates</strong> -- Transitions between regions:</p>
+<table>
+<thead><tr><th>Gate Type</th><th>Description</th><th>Engagement Level</th></tr></thead>
+<tbody>
+<tr><td>Spontaneous</td><td>Patient pivots to new topic; clinician follows</td><td>High</td></tr>
+<tr><td>Natural</td><td>Clinician uses patient's cue statement to transition</td><td>High</td></tr>
+<tr><td>Referred</td><td>Clinician references earlier patient statement</td><td>Moderate-High</td></tr>
+<tr><td>Implied</td><td>Transition implied by clinician's question</td><td>Moderate</td></tr>
+<tr><td>Phantom</td><td>Abrupt, non-sequitur transition</td><td>Low (avoid)</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Natural and referred gates are the most engagement-preserving transitions. A phantom gate ("So, have you ever tried to kill yourself?") dropped into a conversation about work stress destroys the interview flow. A natural gate ("You mentioned feeling like nothing matters anymore -- when things feel that hopeless, sometimes people have thoughts of ending it all...") preserves engagement.</p></div>
+<h2>5.4 Validity Techniques</h2>
+<p>Shea's validity techniques are specific questioning strategies designed to maximise the accuracy of disclosures about sensitive material.</p>
+<table>
+<thead><tr><th>Technique</th><th>Description</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><strong>Behavioural incident</strong></td><td>Ask for specific facts, not opinions; creates a "verbal videotape"</td><td>"What happened next?" / "Did you load the gun?"</td></tr>
+<tr><td><strong>Shame attenuation</strong></td><td>Frame question so positive answer is ego-syntonic</td><td>"Are you pretty good at holding your liquor?"</td></tr>
+<tr><td><strong>Gentle assumption</strong></td><td>Assume behaviour is occurring</td><td>"What other ways have you thought of killing yourself?"</td></tr>
+<tr><td><strong>Symptom amplification</strong></td><td>Set upper limit very high so minimisation still reveals pathology</td><td>"How many fights, 20, 30, 40?"</td></tr>
+<tr><td><strong>Denial of the specific</strong></td><td>Ask about specific items, not categories</td><td>"How about coke?" "Speed?" "Marijuana?"</td></tr>
+<tr><td><strong>Normalisation</strong></td><td>Reference what others experience to reduce stigma</td><td>"Many people in your situation have thoughts of killing themselves..."</td></tr>
+<tr><td><strong>Exaggeration</strong></td><td>Humorously exaggerate minor disclosure to relieve shame</td><td>Used sparingly with good timing</td></tr>
+<tr><td><strong>Induction to bragging</strong></td><td>Compliment then inquire about problematic behaviour</td><td>"You clearly don't take any shit -- how many fights?"</td></tr>
+</tbody>
+</table>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>Validity techniques are high-yield for viva examinations. Be prepared to define each technique, give a clinical example, and explain when each is contraindicated (e.g., gentle assumption is risky with suggestible patients and children).</p></div>
+<hr>
+<h1>6. CASE APPROACH FOR SUICIDE ASSESSMENT</h1>
+<h2>6.1 Overview</h2>
+<p>The <strong>Chronological Assessment of Suicide Events</strong> (CASE) Approach (Shea) is a structured, four-region interview strategy for eliciting suicidal ideation. It is NOT a risk factor tool and NOT a decision-making tool. It is a <strong>data-gathering method</strong> -- how to systematically obtain the information from which a clinical decision can be made.</p>
+<p><strong>Core principle:</strong> Organise the relevant questions into four chronological regions, explore each thoroughly before moving to the next.</p>
+<h2>6.2 Setting the Platform (Stage 1)</h2>
+<p>Before asking about suicide, create an atmosphere where the patient feels safe while intensively engaged with the painful emotions driving suicidal thinking. Three primary gates into suicidal ideation:</p>
+<ol>
+  <li><strong>Psychotic process</strong> (delusions, command hallucinations)</li>
+  <li><strong>Depression and hopelessness</strong></li>
+  <li><strong>Crisis, anger, or confusion</strong></li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Always use explicit language: "kill yourself," "commit suicide," "take your life." This metacommunication tells the patient it is safe to discuss these thoughts. Asking about suicide does NOT plant the idea -- this myth has been debunked repeatedly.</p></div>
+<h2>6.3 The Four Regions</h2>
+<h3>Region 1: Presenting Events</h3>
+<p>If the patient presents after a suicide attempt, create a verbal videotape using behavioural incidents. Information to gather:</p>
+<ol>
+  <li>What method was used?</li>
+  <li>Seriousness of the action (pills: which, how many; cutting: where, how deep)</li>
+  <li>Degree of intent to die (isolated location? suicide note? will? said goodbye?)</li>
+  <li>Feelings about surviving ("What are your thoughts about the fact that you are still alive?")</li>
+  <li>How well planned vs impulsive?</li>
+  <li>Role of substances?</li>
+  <li>Interpersonal factors?</li>
+  <li>Current stressors?</li>
+  <li>Degree of hopelessness at the time?</li>
+  <li>Why did the attempt fail?</li>
+</ol>
+
+<h3>Region 2: Recent Events (Past 6-8 Weeks)</h3>
+<p>Three sub-tasks: (1) discover what plans have been contemplated, (2) determine how far the patient acted on plans, (3) determine daily time spent on suicidal thoughts.</p>
+<p><strong>Strategy:</strong></p>
+<ul>
+  <li>Use <strong>gentle assumption</strong> to elicit methods: "What other ways have you been thinking about?"</li>
+  <li>For each method, use <strong>behavioural incidents</strong> to determine extent of action: "Do you have a gun?" -> "Did you get it out?" -> "Did you load it?" -> "Did you put it to your body?" -> "What stopped you?"</li>
+  <li>After gentle assumptions yield negatives, use <strong>denial of the specific</strong>: "Have you thought about cutting yourself?" "Hanging?" "Jumping?" "Carbon monoxide?"</li>
+  <li>Conclude: "Over the past 6-8 weeks, how much time daily do you think about killing yourself?"</li>
+</ul>
+
+<h3>Region 3: Past Events</h3>
+<p>Time-limited. Gather only decision-altering data:</p>
+<ol>
+  <li>Most serious past attempt (same method as current?)</li>
+  <li>Approximate number of past attempts/gestures</li>
+  <li>Most recent attempt</li>
+</ol>
+
+<h3>Region 4: Immediate Events</h3>
+<p>The most powerful region. Where is the patient RIGHT NOW?</p>
+<ul>
+  <li>"Right now, are you having any thoughts about wanting to kill yourself?"</li>
+  <li>"What would you do tonight if suicidal thoughts returned?"</li>
+  <li>Current hopelessness vs hope</li>
+  <li>Support structure evaluation</li>
+  <li>Concrete safety planning</li>
+</ul>
+
+<h2>6.4 CASE Approach Steps Summary</h2>
+<table>
+<thead><tr><th>Step</th><th>Region</th><th>Key Techniques</th><th>Focus</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Presenting events</td><td>Behavioural incident</td><td>Verbal videotape of the attempt</td></tr>
+<tr><td>2</td><td>Recent events (6-8 wks)</td><td>Gentle assumption, denial of the specific, behavioural incident</td><td>All methods considered + extent of action</td></tr>
+<tr><td>3</td><td>Past events</td><td>Behavioural incident</td><td>Most serious attempt, number, recency</td></tr>
+<tr><td>4</td><td>Immediate events</td><td>Direct inquiry, safety planning</td><td>Current intent + future-oriented planning</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Safety contracting provides NO guarantee of safety. Its main value is as an assessment tool -- watch the patient's face, body, and voice during contracting for signs of ambivalence. A sound safety contract shows good eye contact, genuine affect, and unhesitant voice. Hesitancy warrants exploration: "It looks like this is hard for you to agree to -- what's going on?"</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Maltsberger's six views of death by suicide: (1) gateway to dreamless sleep, (2) reunion with a lost person, (3) escape from a persecutory enemy, (4) destruction of an internalised enemy, (5) passage to a better world, (6) revenge through abandonment/self-destruction. Understanding which view the patient holds informs risk assessment and intervention.</p></div>
+<hr>
+<h1>7. ETHICS IN PSYCHOTHERAPY</h1>
+<h2>7.1 Boundaries and Dual Relationships</h2>
+<p>Boundaries define the professional frame within which therapy occurs. Boundary crossings (departures from standard practice that may be therapeutically useful) are distinct from boundary violations (departures that exploit the patient or damage the therapy).</p>
+<p><strong>Dual relationships</strong> occur when the therapist has a second role with the patient (teacher, supervisor, business associate, friend, romantic partner). Sexual relationships with current patients are universally prohibited. Post-termination romantic relationships remain ethically problematic (most codes specify a minimum 2-year post-termination waiting period; some prohibit them entirely).</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The distinction between boundary crossing and boundary violation hinges on context, intent, and impact. Accepting a small gift from a patient from a culture where refusing gifts is deeply offensive may be a therapeutically appropriate boundary crossing. Accepting expensive gifts that create a sense of obligation is a boundary violation.</p></div>
+<h2>7.2 Confidentiality and Its Limits</h2>
+<p>Confidentiality is the foundation of therapeutic trust. Exceptions (mandatory reporting) include:</p>
+<ol>
+  <li><strong>Imminent danger to self</strong> -- duty to protect (may involve hospitalisation)</li>
+  <li><strong>Imminent danger to others</strong> -- Tarasoff duty (duty to warn the identifiable victim and/or notify law enforcement)</li>
+  <li><strong>Child abuse or neglect</strong> -- mandatory reporting in all jurisdictions</li>
+  <li><strong>Elder abuse</strong> -- mandatory reporting</li>
+  <li><strong>Court-ordered evaluations</strong> -- patient must be informed that standard confidentiality does not apply</li>
+</ol>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Informed consent about the limits of confidentiality should occur at the beginning of therapy, not at the moment a limit is triggered. A patient who learns mid-session that their disclosure about child abuse must be reported feels betrayed. A patient who was told at intake "there are three situations where I am legally required to break confidentiality" has been treated fairly.</p></div>
+<h2>7.3 Informed Consent</h2>
+<p>Valid informed consent for psychotherapy includes:</p>
+<ul>
+  <li>Nature and purpose of the proposed treatment</li>
+  <li>Expected duration and frequency</li>
+  <li>Potential benefits and risks</li>
+  <li>Alternative treatments available</li>
+  <li>The right to refuse or withdraw at any time</li>
+  <li>Limits of confidentiality</li>
+  <li>Fee structure and cancellation policies</li>
+  <li>Therapist's qualifications and approach</li>
+</ul>
+
+<h2>7.4 Termination Ethics</h2>
+<p>Premature termination by the therapist (abandonment) is an ethical violation. Appropriate termination should:</p>
+<ul>
+  <li>Be discussed collaboratively well in advance</li>
+  <li>Include adequate referral if ongoing treatment is needed</li>
+  <li>Address the patient's emotional response to ending</li>
+  <li>Not be used punitively (e.g., terminating a "difficult" patient without referral)</li>
+</ul>
+
+<hr>
+<h1>8. RESEARCH METHODS IN PSYCHOTHERAPY</h1>
+<h2>8.1 Efficacy vs Effectiveness</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Efficacy Research</th><th>Effectiveness Research</th></tr></thead>
+<tbody>
+<tr><td>Setting</td><td>Controlled, university-based</td><td>Real-world clinical settings</td></tr>
+<tr><td>Patients</td><td>Carefully selected, single diagnosis</td><td>Comorbid, complex, representative</td></tr>
+<tr><td>Therapists</td><td>Trained to protocol, supervised</td><td>Varied training and experience</td></tr>
+<tr><td>Treatment</td><td>Manualised, standardised</td><td>Flexible, adapted to patient</td></tr>
+<tr><td>Design</td><td>RCT</td><td>Naturalistic, practice-based</td></tr>
+<tr><td>Question</td><td>"Can it work under ideal conditions?"</td><td>"Does it work in routine practice?"</td></tr>
+</tbody>
+</table>
+
+<h2>8.2 The Dodo Bird Verdict</h2>
+<p>Rosenzweig (1936) proposed, and Luborsky et al. (1975) confirmed, that different psychotherapies produce roughly equivalent outcomes. Meta-analyses repeatedly show that the differences between bona fide therapies are small (d = 0.0 to 0.2).</p>
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>The Dodo Bird Verdict is a contentious topic. For exams, present both sides. FOR: meta-analyses show small or zero differences between therapies; common factors dominate outcome variance. AGAINST: some disorder-specific comparisons favour specific treatments (e.g., exposure for OCD, CBT for panic); the verdict may reflect insufficient statistical power; "bona fide" status is circularly defined. The truth is nuanced -- both common factors and specific techniques contribute to outcomes.</p></div>
+<h2>8.3 Allegiance Effects</h2>
+<p>Researcher allegiance (the researcher's belief in and preference for one treatment over another) consistently inflates effect sizes for the favoured treatment. Luborsky et al. (1999) found that allegiance correlated 0.85 with outcome in comparative studies. This is a major methodological concern that must be considered when evaluating any comparative trial.</p>
+<h2>8.4 Key Outcome Measures</h2>
+<ul>
+  <li><strong>Beck Depression Inventory (BDI)</strong> -- self-report, depression severity</li>
+  <li><strong>Hamilton Rating Scale for Depression (HAM-D)</strong> -- clinician-rated</li>
+  <li><strong>Outcome Questionnaire-45 (OQ-45)</strong> -- session-by-session monitoring</li>
+  <li><strong>Patient Health Questionnaire (PHQ-9)</strong> -- brief self-report screen</li>
+  <li><strong>Clinical Global Impression (CGI)</strong> -- global clinician rating</li>
+  <li><strong>Reliable Change Index (RCI)</strong> -- statistical criterion for clinically significant change</li>
+</ul>
+
+<hr>
+<h1>9. INDICATIONS AND CONTRAINDICATIONS</h1>
+<h2>9.1 Wolberg's Tripartite Classification Applied</h2>
+<table>
+<thead><tr><th>Level</th><th>Indication</th><th>Patient Characteristics</th></tr></thead>
+<tbody>
+<tr><td><strong>Supportive</strong></td><td>Acute crisis, ego fragility, limited capacity for insight</td><td>Low ego strength, active psychosis, severe intellectual limitation, acute grief</td></tr>
+<tr><td><strong>Reeducative</strong></td><td>Maladaptive behaviours/cognitions, skill deficits, phobias from conditioning</td><td>Moderate ego strength, motivation, capacity for behavioural change</td></tr>
+<tr><td><strong>Reconstructive</strong></td><td>Character pathology, repetitive relational patterns, unconscious conflict</td><td>High ego strength, psychological mindedness, tolerance for frustration, verbal ability</td></tr>
+</tbody>
+</table>
+
+<h2>9.2 Therapy Selection by Disorder</h2>
+<table>
+<thead><tr><th>Disorder</th><th>First-Line Psychotherapy</th><th>Evidence Base</th></tr></thead>
+<tbody>
+<tr><td>Major depression (mild-moderate)</td><td>CBT, IPT, BA</td><td>Strong RCT evidence</td></tr>
+<tr><td>Major depression (severe)</td><td>Combined pharmacotherapy + psychotherapy</td><td>STAR*D, Hollon et al.</td></tr>
+<tr><td>Panic disorder</td><td>CBT (exposure + cognitive restructuring)</td><td>Clark, Barlow</td></tr>
+<tr><td>Social anxiety</td><td>CBT (Clark & Wells model), exposure</td><td>Strong</td></tr>
+<tr><td>OCD</td><td>ERP (Exposure and Response Prevention)</td><td>Gold standard</td></tr>
+<tr><td>PTSD</td><td>CPT, PE, EMDR</td><td>APA, NICE guidelines</td></tr>
+<tr><td>GAD</td><td>CBT, applied relaxation</td><td>Moderate</td></tr>
+<tr><td>Bulimia nervosa</td><td>CBT-E (Fairburn)</td><td>Strong</td></tr>
+<tr><td>Anorexia nervosa</td><td>Family-based treatment (Maudsley), CBT-E</td><td>Moderate</td></tr>
+<tr><td>Borderline PD</td><td>DBT, Schema Therapy, MBT, TFP</td><td>RCT evidence for all four</td></tr>
+<tr><td>Substance use disorders</td><td>MI, CBT, CRA, 12-step facilitation</td><td>Strong for MI+CBT</td></tr>
+<tr><td>Psychosis</td><td>CBTp (adjunctive), family intervention</td><td>NICE recommended</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Wolberg's principle applies: "No one technique is suitable for all problems." Phobias from conditioning respond to desensitisation; phobias from deep personality conflicts resist behavioural methods. Relationship difficulties respond to group, marital, and family therapy. The best argument for balanced eclecticism is that patients present with multiple interacting problems requiring flexible integration of approaches.</p></div>
+<h2>9.3 Contraindications</h2>
+<ul>
+  <li><strong>Active psychosis (unmedicated)</strong> -- contraindication for reconstructive/uncovering therapies</li>
+  <li><strong>Active substance intoxication</strong> -- no meaningful therapy possible during intoxication</li>
+  <li><strong>Severe cognitive impairment</strong> -- limits capacity for insight-oriented or cognitive approaches</li>
+  <li><strong>Absence of motivation</strong> -- supportive work may still be possible, but reeducative or reconstructive work requires at minimum some readiness for change</li>
+  <li><strong>Strong secondary gain</strong> -- major resistance factor that may prevent therapeutic progress</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Readiness for change may be more important than any other variable in determining therapeutic progress. Some patients need only one session (top of the "readiness ladder"); others require many sessions of preparation. A previous therapist may have done the ladder-climbing work without apparent progress -- the next therapist reaps the benefit.</p></div>
+<hr>
+<h1>10. STAGES OF THERAPY</h1>
+<h2>10.1 Beginning Phase</h2>
+<h3>Initial Assessment</h3>
+<p>Chief complaint, history of present illness, psychiatric history, medical history, family history, social history, mental status examination, risk assessment.</p>
+<h3>Formulation</h3>
+<p>A coherent narrative integrating biological, psychological, and social factors that explains why this patient developed these problems at this time. The formulation guides treatment planning and is a living document -- revised as new information emerges.</p>
+<h3>Treatment Planning</h3>
+<ul>
+  <li>Collaborative process -- patient must agree to the goals and the methods</li>
+  <li>Selecting a therapeutic focus (Wolberg: the link in the behavioural chain that needs most urgent attention, that the patient is willing to work on, and that is realistically modifiable)</li>
+  <li>Establishing the frame: frequency, duration, fee, cancellation policy, contact between sessions</li>
+</ul>
+
+<h3>Establishing the Working Relationship</h3>
+<p>Signs of a working relationship (Wolberg): patient discusses problems freely, reports dreams, shows trust, tolerates frustration, begins to show insight. Rules: be human, avoid rigidity, show genuine interest, maintain appropriate boundaries.</p>
+<h2>10.2 Middle Phase</h2>
+<h3>Three Treatment Phases (Wolberg)</h3>
+<ol>
+  <li><strong>Initial improvement</strong> -- from nonspecific factors (hope, catharsis, relationship). Often occurs within the first few sessions.</li>
+  <li><strong>Recrudescence</strong> -- return of symptoms around session 8 as transference intensifies and resistance emerges. The idealised therapist image crumbles; the patient realises the therapist is not omnipotent.</li>
+  <li><strong>Working through</strong> -- repetitive confrontation of patterns in multiple contexts until insight is integrated and new behaviour consolidated.</li>
+</ol>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Around session 8, the idealised image of the therapist often crumbles. This triggers a crisis with return of symptoms and transference resistance. A dynamically oriented therapist searches for and works with these signs. An unaware therapist may interpret the deterioration as treatment failure.</p></div>
+<h3>Key Middle Phase Tasks</h3>
+<ul>
+  <li>Identifying trends and patterns (via interviewing, free association, dreams)</li>
+  <li>Managing transference (positive, negative, erotic, transference neurosis)</li>
+  <li>Interpreting (clarification, confrontation, interpretation proper)</li>
+  <li>Working with resistance (repression, transference, secondary gain, superego, id resistance)</li>
+  <li>Translating insight into action</li>
+</ul>
+
+<h2>10.3 Termination Phase</h2>
+<h3>Indications for Termination</h3>
+<ul>
+  <li>Treatment goals substantially achieved</li>
+  <li>Patient demonstrates improved functioning</li>
+  <li>Patient can apply skills independently</li>
+  <li>Diminishing returns from continued sessions</li>
+</ul>
+
+<h3>Common Patient Reactions to Termination</h3>
+<ul>
+  <li>Separation anxiety</li>
+  <li>Regression (temporary return of symptoms)</li>
+  <li>Anger at abandonment</li>
+  <li>Idealisation (flight into health)</li>
+  <li>Gratitude and mourning</li>
+</ul>
+
+<h3>Relapse Prevention</h3>
+<ul>
+  <li>Identify early warning signs</li>
+  <li>Develop a concrete plan for managing setbacks</li>
+  <li>Gradual spacing of sessions before termination</li>
+  <li>Follow-up sessions as safety net</li>
+  <li>Clarify that returning to therapy is not failure</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC -- BWT:</strong> The three phases of therapy: <strong>B</strong>eginning (alliance, formulation, goals), <strong>W</strong>orking through (middle phase -- transference, resistance, interpretation, new behaviour), <strong>T</strong>ermination (consolidation, relapse prevention, separation).</p></div>
+<hr>
+<h2>Exam-Ready Extract Summary</h2>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 1:</strong> Rosenzweig (1936) first proposed common factors. Wolberg: "radical divergences in technique are more apparent than real."</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 2:</strong> Frank & Frank's four features: emotionally charged relationship, healing setting, myth/rationale, ritual/procedure.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 3:</strong> Lambert's 40-30-15-15: extratherapeutic (40%), relationship (30%), expectancy (15%), technique (15%).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 4:</strong> Bordin's alliance: Goals + Tasks + Bond. Pantheoretical. Alliance predicts outcome (r ~ 0.28).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 5:</strong> Safran & Muran: repaired ruptures yield BETTER outcomes than no-rupture therapies.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 6:</strong> Rogers' six conditions (1957); three therapist conditions: empathy, UPR, congruence.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 7:</strong> Truax & Carkhuff (1967): patients of low-empathy therapists DETERIORATED.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 8:</strong> Shea's CASE Approach: Presenting -> Recent (6-8 wks) -> Past -> Immediate.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 9:</strong> Behavioural incident creates a "verbal videotape" -- the foundational validity technique.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 10:</strong> Wolberg's tripartite classification: Supportive, Reeducative, Reconstructive.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 11:</strong> The Dodo Bird Verdict: "everybody has won, and all must have prizes" -- roughly equivalent outcomes across bona fide therapies.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM PEARL 12:</strong> Allegiance effects: researcher preference correlates 0.85 with outcome in comparative trials (Luborsky, 1999).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>CLINICAL ANCHOR 1:</strong> A person is better off with NO treatment than with an emotionally inadequate therapist.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>CLINICAL ANCHOR 2:</strong> Thorough data gathering IS effective engagement when done sensitively (Shea).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>CLINICAL ANCHOR 3:</strong> Safety contracting is an assessment tool, not a guarantee. Watch the patient's nonverbals during contracting.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>CLINICAL ANCHOR 4:</strong> No one technique is suitable for all problems -- the best argument for balanced eclecticism (Wolberg).</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>CLINICAL ANCHOR 5:</strong> Informed consent about confidentiality limits should occur at intake, not when a limit is triggered.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>CLINICAL ANCHOR 6:</strong> Countertransference is not always harmful -- it can alert the therapist to the patient's impact on others. The key is awareness.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM STRATEGY 1:</strong> For the Dodo Bird Verdict, present both sides. Common factors advocates cite meta-analyses; specific factors advocates cite disorder-specific findings.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM STRATEGY 2:</strong> Validity techniques are high-yield for viva. Know each by name, definition, clinical example, and contraindication.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>EXAM STRATEGY 3:</strong> For Lambert's model, know the percentages (40-30-15-15) and be able to discuss the clinical implications of each.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC 1 -- PRESS:</strong> Nonspecific factors: Placebo, Relationship, Emotional catharsis, Suggestion, Social/group dynamics.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC 2 -- EUG:</strong> Rogers' triad: Empathy, Unconditional positive regard, Genuineness.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC 3 -- FAR-J:</strong> Early analytic pioneers: Freud, Adler, Rank, Jung.</p></div>
+<div class="box box-pearl"><div class="box-label">Key Insight</div><p><strong>MNEMONIC 4 -- BWT:</strong> Therapy phases: Beginning, Working through, Termination.</p></div>
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Foundations of Psychotherapy &mdash; Weave Psychotherapy Vol. 2</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 2 | Foundations of Psychotherapy</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Foundations of Psychotherapy -- Quick Reference</h1>
+<hr>
+<h2>1. Psychotherapy History Timeline</h2>
+<table>
+<thead><tr><th>Year</th><th>Figure</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td>~500 BCE</td><td>Asclepius temples</td><td>Temple sleep; dream-based healing</td></tr>
+<tr><td>1780s</td><td>Mesmer</td><td>Animal magnetism; suggestive group healing</td></tr>
+<tr><td>1880s</td><td>Charcot, Janet</td><td>Hypnosis; dissociation; subconscious</td></tr>
+<tr><td>1895</td><td>Breuer & Freud</td><td>Cathartic method; <em>Studies on Hysteria</em></td></tr>
+<tr><td>1900</td><td>Freud</td><td>Psychoanalysis; free association; dream interpretation</td></tr>
+<tr><td>1911</td><td>Adler</td><td>Individual psychology; inferiority complex; social interest</td></tr>
+<tr><td>1913</td><td>Jung</td><td>Analytical psychology; collective unconscious; archetypes</td></tr>
+<tr><td>1920s</td><td>Rank</td><td>Birth trauma; time-limited therapy</td></tr>
+<tr><td>1930s</td><td>Sullivan</td><td>Interpersonal psychiatry</td></tr>
+<tr><td>1940s</td><td>Horney, Fromm</td><td>Neo-Freudian revisions; basic anxiety; social psychoanalysis</td></tr>
+<tr><td>1951</td><td>Rogers</td><td>Client-centred therapy; core conditions</td></tr>
+<tr><td>1952</td><td>Eysenck</td><td>Challenge to therapy efficacy (spontaneous remission claim)</td></tr>
+<tr><td>1955</td><td>Ellis</td><td>Rational Emotive Therapy</td></tr>
+<tr><td>1958</td><td>Wolpe</td><td>Systematic desensitisation; reciprocal inhibition</td></tr>
+<tr><td>1960s</td><td>Perls</td><td>Gestalt therapy</td></tr>
+<tr><td>1960s</td><td>Beck</td><td>Cognitive therapy for depression</td></tr>
+<tr><td>1970s</td><td>Bandura</td><td>Social learning theory; modelling; self-efficacy</td></tr>
+<tr><td>1979</td><td>Bordin</td><td>Working alliance model (goals, tasks, bond)</td></tr>
+<tr><td>1980s</td><td>Yalom</td><td>Existential psychotherapy</td></tr>
+<tr><td>1991</td><td>Frank & Frank</td><td>Common factors; <em>Persuasion and Healing</em></td></tr>
+<tr><td>1993</td><td>Linehan</td><td>DBT for borderline PD</td></tr>
+<tr><td>2003</td><td>Young</td><td>Schema Therapy</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>2. Common Factors Table</h2>
+<table>
+<thead><tr><th>Model</th><th>Key Factors</th><th>Core Claim</th></tr></thead>
+<tbody>
+<tr><td><strong>Rosenzweig (1936)</strong></td><td>Common factors across therapies</td><td>"Everybody has won, and all must have prizes" (Dodo Bird)</td></tr>
+<tr><td><strong>Frank & Frank (1991)</strong></td><td>Confiding relationship, healing setting, rationale/myth, ritual/procedure</td><td>Morale restoration is the mechanism; specific content of myth matters less than its plausibility</td></tr>
+<tr><td><strong>Wampold (2001, 2015)</strong></td><td>Real relationship, expectations, specific ingredients</td><td>Specific ingredients ~1% of variance; relationship ~5-9%</td></tr>
+<tr><td><strong>Wolberg (1988)</strong></td><td>Placebo, relationship, catharsis, suggestion, group dynamics (PRESS)</td><td>"Techniques are forms of communication secondary to transactional processes"</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>3. Lambert's Outcome Variance Breakdown</h2>
+<table>
+<thead><tr><th>Factor</th><th>% of Outcome</th><th>What It Includes</th></tr></thead>
+<tbody>
+<tr><td><strong>Extratherapeutic</strong></td><td>40%</td><td>Patient variables, life events, social support, spontaneous remission</td></tr>
+<tr><td><strong>Therapeutic relationship</strong></td><td>30%</td><td>Alliance, empathy, warmth, acceptance, encouragement</td></tr>
+<tr><td><strong>Expectancy/placebo</strong></td><td>15%</td><td>Hope, credibility of rationale, expectation of improvement</td></tr>
+<tr><td><strong>Model/technique</strong></td><td>15%</td><td>Specific therapeutic interventions (exposure, interpretation, etc.)</td></tr>
+</tbody>
+</table>
+
+<p><strong>Key implication:</strong> Relationship + extratherapeutic = 70% of variance. Technique = 15%.</p>
+<hr>
+<h2>4. Rogers' Conditions Checklist</h2>
+<h3>Six Necessary and Sufficient Conditions (1957)</h3>
+<ul>
+  <li>[ ] <strong>1. Psychological contact</strong> -- two persons in meaningful contact</li>
+  <li>[ ] <strong>2. Client incongruence</strong> -- client is vulnerable or anxious</li>
+  <li>[ ] <strong>3. Therapist congruence</strong> -- therapist is genuine and integrated</li>
+  <li>[ ] <strong>4. Unconditional positive regard</strong> -- non-judgmental acceptance of all client experience</li>
+  <li>[ ] <strong>5. Empathic understanding</strong> -- therapist perceives and communicates client's internal frame</li>
+  <li>[ ] <strong>6. Client perception</strong> -- client perceives (at minimum) the empathy and positive regard</li>
+</ul>
+
+<p><strong>Core triad (EUG):</strong> Empathy + Unconditional positive regard + Genuineness</p>
+<p><strong>Truax & Carkhuff (1967):</strong> HIGH EUG = patient improves. LOW EUG = patient DETERIORATES.</p>
+<hr>
+<h2>5. Shea's Validity Techniques Table</h2>
+<table>
+<thead><tr><th>Technique</th><th>What It Does</th><th>Example</th><th>Watch Out For</th></tr></thead>
+<tbody>
+<tr><td><strong>Behavioural incident</strong></td><td>Elicits specific facts, not opinions ("verbal videotape")</td><td>"What happened next?" / "Did you load the gun?"</td><td>Foundation of all other techniques</td></tr>
+<tr><td><strong>Shame attenuation</strong></td><td>Makes positive answer ego-syntonic</td><td>"Are you pretty good at holding your liquor?"</td><td>Do not condone the behaviour</td></tr>
+<tr><td><strong>Gentle assumption</strong></td><td>Assumes behaviour is occurring</td><td>"What other ways have you thought of killing yourself?"</td><td>Contraindicated with suggestible patients, children</td></tr>
+<tr><td><strong>Symptom amplification</strong></td><td>Sets upper limit high so minimisation still reveals pathology</td><td>"How many fights -- 20, 30, 40?"</td><td>Do not set absurdly high numbers</td></tr>
+<tr><td><strong>Denial of the specific</strong></td><td>Asks about specific items, not categories</td><td>"Coke?" "Speed?" "Marijuana?"</td><td>Systematically cover all possibilities</td></tr>
+<tr><td><strong>Normalisation</strong></td><td>References what others experience to reduce stigma</td><td>"Many people in your situation have thoughts of killing themselves..."</td><td>Different from shame attenuation (references others, not patient)</td></tr>
+<tr><td><strong>Exaggeration</strong></td><td>Humorously exaggerates minor disclosure to relieve shame</td><td>Therapist overstates to absurd proportions</td><td>Sparingly; timing-dependent</td></tr>
+<tr><td><strong>Induction to bragging</strong></td><td>Compliment then inquire about problematic behaviour</td><td>"You clearly don't take any shit -- how many fights?"</td><td>Different from shame attenuation (literal compliment)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>6. CASE Approach -- Step-by-Step</h2>
+<p><strong>CASE = Chronological Assessment of Suicide Events (Shea)</strong></p>
+<h3>Stage 0: Set the Platform</h3>
+<ul>
+  <li>Engage patient emotionally through one of three gates: psychosis, depression/hopelessness, crisis/anger</li>
+  <li>Use explicit language: "kill yourself," "commit suicide," "take your life"</li>
+  <li>Never accept first "no" without further exploration</li>
+  <li>No note-taking during suicide inquiry</li>
+</ul>
+
+<h3>Stage 1: Presenting Events</h3>
+<ul>
+  <li>If attempt occurred: create verbal videotape via behavioural incidents</li>
+  <li>Method? Seriousness? Intent to die? Feelings about surviving? Planned vs impulsive? Substances? Stressors?</li>
+</ul>
+
+<h3>Stage 2: Recent Events (Past 6-8 Weeks)</h3>
+<ul>
+  <li><strong>Gentle assumption:</strong> "What other ways have you been thinking about?"</li>
+  <li><strong>Behavioural incidents</strong> for each method: gun? -> got it out? -> loaded? -> put to body? -> what stopped you?</li>
+  <li><strong>Denial of the specific:</strong> cutting? hanging? jumping? carbon monoxide? overdose?</li>
+  <li>"How much time daily do you think about killing yourself?"</li>
+</ul>
+
+<h3>Stage 3: Past Events</h3>
+<ul>
+  <li>Most serious past attempt (same method as current?)</li>
+  <li>Number of past attempts</li>
+  <li>Most recent attempt</li>
+  <li>Time-limited: gather only decision-altering data</li>
+</ul>
+
+<h3>Stage 4: Immediate Events</h3>
+<ul>
+  <li>"Right now, are you having any thoughts about wanting to kill yourself?"</li>
+  <li>"What would you do tonight if suicidal thoughts returned?"</li>
+  <li>Hopelessness vs hope</li>
+  <li>Support structure</li>
+  <li>Concrete safety plan</li>
+</ul>
+
+<p><strong>Safety contracting:</strong> Assessment tool, NOT guarantee. Watch nonverbals. Document quality.</p>
+<hr>
+<h2>7. Bordin's Alliance Model</h2>
+<ul>
+  <li><strong>Goals:</strong> Mutually agreed targets of therapy</li>
+  <li><strong>Tasks:</strong> Agreed therapeutic activities (exposure, free association, homework, chair work)</li>
+  <li><strong>Bond:</strong> Quality of personal attachment -- trust, liking, respect, common purpose</li>
+</ul>
+
+<p><strong>Key evidence:</strong></p>
+<ul>
+  <li>Alliance-outcome correlation: r ~ 0.28 (Fluckiger et al., 2018; N > 30,000)</li>
+  <li>Early alliance (sessions 3-5) is most predictive</li>
+  <li>Repaired ruptures -> BETTER outcomes than no ruptures (Safran & Muran)</li>
+  <li>Two rupture types: withdrawal (disengagement) and confrontation (direct challenge)</li>
+</ul>
+
+<hr>
+<h2>8. Therapy Selection Decision Tree</h2>
+<p><strong>Wolberg's principle:</strong> "No one technique is suitable for all problems."</p>
+<hr>
+<h2>9. Ethics Checklist</h2>
+<h3>Before Therapy Begins</h3>
+<ul>
+  <li>[ ] Informed consent obtained (nature, duration, benefits, risks, alternatives, right to refuse)</li>
+  <li>[ ] Limits of confidentiality explained (danger to self/others, child/elder abuse, court orders)</li>
+  <li>[ ] Fee structure and cancellation policy clarified</li>
+  <li>[ ] Therapist qualifications disclosed</li>
+  <li>[ ] Dual relationships screened and avoided</li>
+</ul>
+
+<h3>During Therapy</h3>
+<ul>
+  <li>[ ] Boundaries maintained (no sexual contact -- absolute prohibition)</li>
+  <li>[ ] Boundary crossings evaluated case-by-case (context, intent, impact)</li>
+  <li>[ ] Confidentiality preserved except mandatory reporting triggers</li>
+  <li>[ ] Countertransference monitored (supervision, personal therapy)</li>
+  <li>[ ] Patient autonomy respected in treatment decisions</li>
+</ul>
+
+<h3>At Termination</h3>
+<ul>
+  <li>[ ] Termination discussed collaboratively in advance</li>
+  <li>[ ] Adequate referral provided if ongoing treatment needed</li>
+  <li>[ ] Patient's emotional response to ending addressed</li>
+  <li>[ ] No punitive termination without referral (= abandonment)</li>
+  <li>[ ] Follow-up offered when appropriate</li>
+</ul>
+
+<h3>Mandatory Reporting Triggers</h3>
+<ol>
+  <li>Imminent danger to self (duty to protect)</li>
+  <li>Imminent danger to identifiable other (Tarasoff -- duty to warn/protect)</li>
+  <li>Child abuse or neglect</li>
+  <li>Elder abuse</li>
+  <li>Court-ordered evaluation (inform patient upfront)</li>
+</ol>
+
+<hr>
+<h2>10. Viva Questions</h2>
+<p><strong>Q1. What are the common factors in psychotherapy? Name two models.</strong></p>
+<p>Frank & Frank (1991): four features (confiding relationship, healing setting, rationale/myth, ritual/procedure). Lambert (1992): 40% extratherapeutic, 30% relationship, 15% expectancy, 15% technique. Both argue that common factors contribute more to outcome than specific techniques.</p>
+<p><strong>Q2. What is Bordin's working alliance model?</strong></p>
+<p>Three components: Goals (mutual agreement on aims), Tasks (agreement on therapeutic activities), Bond (quality of interpersonal attachment -- trust, liking, respect). Pantheoretical -- applies across all modalities.</p>
+<p><strong>Q3. Describe Rogers' core conditions for therapeutic change.</strong></p>
+<p>Six conditions; three therapist-offered: (1) Empathy -- perceiving the client's internal frame of reference, (2) Unconditional Positive Regard -- non-judgmental acceptance, (3) Congruence/Genuineness -- the therapist is authentic. Truax & Carkhuff (1967): patients of therapists with low levels deteriorated.</p>
+<p><strong>Q4. What is the CASE Approach?</strong></p>
+<p>Chronological Assessment of Suicide Events (Shea). Four regions explored in order: Presenting events, Recent events (6-8 weeks), Past events, Immediate events. A data-gathering method using validity techniques (behavioural incident, gentle assumption, denial of the specific, symptom amplification). Not a risk assessment tool or decision-making tool.</p>
+<p><strong>Q5. Name five validity techniques from Shea.</strong></p>
+<p>Behavioural incident (specific facts, verbal videotape), shame attenuation (ego-syntonic framing), gentle assumption (assume behaviour occurring), symptom amplification (set upper limit high), denial of the specific (ask about specific items, not categories). Also: normalisation, exaggeration, induction to bragging.</p>
+<p><strong>Q6. What is the Dodo Bird Verdict?</strong></p>
+<p>Rosenzweig (1936), confirmed by Luborsky et al. (1975): different bona fide psychotherapies produce roughly equivalent outcomes. Named after the Dodo in Alice in Wonderland: "everybody has won, and all must have prizes." Supported by meta-analyses; contested by disorder-specific researchers.</p>
+<p><strong>Q7. What is Wolberg's tripartite classification of psychotherapy?</strong></p>
+<p>Supportive (symptom relief: guidance, reassurance, medication), Reeducative (attitude/behaviour change: CBT, behaviour therapy, counselling), Reconstructive (personality restructuring: psychoanalysis, psychodynamic therapy, existential analysis). Depth increases from supportive to reconstructive.</p>
+<p><strong>Q8. What are the stages of therapy?</strong></p>
+<p>Beginning (assessment, formulation, alliance, treatment planning), Middle (working through -- transference, resistance, interpretation, translating insight into action), Termination (goal review, separation, relapse prevention). Around session 8, the idealised therapist image crumbles, triggering a therapeutic crisis.</p>
+<p><strong>Q9. What is the difference between a boundary crossing and a boundary violation?</strong></p>
+<p>Boundary crossing: departure from standard practice that may be therapeutically useful (e.g., accepting a culturally appropriate small gift). Boundary violation: departure that exploits the patient or damages the therapy (e.g., sexual contact, financial exploitation). Context, intent, and impact determine which category applies.</p>
+<p><strong>Q10. What is the allegiance effect in psychotherapy research?</strong></p>
+<p>Researcher allegiance = the researcher's belief in and preference for one treatment over another. Luborsky et al. (1999): allegiance correlated 0.85 with outcome in comparative studies. This inflates effect sizes for favoured treatments and is a major methodological concern when interpreting comparative trials.</p>
+<hr>
+<h2>Key Mnemonics</h2>
+<table>
+<thead><tr><th>Mnemonic</th><th>Stands For</th></tr></thead>
+<tbody>
+<tr><td><strong>PRESS</strong></td><td>Nonspecific factors: Placebo, Relationship, Emotional catharsis, Suggestion, Social/group dynamics</td></tr>
+<tr><td><strong>EUG</strong></td><td>Rogers' triad: Empathy, Unconditional positive regard, Genuineness</td></tr>
+<tr><td><strong>FAR-J</strong></td><td>Early analytic pioneers: Freud, Adler, Rank, Jung</td></tr>
+<tr><td><strong>BWT</strong></td><td>Therapy phases: Beginning, Working through, Termination</td></tr>
+<tr><td><strong>PACE</strong></td><td>Scouting assessment: Patient perspective, Assessment of MSE, Clinician perspective, Evaluation of interview</td></tr>
+<tr><td><strong>CASE</strong></td><td>Suicide assessment regions: (presenting) Current, (recent) Antecedent, (past) Storied, (immediate) Evolving -- or simply: Presenting, Recent, Past, Immediate</td></tr>
+</tbody>
+</table>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>

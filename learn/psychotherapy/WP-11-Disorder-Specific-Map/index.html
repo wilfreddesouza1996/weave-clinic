@@ -1,0 +1,1195 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Disorder-Specific Therapy Map &mdash; Weave Psychotherapy Vol. 11</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+:root {
+  --indigo-deep: #7A3052;
+  --indigo: #9E4B72;
+  --indigo-mid: #C07898;
+  --indigo-light: #D4A0B8;
+  --indigo-wash: #F5E0EB;
+  --indigo-tint: #FBF0F4;
+  --slate: #3A2A35;
+  --slate-mid: #5C4A58;
+  --slate-light: #9E8A98;
+  --copper: #C48B7A;
+  --copper-light: #FAE8E0;
+  --rust: #A05B6B;
+  --rust-light: #FCF0F2;
+  --ink: #1A1A2E;
+  --text: #2A2A3A;
+  --text-mid: #555566;
+  --text-light: #8888AA;
+  --border: #D0D0DE;
+  --border-light: #E4E4EE;
+  --clinical-label: #7A3A4A;
+  --cream: #FAFAFE;
+  --warm: #F5F3F0;
+  --white: #FFFFFF;
+}
+
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important; }
+html, body { margin: 0; padding: 0; }
+
+/* @page margin:0 globally — position:fixed bar spans full page height.
+   Per-page spacing via box-decoration-break:clone on .content padding. */
+@page { size: 210mm 297mm; margin: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12.5pt; line-height: 1.7; color: var(--text);
+  background: var(--white); text-align: left;
+}
+
+/* ── TYPOGRAPHY — larger for readability ── */
+h1, h2, h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  page-break-after: avoid; break-after: avoid;
+  orphans: 3; widows: 3;
+}
+h4, h5 { page-break-after: avoid; break-after: avoid; orphans: 3; widows: 3; }
+h1 { font-size: 22pt; color: var(--indigo-deep); margin: 0 0 12px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 17pt; color: var(--slate); margin: 24px 0 12px; font-weight: 600; line-height: 1.3;
+     padding-bottom: 5px; border-bottom: 1.5px solid var(--indigo-wash); }
+h3 { font-size: 13.5pt; color: var(--indigo); margin: 18px 0 8px; font-weight: 600; line-height: 1.3; }
+h4 { font-family: 'Plus Jakarta Sans'; font-size: 12pt; color: var(--slate); margin: 12px 0 5px; font-weight: 600; }
+h5 { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--slate-mid); margin: 10px 0 4px; font-weight: 600; }
+p  { margin-bottom: 10px; overflow-wrap: break-word; orphans: 3; widows: 3; }
+strong, b { font-weight: 600; color: var(--ink); }
+em, i { font-style: italic; }
+ul, ol { padding-left: 24px; margin: 10px 0 14px; }
+li { margin-bottom: 6px; overflow-wrap: break-word; line-height: 1.65; }
+sup { font-size: 70%; vertical-align: super; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 16px 0; }
+code { font-size: 10.5pt; background: var(--warm); padding: 2px 6px; border-radius: 3px;
+       font-family: 'DM Mono', monospace; }
+
+/* ══ COVER ══ full-bleed — vw/vh units always match page size in print */
+.cover {
+  width: 100vw; height: 100vh;
+  position: relative; overflow: hidden;
+  page-break-after: always; background: var(--cream);
+}
+.cover-band {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16mm;
+  background: linear-gradient(180deg, var(--indigo-deep), var(--indigo), var(--indigo-mid));
+}
+.cover-main {
+  position: absolute; left: 16mm; top: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column;
+}
+.cover-pinstripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--copper);
+}
+.cover-body {
+  flex: 1; padding: 48px 36px 60px 24px; display: flex; flex-direction: column;
+  position: relative; z-index: 1;
+}
+.cover-watermark {
+  position: absolute; bottom: 70px; right: 20px;
+  font-family: 'Source Serif 4', serif; font-size: 120pt; font-weight: 700;
+  letter-spacing: 10px; z-index: 0; pointer-events: none;
+}
+.cover-brand { font-family: 'Source Serif 4', serif; font-size: 26pt; font-weight: 700; color: var(--slate); letter-spacing: 3px; }
+.cover-brand-sub { font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--slate-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-series { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 3px; color: var(--indigo); font-weight: 600; margin-top: 36px; }
+.cover-title { font-family: 'Source Serif 4', serif; font-size: 34pt; font-weight: 700; color: var(--ink); line-height: 1.15; margin-top: 14px; margin-bottom: 14px; }
+.cover-subtitle { font-family: 'Source Serif 4', serif; font-size: 13pt; font-style: italic; color: var(--text-mid); margin-bottom: 18px; }
+.cover-topics { font-size: 10.5pt; color: var(--text-mid); line-height: 1.85; border-left: 3px solid var(--indigo-mid); padding-left: 16px; margin-bottom: 32px; }
+.cover-author-block { margin-top: auto; padding: 18px 0 28px; border-top: 1px solid var(--border); }
+.cover-author-name { font-family: 'Plus Jakarta Sans'; font-size: 14pt; font-weight: 600; color: var(--ink); }
+.cover-author-cred { font-family: 'Plus Jakarta Sans'; font-size: 9.5pt; color: var(--slate-mid); margin-top: 3px; }
+.cover-author-email { font-family: 'Plus Jakarta Sans'; font-size: 8.5pt; color: var(--text-mid); margin-top: 2px; }
+.cover-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px; background: var(--indigo-deep);
+  display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+  font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--white);
+}
+.cover-footer .cf-web { font-weight: 600; font-size: 9pt; }
+.cover-footer .cf-insta { color: rgba(255,255,255,0.7); }
+
+/* ══ TOC ══ full-bleed */
+.toc {
+  width: 100vw; height: 100vh;
+  overflow: hidden; position: relative; page-break-after: always;
+  padding: 30mm 22mm 30mm 28mm;
+}
+.toc::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 4mm; height: 297mm;
+  background: var(--indigo-deep);
+}
+.toc h1 { font-size: 28pt; margin-bottom: 32px; color: var(--indigo-deep); }
+.toc-item { display: flex; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted var(--border-light); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 18pt; font-weight: 300; color: var(--indigo-light); min-width: 54px; }
+.toc-name { font-family: 'Source Serif 4', serif; font-size: 15pt; font-weight: 600; color: var(--ink); }
+.toc-tag { font-size: 10pt; color: var(--text-light); margin-top: 44px; text-align: center; font-style: italic; }
+
+/* ══ CHAPTER DIVIDER ══ full-bleed */
+.divider {
+  width: 100vw; height: 100vh;
+  page-break-after: always; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--indigo-tint) 0%, var(--indigo-wash) 50%, var(--cream) 100%);
+}
+.div-band { position: absolute; left: 0; top: 0; width: 18mm; height: 100vh; background: var(--indigo-deep); }
+.div-body { position: absolute; left: 18mm; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.div-num { font-family: 'DM Mono', monospace; font-size: 72pt; color: var(--indigo-light); font-weight: 300; line-height: 1; }
+.div-title { font-family: 'Source Serif 4', serif; font-size: 28pt; color: var(--indigo-deep); font-weight: 700; margin-top: 12px; }
+.div-stripe { width: 60px; height: 3px; background: var(--copper); margin: 20px auto; }
+.div-desc { font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--text-mid); max-width: 400px; line-height: 1.6; }
+.div-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans'; font-size: 8pt; color: var(--text-light); }
+
+/* ══ CONTENT PAGES ══ box-decoration-break:clone repeats padding on EVERY page fragment */
+.content {
+  padding: 28mm 20mm 28mm 24mm;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  page-break-after: always;
+  position: relative;
+}
+.content:last-of-type { page-break-after: avoid; }
+
+/* 4mm indigo left bar — fixed, full page height (works because @page margin:0) */
+.content::before {
+  content: ''; position: fixed; left: 0; top: 0; bottom: 0;
+  width: 4mm; background: var(--indigo-deep);
+}
+
+/* left-bar div hidden — bar rendered via .content::before */
+.left-bar { display: none; }
+
+.pg-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8.5pt; color: var(--slate-mid); letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+.pg-head .hd-brand { font-family: 'Source Serif 4', serif; font-size: 9pt; font-weight: 700; color: var(--slate); letter-spacing: 1px; }
+.pg-head .hd-chapter { color: var(--indigo); font-weight: 500; }
+.pg-stripe { height: 2px; margin-bottom: 16px; background: linear-gradient(90deg, var(--indigo), var(--indigo-mid), var(--copper), transparent); }
+
+.pg-foot {
+  padding-top: 10px; border-top: 1px solid var(--border-light);
+  font-size: 8pt; color: var(--text-light); margin-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pg-foot .ft-web { color: var(--indigo-deep); font-weight: 600; }
+.pg-foot .ft-insta { color: var(--indigo); }
+
+/* ══ TABLES ══ */
+table {
+  width: 100%; border-collapse: collapse; margin: 14px 0;
+  font-size: 10.5pt; line-height: 1.45; table-layout: fixed;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+thead { display: table-header-group; break-inside: avoid; }
+th {
+  background: var(--slate); color: var(--cream); padding: 9px 12px;
+  text-align: left; font-weight: 600; font-size: 10pt;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; overflow-wrap: break-word; word-wrap: break-word;
+}
+tr { page-break-inside: avoid; break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--indigo-tint); }
+
+/* ══ CALLOUT BOXES ══ */
+.box {
+  margin: 14px 0; padding: 14px 18px; border-radius: 5px;
+  page-break-inside: avoid; break-inside: avoid; overflow: hidden;
+}
+.box .box-label {
+  font-family: 'DM Mono', monospace; font-size: 8.5pt; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 5px;
+}
+.box p, .box li { font-size: 11pt; line-height: 1.5; }
+
+.box-pearl { background: var(--indigo-wash); border-left: 3px solid var(--indigo); border-radius: 0 5px 5px 0; }
+.box-pearl .box-label { color: var(--indigo-deep); }
+
+.box-strategy { background: var(--rust-light); border-left: 3px solid var(--rust); border-radius: 0 5px 5px 0; }
+.box-strategy .box-label { color: var(--rust); }
+
+.box-clinical { background: var(--copper-light); border-left: 3px solid var(--copper); border-radius: 0 5px 5px 0; }
+.box-clinical .box-label { color: var(--clinical-label); }
+
+.box-mnemonic { background: var(--indigo-tint); border: 1.5px solid var(--indigo-mid); }
+.box-mnemonic .box-label { color: var(--indigo-deep); }
+.box-mnemonic .device { font-family: 'Source Serif 4', serif; font-size: 13pt; color: var(--ink); font-weight: 600; margin: 5px 0; line-height: 1.35; }
+
+/* ══ BACK PAGE ══ full-bleed */
+.back {
+  width: 100vw; height: 100vh;
+  page-break-before: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--indigo-deep); color: var(--white);
+  position: relative; overflow: hidden;
+}
+.back-line { width: 60px; height: 1px; background: var(--copper); margin: 0 auto; }
+.back-brand { font-family: 'Source Serif 4', serif; font-size: 48pt; font-weight: 700; color: var(--white); letter-spacing: 5px; margin-top: 20px; }
+.back-sub { font-family: 'Plus Jakarta Sans'; font-size: 10pt; color: var(--indigo-mid); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 8px; }
+.back-stripe { width: 60px; height: 1px; background: var(--copper); margin: 28px auto; }
+.back-tagline { font-family: 'Source Serif 4', serif; font-size: 16pt; color: var(--white); font-style: italic; margin-bottom: 32px; }
+.back-section { margin: 6px 0; }
+.back-label { font-family: 'DM Mono', monospace; font-size: 7pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--indigo-mid); margin-bottom: 4px; }
+.back-value { font-family: 'Plus Jakarta Sans'; font-size: 13pt; color: var(--white); line-height: 1.8; }
+.back-value.big { font-size: 16pt; font-weight: 600; color: var(--copper); }
+.back-value .email { color: var(--copper); font-size: 11pt; }
+.back-info { margin-top: 40px; font-family: 'Plus Jakarta Sans'; font-size: 11pt; color: var(--indigo-mid); max-width: 400px; line-height: 1.9; }
+
+</style></head><body>
+
+<div class="cover">
+  <div class="cover-band"></div>
+  <div class="cover-main">
+    <div class="cover-pinstripe"></div>
+    <div class="cover-body">
+      <div class="cover-watermark" style="color:rgba(122,48,82,0.04)">WEAVE</div>
+      <div class="cover-brand">WEAVE</div>
+      <div class="cover-brand-sub">Centre for Integrative Psychiatry</div>
+      <div class="cover-series">Weave Psychotherapy &mdash; Vol. 11</div>
+      <div class="cover-title">Disorder-Specific Therapy Map</div>
+      <div class="cover-subtitle">Master Cross-Reference — Which Therapy for Which Disorder</div>
+      <div class="cover-topics">Depression · Anxiety · OCD · PTSD · Personality Disorders · Eating Disorders · Psychosis · Bipolar</div>
+      <div class="cover-author-block">
+        <div class="cover-author-name">Dr. Wilfred D'souza</div>
+        <div class="cover-author-cred">MD Psychiatry</div>
+        <div class="cover-author-email">wilfred.desouza1996@gmail.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="cf-web">www.weave.clinic</span>
+    <span class="cf-insta">IG: @weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</span>
+    <span>Weave Psychotherapy</span>
+  </div>
+</div>
+
+<div class="toc"><h1>Contents</h1>
+<div class="toc-item"><span class="toc-num">01</span><span class="toc-name">Deep Study</span></div>
+<div class="toc-item"><span class="toc-num">02</span><span class="toc-name">Clinical Quick Reference</span></div>
+<div class="toc-tag">Weave Psychotherapy &middot; www.weave.clinic</div></div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">01</div>
+    <div class="div-title">Deep Study</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Disorder-Specific Therapy Map &mdash; Weave Psychotherapy Vol. 11</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 11 | Disorder-Specific Therapy Map</span>
+    <span class="hd-chapter">Chapter 01 &middot; Deep Study</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D1: Disorder-Specific Therapy Map — Deep Study</h1>
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#1-how-to-read-this-map" style="color:var(--indigo);text-decoration:none">How to Read This Map</a></li>
+  <li><a href="#2-depressive-disorders" style="color:var(--indigo);text-decoration:none">Depressive Disorders</a></li>
+  <li><a href="#3-anxiety-disorders" style="color:var(--indigo);text-decoration:none">Anxiety Disorders</a></li>
+  <li><a href="#4-ocd-and-related-disorders" style="color:var(--indigo);text-decoration:none">OCD and Related Disorders</a></li>
+  <li><a href="#5-trauma-and-stressor-related-disorders" style="color:var(--indigo);text-decoration:none">Trauma and Stressor-Related Disorders</a></li>
+  <li><a href="#6-personality-disorders" style="color:var(--indigo);text-decoration:none">Personality Disorders</a></li>
+  <li><a href="#7-eating-disorders" style="color:var(--indigo);text-decoration:none">Eating Disorders</a></li>
+  <li><a href="#8-substance-use-disorders" style="color:var(--indigo);text-decoration:none">Substance Use Disorders</a></li>
+  <li><a href="#9-psychotic-disorders" style="color:var(--indigo);text-decoration:none">Psychotic Disorders</a></li>
+  <li><a href="#10-bipolar-disorder" style="color:var(--indigo);text-decoration:none">Bipolar Disorder</a></li>
+  <li><a href="#11-child-and-adolescent-disorders" style="color:var(--indigo);text-decoration:none">Child and Adolescent Disorders</a></li>
+  <li><a href="#12-couples-and-relational-problems" style="color:var(--indigo);text-decoration:none">Couples and Relational Problems</a></li>
+</ol>
+
+<hr>
+<h1>1. HOW TO READ THIS MAP</h1>
+<h2>1.1 Evidence Levels Used in This Volume</h2>
+<p>This volume synthesises guideline recommendations from three principal sources. When recommendations diverge, the most conservative (highest evidence threshold) position is taken.</p>
+<table>
+<thead><tr><th>Source</th><th>Grading System</th><th>What "First-Line" Means</th></tr></thead>
+<tbody>
+<tr><td>NICE (UK)</td><td>Based on systematic reviews; recommendations rated by committee consensus after evidence review</td><td>Recommended as initial treatment; supported by at least one high-quality RCT or meta-analysis</td></tr>
+<tr><td>APA (US)</td><td>Level I (RCT), Level II (controlled trial), Level III (open trial/case series)</td><td>Substantial clinical confidence from Level I evidence</td></tr>
+<tr><td>Cochrane</td><td>Systematic review with GRADE framework (high, moderate, low, very low certainty)</td><td>Moderate-to-high certainty evidence of clinically meaningful effect</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>NICE guidelines are the most commonly examined guideline system in UK and Commonwealth psychiatry exams. They are updated regularly and freely available. APA guidelines are older and sometimes lag behind evidence — always check the publication date.</p></div>
+<h2>1.2 How to Interpret Effect Sizes</h2>
+<table>
+<thead><tr><th>Cohen's d</th><th>NNT (approx.)</th><th>Interpretation</th></tr></thead>
+<tbody>
+<tr><td>0.2</td><td>~16</td><td>Small effect</td></tr>
+<tr><td>0.5</td><td>~6</td><td>Medium effect</td></tr>
+<tr><td>0.8</td><td>~4</td><td>Large effect</td></tr>
+<tr><td>1.0+</td><td>~3</td><td>Very large effect</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>In psychotherapy research, a Cohen's d of 0.5 is clinically meaningful. Cuijpers et al. (2019) found an overall effect size of d = 0.72 for psychotherapy vs. control for depression — this is comparable to antidepressant effect sizes when both are compared against pill placebo.</p></div>
+<h2>1.3 NNT in Psychotherapy</h2>
+<p>The Number Needed to Treat (NNT) tells you how many patients must receive the intervention for one additional patient to benefit compared to control. An NNT of 4-6 is considered good for psychotherapy. For context: NNT for antidepressants in moderate-severe depression is approximately 7 (Cipriani et al., 2018 Lancet network meta-analysis).</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>When an examiner asks "Is psychotherapy as effective as medication?" the evidence-based answer for depression is: broadly equivalent in mild-moderate depression, medication may have faster onset in severe depression, but combination is superior to either alone (Cuijpers et al., 2020).</p></div>
+<hr>
+<h1>2. DEPRESSIVE DISORDERS</h1>
+<h2>2.1 Major Depressive Disorder (MDD)</h2>
+<h3>NICE CG90/NG222 Stepped Care</h3>
+<table>
+<thead><tr><th>Step</th><th>Severity</th><th>Recommended Intervention</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Subthreshold / mild</td><td>Active monitoring, guided self-help, computerised CBT, structured physical activity</td></tr>
+<tr><td>2</td><td>Mild-moderate</td><td>Low-intensity CBT (guided self-help, group CBT), behavioural activation, individual CBT</td></tr>
+<tr><td>3</td><td>Moderate-severe</td><td>CBT (16-20 sessions), IPT (16 sessions), behavioural activation, or antidepressant medication</td></tr>
+<tr><td>4</td><td>Severe / complex / treatment-resistant</td><td>Combined medication + high-intensity psychological therapy, specialist referral</td></tr>
+</tbody>
+</table>
+
+<h3>First-Line Psychotherapies</h3>
+<p><strong>Cognitive Behaviour Therapy (CBT)</strong></p>
+<ul>
+  <li>The most extensively studied therapy for depression. Over 200 RCTs. Cuijpers et al. (2019): d = 0.71 vs. control.</li>
+  <li>Beck's cognitive model: negative automatic thoughts arising from depressive core beliefs (helplessness, unlovability, worthlessness) maintain depressed mood. Treatment targets cognitive distortions and behavioural withdrawal.</li>
+  <li>Standard protocol: 16-20 sessions, weekly, structured (mood check, agenda, homework review, skill work, new homework, summary, feedback).</li>
+  <li>Key techniques: thought records, behavioural experiments, activity scheduling, graded task assignment, cognitive restructuring.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The landmark study is Rush et al. (1977) — the first RCT showing cognitive therapy was as effective as imipramine for depression. The NIMH Treatment of Depression Collaborative Research Program (Elkin et al., 1989) is the other must-know trial: CBT = IPT = imipramine for mild-moderate depression; imipramine superior only in severe depression.</p></div>
+<p><strong>Interpersonal Therapy (IPT)</strong></p>
+<ul>
+  <li>Developed by Klerman and Weissman (1984). Focuses on four interpersonal problem areas: grief, role disputes, role transitions, and interpersonal deficits.</li>
+  <li>Does NOT target cognitions directly. The theory: depression occurs in an interpersonal context, and resolving interpersonal problems resolves depression.</li>
+  <li>12-16 sessions, time-limited. NICE recommends it as equivalent to CBT for moderate-severe depression.</li>
+  <li>Evidence base: Elkin et al. (1989), Cuijpers et al. (2011) meta-analysis showing equivalence with CBT.</li>
+</ul>
+
+<p><strong>Behavioural Activation (BA)</strong></p>
+<ul>
+  <li>Based on Lewinsohn's model: depression is maintained by reduced positive reinforcement from the environment due to behavioural withdrawal.</li>
+  <li>Dimidjian et al. (2006): BA was as effective as antidepressant medication and superior to CBT for severe depression in the acute phase.</li>
+  <li>NICE recommends BA as a first-line treatment equivalent to CBT. Advantages: simpler to train therapists, can be delivered by non-specialists.</li>
+  <li>Key techniques: activity monitoring, activity scheduling, graded task assignment, avoidance hierarchy targeting.</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>BA is increasingly favoured in resource-limited settings (including India) because it requires fewer therapist training hours than CBT and can be delivered by lay health workers. The MANAS trial (Patel et al., 2010, Lancet) demonstrated that collaborative stepped care including BA delivered by lay counsellors was effective for common mental disorders in Goa.</p></div>
+<h3>Second-Line Psychotherapies</h3>
+<p><strong>Short-Term Psychodynamic Psychotherapy (STPP)</strong></p>
+<ul>
+  <li>Leichsenring et al. (2004) meta-analysis: d = 1.17 (pre-post) for depression. Comparable to CBT in head-to-head trials.</li>
+  <li>Gabbard notes indications for LTPP include depression with characterological substrate, especially when personality factors maintain the depressive pattern.</li>
+  <li>Techniques: transference interpretation, defence analysis, working through of unconscious conflict maintaining depressive position.</li>
+</ul>
+
+<p><strong>Mindfulness-Based Cognitive Therapy (MBCT)</strong></p>
+<ul>
+  <li>Segal, Williams, and Teasdale (2002). Specifically designed for relapse prevention in recurrent depression (3+ prior episodes).</li>
+  <li>NICE recommends MBCT as a first-line relapse prevention strategy. NNT = 4 for preventing relapse in those with 3+ prior episodes (Kuyken et al., 2016).</li>
+  <li>8-week group programme combining mindfulness meditation with cognitive therapy elements. NOT recommended for acute depression.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>MBCT reduces relapse risk by approximately 43% compared to treatment as usual (Piet & Hougaard, 2011). It is most effective for patients with 3+ prior episodes and those with childhood adversity (Williams et al., 2014). It is NOT first-line for acute depression — it is a relapse prevention intervention.</p></div>
+<h3>Persistent Depressive Disorder (Dysthymia)</h3>
+<ul>
+  <li>NICE recommends the same psychological interventions as for MDD.</li>
+  <li>CBASP (Cognitive Behavioural Analysis System of Psychotherapy, McCullough 2000) was developed specifically for chronic depression. Combines behavioural, cognitive, and interpersonal elements. The Keller et al. (2000) NEJM trial showed CBASP + nefazodone > either alone.</li>
+  <li>Schema Therapy may be indicated when early maladaptive schemas maintain chronic depressive patterns. Young identifies Defectiveness/Shame, Emotional Deprivation, and Failure schemas as common in chronic depression.</li>
+</ul>
+
+<h3>Treatment-Resistant Depression</h3>
+<ul>
+  <li>NICE defines treatment resistance as failure to respond to two adequate antidepressant trials.</li>
+  <li>Augmentation with psychological therapy is recommended: CBT is the best studied adjunct (Wiles et al., 2013: CoBalT trial — CBT added to medication improved outcomes in treatment-resistant depression, NNT = 4).</li>
+  <li>STPP and schema therapy are options when characterological factors are identified.</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For treatment-resistant depression, always mention the CoBalT trial (Wiles et al., 2013). This is the highest-quality evidence for adding CBT to antidepressants in treatment-resistant cases.</p></div>
+<h3>Depression Therapy Comparison</h3>
+<table>
+<thead><tr><th>Therapy</th><th>Effect Size (d) vs. Control</th><th>Key Trial</th><th>Strengths</th><th>Limitations</th></tr></thead>
+<tbody>
+<tr><td>CBT</td><td>0.71</td><td>Rush et al. 1977; Elkin et al. 1989</td><td>Most studied; structured; skills-based</td><td>May be less effective in severe depression (NIMH TDCRP)</td></tr>
+<tr><td>IPT</td><td>0.67</td><td>Elkin et al. 1989</td><td>Addresses interpersonal context; time-limited</td><td>Limited therapist availability; narrow focus</td></tr>
+<tr><td>BA</td><td>0.74</td><td>Dimidjian et al. 2006</td><td>Simpler to train; effective in severe depression</td><td>Less evidence for relapse prevention</td></tr>
+<tr><td>STPP</td><td>0.69</td><td>Leichsenring et al. 2004</td><td>Addresses personality factors; long-term gains</td><td>Longer training; fewer RCTs</td></tr>
+<tr><td>MBCT</td><td>Relapse RR 0.69</td><td>Kuyken et al. 2016</td><td>Relapse prevention; group format</td><td>Not for acute depression; requires meditation practice</td></tr>
+<tr><td>CBASP</td><td>—</td><td>Keller et al. 2000 (NEJM)</td><td>Designed for chronic depression</td><td>Complex; requires specific training</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>3. ANXIETY DISORDERS</h1>
+<h2>3.1 Generalised Anxiety Disorder (GAD)</h2>
+<p><strong>First-line:</strong> CBT (Borkovec model — targets intolerance of uncertainty, worry as avoidance, positive beliefs about worry). NICE CG113 recommends individual CBT (16-20 sessions) or applied relaxation.</p>
+<p><strong>Applied Relaxation (Ost, 1987):</strong> Progressive muscle relaxation &rarr; cue-controlled relaxation &rarr; differential relaxation &rarr; rapid relaxation &rarr; application in anxiety-provoking situations. Equivalent to CBT in Ost's own trials; NICE lists it as an alternative first-line.</p>
+<p><strong>Second-line:</strong> Short-term psychodynamic psychotherapy, mindfulness-based interventions.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The key GAD cognitive model is the Dugas et al. (1998) model centring on intolerance of uncertainty. The Wells (2004) metacognitive model targets positive meta-beliefs about worry ("worrying helps me cope") and negative meta-beliefs ("worry is uncontrollable"). Both are used in CBT for GAD.</p></div>
+<h2>3.2 Social Anxiety Disorder</h2>
+<p><strong>First-line:</strong> Individual CBT based on the Clark and Wells (1995) model. This model identifies three maintaining factors: self-focused attention, safety behaviours, and post-event rumination.</p>
+<ul>
+  <li>Clark et al. (2006): Individual CBT superior to fluoxetine, group CBT, and placebo. One of the largest effect sizes in the anxiety therapy literature (d = 1.20 vs. waiting list).</li>
+  <li>Stangier et al. (2003): Individual CBT superior to group CBT for social anxiety.</li>
+  <li>NICE CG159: Individual CBT (Clark and Wells model) recommended as first-line. Group CBT is an alternative.</li>
+</ul>
+
+<p><strong>Second-line:</strong> Short-term psychodynamic psychotherapy. Leichsenring et al. (2013, JAMA): STPP non-inferior to CBT at 6-month follow-up.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The Clark and Wells model is the single most examined CBT model for social anxiety. In a viva, you must be able to describe the three maintaining factors: (1) self-focused attention shifts processing inward, creating distorted self-images; (2) safety behaviours prevent disconfirmation of feared outcomes; (3) anticipatory and post-event processing maintain negative beliefs.</p></div>
+<h2>3.3 Specific Phobias</h2>
+<p><strong>First-line:</strong> Exposure therapy (in vivo graded exposure). The most parsimonious and effective treatment in all of psychotherapy — single-session exposure (Ost, 1989) can produce clinically significant improvement in 1-3 hours.</p>
+<ul>
+  <li>Mechanism: habituation (fear response diminishes with sustained exposure) and inhibitory learning (new non-threat association formed alongside the fear memory).</li>
+  <li>Systematic desensitisation (Wolpe, 1958) is the historical precursor — combines relaxation with graded imaginal exposure. Largely replaced by in vivo exposure.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Applied tension (Ost & Sterner, 1987) is the treatment of choice for blood-injection-injury phobia specifically. Unlike other phobias (which involve sympathetic activation), BII phobia involves a vasovagal (parasympathetic) response. Applied tension counteracts this by increasing blood pressure during exposure.</p></div>
+<h2>3.4 Panic Disorder</h2>
+<p><strong>First-line:</strong> CBT based on the Clark (1986) cognitive model. The model: bodily sensations &rarr; catastrophic misinterpretation ("I'm having a heart attack") &rarr; increased anxiety &rarr; increased bodily sensations &rarr; positive feedback loop.</p>
+<ul>
+  <li>Clark et al. (1994, 1999): CBT produced 80-90% panic-free rates at post-treatment. Superior to imipramine, applied relaxation, and waitlist.</li>
+  <li>Key techniques: cognitive restructuring of catastrophic misinterpretations, interoceptive exposure (deliberately inducing feared sensations — hyperventilation, spinning, caffeine), behavioural experiments to test predictions, dropping safety behaviours.</li>
+  <li>NICE CG113: CBT is first-line. 7-14 sessions.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Interoceptive exposure is the technique that distinguishes panic disorder CBT from standard anxiety CBT. The patient deliberately hyperventilates, breathes through a straw, spins in a chair, or runs up stairs to trigger feared sensations in a controlled setting — this breaks the catastrophic misinterpretation cycle.</p></div>
+<h2>3.5 Agoraphobia</h2>
+<p><strong>First-line:</strong> CBT with graded in vivo exposure to avoided situations. Often treated alongside panic disorder (as per Clark model). The behavioural component (systematic exposure to public transport, crowds, open spaces, being alone outside) is essential.</p>
+<h3>Anxiety Disorders x Therapy Matrix</h3>
+<table>
+<thead><tr><th>Disorder</th><th>1st Line Therapy</th><th>Key Model/Protocol</th><th>2nd Line</th><th>NNT (approx.)</th></tr></thead>
+<tbody>
+<tr><td>GAD</td><td>CBT, Applied Relaxation</td><td>Borkovec; Dugas IU model; Wells metacognitive</td><td>STPP, mindfulness</td><td>5-6</td></tr>
+<tr><td>Social Anxiety</td><td>Individual CBT (Clark & Wells)</td><td>Self-focused attention, safety behaviours, post-event rumination</td><td>STPP (Leichsenring 2013)</td><td>3-4</td></tr>
+<tr><td>Specific Phobia</td><td>In vivo exposure</td><td>Habituation / inhibitory learning</td><td>Systematic desensitisation</td><td>2-3</td></tr>
+<tr><td>Panic Disorder</td><td>CBT (Clark model)</td><td>Catastrophic misinterpretation + interoceptive exposure</td><td>Applied relaxation</td><td>3-4</td></tr>
+<tr><td>Agoraphobia</td><td>CBT + graded exposure</td><td>Behavioural avoidance model</td><td>Guided self-help exposure</td><td>4-5</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>4. OCD AND RELATED DISORDERS</h1>
+<h2>4.1 Obsessive-Compulsive Disorder (OCD)</h2>
+<p><strong>First-line:</strong> CBT with Exposure and Response Prevention (ERP). The single most effective psychological treatment for OCD for over four decades.</p>
+<ul>
+  <li>Salkovskis (1985, 1999) cognitive model: intrusive thoughts are universal (90% of the general population); what differentiates OCD is the appraisal of personal responsibility for preventing harm. This appraisal triggers neutralising behaviour (compulsions) which provides temporary relief but maintains the cycle.</li>
+  <li>ERP protocol: hierarchical exposure to obsessional triggers + absolute prevention of compulsive rituals. The patient learns that (a) anxiety naturally habituates and (b) the feared catastrophe does not occur.</li>
+  <li>NICE CG31: ERP with at least 10 hours of therapist contact. For mild-moderate OCD: low-intensity CBT including ERP. For moderate-severe: intensive CBT including ERP OR SSRI.</li>
+  <li>Foa et al. (2005): ERP alone = clomipramine alone; ERP + clomipramine was not significantly better than ERP alone. This is one of the few disorders where psychotherapy alone matches pharmacotherapy for moderate-severe illness.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Salkovskis model distinguishes between intrusions (universal) and obsessions (pathological). The key pathological appraisal is inflated responsibility — "If I don't check the stove, the house will burn down and it will be MY fault." Treatment targets this appraisal via behavioural experiments and cognitive restructuring alongside ERP.</p></div>
+<p><strong>Second-line:</strong> SSRIs (at higher doses than for depression). Third-line: clomipramine. Augmentation with antipsychotics (aripiprazole) or intensive residential ERP for treatment-resistant cases.</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>ERP requires specialist training. The most common error by generalist therapists is conducting "exposure without response prevention" — showing the patient anxiety-provoking stimuli but allowing partial ritualising. This produces sensitisation, not habituation. Full response prevention is essential.</p></div>
+<h2>4.2 Body Dysmorphic Disorder (BDD)</h2>
+<p><strong>First-line:</strong> CBT adapted for BDD (Veale & Neziroglu, 2010). Targets: excessive self-focused attention, checking/reassurance-seeking, mirror avoidance or mirror gazing, and appearance-related beliefs. Includes ERP for checking behaviours.</p>
+<p><strong>Second-line:</strong> SSRIs (higher doses).</p>
+<h2>4.3 Hoarding Disorder</h2>
+<p><strong>First-line:</strong> CBT adapted for hoarding (Steketee & Frost, 2007). Unique features: motivational interviewing (insight is often poor), cognitive restructuring targeting beliefs about possessions ("I might need this someday"), exposure to discarding, and organisational skills training.</p>
+<ul>
+  <li>Response rates are lower than for OCD proper (~30% achieve clinically significant improvement vs. ~60% for OCD with ERP).</li>
+</ul>
+
+<hr>
+<h1>5. TRAUMA AND STRESSOR-RELATED DISORDERS</h1>
+<h2>5.1 Post-Traumatic Stress Disorder (PTSD)</h2>
+<h3>NICE NG116 Recommendations</h3>
+<p><strong>First-line:</strong> Trauma-focused psychological therapy:</p>
+<ol>
+  <li><strong>Trauma-focused CBT (TF-CBT)</strong> — includes prolonged exposure (PE) and cognitive processing therapy (CPT)</li>
+  <li><strong>Eye Movement Desensitisation and Reprocessing (EMDR)</strong></li>
+</ol>
+
+<p>Both should be offered as first-line treatments. Medication (SSRI) is second-line (recommended only when the patient declines or does not respond to psychological therapy).</p>
+<p><strong>Prolonged Exposure (PE, Foa et al., 2007)</strong></p>
+<ul>
+  <li>The most extensively studied PTSD psychotherapy. Mechanism: emotional processing theory — the fear structure is activated through imaginal re-experiencing, and corrective information is incorporated.</li>
+  <li>Protocol: 8-15 sessions of 90 minutes. Imaginal exposure (repeated detailed narrative of the trauma) + in vivo exposure to avoided trauma-related cues.</li>
+  <li>Powers et al. (2010) meta-analysis: d = 1.08 vs. waitlist.</li>
+</ul>
+
+<p><strong>Cognitive Processing Therapy (CPT, Resick et al., 2002)</strong></p>
+<ul>
+  <li>Focuses on maladaptive cognitions ("stuck points") about the trauma — specifically beliefs about safety, trust, power/control, esteem, and intimacy.</li>
+  <li>12 sessions, structured. Can be delivered without a written trauma account.</li>
+  <li>Resick et al. (2012): CPT equivalent to PE; both superior to waitlist.</li>
+</ul>
+
+<p><strong>EMDR (Shapiro, 1989)</strong></p>
+<ul>
+  <li>Bilateral stimulation (eye movements, taps, or tones) while the patient holds a traumatic memory in mind. Proposed mechanism: working memory taxation reduces the vividness and emotionality of the traumatic memory.</li>
+  <li>NICE recommends 8-12 sessions. Evidence quality is comparable to TF-CBT (Bisson et al., 2007 Cochrane review).</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The mechanism of EMDR remains debated. The eye-movement component may work through working memory taxation (van den Hout & Engelhard, 2012) — holding the traumatic image while performing a concurrent task degrades the sensory quality of the memory. Some argue the eye movements are incidental and the exposure/processing component does the work. Examiners want you to acknowledge this debate.</p></div>
+<h2>5.2 Complex PTSD</h2>
+<p><strong>Phase-based treatment</strong> is recommended (Cloitre et al., 2011 ISTSS guidelines):</p>
+<ul>
+  <li><strong>Phase 1:</strong> Stabilisation and skills (emotion regulation, grounding, safety)</li>
+  <li><strong>Phase 2:</strong> Trauma processing (using PE, CPT, EMDR, or imagery rescripting)</li>
+  <li><strong>Phase 3:</strong> Reconnection and rehabilitation (relationships, identity, meaning)</li>
+</ul>
+
+<p>STAIR (Skills Training in Affective and Interpersonal Regulation) + Prolonged Exposure is the best-studied phase-based protocol (Cloitre et al., 2010).</p>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Schema Therapy is increasingly used for complex PTSD, particularly when early relational trauma has produced pervasive schemas (Abandonment, Mistrust/Abuse, Defectiveness). Young emphasises that trauma processing via imagery rescripting in ST is conducted only after schema assessment and stabilisation — never in early sessions.</p></div>
+<h2>5.3 Adjustment Disorder</h2>
+<ul>
+  <li>NICE does not have specific guidelines; general principles of supportive counselling, brief CBT, or brief psychodynamic therapy apply.</li>
+  <li>Problem-solving therapy has the strongest evidence base (Cuijpers et al., 2020).</li>
+</ul>
+
+<hr>
+<h1>6. PERSONALITY DISORDERS</h1>
+<h2>6.1 Borderline Personality Disorder (BPD)</h2>
+<p>The most extensively studied personality disorder in psychotherapy research. Four evidence-based treatments exist, each with distinct theoretical models.</p>
+<h3>BPD Treatments Head-to-Head Comparison</h3>
+<table>
+<thead><tr><th>Feature</th><th>DBT (Linehan)</th><th>MBT (Bateman & Fonagy)</th><th>TFP (Kernberg)</th><th>ST (Young)</th></tr></thead>
+<tbody>
+<tr><td><strong>Theoretical model</strong></td><td>Biosocial: biological vulnerability + invalidating environment</td><td>Attachment: impaired mentalisation from insecure attachment</td><td>Object relations: identity diffusion, primitive defences, low-level personality organisation</td><td>Schema: EMSs from unmet childhood needs; 5 modes in BPD</td></tr>
+<tr><td><strong>Primary target</strong></td><td>Emotion dysregulation, suicidal/self-harm behaviour</td><td>Mentalisation (capacity to understand behaviour in terms of mental states)</td><td>Identity integration, modulation of affect, object constancy</td><td>Schema healing, mode change, limited reparenting</td></tr>
+<tr><td><strong>Therapist stance</strong></td><td>Radical acceptance + push for change; irreverent + reciprocal</td><td>Not-knowing, curious, affect-focused</td><td>Neutral, interpretive, maintains technical neutrality</td><td>Limited reparenting, empathic confrontation</td></tr>
+<tr><td><strong>Structure</strong></td><td>Individual therapy + group skills + phone coaching + consultation team</td><td>Individual (1x/week) + group analytic therapy (1x/week)</td><td>Individual (2x/week)</td><td>Individual (1-2x/week), can include group</td></tr>
+<tr><td><strong>Key techniques</strong></td><td>Chain analysis, diary cards, skills training (4 modules), validation, DBT strategies</td><td>Clarification, elaboration, challenge; mentalising the transference</td><td>Transference interpretation, clarification, confrontation</td><td>Imagery rescripting, chair work, flash cards, pattern-breaking, mode dialogues</td></tr>
+<tr><td><strong>Duration</strong></td><td>1 year standard programme</td><td>18 months intensive; 18 months stepdown</td><td>1-3 years</td><td>2-3 years</td></tr>
+<tr><td><strong>Key trial</strong></td><td>Linehan et al. (1991, 2006)</td><td>Bateman & Fonagy (1999, 2001, 2008)</td><td>Doering et al. (2010); Clarkin et al. (2007)</td><td>Giesen-Bley et al. (2006); Farrell et al. (2009); Nadort et al. (2009)</td></tr>
+<tr><td><strong>Primary outcome evidence</strong></td><td>Reduced self-harm, hospitalisations, suicidality</td><td>Reduced self-harm, hospitalisations, depression, improved social function</td><td>Improved personality organisation, reduced aggression</td><td>Greater schema change, higher recovery rates (Giesen-Bley: 45% ST vs. 24% TFP recovery)</td></tr>
+<tr><td><strong>NICE recommendation</strong></td><td>Recommended</td><td>Recommended</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Ideal patient</strong></td><td>High-risk, suicidal, emotionally dysregulated</td><td>Comorbid depression, interpersonal chaos, low mentalisation</td><td>Higher-functioning BPD with identity confusion, aggression</td><td>Chronic BPD with prominent schemas; "treatment failures" from CBT</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Giesen-Bley et al. (2006) RCT compared ST vs. TFP for BPD. Schema therapy showed higher recovery rates (45% vs. 24%), lower dropout (27% vs. 50%), and greater improvement across all BPD symptoms. This is the only head-to-head RCT between two specialist BPD treatments showing superiority of one over the other.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DBT has four modes (individual therapy, group skills training, phone coaching, therapist consultation team). Each mode addresses a different function. The most commonly tested error in exams is confusing DBT group skills training with group therapy — DBT skills groups are psychoeducational, not process-oriented.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>The DBT target hierarchy is one of the most examined concepts in BPD therapy: (1) life-threatening behaviours, (2) therapy-interfering behaviours, (3) quality-of-life-interfering behaviours, (4) increasing behavioural skills. This hierarchy governs every individual therapy session — the therapist always addresses higher-priority targets first.</p></div>
+<h3>NICE CG78 for BPD</h3>
+<ul>
+  <li>Do NOT use brief psychological interventions (<3 months) for BPD</li>
+  <li>Do NOT use medication as primary treatment</li>
+  <li>Offer comprehensive treatment programmes (DBT or MBT recommended)</li>
+  <li>Duration: at least 1 year for moderate-severe BPD</li>
+  <li>Crisis planning and management are essential components</li>
+</ul>
+
+<h2>6.2 Antisocial Personality Disorder (ASPD)</h2>
+<ul>
+  <li>NICE CG77: No specific psychotherapy has strong evidence. CBT-based programmes in forensic settings have limited evidence.</li>
+  <li>Beck's CT-PD approach: risk-benefit analysis of antisocial behaviour, "choice review" exercises, building cognitive hierarchy of moral development.</li>
+  <li>Key finding: depressed ASPD patients may respond to treatment; non-depressed ASPD patients generally do not (Woody et al., 1985).</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked about ASPD treatment, acknowledge the limited evidence base. Mention that Woody et al. (1985) found that comorbid depression predicts treatment response, and that some forensic CBT programmes show modest effects on reoffending.</p></div>
+<h2>6.3 Narcissistic Personality Disorder (NPD)</h2>
+<ul>
+  <li>No NICE guideline. Limited RCT evidence.</li>
+  <li>Schema Therapy (Young): treats the Lonely Child mode (underlying Emotional Deprivation, Defectiveness), confronts the Self-Aggrandizer mode, builds Healthy Adult. Typically 40+ sessions.</li>
+  <li>CT-PD (Beck): avoids direct challenge to grandiosity early; uses cost-benefit analysis; builds alternative sources of self-esteem.</li>
+  <li>Psychodynamic: Kohut (self-psychology — empathic immersion, selfobject transference) vs. Kernberg (TFP — confrontation of narcissistic defences). Fundamental theoretical disagreement about technique.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Kohut vs. Kernberg debate is a classic exam topic. Kohut advocates empathy and does NOT confront grandiosity (seeing it as a developmental arrest requiring selfobject experiences). Kernberg advocates confrontation of narcissistic defences (seeing grandiosity as a pathological defence against primitive rage and envy). Schema Therapy takes a middle position: empathise with the Lonely Child while setting limits on the Self-Aggrandizer.</p></div>
+<h2>6.4 Avoidant Personality Disorder (AvPD)</h2>
+<ul>
+  <li>CBT: graduated exposure, positive data logs, schema change methods for core beliefs ("I am socially inept"). Must address cognitive, behavioural, AND emotional avoidance (Beck CT-PD notes three types of avoidance).</li>
+  <li>Schema Therapy: targets Defectiveness/Shame, Social Isolation schemas; emphasises exposure to intimate contact and building tolerance for negative affect.</li>
+  <li>NICE does not have a specific AvPD guideline; managed under personality disorder pathways.</li>
+</ul>
+
+<h2>6.5 Obsessive-Compulsive Personality Disorder (OCPD)</h2>
+<ul>
+  <li>CT-PD (Beck): businesslike therapeutic relationship; behavioural experiments comparing perfectionistic vs. "good enough" strategies; advantage-disadvantage analysis of rigid rules.</li>
+  <li>Schema Therapy: targets Unrelenting Standards and Punitiveness schemas.</li>
+  <li>Psychodynamic: addresses underlying helplessness/defectiveness compensated by control and orderliness.</li>
+</ul>
+
+<h2>6.6 Other Personality Disorders</h2>
+<table>
+<thead><tr><th>PD</th><th>Primary Approach</th><th>Key Points</th></tr></thead>
+<tbody>
+<tr><td>Dependent PD</td><td>CBT (graded autonomy tasks, assertiveness training), Schema Therapy (Dependence schema)</td><td>Treatment paradox: increasing competence triggers abandonment fear</td></tr>
+<tr><td>Histrionic PD</td><td>CBT (reinforce competence, address global thinking style), psychodynamic</td><td>Use dramatic methods; avoid saviour role</td></tr>
+<tr><td>Paranoid PD</td><td>CBT (continuum technique for trust, assertiveness training), psychodynamic</td><td>Build trust slowly; increase self-efficacy first</td></tr>
+<tr><td>Schizoid PD</td><td>CBT (advantages/disadvantages of isolation), psychodynamic</td><td>Engagement itself is the primary challenge</td></tr>
+<tr><td>Schizotypal PD</td><td>CBT (normalisation with prevalence data, dropping safety behaviours)</td><td>Distinguish from psychosis; comorbid depression predicts response</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h1>7. EATING DISORDERS</h1>
+<h2>7.1 Anorexia Nervosa (AN)</h2>
+<p><strong>First-line (adults):</strong> No psychotherapy has robust evidence of superiority. NICE NG69 recommends:</p>
+<ul>
+  <li>Individual eating disorder-focused CBT (CBT-ED)</li>
+  <li>MANTRA (Maudsley Anorexia Nervosa Treatment for Adults — Schmidt & Treasure, 2006)</li>
+  <li>SSCM (Specialist Supportive Clinical Management)</li>
+</ul>
+
+<p><strong>First-line (children/adolescents):</strong> Family-Based Treatment (FBT, Maudsley model — Lock & Le Grange, 2013). Three phases: (1) weight restoration with parents in charge of feeding, (2) gradual return of eating control to adolescent, (3) identity and developmental issues. The Eisler et al. (2007) trial and Lock et al. (2010) 4-year follow-up support FBT.</p>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>FBT (the Maudsley approach) for adolescent AN is the only eating disorder psychotherapy with strong evidence for a specific age group. It agnosticises about aetiology and places parents as the primary agents of change. This is a major shift from earlier psychodynamic approaches that implicated parents in causation.</p></div>
+<p><strong>Second-line (adults):</strong> Focal psychodynamic psychotherapy, Schema Therapy (targeting Defectiveness/Shame, Subjugation).</p>
+<h2>7.2 Bulimia Nervosa (BN)</h2>
+<p><strong>First-line:</strong> CBT-E (Enhanced CBT, Fairburn et al., 2003, 2009). The transdiagnostic CBT model treats all eating disorders through four maintaining mechanisms: clinical perfectionism, core low self-esteem, mood intolerance, and interpersonal difficulties.</p>
+<ul>
+  <li>20 sessions over 20 weeks (focused form) or extended form (addressing the four maintaining mechanisms).</li>
+  <li>Fairburn et al. (2009): CBT-E produced remission in approximately 50% of BN patients.</li>
+  <li>NICE NG69: CBT-E is first-line. If no response after 4 sessions, consider IPT.</li>
+</ul>
+
+<p><strong>Second-line:</strong> IPT (Agras et al., 2000 — IPT equivalent to CBT at 12-month follow-up, though slower in onset).</p>
+<h2>7.3 Binge Eating Disorder (BED)</h2>
+<p><strong>First-line:</strong> CBT (individual or group), guided self-help CBT. NICE NG69.</p>
+<p><strong>Second-line:</strong> IPT. Wilfley et al. (2002): Group CBT = Group IPT at post-treatment and 1-year follow-up.</p>
+<h3>Eating Disorder Therapy Comparison</h3>
+<table>
+<thead><tr><th>Disorder</th><th>1st Line</th><th>2nd Line</th><th>Key Trial</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td>AN (adolescent)</td><td>FBT (Maudsley)</td><td>Individual therapy</td><td>Lock et al. 2010</td><td>6-12 months</td></tr>
+<tr><td>AN (adult)</td><td>CBT-ED, MANTRA, SSCM</td><td>Focal psychodynamic, ST</td><td>Zipfel et al. 2014 (ANTOP trial)</td><td>40+ sessions</td></tr>
+<tr><td>BN</td><td>CBT-E (Fairburn)</td><td>IPT</td><td>Fairburn et al. 2009</td><td>20 sessions/20 weeks</td></tr>
+<tr><td>BED</td><td>CBT, guided self-help</td><td>IPT</td><td>Wilfley et al. 2002</td><td>16-20 sessions</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>CBT-E (the "E" stands for Enhanced) is transdiagnostic — it can be applied to AN, BN, and BED using the same framework. The focused form targets the core eating disorder psychopathology. The broad form also addresses clinical perfectionism, core low self-esteem, mood intolerance, and interpersonal difficulties when these maintain the eating disorder.</p></div>
+<hr>
+<h1>8. SUBSTANCE USE DISORDERS</h1>
+<h2>8.1 First-Line Approaches</h2>
+<p><strong>Motivational Interviewing (MI, Miller & Rollnick, 1991, 2013)</strong></p>
+<ul>
+  <li>Not a therapy per se but a communication style. Four processes: engaging, focusing, evoking, planning. Core spirit: partnership, acceptance, compassion, evocation.</li>
+  <li>NICE recommends MI as a brief intervention for all substance use disorders, particularly in early stages of change.</li>
+  <li>Works through resolving ambivalence — the therapist selectively elicits and reinforces "change talk" (DARN-CAT: Desire, Ability, Reasons, Need, Commitment, Activation, Taking steps).</li>
+</ul>
+
+<p><strong>CBT Relapse Prevention (Marlatt & Gordon, 1985; Marlatt & Donovan, 2005)</strong></p>
+<ul>
+  <li>Identifies high-risk situations, coping skills deficits, and the Abstinence Violation Effect (AVE — a single lapse is catastrophised into full relapse).</li>
+  <li>Key techniques: functional analysis of substance use, coping skills training, apparently irrelevant decisions analysis, urge surfing (mindfulness-based).</li>
+  <li>Irvin et al. (1999) meta-analysis: CBT relapse prevention has the most consistent evidence base across substances.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The Abstinence Violation Effect (AVE) is a critical concept: after a lapse, the patient attributes it to internal, stable, global causes ("I'm an addict, I'll never change") rather than external, unstable, specific causes ("I was in a high-risk situation without coping skills"). CBT relapse prevention specifically targets this cognitive distortion.</p></div>
+<h2>8.2 Other Evidence-Based Approaches</h2>
+<p><strong>Community Reinforcement Approach (CRA, Hunt & Azrin, 1973)</strong></p>
+<ul>
+  <li>Rearranges environmental contingencies so that sobriety is more rewarding than substance use. Includes relationship counselling, job skills, social/recreational counselling.</li>
+  <li>NICE recommends for alcohol dependence.</li>
+</ul>
+
+<p><strong>Contingency Management (CM)</strong></p>
+<ul>
+  <li>Provides tangible reinforcers (vouchers, prizes) for verified abstinence (negative urine drug screens).</li>
+  <li>NICE recommends for opioid and stimulant use disorders. Strong evidence for cocaine and methamphetamine use (where no effective pharmacotherapy exists).</li>
+</ul>
+
+<p><strong>Twelve-Step Facilitation (TSF)</strong></p>
+<ul>
+  <li>Structured therapy to encourage engagement with Alcoholics Anonymous or other 12-step programmes.</li>
+  <li>Project MATCH (1997): TSF equivalent to CBT and MET for alcohol dependence at 1-year and 3-year follow-up. TSF may have advantages for patients with high-severity dependence and low social support.</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>For substance use disorders, the classic viva trap is asking whether AA/12-step programmes "work." The evidence-based answer: Project MATCH (1997) showed TSF was equivalent to CBT and MET. Cochrane reviews show moderate evidence supporting TSF. The mechanism is likely increased social support and abstinence-reinforcing norms.</p></div>
+<hr>
+<h1>9. PSYCHOTIC DISORDERS</h1>
+<h2>9.1 CBT for Psychosis (CBTp)</h2>
+<ul>
+  <li>NICE CG178: CBTp should be offered to all people with schizophrenia. At least 16 planned sessions.</li>
+  <li>Mechanism: helps patients develop alternative explanations for psychotic experiences, reduces distress associated with delusions/hallucinations, and addresses secondary problems (depression, self-esteem).</li>
+  <li>Morrison et al. (2014): CBTp reduces symptom severity with small-to-moderate effect size (d = 0.33-0.44 vs. treatment as usual).</li>
+  <li>CBTp does NOT aim to eliminate hallucinations or delusions. The target is distress and functional impairment.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The effect size for CBTp (d = 0.33-0.44) is modest compared to CBT for depression or anxiety. However, given that this is an adjunct to antipsychotics for a chronic illness, this is clinically meaningful. Jauhar et al. (2014) meta-analysis found smaller effects than earlier reviews, generating debate. The NICE recommendation stands — CBTp should still be offered.</p></div>
+<h2>9.2 Family Intervention</h2>
+<ul>
+  <li>NICE CG178: Family intervention should be offered to all families of people with schizophrenia (at least 10 sessions over 3+ months).</li>
+  <li>Based on Expressed Emotion (EE) research (Brown et al., 1972; Vaughn & Leff, 1976): high EE (criticism, hostility, emotional over-involvement) predicts relapse.</li>
+  <li>Pilling et al. (2002) meta-analysis: family intervention reduced relapse rates by approximately 50%.</li>
+  <li>Components: psychoeducation, communication skills, problem-solving, crisis management, reducing high EE.</li>
+</ul>
+
+<h2>9.3 Social Skills Training</h2>
+<ul>
+  <li>Moderately effective for improving social functioning (Kurtz & Mueser, 2008 meta-analysis: d = 0.52 for social functioning).</li>
+  <li>Not specifically recommended by NICE as a standalone intervention but forms part of comprehensive psychosocial rehabilitation.</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>Recovery-Oriented Cognitive Therapy (CT-R, Beck et al.) is an emerging approach that focuses on adaptive beliefs, aspirations, and strengths rather than targeting psychotic symptoms directly. It represents a shift in CBTp from deficit-focused to strengths-based work.</p></div>
+<hr>
+<h1>10. BIPOLAR DISORDER</h1>
+<p>NICE CG185: Psychological interventions are recommended as adjuncts to mood stabilisers, not as standalone treatments.</p>
+<h2>10.1 Psychoeducation</h2>
+<ul>
+  <li>The simplest and most consistently effective psychological intervention for bipolar disorder.</li>
+  <li>Colom et al. (2003, 2009): Group psychoeducation (21 sessions) significantly reduced relapse rates at 2-year and 5-year follow-up.</li>
+  <li>Content: illness understanding, medication adherence, early warning sign identification, lifestyle regulation, relapse prevention planning.</li>
+</ul>
+
+<h2>10.2 Interpersonal and Social Rhythm Therapy (IPSRT, Frank et al., 2005)</h2>
+<ul>
+  <li>Integrates IPT with social rhythm regulation. Based on the social zeitgeber theory: disruptions to social rhythms (sleep-wake cycles, mealtimes, activity patterns) destabilise circadian rhythms, triggering mood episodes.</li>
+  <li>Social Rhythm Metric tracks daily routines. The therapy stabilises rhythms while addressing interpersonal problems.</li>
+  <li>Frank et al. (2005): IPSRT during acute treatment led to longer time to recurrence in the maintenance phase.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>IPSRT is the only psychotherapy developed specifically for bipolar disorder from the ground up (not adapted from a depression therapy). The social zeitgeber hypothesis that underpins it — that life events destabilise social rhythms, which destabilise circadian rhythms, which trigger mood episodes — is frequently examined.</p></div>
+<h2>10.3 CBT for Bipolar Disorder</h2>
+<ul>
+  <li>Lam et al. (2003): CBT reduced relapse rates at 12 months. However, Scott et al. (2006) found CBT was only effective for patients with fewer than 12 prior episodes.</li>
+  <li>NICE recommends CBT (at least 16 sessions) focusing on relapse prevention, medication adherence, and managing residual symptoms.</li>
+</ul>
+
+<h2>10.4 Family-Focused Therapy (FFT, Miklowitz et al., 2003)</h2>
+<ul>
+  <li>21 sessions over 9 months: psychoeducation, communication enhancement training, problem-solving skills.</li>
+  <li>Miklowitz et al. (2003): FFT + pharmacotherapy reduced relapse rates compared to crisis management + pharmacotherapy.</li>
+  <li>Particularly effective for younger patients and those in high-EE families.</li>
+</ul>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>For bipolar disorder, the evidence hierarchy for psychological interventions is: (1) psychoeducation (strongest, simplest), (2) IPSRT, (3) CBT, (4) FFT. All are adjunctive to pharmacotherapy. No psychological intervention replaces mood stabilisers.</p></div>
+<hr>
+<h1>11. CHILD AND ADOLESCENT DISORDERS</h1>
+<h2>11.1 ADHD</h2>
+<p><strong>First-line:</strong> Parent training / behavioural management programmes (NICE NG87).</p>
+<ul>
+  <li>For preschool children: parent training is first-line before any medication consideration.</li>
+  <li>For school-age children: parent training + school-based behavioural interventions as first-line for mild-moderate; medication (methylphenidate) for moderate-severe.</li>
+  <li>Evidence: MTA Study (1999) — medication > behavioural treatment > community care for core ADHD symptoms; combined treatment = medication for core symptoms but superior for associated problems (oppositional behaviour, parent-child relationship).</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The MTA Study (Multimodal Treatment of ADHD, 1999) is the landmark trial. At 14 months: medication management (carefully titrated) > intensive behavioural treatment for core ADHD symptoms. However, at 3-year follow-up (Jensen et al., 2007), the medication advantage had diminished. This is frequently examined — always cite both time points.</p></div>
+<h2>11.2 Conduct Disorder</h2>
+<p><strong>First-line (children):</strong> Parent training programmes (e.g., Triple P, Incredible Years, Parent Management Training — Oregon Model).</p>
+<p><strong>First-line (adolescents):</strong></p>
+<ul>
+  <li>Multisystemic Therapy (MST, Henggeler): intensive family and community-based treatment addressing multiple systems (family, school, peer, community). Evidence: Henggeler et al. (1998) reduced reoffending.</li>
+  <li>Parent-Child Interaction Therapy (PCIT, Eyberg): live-coached parent-child interactions targeting disruptive behaviour.</li>
+</ul>
+
+<h2>11.3 Separation Anxiety Disorder</h2>
+<p><strong>First-line:</strong> CBT adapted for children (e.g., Coping Cat programme, Kendall 1994). Includes psychoeducation, coping skills, graded exposure to separation situations. Kendall et al. (1997): 71% of treated children no longer met diagnostic criteria at post-treatment.</p>
+<h2>11.4 Adolescent Depression</h2>
+<p><strong>First-line:</strong> CBT (adapted for adolescents), IPT-A (interpersonal therapy for adolescents — Mufson et al., 2004).</p>
+<ul>
+  <li>TADS Study (2004): CBT + fluoxetine > fluoxetine alone > CBT alone > placebo. Combined treatment is the gold standard for moderate-severe adolescent depression.</li>
+</ul>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>The TADS study (Treatment of Adolescents with Depression Study, 2004) is essential for adolescent depression. Combined CBT + fluoxetine had a response rate of 71% vs. fluoxetine alone 61% vs. CBT alone 43% vs. placebo 35%. The surprisingly low CBT-alone response rate was controversial and differs from adult findings.</p></div>
+<h3>Child/Adolescent Therapy by Disorder</h3>
+<table>
+<thead><tr><th>Disorder</th><th>1st Line</th><th>2nd Line</th><th>Key Trial</th></tr></thead>
+<tbody>
+<tr><td>ADHD (preschool)</td><td>Parent training</td><td>—</td><td>NICE NG87</td></tr>
+<tr><td>ADHD (school-age)</td><td>Parent training + school BT; medication for moderate-severe</td><td>CBT skills training</td><td>MTA Study 1999</td></tr>
+<tr><td>Conduct Disorder (child)</td><td>Parent training (Triple P, Incredible Years)</td><td>—</td><td>Webster-Stratton 1998</td></tr>
+<tr><td>Conduct Disorder (adolescent)</td><td>MST, PCIT</td><td>FFT (Functional Family Therapy)</td><td>Henggeler et al. 1998</td></tr>
+<tr><td>Separation Anxiety</td><td>CBT (Coping Cat)</td><td>Family CBT</td><td>Kendall et al. 1997</td></tr>
+<tr><td>Adolescent Depression</td><td>CBT + SSRI (combined), IPT-A</td><td>CBT alone, fluoxetine alone</td><td>TADS 2004</td></tr>
+<tr><td>Adolescent BPD features</td><td>DBT-A (Rathus & Miller)</td><td>MBT-A</td><td>Mehlum et al. 2014</td></tr>
+<tr><td>Adolescent Self-Harm</td><td>DBT-A</td><td>MBT-A, CBT</td><td>Mehlum et al. 2014</td></tr>
+<tr><td>Adolescent Anxiety</td><td>CBT (Coping Cat / FRIENDS)</td><td>Family CBT</td><td>Kendall et al. 1997</td></tr>
+<tr><td>Adolescent AN</td><td>FBT (Maudsley)</td><td>Individual therapy</td><td>Lock et al. 2010</td></tr>
+</tbody>
+</table>
+
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>DBT for adolescents (Rathus & Miller) differs from adult DBT in several key ways: a fifth skills module (Walking the Middle Path) addresses parent-teen dialectical dilemmas, parents attend skills groups alongside adolescents, and the programme duration is 24 weeks rather than 1 year.</p></div>
+<hr>
+<h1>12. COUPLES AND RELATIONAL PROBLEMS</h1>
+<h2>12.1 Gottman Method Couples Therapy</h2>
+<ul>
+  <li>Based on Gottman's research on marital stability (Sound Relationship House theory).</li>
+  <li>Key concepts: "Four Horsemen" (criticism, contempt, defensiveness, stonewalling), 5:1 positive-to-negative ratio, turning toward vs. turning away from bids for connection.</li>
+  <li>Assessment-based: extensive evaluation (questionnaires, oral history interview, conflict discussion) before intervention.</li>
+</ul>
+
+<h2>12.2 Emotionally Focused Therapy for Couples (EFT-C, Johnson, 2004)</h2>
+<ul>
+  <li>Based on attachment theory (Bowlby). Distress occurs when attachment bonds are threatened; couples get stuck in negative interaction cycles (pursue-withdraw being the most common).</li>
+  <li>Three stages: (1) de-escalation of negative cycles, (2) restructuring attachment bonds (accessing and expressing primary emotions), (3) consolidation.</li>
+  <li>Johnson et al. (1999) meta-analysis: d = 1.31 (large effect size). 70-75% of couples move from distress to recovery.</li>
+</ul>
+
+<h2>12.3 Behavioural Couples Therapy (BCT, Jacobson & Christensen)</h2>
+<ul>
+  <li>Based on social exchange theory and operant conditioning. Targets behavioural exchanges between partners.</li>
+  <li>Techniques: behavioural exchange (caring days), communication training, problem-solving training.</li>
+  <li>Integrative BCT (IBCT, Christensen et al., 2004) adds acceptance strategies to traditional BCT. Christensen et al. (2004): IBCT > traditional BCT at 2-year follow-up.</li>
+</ul>
+
+<div class="box box-strategy"><div class="box-label">Exam Strategy</div><p>When asked about couples therapy for depression, note that Behavioural Couples Therapy has evidence for depression where relationship distress is a maintaining factor (Barbato & D'Avanzo, 2008, Cochrane review). EFT-C has the largest effect sizes in the couples therapy literature but fewer independent replications.</p></div>
+<hr>
+<h1>MASTER TABLE: DISORDER-SPECIFIC THERAPY MAP</h1>
+<table>
+<thead><tr><th>#</th><th>Disorder</th><th>1st Line Therapy</th><th>2nd Line</th><th>Emerging / Adjunct</th><th>NICE Guideline</th><th>Key Trial</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>MDD (mild-moderate)</td><td>CBT, BA, IPT</td><td>Guided self-help, STPP</td><td>MBCT (relapse prevention)</td><td>CG90/NG222</td><td>Rush 1977; Elkin 1989</td></tr>
+<tr><td>2</td><td>MDD (severe)</td><td>CBT + SSRI, IPT + SSRI</td><td>BA + SSRI</td><td>CBASP</td><td>CG90/NG222</td><td>Cuijpers 2020</td></tr>
+<tr><td>3</td><td>Persistent Depressive Disorder</td><td>CBT, IPT</td><td>CBASP, Schema Therapy</td><td>MBCT</td><td>(as MDD)</td><td>Keller 2000</td></tr>
+<tr><td>4</td><td>Treatment-Resistant Depression</td><td>CBT augmentation</td><td>STPP, Schema Therapy</td><td>Ketamine-assisted therapy</td><td>CG90</td><td>Wiles 2013 (CoBalT)</td></tr>
+<tr><td>5</td><td>GAD</td><td>CBT, Applied Relaxation</td><td>STPP, mindfulness</td><td>Metacognitive Therapy (Wells)</td><td>CG113</td><td>Borkovec 1995</td></tr>
+<tr><td>6</td><td>Social Anxiety Disorder</td><td>CBT (Clark & Wells)</td><td>STPP</td><td>Internet-delivered CBT</td><td>CG159</td><td>Clark 2006</td></tr>
+<tr><td>7</td><td>Specific Phobia</td><td>In vivo exposure</td><td>Systematic desensitisation</td><td>Virtual reality exposure</td><td>—</td><td>Ost 1989</td></tr>
+<tr><td>8</td><td>Panic Disorder</td><td>CBT (Clark model)</td><td>Applied Relaxation</td><td>Internet-delivered CBT</td><td>CG113</td><td>Clark 1994</td></tr>
+<tr><td>9</td><td>Agoraphobia</td><td>CBT + graded exposure</td><td>Guided self-help exposure</td><td>Virtual reality exposure</td><td>CG113</td><td>—</td></tr>
+<tr><td>10</td><td>OCD</td><td>CBT with ERP</td><td>SSRI (high dose)</td><td>Intensive residential ERP</td><td>CG31</td><td>Foa 2005</td></tr>
+<tr><td>11</td><td>BDD</td><td>CBT (adapted)</td><td>SSRI</td><td>—</td><td>CG31</td><td>Veale 2010</td></tr>
+<tr><td>12</td><td>Hoarding Disorder</td><td>CBT (adapted) + MI</td><td>SSRI</td><td>—</td><td>—</td><td>Steketee 2007</td></tr>
+<tr><td>13</td><td>PTSD</td><td>TF-CBT (PE, CPT), EMDR</td><td>SSRI (sertraline, paroxetine)</td><td>Imagery rescripting, MDMA-AT</td><td>NG116</td><td>Powers 2010; Bisson 2007</td></tr>
+<tr><td>14</td><td>Complex PTSD</td><td>Phase-based (STAIR+PE)</td><td>Schema Therapy</td><td>EMDR + stabilisation</td><td>(NG116)</td><td>Cloitre 2010</td></tr>
+<tr><td>15</td><td>Adjustment Disorder</td><td>Supportive counselling, brief CBT</td><td>Problem-solving therapy</td><td>—</td><td>—</td><td>Cuijpers 2020</td></tr>
+<tr><td>16</td><td>BPD</td><td>DBT, MBT</td><td>TFP, Schema Therapy</td><td>Group Schema Therapy</td><td>CG78</td><td>Linehan 2006; Bateman 2008; Giesen-Bley 2006</td></tr>
+<tr><td>17</td><td>ASPD</td><td>Forensic CBT programmes</td><td>MI + anger management</td><td>—</td><td>CG77</td><td>Woody 1985</td></tr>
+<tr><td>18</td><td>NPD</td><td>Schema Therapy</td><td>Psychodynamic (Kohut/Kernberg)</td><td>CT-PD (Beck)</td><td>—</td><td>—</td></tr>
+<tr><td>19</td><td>AvPD</td><td>CBT, Schema Therapy</td><td>STPP</td><td>Group CBT</td><td>—</td><td>—</td></tr>
+<tr><td>20</td><td>AN (adolescent)</td><td>FBT (Maudsley)</td><td>Individual therapy</td><td>—</td><td>NG69</td><td>Lock 2010</td></tr>
+<tr><td>21</td><td>AN (adult)</td><td>CBT-ED, MANTRA, SSCM</td><td>Focal psychodynamic</td><td>Schema Therapy</td><td>NG69</td><td>Zipfel 2014 (ANTOP)</td></tr>
+<tr><td>22</td><td>BN</td><td>CBT-E (Fairburn)</td><td>IPT</td><td>Guided self-help</td><td>NG69</td><td>Fairburn 2009</td></tr>
+<tr><td>23</td><td>BED</td><td>CBT, guided self-help</td><td>IPT</td><td>—</td><td>NG69</td><td>Wilfley 2002</td></tr>
+<tr><td>24</td><td>Alcohol Use Disorder</td><td>MI, CBT relapse prevention</td><td>CRA, TSF</td><td>Contingency management</td><td>CG115</td><td>Project MATCH 1997</td></tr>
+<tr><td>25</td><td>Opioid Use Disorder</td><td>CBT relapse prevention + OAT</td><td>Contingency management</td><td>—</td><td>CG51</td><td>—</td></tr>
+<tr><td>26</td><td>Stimulant Use Disorder</td><td>CBT, Contingency management</td><td>CRA</td><td>MI</td><td>—</td><td>—</td></tr>
+<tr><td>27</td><td>Schizophrenia</td><td>CBTp + family intervention</td><td>Social skills training</td><td>CT-R (Beck)</td><td>CG178</td><td>Morrison 2014; Pilling 2002</td></tr>
+<tr><td>28</td><td>Bipolar Disorder</td><td>Psychoeducation + mood stabiliser</td><td>IPSRT, CBT, FFT</td><td>—</td><td>CG185</td><td>Colom 2003; Frank 2005</td></tr>
+<tr><td>29</td><td>ADHD (child)</td><td>Parent training, school BT</td><td>CBT skills (adjunct)</td><td>—</td><td>NG87</td><td>MTA Study 1999</td></tr>
+<tr><td>30</td><td>Conduct Disorder</td><td>Parent training, MST</td><td>PCIT, FFT</td><td>—</td><td>CG158</td><td>Henggeler 1998</td></tr>
+<tr><td>31</td><td>Adolescent Depression</td><td>CBT + SSRI, IPT-A</td><td>CBT alone</td><td>DBT-A (with self-harm)</td><td>NG134</td><td>TADS 2004</td></tr>
+<tr><td>32</td><td>Couples Distress</td><td>EFT-C, Gottman Method</td><td>BCT, IBCT</td><td>—</td><td>—</td><td>Johnson 1999</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>Viva Practice Questions</h2>
+<ol>
+  <li><strong>Compare CBT and IPT for depression. When would you choose one over the other?</strong></li>
+  <li><strong>Describe the Clark and Wells model for social anxiety and how it informs treatment.</strong></li>
+  <li><strong>What is the evidence base for ERP in OCD? Is it superior to pharmacotherapy?</strong></li>
+  <li><strong>Compare the four evidence-based treatments for BPD (DBT, MBT, TFP, ST). Which has the strongest evidence?</strong></li>
+  <li><strong>What is the role of psychological therapy in schizophrenia? Describe CBTp.</strong></li>
+  <li><strong>Explain IPSRT for bipolar disorder. What theoretical model underpins it?</strong></li>
+  <li><strong>A patient with PTSD is referred for psychological therapy. Walk through the NICE-recommended options.</strong></li>
+  <li><strong>What is MBCT and for whom is it indicated? When would you NOT recommend it?</strong></li>
+  <li><strong>Describe the Maudsley model (FBT) for adolescent anorexia nervosa.</strong></li>
+  <li><strong>What psychological interventions are effective for substance use disorders?</strong></li>
+  <li><strong>How does CBT for personality disorders differ from CBT for Axis I disorders? (Beck CT-PD framework)</strong></li>
+  <li><strong>A patient with BPD is in crisis. Using the DBT framework, describe your approach to treatment prioritisation.</strong></li>
+</ol>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="div-band"></div>
+  <div class="div-body">
+    <div class="div-num">02</div>
+    <div class="div-title">Clinical Quick Reference</div>
+    <div class="div-stripe"></div>
+    <div class="div-desc">Disorder-Specific Therapy Map &mdash; Weave Psychotherapy Vol. 11</div>
+    <div class="div-foot">www.weave.clinic</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-bar"></div>
+  <div class="pg-head">
+    <span class="hd-brand">WEAVE</span>
+    <span>Weave Psychotherapy Vol. 11 | Disorder-Specific Therapy Map</span>
+    <span class="hd-chapter">Chapter 02 &middot; Clinical Quick Reference</span>
+  </div>
+  <div class="pg-stripe"></div>
+<h1>D6: Disorder-Specific Therapy Map — Quick Reference</h1>
+<hr>
+<h2>1. MASTER DISORDER-THERAPY TABLE</h2>
+<p>The single most important table in this series. Covers 32 disorder-therapy pairings with guideline sources.</p>
+<table>
+<thead><tr><th>#</th><th>Disorder</th><th>1st Line Therapy</th><th>2nd Line</th><th>Emerging / Adjunct</th><th>NICE Guideline</th><th>Key Trial</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>MDD (mild-moderate)</td><td>CBT, BA, IPT</td><td>Guided self-help, STPP</td><td>MBCT (relapse prevention)</td><td>CG90/NG222</td><td>Rush 1977; Elkin 1989</td></tr>
+<tr><td>2</td><td>MDD (severe)</td><td>CBT + SSRI, IPT + SSRI</td><td>BA + SSRI</td><td>CBASP</td><td>CG90/NG222</td><td>Cuijpers 2020</td></tr>
+<tr><td>3</td><td>Persistent Depressive Disorder</td><td>CBT, IPT</td><td>CBASP, Schema Therapy</td><td>MBCT</td><td>(as MDD)</td><td>Keller 2000 (NEJM)</td></tr>
+<tr><td>4</td><td>Treatment-Resistant Depression</td><td>CBT augmentation of medication</td><td>STPP, Schema Therapy</td><td>Ketamine-assisted therapy</td><td>CG90</td><td>Wiles 2013 (CoBalT)</td></tr>
+<tr><td>5</td><td>GAD</td><td>CBT, Applied Relaxation</td><td>STPP, mindfulness</td><td>Metacognitive Therapy (Wells)</td><td>CG113</td><td>Borkovec 1995</td></tr>
+<tr><td>6</td><td>Social Anxiety Disorder</td><td>CBT (Clark & Wells model)</td><td>STPP (Leichsenring 2013)</td><td>Internet-delivered CBT</td><td>CG159</td><td>Clark 2006</td></tr>
+<tr><td>7</td><td>Specific Phobia</td><td>In vivo graded exposure</td><td>Systematic desensitisation</td><td>Virtual reality exposure</td><td>—</td><td>Ost 1989</td></tr>
+<tr><td>8</td><td>Panic Disorder</td><td>CBT (Clark model)</td><td>Applied Relaxation</td><td>Internet-delivered CBT</td><td>CG113</td><td>Clark 1994, 1999</td></tr>
+<tr><td>9</td><td>Agoraphobia</td><td>CBT + graded in vivo exposure</td><td>Guided self-help exposure</td><td>VR exposure</td><td>CG113</td><td>—</td></tr>
+<tr><td>10</td><td>OCD</td><td>CBT with ERP (Salkovskis model)</td><td>SSRI (high dose)</td><td>Intensive residential ERP</td><td>CG31</td><td>Foa 2005</td></tr>
+<tr><td>11</td><td>BDD</td><td>CBT (adapted for BDD)</td><td>SSRI</td><td>—</td><td>CG31</td><td>Veale 2010</td></tr>
+<tr><td>12</td><td>Hoarding Disorder</td><td>CBT (adapted) + MI</td><td>SSRI</td><td>—</td><td>—</td><td>Steketee 2007</td></tr>
+<tr><td>13</td><td>PTSD</td><td>TF-CBT (PE, CPT), EMDR</td><td>SSRI (sertraline, paroxetine)</td><td>Imagery rescripting</td><td>NG116</td><td>Powers 2010; Bisson 2007</td></tr>
+<tr><td>14</td><td>Complex PTSD</td><td>Phase-based: STAIR + PE</td><td>Schema Therapy, EMDR + stabilisation</td><td>—</td><td>(NG116)</td><td>Cloitre 2010</td></tr>
+<tr><td>15</td><td>Adjustment Disorder</td><td>Supportive counselling, brief CBT</td><td>Problem-solving therapy</td><td>—</td><td>—</td><td>Cuijpers 2020</td></tr>
+<tr><td>16</td><td>BPD</td><td>DBT, MBT</td><td>TFP, Schema Therapy</td><td>Group Schema Therapy</td><td>CG78</td><td>Linehan 2006; Bateman 2008</td></tr>
+<tr><td>17</td><td>ASPD</td><td>Forensic CBT programmes</td><td>MI + anger management</td><td>—</td><td>CG77</td><td>Woody 1985</td></tr>
+<tr><td>18</td><td>NPD</td><td>Schema Therapy</td><td>Psychodynamic (Kohut/Kernberg)</td><td>CT-PD (Beck)</td><td>—</td><td>—</td></tr>
+<tr><td>19</td><td>AvPD</td><td>CBT, Schema Therapy</td><td>STPP</td><td>Group CBT</td><td>—</td><td>—</td></tr>
+<tr><td>20</td><td>OCPD</td><td>CBT (Beck CT-PD)</td><td>Schema Therapy</td><td>Psychodynamic</td><td>—</td><td>—</td></tr>
+<tr><td>21</td><td>Dependent PD</td><td>CBT (graded autonomy), Schema Therapy</td><td>Psychodynamic</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>22</td><td>AN (adolescent)</td><td>FBT (Maudsley model)</td><td>Individual therapy</td><td>—</td><td>NG69</td><td>Lock 2010</td></tr>
+<tr><td>23</td><td>AN (adult)</td><td>CBT-ED, MANTRA, SSCM</td><td>Focal psychodynamic, ST</td><td>—</td><td>NG69</td><td>Zipfel 2014 (ANTOP)</td></tr>
+<tr><td>24</td><td>BN</td><td>CBT-E (Fairburn)</td><td>IPT</td><td>Guided self-help</td><td>NG69</td><td>Fairburn 2009</td></tr>
+<tr><td>25</td><td>BED</td><td>CBT, guided self-help CBT</td><td>IPT</td><td>—</td><td>NG69</td><td>Wilfley 2002</td></tr>
+<tr><td>26</td><td>Alcohol Use Disorder</td><td>MI, CBT relapse prevention</td><td>CRA, TSF (12-step facilitation)</td><td>Contingency management</td><td>CG115</td><td>Project MATCH 1997</td></tr>
+<tr><td>27</td><td>Opioid Use Disorder</td><td>CBT relapse prevention + OAT</td><td>Contingency management</td><td>CRA</td><td>CG51</td><td>—</td></tr>
+<tr><td>28</td><td>Stimulant Use Disorder</td><td>CBT, Contingency management</td><td>CRA, MI</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>29</td><td>Schizophrenia</td><td>CBTp + family intervention</td><td>Social skills training</td><td>CT-R (Beck)</td><td>CG178</td><td>Morrison 2014; Pilling 2002</td></tr>
+<tr><td>30</td><td>Bipolar Disorder</td><td>Psychoeducation + mood stabiliser</td><td>IPSRT, CBT, FFT</td><td>—</td><td>CG185</td><td>Colom 2003; Frank 2005</td></tr>
+<tr><td>31</td><td>ADHD (child)</td><td>Parent training, school BT</td><td>CBT skills (adjunct)</td><td>—</td><td>NG87</td><td>MTA Study 1999</td></tr>
+<tr><td>32</td><td>Conduct Disorder</td><td>Parent training (child); MST (adolescent)</td><td>PCIT, FFT</td><td>—</td><td>CG158</td><td>Henggeler 1998</td></tr>
+<tr><td>33</td><td>Adolescent Depression</td><td>CBT + SSRI (combined), IPT-A</td><td>CBT alone, fluoxetine alone</td><td>DBT-A (with self-harm)</td><td>NG134</td><td>TADS 2004</td></tr>
+<tr><td>34</td><td>Separation Anxiety (child)</td><td>CBT (Coping Cat programme)</td><td>Family CBT</td><td>—</td><td>—</td><td>Kendall 1997</td></tr>
+<tr><td>35</td><td>Adolescent AN</td><td>FBT (Maudsley)</td><td>Individual therapy</td><td>—</td><td>NG69</td><td>Lock 2010</td></tr>
+<tr><td>36</td><td>Adolescent Self-Harm</td><td>DBT-A (Rathus & Miller)</td><td>MBT-A</td><td>—</td><td>—</td><td>Mehlum 2014</td></tr>
+<tr><td>37</td><td>Couples Distress</td><td>EFT-C (Johnson), Gottman Method</td><td>BCT, IBCT</td><td>—</td><td>—</td><td>Johnson 1999</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>2. BPD TREATMENTS HEAD-TO-HEAD</h2>
+<table>
+<thead><tr><th>Feature</th><th>DBT</th><th>MBT</th><th>TFP</th><th>Schema Therapy</th></tr></thead>
+<tbody>
+<tr><td><strong>Developer</strong></td><td>Linehan</td><td>Bateman & Fonagy</td><td>Kernberg</td><td>Young</td></tr>
+<tr><td><strong>Model</strong></td><td>Biosocial (biology + invalidation)</td><td>Attachment (impaired mentalisation)</td><td>Object relations (identity diffusion)</td><td>Schema modes (unmet childhood needs)</td></tr>
+<tr><td><strong>Primary target</strong></td><td>Emotion dysregulation, self-harm</td><td>Mentalisation capacity</td><td>Identity integration, affect modulation</td><td>Schema healing, mode change</td></tr>
+<tr><td><strong>Therapist stance</strong></td><td>Acceptance + change (dialectical)</td><td>Curious, not-knowing</td><td>Neutral, interpretive</td><td>Limited reparenting + empathic confrontation</td></tr>
+<tr><td><strong>Structure</strong></td><td>Individual + skills group + phone coaching + consult team</td><td>Individual + group analytic (1x/wk each)</td><td>Individual (2x/wk)</td><td>Individual (1-2x/wk)</td></tr>
+<tr><td><strong>Duration</strong></td><td>1 year</td><td>18 months + 18 months stepdown</td><td>1-3 years</td><td>2-3 years</td></tr>
+<tr><td><strong>Key techniques</strong></td><td>Chain analysis, diary cards, 4 skills modules, validation</td><td>Clarification, elaboration, challenge, mentalising transference</td><td>Transference interpretation, confrontation</td><td>Imagery rescripting, chair work, mode dialogues, flash cards</td></tr>
+<tr><td><strong>Key trial</strong></td><td>Linehan 2006</td><td>Bateman & Fonagy 2008</td><td>Doering 2010; Clarkin 2007</td><td>Giesen-Bley 2006</td></tr>
+<tr><td><strong>Recovery rate</strong></td><td>Significant reduction in self-harm</td><td>Improved social function, reduced self-harm</td><td>Improved personality organisation</td><td>45% recovery (vs. 24% TFP)</td></tr>
+<tr><td><strong>Dropout rate</strong></td><td>~25%</td><td>~25%</td><td>~50%</td><td>~27%</td></tr>
+<tr><td><strong>NICE recommended</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td><strong>Best for</strong></td><td>High-risk, actively suicidal</td><td>Comorbid depression, low mentalisation</td><td>Higher-functioning, identity confusion</td><td>Chronic BPD, CBT non-responders</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Giesen-Bley 2006 is the only head-to-head RCT showing superiority: ST > TFP (recovery 45% vs. 24%, dropout 27% vs. 50%).</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>DBT target hierarchy (governs every session): (1) Life-threatening behaviours &rarr; (2) Therapy-interfering behaviours &rarr; (3) Quality-of-life-interfering behaviours &rarr; (4) Increasing skills.</p></div>
+<hr>
+<h2>3. DEPRESSION THERAPIES RANKED</h2>
+<table>
+<thead><tr><th>Therapy</th><th>Effect Size (d)</th><th>Best For</th><th>NNT</th><th>Key Limitation</th></tr></thead>
+<tbody>
+<tr><td>BA</td><td>0.74</td><td>Severe depression; resource-limited settings</td><td>~5</td><td>Less relapse prevention evidence</td></tr>
+<tr><td>CBT</td><td>0.71</td><td>Mild-severe; most evidence overall</td><td>~5</td><td>May be less effective in severe depression as monotherapy</td></tr>
+<tr><td>STPP</td><td>0.69</td><td>Characterological depression</td><td>~5</td><td>Fewer RCTs; longer training</td></tr>
+<tr><td>IPT</td><td>0.67</td><td>Depression with interpersonal problems</td><td>~5</td><td>Limited therapist availability</td></tr>
+<tr><td>MBCT</td><td>RR 0.69 (relapse)</td><td>Relapse prevention (3+ episodes)</td><td>~4</td><td>NOT for acute depression</td></tr>
+<tr><td>CBASP</td><td>—</td><td>Chronic/persistent depression</td><td>—</td><td>Complex; limited evidence</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>For mild-moderate depression, no therapy is clearly superior to another — the Dodo bird verdict applies (Wampold, 2015). For severe depression, combination (therapy + medication) is consistently superior to either alone.</p></div>
+<div class="box box-clinical"><div class="box-label">Clinical Anchor</div><p>MANAS trial (Patel 2010, Lancet): BA delivered by lay health workers was effective for common mental disorders in India — major implication for low-resource settings.</p></div>
+<hr>
+<h2>4. ANXIETY THERAPIES BY DISORDER</h2>
+<table>
+<thead><tr><th>Anxiety Disorder</th><th>1st Line Protocol</th><th>Key CBT Model</th><th>Unique Technique</th><th>Effect Size</th></tr></thead>
+<tbody>
+<tr><td>GAD</td><td>CBT (16-20 sessions)</td><td>Borkovec; Dugas (IU); Wells (metacognitive)</td><td>Worry postponement, behavioural experiments for IU</td><td>d = 0.80</td></tr>
+<tr><td>Social Anxiety</td><td>CBT (Clark & Wells)</td><td>Self-focused attention + safety behaviours + post-event rumination</td><td>Video feedback, attention training, behavioural experiments</td><td>d = 1.20</td></tr>
+<tr><td>Specific Phobia</td><td>In vivo exposure (1-5 sessions)</td><td>Habituation / inhibitory learning</td><td>Single-session exposure (Ost 1989); applied tension for BII phobia</td><td>d = 1.05</td></tr>
+<tr><td>Panic Disorder</td><td>CBT (Clark model)</td><td>Catastrophic misinterpretation of bodily sensations</td><td>Interoceptive exposure (hyperventilation, spinning)</td><td>d = 0.90</td></tr>
+<tr><td>Agoraphobia</td><td>CBT + graded exposure</td><td>Avoidance maintains fear</td><td>Systematic in vivo exposure hierarchy</td><td>d = 0.80</td></tr>
+</tbody>
+</table>
+
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Applied tension (Ost & Sterner 1987) is specific to blood-injection-injury phobia — the ONLY phobia subtype with a parasympathetic (vasovagal) rather than sympathetic response pattern.</p></div>
+<div class="box box-pearl"><div class="box-label">Exam Pearl</div><p>Clark & Wells model for social anxiety has three maintaining factors: (1) self-focused attention, (2) safety behaviours, (3) anticipatory and post-event processing. Most examined CBT anxiety model.</p></div>
+<hr>
+<h2>5. EVIDENCE LEVELS — QUICK GUIDE</h2>
+<h3>NICE Recommendation Strength</h3>
+<table>
+<thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>"Offer"</td><td>Strong recommendation — do this</td></tr>
+<tr><td>"Consider"</td><td>Conditional recommendation — weigh individual factors</td></tr>
+<tr><td>"Do not routinely offer"</td><td>Evidence does not support routine use</td></tr>
+<tr><td>"Do not offer"</td><td>Evidence of harm or no benefit</td></tr>
+</tbody>
+</table>
+
+<h3>Effect Size Interpretation</h3>
+<table>
+<thead><tr><th>Cohen's d</th><th>NNT (approx.)</th><th>Label</th></tr></thead>
+<tbody>
+<tr><td>0.2</td><td>~16</td><td>Small</td></tr>
+<tr><td>0.5</td><td>~6</td><td>Medium</td></tr>
+<tr><td>0.8</td><td>~4</td><td>Large</td></tr>
+<tr><td>1.0+</td><td>~3</td><td>Very large</td></tr>
+</tbody>
+</table>
+
+<h3>Key Meta-Analysts to Know</h3>
+<table>
+<thead><tr><th>Researcher</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td>Cuijpers P</td><td>Depression psychotherapy meta-analyses (VU Amsterdam); most cited researcher in the field</td></tr>
+<tr><td>Leichsenring F</td><td>Psychodynamic therapy meta-analyses; head-to-head comparisons with CBT</td></tr>
+<tr><td>Shedler J</td><td>"Where is the evidence for evidence-based therapy?" (2010) — case for psychodynamic therapy</td></tr>
+<tr><td>Wampold BE</td><td>Common factors model; Dodo bird verdict; alliance accounts for more variance than specific techniques</td></tr>
+<tr><td>Jauhar S</td><td>CBTp meta-analyses (smaller effects than earlier reviews)</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>6. KEY THERAPY ACRONYMS</h2>
+<table>
+<thead><tr><th>Acronym</th><th>Full Name</th><th>Used For</th></tr></thead>
+<tbody>
+<tr><td>CBT</td><td>Cognitive Behaviour Therapy</td><td>Depression, anxiety, OCD, PTSD, psychosis</td></tr>
+<tr><td>BA</td><td>Behavioural Activation</td><td>Depression</td></tr>
+<tr><td>IPT</td><td>Interpersonal Therapy</td><td>Depression, BN, BED</td></tr>
+<tr><td>MBCT</td><td>Mindfulness-Based Cognitive Therapy</td><td>Depression relapse prevention</td></tr>
+<tr><td>CBASP</td><td>Cognitive Behavioural Analysis System of Psychotherapy</td><td>Chronic depression</td></tr>
+<tr><td>ERP</td><td>Exposure and Response Prevention</td><td>OCD</td></tr>
+<tr><td>PE</td><td>Prolonged Exposure</td><td>PTSD</td></tr>
+<tr><td>CPT</td><td>Cognitive Processing Therapy</td><td>PTSD</td></tr>
+<tr><td>EMDR</td><td>Eye Movement Desensitisation and Reprocessing</td><td>PTSD</td></tr>
+<tr><td>STAIR</td><td>Skills Training in Affective and Interpersonal Regulation</td><td>Complex PTSD (Phase 1)</td></tr>
+<tr><td>DBT</td><td>Dialectical Behaviour Therapy</td><td>BPD, self-harm, emotion dysregulation</td></tr>
+<tr><td>MBT</td><td>Mentalisation-Based Treatment</td><td>BPD</td></tr>
+<tr><td>TFP</td><td>Transference-Focused Psychotherapy</td><td>BPD</td></tr>
+<tr><td>ST</td><td>Schema Therapy</td><td>BPD, NPD, chronic PDs</td></tr>
+<tr><td>CT-PD</td><td>Cognitive Therapy of Personality Disorders</td><td>All PDs (Beck framework)</td></tr>
+<tr><td>CBT-E</td><td>Enhanced CBT</td><td>Eating disorders (transdiagnostic)</td></tr>
+<tr><td>FBT</td><td>Family-Based Treatment (Maudsley)</td><td>Adolescent AN</td></tr>
+<tr><td>MANTRA</td><td>Maudsley AN Treatment for Adults</td><td>Adult AN</td></tr>
+<tr><td>SSCM</td><td>Specialist Supportive Clinical Management</td><td>Adult AN</td></tr>
+<tr><td>MI</td><td>Motivational Interviewing</td><td>Substance use, ambivalence</td></tr>
+<tr><td>CRA</td><td>Community Reinforcement Approach</td><td>Alcohol use disorder</td></tr>
+<tr><td>TSF</td><td>Twelve-Step Facilitation</td><td>Alcohol use disorder</td></tr>
+<tr><td>CBTp</td><td>CBT for Psychosis</td><td>Schizophrenia</td></tr>
+<tr><td>CT-R</td><td>Recovery-Oriented Cognitive Therapy</td><td>Schizophrenia</td></tr>
+<tr><td>IPSRT</td><td>Interpersonal and Social Rhythm Therapy</td><td>Bipolar disorder</td></tr>
+<tr><td>FFT</td><td>Family-Focused Therapy</td><td>Bipolar disorder, conduct disorder</td></tr>
+<tr><td>MST</td><td>Multisystemic Therapy</td><td>Conduct disorder (adolescent)</td></tr>
+<tr><td>PCIT</td><td>Parent-Child Interaction Therapy</td><td>Conduct disorder (child)</td></tr>
+<tr><td>EFT-C</td><td>Emotionally Focused Therapy for Couples</td><td>Couples distress</td></tr>
+<tr><td>IBCT</td><td>Integrative Behavioural Couples Therapy</td><td>Couples distress</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>7. VIVA QUESTIONS (12)</h2>
+<ol>
+  <li><strong>"Talk me through the NICE stepped-care model for depression."</strong> Start with watchful waiting/guided self-help (mild), through BA/CBT/IPT (moderate), to combined therapy + medication (severe), to specialist referral (treatment-resistant). Cite CG90/NG222.</li>
+</ol>
+
+<ol>
+  <li><strong>"What is the evidence for CBT vs. medication in OCD?"</strong> Foa 2005: ERP = clomipramine; ERP alone is sufficient for moderate OCD. NICE recommends ERP as first-line for mild-moderate; SSRI + ERP for moderate-severe.</li>
+</ol>
+
+<ol>
+  <li><strong>"Describe the four evidence-based treatments for BPD."</strong> DBT (biosocial, emotion dysregulation), MBT (attachment, mentalisation), TFP (object relations, identity), ST (schemas, mode work). Giesen-Bley 2006 is the key head-to-head trial.</li>
+</ol>
+
+<ol>
+  <li><strong>"A patient has recurrent depression with 4 prior episodes. What relapse prevention strategy would you recommend?"</strong> MBCT (Segal, Williams, Teasdale). NNT = 4 for preventing relapse with 3+ episodes. Kuyken 2016. 8-week group programme. NOT for acute depression.</li>
+</ol>
+
+<ol>
+  <li><strong>"Compare PE and EMDR for PTSD."</strong> Both are NICE first-line (NG116). PE has more RCT evidence; EMDR has comparable outcomes (Bisson 2007 Cochrane). PE uses imaginal + in vivo exposure; EMDR uses bilateral stimulation + trauma processing. Mechanism of EMDR is debated (working memory taxation vs. exposure component).</li>
+</ol>
+
+<ol>
+  <li><strong>"What is the role of psychological therapy in bipolar disorder?"</strong> Adjunct to mood stabilisers, never standalone. Hierarchy: psychoeducation (Colom 2003), IPSRT (Frank 2005), CBT (Lam 2003 — effective only if <12 prior episodes), FFT (Miklowitz 2003).</li>
+</ol>
+
+<ol>
+  <li><strong>"Describe the Clark model for panic disorder."</strong> Bodily sensations &rarr; catastrophic misinterpretation &rarr; increased anxiety &rarr; increased sensations (positive feedback loop). Treatment: cognitive restructuring + interoceptive exposure + dropping safety behaviours. 80-90% panic-free rates.</li>
+</ol>
+
+<ol>
+  <li><strong>"How does CBT for personality disorders differ from standard CBT?"</strong> Beck CT-PD: longer duration, targets schemas not just automatic thoughts, therapeutic relationship needs more attention, experiential techniques essential (not optional), resistance as data, three schema operations (restructuring/modification/reinterpretation).</li>
+</ol>
+
+<ol>
+  <li><strong>"What therapy would you recommend for adolescent anorexia nervosa?"</strong> FBT (Maudsley model) — Lock & Le Grange. Three phases: parents take control of feeding, gradual return of control to adolescent, developmental/identity issues. Agnostic about aetiology. NICE first-line (NG69).</li>
+</ol>
+
+<ol>
+  <li><strong>"A 15-year-old with BPD features and recurrent self-harm is referred. What psychological treatment?"</strong> DBT-A (Rathus & Miller). Key differences from adult DBT: 5th module (Walking the Middle Path), multifamily skills group, 24-week duration. Mehlum 2014 RCT showed significant reduction in self-harm.</li>
+</ol>
+
+<ol>
+  <li><strong>"What is motivational interviewing and when is it used?"</strong> MI (Miller & Rollnick) is a communication style, not a full therapy. Spirit: partnership, acceptance, compassion, evocation. Four processes: engaging, focusing, evoking, planning. Resolves ambivalence by eliciting change talk. Used across substance use disorders and as a prelude to behaviour change in any condition.</li>
+</ol>
+
+<ol>
+  <li><strong>"What is the Dodo bird verdict and what does it mean for clinical practice?"</strong> Rosenzweig (1936), confirmed by Wampold (2015): when bona fide therapies are compared head-to-head, differences in outcomes are small and often non-significant. Common factors (alliance, empathy, expectations) account for more outcome variance than specific techniques. Clinical implication: therapist effects may be larger than therapy brand effects. Counter-argument: some disorders have clear treatment-of-choice (ERP for OCD, exposure for phobias).</li>
+</ol>
+
+<hr>
+<h2>8. LANDMARK TRIALS — QUICK INDEX</h2>
+<table>
+<thead><tr><th>Trial</th><th>Year</th><th>Disorder</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>Rush et al.</td><td>1977</td><td>Depression</td><td>First RCT: CBT = imipramine</td></tr>
+<tr><td>Elkin et al. (NIMH TDCRP)</td><td>1989</td><td>Depression</td><td>CBT = IPT = imipramine (mild-moderate); imipramine superior in severe</td></tr>
+<tr><td>Dimidjian et al.</td><td>2006</td><td>Severe depression</td><td>BA = antidepressant > CBT (acute phase)</td></tr>
+<tr><td>Kuyken et al.</td><td>2016</td><td>Recurrent depression</td><td>MBCT reduces relapse; NNT = 4 for 3+ episodes</td></tr>
+<tr><td>Wiles et al. (CoBalT)</td><td>2013</td><td>Treatment-resistant depression</td><td>CBT augmentation effective; NNT = 4</td></tr>
+<tr><td>Keller et al.</td><td>2000</td><td>Chronic depression</td><td>CBASP + nefazodone > either alone (NEJM)</td></tr>
+<tr><td>Patel et al. (MANAS)</td><td>2010</td><td>Common mental disorders</td><td>Lay-delivered BA effective in India (Lancet)</td></tr>
+<tr><td>Clark et al.</td><td>1994, 2006</td><td>Panic, Social anxiety</td><td>CBT 80-90% panic-free; CBT > fluoxetine for social anxiety</td></tr>
+<tr><td>Foa et al.</td><td>2005</td><td>OCD</td><td>ERP = clomipramine; combination not clearly superior</td></tr>
+<tr><td>Bisson et al. (Cochrane)</td><td>2007</td><td>PTSD</td><td>TF-CBT and EMDR both effective; both first-line</td></tr>
+<tr><td>Cloitre et al.</td><td>2010</td><td>Complex PTSD</td><td>STAIR + PE effective (phase-based approach)</td></tr>
+<tr><td>Linehan et al.</td><td>1991, 2006</td><td>BPD</td><td>DBT reduced self-harm and hospitalisation</td></tr>
+<tr><td>Bateman & Fonagy</td><td>1999, 2008</td><td>BPD</td><td>MBT reduced self-harm, improved social function; gains maintained 8 years</td></tr>
+<tr><td>Giesen-Bley et al.</td><td>2006</td><td>BPD</td><td>ST (45% recovery) > TFP (24% recovery); lower dropout</td></tr>
+<tr><td>Fairburn et al.</td><td>2009</td><td>BN</td><td>CBT-E: ~50% remission</td></tr>
+<tr><td>Lock et al.</td><td>2010</td><td>Adolescent AN</td><td>FBT (Maudsley): sustained weight restoration at 4 years</td></tr>
+<tr><td>Project MATCH</td><td>1997</td><td>Alcohol dependence</td><td>TSF = CBT = MET at 1-year and 3-year follow-up</td></tr>
+<tr><td>Colom et al.</td><td>2003, 2009</td><td>Bipolar disorder</td><td>Group psychoeducation reduced relapse at 5-year follow-up</td></tr>
+<tr><td>Frank et al.</td><td>2005</td><td>Bipolar disorder</td><td>IPSRT lengthened time to recurrence</td></tr>
+<tr><td>MTA Study</td><td>1999</td><td>ADHD (child)</td><td>Medication > behavioural treatment for core symptoms; combined best for associated problems</td></tr>
+<tr><td>TADS</td><td>2004</td><td>Adolescent depression</td><td>CBT + fluoxetine (71%) > fluoxetine (61%) > CBT (43%) > placebo (35%)</td></tr>
+<tr><td>Mehlum et al.</td><td>2014</td><td>Adolescent self-harm</td><td>DBT-A reduced self-harm and suicidality</td></tr>
+<tr><td>Morrison et al.</td><td>2014</td><td>Schizophrenia</td><td>CBTp: d = 0.33-0.44 vs. TAU</td></tr>
+<tr><td>Pilling et al.</td><td>2002</td><td>Schizophrenia</td><td>Family intervention reduced relapse by ~50%</td></tr>
+<tr><td>Johnson et al.</td><td>1999</td><td>Couples distress</td><td>EFT-C: d = 1.31; 70-75% recovery</td></tr>
+<tr><td>Kendall et al.</td><td>1997</td><td>Child anxiety</td><td>CBT (Coping Cat): 71% no longer met diagnosis</td></tr>
+</tbody>
+</table>
+
+<hr>
+<h2>9. FIVE THINGS TO REMEMBER</h2>
+<ol>
+  <li><strong>Depression:</strong> CBT = IPT = BA for mild-moderate. Combination is superior for severe. MBCT for relapse prevention (3+ episodes).</li>
+  <li><strong>Anxiety:</strong> Each disorder has a specific CBT model (Clark & Wells for social anxiety, Clark for panic, Salkovskis for OCD, Borkovec/Dugas for GAD). Know the model, not just "CBT."</li>
+  <li><strong>BPD:</strong> Four treatments (DBT, MBT, TFP, ST). NICE recommends DBT and MBT. Giesen-Bley 2006 showed ST > TFP. DBT target hierarchy is heavily examined.</li>
+  <li><strong>Psychosis:</strong> CBTp is an adjunct (small effect, d = 0.33-0.44, but clinically meaningful). Family intervention reduces relapse by 50% (Pilling 2002).</li>
+  <li><strong>Children:</strong> FBT for adolescent AN, parent training for ADHD/conduct disorder, CBT + SSRI for adolescent depression (TADS 2004), DBT-A for adolescent self-harm (Mehlum 2014).</li>
+</ol>
+
+  <div class="pg-foot">
+    <span class="ft-web">www.weave.clinic</span>
+    <span>wilfred.desouza1996@gmail.com</span>
+    <span class="ft-insta">IG: @weave.clinic</span>
+  </div>
+</div>
+
+<div class="back">
+  <div class="back-line"></div>
+  <div class="back-brand">WEAVE</div>
+  <div class="back-sub">Centre for Integrative Psychiatry</div>
+  <div class="back-stripe"></div>
+  <div class="back-tagline">Psychiatry that listens before it prescribes.</div>
+  <div class="back-section"><div class="back-label">Website</div><div class="back-value big">www.weave.clinic</div></div>
+  <div class="back-section"><div class="back-label">Instagram</div><div class="back-value">@weave.clinic &middot; @doc.wilfred.md &middot; @doc.niharika.md</div></div>
+  <div class="back-section"><div class="back-label">Email</div><div class="back-value"><span class="email">wilfred.desouza1996@gmail.com</span></div></div>
+  <div class="back-info">Two doctors. Two approaches. One practice.<br>ADHD &middot; Relationships &middot; Mood &middot; Addiction &middot; Children<br>Online across India</div>
+  <div class="back-line" style="margin-top: 40px;"></div>
+</div>
+</body></html>
