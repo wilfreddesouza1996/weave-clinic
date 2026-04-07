@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+<!-- Kundly analytics helper (GA4 + Supabase mirror) -->
+<script>
+(function(){
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var EVENTS_URL = SUPABASE_URL + '/rest/v1/kundly_funnel_events';
+  var SESSION_KEY = 'kundly_session_id_v1';
+  function uuid(){
+    if (window.crypto && crypto.randomUUID) { try { return crypto.randomUUID(); } catch(e){} }
+    return 'sx-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function getSessionId(){
+    try {
+      var s = localStorage.getItem(SESSION_KEY);
+      if (!s) { s = uuid(); localStorage.setItem(SESSION_KEY, s); }
+      return s;
+    } catch(e){ return 'nostorage-' + uuid(); }
+  }
+  function getSeekerCode(){
+    try { return localStorage.getItem('kundly_sk_code_v1') || null; } catch(e){ return null; }
+  }
+  window.kundlyTrack = function(eventName, params){
+    params = params || {};
+    var sessionId = getSessionId();
+    var seekerCode = getSeekerCode();
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, Object.assign({ session_id: sessionId }, params));
+      }
+    } catch(e){}
+    try {
+      fetch(EVENTS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          event_name: eventName,
+          seeker_code: seekerCode,
+          session_id: sessionId,
+          params: params
+        }),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  };
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kundly privacy notice | Weave</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/kundly/css/kundly.css">
+</head>
+<body class="kundly-body">
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">WEAVE<span>Centre for Integrative Psychiatry</span></a>
+  </div>
+</nav>
+<main>
+  <section class="k-consent">
+    <h1 class="k-consent__title">Privacy notice</h1>
+    <p class="k-consent__intro">The full DPDP-compliant privacy notice for Kundly is being finalised for legal review. A shorter summary of what we collect, why, and how you can delete it lives on the <a href="/kundly/consent.html" style="color:var(--k-terracotta);">consent page</a>. If you have questions in the meantime, write to <strong>wilfred.desouza1996@gmail.com</strong> or Dr. Wilfred at <strong>+91 87936 94229</strong>.</p>
+  </section>
+</main>
+<script>
+  if (typeof kundlyTrack === 'function') kundlyTrack('kundly_privacy_view', {});
+</script>
+</body>
+</html>

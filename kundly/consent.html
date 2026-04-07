@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+<!-- Kundly analytics helper (GA4 + Supabase mirror) -->
+<script>
+(function(){
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var EVENTS_URL = SUPABASE_URL + '/rest/v1/kundly_funnel_events';
+  var SESSION_KEY = 'kundly_session_id_v1';
+  function uuid(){
+    if (window.crypto && crypto.randomUUID) { try { return crypto.randomUUID(); } catch(e){} }
+    return 'sx-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function getSessionId(){
+    try {
+      var s = localStorage.getItem(SESSION_KEY);
+      if (!s) { s = uuid(); localStorage.setItem(SESSION_KEY, s); }
+      return s;
+    } catch(e){ return 'nostorage-' + uuid(); }
+  }
+  function getSeekerCode(){
+    try { return localStorage.getItem('kundly_sk_code_v1') || null; } catch(e){ return null; }
+  }
+  window.kundlyTrack = function(eventName, params){
+    params = params || {};
+    var sessionId = getSessionId();
+    var seekerCode = getSeekerCode();
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, Object.assign({ session_id: sessionId }, params));
+      }
+    } catch(e){}
+    try {
+      fetch(EVENTS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          event_name: eventName,
+          seeker_code: seekerCode,
+          session_id: sessionId,
+          params: params
+        }),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  };
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before we begin — Kundly | Weave</title>
+<meta name="description" content="Four small things to check before you start writing your Kundly. A free reflection tool from Weave — Centre for Integrative Psychiatry.">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/kundly/css/kundly.css">
+</head>
+<body class="kundly-body">
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      WEAVE
+      <span>Centre for Integrative Psychiatry</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/what-to-expect.html">What to Expect</a></li>
+      <li><a href="/learn/index.html">Learn</a></li>
+      <li><a href="/kundly/" class="nav__kundly">Write your Kundly</a></li>
+      <li><a href="/DeepBlue/" class="nav__deepblue">Play DeepBlue</a></li>
+      <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="k-consent">
+    <header class="k-consent__header">
+      <h1 class="k-consent__title">Before we begin</h1>
+      <p class="k-consent__intro">
+        Kundly is a free reflection, given as a gift. Before you start writing, we need you to check four small things — the kind of things we'd want you to check if you were handing us something tender to read.
+      </p>
+      <p class="k-consent__intro" style="margin-top: 1rem;">
+        <strong>We don't need your name or your phone number to begin.</strong> Your writing stays on this device until you choose to send it. Nothing about you is stored anywhere else until you hit submit.
+      </p>
+    </header>
+
+    <div class="k-safety-banner" role="note">
+      If you are in immediate distress or thinking about harming yourself, please do not use this tool right now. Please call <strong>iCall: 9152987821</strong> (Mon–Sat, 8am–10pm) or <strong>AASRA: 9820466726</strong> (24&times;7). Kundly will still be here tomorrow.
+    </div>
+
+    <form id="k-consent-form" class="k-checkbox-group" novalidate>
+      <label class="k-checkbox" for="consent-nature">
+        <input type="checkbox" id="consent-nature" name="consent-nature">
+        <span class="k-checkbox__label">
+          I understand that Kundly is a reflective writing tool, not medical treatment, therapy, or an emergency service. The letter I receive is a preliminary reflection, not a diagnosis.
+        </span>
+      </label>
+
+      <label class="k-checkbox" for="consent-age">
+        <input type="checkbox" id="consent-age" name="consent-age">
+        <span class="k-checkbox__label">
+          I am 18 or older. I am writing about my own life, not someone else's.
+        </span>
+      </label>
+
+      <label class="k-checkbox" for="consent-dpdp">
+        <input type="checkbox" id="consent-dpdp" name="consent-dpdp">
+        <span class="k-checkbox__label">
+          I consent to Weave — Centre for Integrative Psychiatry processing what I write here, when I submit it, for the single purpose of generating a personalised Spark and a Reflection Letter for me. I understand that nothing I write is sent anywhere until I hit submit at the end. Once I submit, my writing will be stored securely for up to 12 months and can be deleted at any time by emailing <strong>wilfred.desouza1996@gmail.com</strong> or writing to Dr. Wilfred on WhatsApp at <strong>+91 87936 94229</strong>.
+        </span>
+      </label>
+
+      <label class="k-checkbox" for="consent-supervision">
+        <input type="checkbox" id="consent-supervision" name="consent-supervision">
+        <span class="k-checkbox__label">
+          I understand that my submission will be read by Dr. Wilfred Dsouza (psychiatry resident, under supervision of consultant psychiatrist Dr. Niharika) before my Reflection Letter is sent. My writing is not shared with any third party for marketing or research without separate consent.
+        </span>
+      </label>
+
+      <div style="margin-top: 2.5rem; padding: 1.75rem 2rem; background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%); border: 1.5px solid #C9A96E; box-shadow: 0 0 0 1px #E0C992, 0 2px 16px rgba(201, 169, 110, 0.18); border-radius: 12px;">
+        <label for="consent-email" style="display:block; font-family:'Inter',sans-serif; font-size:0.9375rem; font-weight:500; color:var(--k-ink); margin-bottom:0.5rem;">
+          Email <span style="color:var(--k-muted); font-weight:400; font-style:italic;">(optional)</span>
+        </label>
+        <p style="font-size: 0.875rem; line-height: 1.6; color: var(--k-ink-soft); margin: 0 0 1rem;">
+          Only if you want to come back from another device — say, start on your phone and finish on your laptop. We'll send you one resume link and nothing else. No newsletters. No follow-up emails. Ever. If you're going to finish in one sitting on this device, you can leave this blank and we won't ask again.
+        </p>
+        <input type="email" id="consent-email" name="consent-email" class="k-input" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <div style="margin-top: 2.5rem; text-align: center;">
+        <button type="submit" id="k-begin-btn" class="k-btn k-btn--primary k-btn--lg" disabled aria-disabled="true">
+          Begin
+        </button>
+        <p style="margin-top: 1.25rem;">
+          <a href="/kundly/privacy.html" style="font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--k-muted); text-decoration:underline;">Read the full privacy notice</a>
+        </p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="kundly-footer">
+  <div class="kundly-footer__inner">
+    <p>Kundly is part of <a href="/">Weave — Centre for Integrative Psychiatry</a>.</p>
+    <p class="kundly-footer__sig">Not a diagnosis. Not a medical test. Not a substitute for therapy.</p>
+    <button type="button" class="kundly-footer__reset" id="k-reset-btn">Start over and clear my saved draft</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  // Consent-page reset: gentle native confirm. Useful if a returning seeker
+  // wants to wipe a previously-saved draft and start fresh from the consent gate.
+  var btn = document.getElementById('k-reset-btn');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var ok = window.confirm(
+      'Start over and clear any saved draft from this browser?\n\n' +
+      'If you have written anything in a previous session, it will be wiped.\n\n' +
+      'Click OK to start fresh, or Cancel to keep your saved draft.'
+    );
+    if (!ok) return;
+    if (typeof kundlyTrack === 'function') kundlyTrack('kundly_reset', { from: 'consent' });
+    try {
+      ['kundly_consent_v1','kundly_draft_v1','kundly_sk_code_v1','kundly_submission_v1'].forEach(function(k){
+        localStorage.removeItem(k);
+      });
+    } catch(e){}
+    window.location.reload();
+  });
+})();
+</script>
+
+<script>
+// Kundly consent gate logic
+(function(){
+  var CONSENT_VERSION = 'consent-copy-v1.1';
+  var form = document.getElementById('k-consent-form');
+  var btn = document.getElementById('k-begin-btn');
+  var requiredBoxes = ['consent-nature','consent-age','consent-dpdp','consent-supervision'];
+
+  function allChecked(){
+    return requiredBoxes.every(function(id){
+      return document.getElementById(id).checked;
+    });
+  }
+
+  function refresh(){
+    var ok = allChecked();
+    btn.disabled = !ok;
+    btn.setAttribute('aria-disabled', ok ? 'false' : 'true');
+    requiredBoxes.forEach(function(id){
+      var el = document.getElementById(id);
+      var row = el.closest('.k-checkbox');
+      if (el.checked) row.classList.add('k-checkbox--active');
+      else row.classList.remove('k-checkbox--active');
+    });
+  }
+
+  requiredBoxes.forEach(function(id){
+    document.getElementById(id).addEventListener('change', refresh);
+  });
+
+  // Simple non-cryptographic hash for the email (real salted hash happens server-side on submit)
+  function simpleHash(s){
+    var h = 0;
+    for (var i = 0; i < s.length; i++) {
+      h = ((h << 5) - h) + s.charCodeAt(i);
+      h |= 0;
+    }
+    return 'h_' + Math.abs(h).toString(36);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!allChecked()) return;
+    var email = document.getElementById('consent-email').value.trim();
+    var consent = {
+      version: CONSENT_VERSION,
+      accepted_at: new Date().toISOString(),
+      checks: {
+        nature: true,
+        age: true,
+        dpdp: true,
+        supervision: true
+      },
+      email_hash: email ? simpleHash(email.toLowerCase()) : null
+    };
+    try {
+      localStorage.setItem('kundly_consent_v1', JSON.stringify(consent));
+    } catch(err){
+      // localStorage unavailable — still proceed
+      console.warn('localStorage unavailable', err);
+    }
+    if (typeof kundlyTrack === 'function') {
+      kundlyTrack('kundly_consent_accept', {
+        consent_version: CONSENT_VERSION,
+        email_provided: !!email
+      });
+    }
+    window.location = '/kundly/form.html';
+  });
+
+  refresh();
+})();
+</script>
+
+<script>
+  if (typeof kundlyTrack === 'function') kundlyTrack('kundly_consent_view', {});
+</script>
+
+</body>
+</html>

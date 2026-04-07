@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+<!-- Kundly analytics helper (GA4 + Supabase mirror) -->
+<script>
+(function(){
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var EVENTS_URL = SUPABASE_URL + '/rest/v1/kundly_funnel_events';
+  var SESSION_KEY = 'kundly_session_id_v1';
+  function uuid(){
+    if (window.crypto && crypto.randomUUID) { try { return crypto.randomUUID(); } catch(e){} }
+    return 'sx-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function getSessionId(){
+    try {
+      var s = localStorage.getItem(SESSION_KEY);
+      if (!s) { s = uuid(); localStorage.setItem(SESSION_KEY, s); }
+      return s;
+    } catch(e){ return 'nostorage-' + uuid(); }
+  }
+  function getSeekerCode(){
+    try { return localStorage.getItem('kundly_sk_code_v1') || null; } catch(e){ return null; }
+  }
+  window.kundlyTrack = function(eventName, params){
+    params = params || {};
+    var sessionId = getSessionId();
+    var seekerCode = getSeekerCode();
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, Object.assign({ session_id: sessionId }, params));
+      }
+    } catch(e){}
+    try {
+      fetch(EVENTS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          event_name: eventName,
+          seeker_code: seekerCode,
+          session_id: sessionId,
+          params: params
+        }),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  };
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Kundly — write your story | Weave</title>
+<meta name="description" content="Write your Kundly reflection — six chapters, about 30-40 minutes. Nothing is sent until you hit submit.">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/kundly/css/kundly.css">
+</head>
+<body class="kundly-body">
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      WEAVE
+      <span>Centre for Integrative Psychiatry</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/what-to-expect.html">What to Expect</a></li>
+      <li><a href="/learn/index.html">Learn</a></li>
+      <li><a href="/kundly/" class="nav__kundly">Write your Kundly</a></li>
+      <li><a href="/DeepBlue/" class="nav__deepblue">Play DeepBlue</a></li>
+      <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="k-skcode" aria-label="Your reference code">
+  <span class="k-skcode__label">code</span>
+  <span class="k-skcode__value" id="k-skcode-value">SK-····</span>
+</div>
+
+<div class="k-autosave k-autosave--visible" id="k-autosave" aria-live="polite">
+  <span class="k-autosave__dot"></span>ready
+</div>
+
+<main>
+  <section class="k-chapter">
+    <div id="chapter-container">
+      <p class="k-chapter__progress">Loading your chapters…</p>
+    </div>
+  </section>
+</main>
+
+<footer class="kundly-footer">
+  <div class="kundly-footer__inner">
+    <p>Nothing you write is sent anywhere until you hit submit at the end.</p>
+    <p class="kundly-footer__sig">Not a diagnosis. Not a medical test. Not a substitute for therapy.</p>
+    <button type="button" class="kundly-footer__reset" id="k-reset-btn">Start over and clear what I have written</button>
+  </div>
+</footer>
+
+<script src="/kundly/js/sk-code.js"></script>
+<script src="/kundly/js/safety-sweep.js"></script>
+<script src="/kundly/js/kundly.js"></script>
+<script>
+(function(){
+  'use strict';
+  // Form-page reset: gentle native confirm. The seeker has not yet submitted,
+  // so this only wipes localStorage. Nothing to undo on the server side.
+  var btn = document.getElementById('k-reset-btn');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var ok = window.confirm(
+      'Start over and clear everything you have written so far?\n\n' +
+      'This will wipe your draft from this browser. There is no undo.\n\n' +
+      'Click OK to start fresh, or Cancel to keep going.'
+    );
+    if (!ok) return;
+    try {
+      ['kundly_consent_v1','kundly_draft_v1','kundly_sk_code_v1','kundly_submission_v1'].forEach(function(k){
+        localStorage.removeItem(k);
+      });
+    } catch(e){}
+    window.location.href = '/kundly/';
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+<!-- Kundly analytics helper (GA4 + Supabase mirror) -->
+<script>
+(function(){
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var EVENTS_URL = SUPABASE_URL + '/rest/v1/kundly_funnel_events';
+  var SESSION_KEY = 'kundly_session_id_v1';
+
+  function uuid(){
+    if (window.crypto && crypto.randomUUID) { try { return crypto.randomUUID(); } catch(e){} }
+    return 'sx-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function getSessionId(){
+    try {
+      var s = localStorage.getItem(SESSION_KEY);
+      if (!s) { s = uuid(); localStorage.setItem(SESSION_KEY, s); }
+      return s;
+    } catch(e){ return 'nostorage-' + uuid(); }
+  }
+  function getSeekerCode(){
+    try { return localStorage.getItem('kundly_sk_code_v1') || null; } catch(e){ return null; }
+  }
+  window.kundlyTrack = function(eventName, params){
+    params = params || {};
+    var sessionId = getSessionId();
+    var seekerCode = getSeekerCode();
+    // GA4
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, Object.assign({ session_id: sessionId }, params));
+      }
+    } catch(e){}
+    // Supabase mirror — fire and forget
+    try {
+      fetch(EVENTS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          event_name: eventName,
+          seeker_code: seekerCode,
+          session_id: sessionId,
+          params: params
+        }),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  };
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kundly — the psychiatry way | Weave</title>
+<meta name="description" content="A free preliminary reflection on your life story. Not a diagnosis, not a medical test — a careful reading, given as a gift. From Weave Centre for Integrative Psychiatry.">
+
+<meta property="og:title" content="Kundly — the psychiatry way">
+<meta property="og:description" content="Tell us your story. We'll read it, and write you a reflection letter. Free. No diagnosis, no strings.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://weave.clinic/kundly/">
+<meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+<link rel="canonical" href="https://weave.clinic/kundly/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/kundly/css/kundly.css">
+</head>
+<body class="kundly-body">
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      WEAVE
+      <span>Centre for Integrative Psychiatry</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/what-to-expect.html">What to Expect</a></li>
+      <li><a href="/learn/index.html">Learn</a></li>
+      <li><a href="/kundly/" class="nav__kundly">Write your Kundly</a></li>
+      <li><a href="/DeepBlue/" class="nav__deepblue">Play DeepBlue</a></li>
+      <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="kundly-hero">
+    <p class="kundly-hero__eyebrow">A free gift from Weave</p>
+
+    <h1 class="kundly-hero__title">Kundly</h1>
+    <p class="kundly-hero__tagline">— the psychiatry way.</p>
+
+    <p class="kundly-hero__sub">
+      Tell us your story — the real one, not the polished one. A psychiatrist will read it carefully and write you back a reflection. Not a diagnosis. Not a medical test. A careful reading, given as a gift.
+    </p>
+
+    <div class="kundly-hero__disclaimer">
+      <strong>Kundly is a free reflection tool.</strong> It is not therapy, not diagnosis, and not an emergency service. If you're in distress right now, please don't write — reach out to a person who can hold you in this moment.
+      <span class="kundly-hero__crisis">
+        iCall: <strong>9152987821</strong> (Mon–Sat, 8am–10pm) · AASRA: <strong>9820466726</strong> (24×7)
+      </span>
+    </div>
+
+    <a href="/kundly/consent.html" class="k-btn k-btn--primary k-btn--lg">Begin your Kundly →</a>
+
+    <p class="kundly-hero__trust">
+      No account. No phone number. No name required to begin.
+    </p>
+  </section>
+
+  <section class="kundly-landing">
+    <h2 class="kundly-section-title">How it works</h2>
+
+    <div class="kundly-howitworks">
+      <div class="card lining--gold kundly-step">
+        <p class="kundly-step__label">Step 1</p>
+        <h3 class="kundly-step__title">Write your story</h3>
+        <p class="kundly-step__text">Six chapters. One question at a time. About 30–40 minutes, but you can save and come back. No right answers — just honest ones.</p>
+      </div>
+      <div class="card lining--gold kundly-step">
+        <p class="kundly-step__label">Step 2</p>
+        <h3 class="kundly-step__title">Get your Spark</h3>
+        <p class="kundly-step__text">The moment you submit, we'll read your story and write you a short reflection — the first quick read. You'll see it on the screen in about a minute.</p>
+      </div>
+      <div class="card lining--gold kundly-step">
+        <p class="kundly-step__label">Step 3</p>
+        <h3 class="kundly-step__title">Your full letter, in 2–4 days</h3>
+        <p class="kundly-step__text">Dr. Wilfred will read your story carefully and write you a longer Reflection Letter. It arrives on WhatsApp within 2–4 business days.</p>
+      </div>
+    </div>
+
+    <div class="kundly-explainer">
+      <h3>What Kundly is — and what it isn't.</h3>
+      <p>
+        <strong>Kundly is a free preliminary reflection</strong> on what you share with us. It's here to light your inner world up a little — to show you patterns you might not have seen yourself, name some of the strengths you've been carrying, and gently point at directions that could help.
+      </p>
+      <p>
+        <strong>It is not a diagnosis.</strong> It is <strong>not a medical test</strong>. It is <strong>not a substitute</strong> for a proper conversation with a clinician.
+      </p>
+      <p>
+        A real understanding of what's going on for you only comes from actual therapy or diagnostic sessions — where someone can sit with you, ask follow-up questions, and meet you where you are. If reading your Kundly makes you curious about going deeper — to feel less bad, to get better, to understand yourself more fully, or to unlock things you know are in you — booking a proper session is how that happens.
+      </p>
+      <p>
+        There is no rush. Everyone arrives when it's their time.
+      </p>
+    </div>
+
+    <div class="kundly-closing">
+      <h3>Who reads your story</h3>
+      <p>
+        Dr. Wilfred Dsouza — psychiatry resident at KMCRI, under the supervision of consultant psychiatrist Dr. Niharika. He reads every submission personally before your letter is sent. No interns. No farm-outs. No AI replying for him.
+      </p>
+      <a href="/kundly/consent.html" class="k-btn k-btn--primary k-btn--lg">Begin your Kundly →</a>
+      <p class="kundly-closing__micro">Free · 30–40 minutes · Save and come back any time</p>
+    </div>
+  </section>
+</main>
+
+<footer class="kundly-footer">
+  <div class="kundly-footer__inner">
+    <p>Kundly is part of <a href="/">Weave — Centre for Integrative Psychiatry</a>.</p>
+    <p class="kundly-footer__sig">Not a diagnosis. Not a medical test. Not a substitute for therapy.</p>
+  </div>
+</footer>
+
+<script>
+  if (typeof kundlyTrack === 'function') kundlyTrack('kundly_landing_view', {});
+</script>
+</body>
+</html>

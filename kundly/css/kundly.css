@@ -1,0 +1,978 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   Kundly — base styles
+   Layered on top of /css/style.css (inherits nav, fonts, tokens)
+   Weave palette: cream #FAF7F2 · terracotta #C75B39 · sage · gold
+   Fonts: Source Serif 4 (prose), Inter (UI)
+   Mobile-first. 16px+ body. Large tap targets.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tokens (Kundly-specific) ──────────────────────────────────────── */
+:root {
+  --k-cream: #FAF7F2;
+  --k-cream-dark: #F3EBE1;
+  --k-terracotta: #C75B39;
+  --k-terracotta-dark: #A84521;
+  --k-gold: #C79A3A;
+  --k-gold-soft: #E8D9B4;
+  --k-sage: #7C8A6B;
+  --k-ink: #3A2E26;
+  --k-ink-soft: #5A4A3F;
+  --k-muted: #8A7A6F;
+  --k-border: #E8DED2;
+  --k-shadow: 0 2px 8px rgba(58, 46, 38, 0.06);
+  --k-shadow-lg: 0 8px 32px rgba(58, 46, 38, 0.08);
+  --k-radius: 8px;
+  --k-radius-lg: 12px;
+  --k-max-width: 640px;
+  --k-max-width-wide: 880px;
+  --k-max-width-landing: 1100px;
+}
+
+/* ─── Layout ────────────────────────────────────────────────────────── */
+.kundly-body {
+  background: var(--k-cream);
+  color: var(--k-ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kundly-wrap {
+  max-width: var(--k-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 5rem;
+}
+
+.kundly-wrap--wide {
+  max-width: var(--k-max-width-wide);
+}
+
+/* ─── Hero (landing page) ───────────────────────────────────────────── */
+.kundly-hero {
+  padding: 4rem 1.25rem 4rem;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.kundly-hero > * {
+  text-align: center;
+}
+
+.kundly-hero__eyebrow {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--k-gold);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.kundly-hero__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--k-ink);
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.kundly-hero__tagline {
+  font-style: italic;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  color: var(--k-terracotta);
+  margin: 0 auto 2rem;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.kundly-hero__sub {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--k-ink-soft);
+  max-width: 34em;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.kundly-hero__disclaimer {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%);
+  border: 1.5px solid #C9A96E;
+  box-shadow: 0 0 0 1px #E0C992, 0 2px 16px rgba(201, 169, 110, 0.18);
+  padding: 1.5rem 1.75rem;
+  max-width: 36em;
+  margin: 0 auto 2rem;
+  text-align: left;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--k-ink-soft);
+  border-radius: 12px;
+}
+
+.kundly-hero__disclaimer strong {
+  color: var(--k-ink);
+}
+
+.kundly-hero__crisis {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--k-terracotta-dark);
+}
+
+.kundly-hero__trust {
+  font-size: 0.875rem;
+  color: var(--k-muted);
+  margin: 1.25rem auto 0;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+/* ─── Landing sections (below-the-fold desktop layout) ─────────────── */
+.kundly-landing {
+  max-width: var(--k-max-width-landing);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+.kundly-section-title {
+  text-align: center;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.625rem, 2.5vw, 2.125rem);
+  color: var(--k-ink);
+  margin: 3.5rem 0 2rem;
+}
+
+.kundly-howitworks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 0 0 5rem;
+}
+
+/* Kundly step cards use the site's standard .card + .lining--gold pattern.
+   These classes override nothing — just add the step-specific internal
+   typography. Apply to: <div class="card lining--gold kundly-step"> */
+.kundly-step__label {
+  font-family: 'Inter', sans-serif;
+  color: var(--k-terracotta);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 0.875rem;
+}
+
+.kundly-step__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #5B4A3F;
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.kundly-step__text {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #7A6B5D;
+  margin: 0;
+}
+
+/* Explainer block uses a full bordered card pattern, matching site convention */
+.kundly-explainer {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%);
+  border: 1.5px solid #C9A96E;
+  box-shadow: 0 0 0 1px #E0C992, 0 2px 16px rgba(201, 169, 110, 0.18);
+  border-radius: 12px;
+  padding: 2.75rem 3rem;
+  margin: 0 auto 4rem;
+  max-width: 820px;
+}
+
+.kundly-explainer h3 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 500;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  color: var(--k-ink);
+  margin: 0 0 1.25rem;
+  line-height: 1.3;
+}
+
+.kundly-explainer p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--k-ink-soft);
+  margin: 0 0 1.125rem;
+}
+
+.kundly-explainer p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.kundly-explainer strong {
+  color: var(--k-ink);
+}
+
+.kundly-closing {
+  text-align: center;
+  margin: 4rem auto 2rem;
+  max-width: 560px;
+}
+
+.kundly-closing h3 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--k-ink);
+  margin: 0 0 0.75rem;
+}
+
+.kundly-closing p {
+  font-size: 0.9375rem;
+  color: var(--k-ink-soft);
+  line-height: 1.65;
+  margin: 0 auto 2rem;
+}
+
+.kundly-closing__micro {
+  font-size: 0.8125rem;
+  color: var(--k-muted);
+  margin-top: 1rem;
+}
+
+/* ─── Kundly footer (consistent across all kundly/* pages) ─────────── */
+.kundly-footer {
+  background: var(--k-cream-dark);
+  padding: 3rem 1.5rem;
+  margin-top: 4rem;
+  font-size: 0.875rem;
+  color: var(--k-muted);
+  text-align: center;
+  border-top: 1px solid var(--k-border);
+}
+
+.kundly-footer__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  text-align: center;
+}
+
+.kundly-footer__inner p {
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.kundly-footer__inner a {
+  color: var(--k-terracotta);
+  text-decoration: none;
+}
+
+.kundly-footer__inner a:hover {
+  text-decoration: underline;
+}
+
+.kundly-footer__sig {
+  font-style: italic;
+  color: var(--k-ink-soft);
+}
+
+.kundly-footer__reset {
+  margin-top: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--k-muted);
+  background: none;
+  border: 1px dashed var(--k-border);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.kundly-footer__reset:hover {
+  border-color: var(--k-terracotta);
+  color: var(--k-terracotta);
+}
+
+/* ─── Reset confirmation modal (typed-confirm guard for thanks.html) ─ */
+.k-reset-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(58, 46, 38, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.k-reset-modal {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%);
+  border: 1.5px solid #C9A96E;
+  box-shadow: 0 0 0 1px #E0C992, 0 8px 32px rgba(58, 46, 38, 0.18);
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  max-width: 480px;
+  width: 100%;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+.k-reset-modal h3 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--k-ink);
+  margin: 0 0 0.875rem;
+}
+
+.k-reset-modal p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--k-ink-soft);
+  margin: 0 0 1rem;
+}
+
+.k-reset-modal__warning {
+  background: #FFF4EE;
+  border: 1px solid var(--k-terracotta);
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  color: var(--k-terracotta-dark);
+  margin: 1rem 0;
+}
+
+.k-reset-modal input[type="text"] {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--k-ink);
+  background: #ffffff;
+  border: 1px solid var(--k-border);
+  border-radius: 6px;
+  margin: 0.75rem 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.k-reset-modal input[type="text"]:focus {
+  outline: none;
+  border-color: var(--k-terracotta);
+  box-shadow: 0 0 0 3px rgba(199, 91, 57, 0.12);
+}
+
+.k-reset-modal__hint {
+  font-size: 0.8125rem;
+  color: var(--k-muted);
+  font-style: italic;
+  margin: 0 0 1.25rem;
+}
+
+.k-reset-modal__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.k-reset-modal__actions button {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.k-reset-modal__actions .k-reset-cancel {
+  background: var(--k-cream-dark);
+  color: var(--k-ink-soft);
+  border: 1px solid var(--k-border);
+}
+
+.k-reset-modal__actions .k-reset-confirm {
+  background: var(--k-terracotta);
+  color: #ffffff;
+}
+
+.k-reset-modal__actions .k-reset-confirm:disabled {
+  background: var(--k-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Narrow desktop / tablet: 2 columns (600-900px range) */
+@media (max-width: 900px) and (min-width: 600px) {
+  .kundly-howitworks {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  /* Third card centered under the pair */
+  .kundly-howitworks > :nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.625rem);
+    justify-self: center;
+  }
+}
+
+/* Mobile: collapse to single column */
+@media (max-width: 599px) {
+  .kundly-howitworks {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .kundly-howitworks > :nth-child(3) {
+    max-width: none;
+  }
+  .kundly-explainer {
+    padding: 2rem 1.5rem;
+  }
+  .kundly-landing {
+    padding: 1.5rem 1rem 3.5rem;
+  }
+}
+
+/* ─── CTAs ──────────────────────────────────────────────────────────── */
+.k-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: var(--k-radius);
+  border: none;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  min-height: 48px;   /* tap target */
+}
+
+.k-btn--primary {
+  background: var(--k-terracotta);
+  color: #ffffff;
+  box-shadow: var(--k-shadow);
+}
+
+.k-btn--primary:hover {
+  background: var(--k-terracotta-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--k-shadow-lg);
+}
+
+.k-btn--primary:disabled,
+.k-btn--primary[aria-disabled="true"] {
+  background: var(--k-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.k-btn--ghost {
+  background: transparent;
+  color: var(--k-ink-soft);
+  border: 1px solid var(--k-border);
+}
+
+.k-btn--ghost:hover {
+  background: var(--k-cream-dark);
+  color: var(--k-ink);
+}
+
+.k-btn--lg {
+  padding: 1.125rem 2.5rem;
+  font-size: 1.0625rem;
+}
+
+/* ─── Chapter player (form.html) ────────────────────────────────────── */
+.k-chapter {
+  max-width: var(--k-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.k-chapter__progress {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: var(--k-muted);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.k-chapter__title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+  color: var(--k-ink);
+}
+
+.k-chapter__intro {
+  background: var(--k-cream-dark);
+  border-radius: var(--k-radius);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--k-ink-soft);
+  margin: 0 0 2rem;
+}
+
+.k-question {
+  margin-bottom: 2.5rem;
+}
+
+.k-question__prompt {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--k-ink);
+  margin: 0 0 1rem;
+}
+
+.k-question__helper {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--k-muted);
+  margin: 0 0 0.75rem;
+}
+
+.k-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem 1.25rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--k-ink);
+  background: #ffffff;
+  border: 1px solid var(--k-border);
+  border-radius: var(--k-radius);
+  resize: vertical;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.k-textarea:focus {
+  outline: none;
+  border-color: var(--k-terracotta);
+  box-shadow: 0 0 0 3px rgba(199, 91, 57, 0.12);
+}
+
+.k-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--k-ink);
+  background: #ffffff;
+  border: 1px solid var(--k-border);
+  border-radius: var(--k-radius);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+  min-height: 48px;
+}
+
+.k-input:focus {
+  outline: none;
+  border-color: var(--k-terracotta);
+  box-shadow: 0 0 0 3px rgba(199, 91, 57, 0.12);
+}
+
+.k-wordcount {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: var(--k-muted);
+  margin-top: 0.5rem;
+}
+
+.k-wordcount__target {
+  font-style: italic;
+}
+
+/* ─── Chapter nav ───────────────────────────────────────────────────── */
+.k-chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--k-border);
+  gap: 1rem;
+}
+
+.k-chapter-nav__skip {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--k-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 0;
+  text-decoration: underline;
+}
+
+.k-chapter-nav__skip:hover {
+  color: var(--k-ink-soft);
+}
+
+/* ─── Autosave indicator ────────────────────────────────────────────── */
+.k-autosave {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--k-muted);
+  background: var(--k-cream);
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--k-border);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  z-index: 100;
+}
+
+.k-autosave--visible {
+  opacity: 1;
+}
+
+.k-autosave__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--k-sage);
+  border-radius: 50%;
+  margin-right: 0.375rem;
+  vertical-align: middle;
+}
+
+/* ─── SK code chip ──────────────────────────────────────────────────── */
+.k-skcode {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--k-muted);
+  background: var(--k-cream);
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--k-border);
+  z-index: 100;
+}
+
+.k-skcode__label {
+  color: var(--k-muted);
+  margin-right: 0.25rem;
+}
+
+.k-skcode__value {
+  color: var(--k-ink);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Grounding card ────────────────────────────────────────────────── */
+.k-grounding {
+  background: #fdf9f0;
+  border: 1px solid var(--k-gold-soft);
+  border-radius: var(--k-radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--k-ink-soft);
+}
+
+.k-grounding__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--k-gold);
+  margin: 0 0 0.75rem;
+}
+
+/* ─── Consent screen ────────────────────────────────────────────────── */
+.k-consent {
+  max-width: var(--k-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.k-consent__header {
+  margin-bottom: 2rem;
+}
+
+.k-consent__title {
+  font-size: 1.875rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+  color: var(--k-ink);
+}
+
+.k-consent__intro {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--k-ink-soft);
+}
+
+.k-safety-banner {
+  background: #FFF4EE;
+  border: 1px solid var(--k-terracotta);
+  border-radius: var(--k-radius);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--k-terracotta-dark);
+}
+
+.k-safety-banner strong {
+  color: var(--k-terracotta-dark);
+}
+
+.k-checkbox-group {
+  margin: 2.5rem 0;
+}
+
+.k-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--k-border);
+  border-radius: var(--k-radius);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.k-checkbox:hover {
+  border-color: var(--k-terracotta);
+}
+
+.k-checkbox input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--k-terracotta);
+  cursor: pointer;
+}
+
+.k-checkbox__label {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--k-ink-soft);
+  cursor: pointer;
+}
+
+.k-checkbox input[type="checkbox"]:checked ~ .k-checkbox__label {
+  color: var(--k-ink);
+}
+
+.k-checkbox--active {
+  border-color: var(--k-terracotta);
+  background: #FFFBF8;
+}
+
+/* ─── Thank-you / Spark screen ──────────────────────────────────────── */
+.k-thanks {
+  max-width: var(--k-max-width);
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+.k-thanks__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.k-thanks__title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--k-ink);
+  margin: 0 0 1rem;
+}
+
+.k-thanks__sub {
+  font-size: 1.0625rem;
+  color: var(--k-ink-soft);
+  line-height: 1.65;
+}
+
+.k-spark-loading {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--k-muted);
+  font-style: italic;
+}
+
+.k-spark-loading__dots {
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+
+.k-spark-loading__dots::after {
+  content: '...';
+  animation: dots 1.5s steps(4) infinite;
+}
+
+@keyframes dots {
+  0%, 100% { content: ''; }
+  25% { content: '.'; }
+  50% { content: '..'; }
+  75% { content: '...'; }
+}
+
+.k-spark {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%);
+  border: 1.5px solid #C9A96E;
+  box-shadow: 0 0 0 1px #E0C992, 0 2px 16px rgba(201, 169, 110, 0.18);
+  border-radius: 12px;
+  padding: 2.25rem 2.25rem;
+  margin: 2rem 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--k-ink);
+}
+
+.k-spark__disclaimer {
+  font-size: 0.875rem;
+  color: var(--k-muted);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+  text-align: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--k-border);
+}
+
+.k-spark__body {
+  font-size: 1rem;
+}
+
+.k-spark__body p {
+  margin: 0 0 1.25rem;
+}
+
+.k-spark__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--k-border);
+}
+
+.k-contact-card {
+  background: var(--k-cream-dark);
+  border-radius: var(--k-radius-lg);
+  padding: 1.75rem 2rem;
+  margin: 2rem 0;
+}
+
+.k-contact-card__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--k-gold);
+  margin: 0 0 1rem;
+}
+
+.k-contact-card__sub {
+  font-size: 0.9375rem;
+  color: var(--k-ink-soft);
+  margin: 0 0 1.25rem;
+  line-height: 1.6;
+}
+
+.k-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.k-contact-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+}
+
+.k-contact-list .k-contact-label {
+  color: var(--k-muted);
+  margin-right: 0.5rem;
+}
+
+.k-contact-list .k-contact-number {
+  color: var(--k-terracotta);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .kundly-hero {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .k-chapter, .k-consent, .k-thanks {
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .k-spark {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .k-contact-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .k-autosave,
+  .k-skcode {
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.625rem;
+  }
+}
+
+/* ─── Accessibility ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--k-gold);
+  outline-offset: 2px;
+  border-radius: var(--k-radius);
+}

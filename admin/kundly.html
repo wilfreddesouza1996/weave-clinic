@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Kundly Queue · Wilfred Admin</title>
+  <link rel="stylesheet" href="/admin/kundly.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-body">
+
+  <!-- ════════════════════════════════════════════════════════════
+       v2 ARCHITECTURE (2026-04-07): this page no longer uses the
+       Supabase service_role key directly. Supabase blocks secret keys
+       in browser origins. All admin queries route through a server-side
+       Edge Function (kundly-admin-proxy) that holds the service_role
+       internally and checks a shared admin password.
+       On first visit, the page prompts for the admin password and saves
+       it to localStorage only.
+       ════════════════════════════════════════════════════════════ -->
+  <script>
+    window.SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  </script>
+
+  <header class="admin-header">
+    <div class="admin-header__inner">
+      <div class="admin-header__brand">
+        <span class="admin-header__mark">Kundly</span>
+        <span class="admin-header__sep">/</span>
+        <span class="admin-header__sub">queue</span>
+      </div>
+      <nav class="admin-tabs" id="adminTabs">
+        <a href="#queue" data-view="queue" class="admin-tab is-active">Queue</a>
+        <a href="#events" data-view="events" class="admin-tab">Pipeline events</a>
+      </nav>
+      <div class="admin-header__meta">
+        <span id="connStatus" class="conn-pill conn-pill--idle">connecting…</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+
+    <!-- ════════════════════════════════════════════════════
+         VIEW 1 — QUEUE
+         ════════════════════════════════════════════════════ -->
+    <section id="view-queue" class="view is-active">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card__label">Submissions today</div>
+          <div class="stat-card__value" id="statToday">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Awaiting sign-off</div>
+          <div class="stat-card__value" id="statSignoff">—</div>
+        </div>
+        <div class="stat-card stat-card--alert">
+          <div class="stat-card__label">Crisis escalated</div>
+          <div class="stat-card__value" id="statCrisis">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Avg turnaround (7d)</div>
+          <div class="stat-card__value" id="statTurnaround">—<span class="stat-card__unit">h</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Converted to PT</div>
+          <div class="stat-card__value" id="statConverted">—</div>
+        </div>
+      </div>
+
+      <div class="queue-toolbar">
+        <h2 class="view-title">Active queue</h2>
+        <div class="queue-toolbar__actions">
+          <label class="sort-toggle">
+            <span>Sort:</span>
+            <select id="sortSelect">
+              <option value="oldest">Oldest first</option>
+              <option value="newest" selected>Newest first</option>
+            </select>
+          </label>
+          <button class="btn btn--ghost" id="refreshBtn">Refresh</button>
+        </div>
+      </div>
+
+      <div id="queueState" class="state state--loading">Loading queue…</div>
+      <div class="queue-table-wrap" id="queueTableWrap" hidden>
+        <table class="queue-table">
+          <thead>
+            <tr>
+              <th>SK code</th>
+              <th>First name</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Flag</th>
+              <th>In queue</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="queueBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         VIEW 2 — DETAIL
+         ════════════════════════════════════════════════════ -->
+    <section id="view-detail" class="view">
+      <button class="btn btn--ghost btn--back" id="backToQueue">&larr; Back to queue</button>
+      <div id="detailState" class="state state--loading">Loading seeker…</div>
+      <div class="detail-layout" id="detailLayout" hidden>
+        <article class="detail-main">
+          <header class="detail-head">
+            <div class="detail-head__codeRow">
+              <h1 class="detail-head__code" id="detailCode">SK-XXXX</h1>
+              <span class="status-chip" id="detailStatus">—</span>
+              <span class="flag-pill" id="detailFlag" hidden>safety flagged</span>
+            </div>
+            <div class="detail-head__meta" id="detailMeta"></div>
+          </header>
+
+          <section class="detail-section">
+            <h2>Consent</h2>
+            <div id="detailConsent" class="kv-block"></div>
+          </section>
+
+          <section class="detail-section">
+            <h2>Safety screen</h2>
+            <div id="detailSafety" class="kv-block"></div>
+          </section>
+
+          <section class="detail-section">
+            <h2>Narrative</h2>
+            <div id="detailChapters" class="chapters"></div>
+          </section>
+
+          <section class="detail-section" id="sparkSection" hidden>
+            <h2>Spark</h2>
+            <div class="spark-card" id="detailSpark"></div>
+          </section>
+
+          <section class="detail-section" id="letterSection" hidden>
+            <h2>Letter</h2>
+            <div class="letter-card" id="detailLetter"></div>
+          </section>
+        </article>
+
+        <aside class="detail-actions">
+          <h3>Actions</h3>
+          <div id="actionPanel" class="action-panel"></div>
+          <div id="commandHint" class="command-hint" hidden>
+            <div class="command-hint__label">Now run this in your shell</div>
+            <pre id="commandHintCode"></pre>
+            <button class="btn btn--ghost btn--small" id="copyCmd">Copy</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         VIEW 3 — PIPELINE EVENTS
+         ════════════════════════════════════════════════════ -->
+    <section id="view-events" class="view">
+      <h2 class="view-title">Pipeline events <span class="muted">(latest 50)</span></h2>
+      <div id="eventsState" class="state state--loading">Loading…</div>
+      <div class="events-table-wrap" id="eventsTableWrap" hidden>
+        <table class="events-table">
+          <thead>
+            <tr>
+              <th>When</th>
+              <th>SK code</th>
+              <th>Transition</th>
+              <th>Actor</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="eventsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════
+       DECLINE MODAL
+       ════════════════════════════════════════════════════ -->
+  <div id="declineModal" class="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <h3>Decline gently</h3>
+      <p class="modal__sub">This marks the seeker as <code>declined_gently</code> and writes the reason to the audit log. No automatic message is sent.</p>
+      <textarea id="declineReason" rows="4" placeholder="Reason (e.g. crisis case escalated to NIMHANS, scope mismatch, withdrew on contact)…"></textarea>
+      <div class="modal__buttons">
+        <button class="btn btn--ghost" data-close>Cancel</button>
+        <button class="btn btn--danger" id="confirmDecline">Confirm decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/admin/kundly-admin.js"></script>
+</body>
+</html>

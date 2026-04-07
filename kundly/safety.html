@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+<!-- Kundly analytics helper (GA4 + Supabase mirror) -->
+<script>
+(function(){
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var EVENTS_URL = SUPABASE_URL + '/rest/v1/kundly_funnel_events';
+  var SESSION_KEY = 'kundly_session_id_v1';
+  function uuid(){
+    if (window.crypto && crypto.randomUUID) { try { return crypto.randomUUID(); } catch(e){} }
+    return 'sx-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function getSessionId(){
+    try {
+      var s = localStorage.getItem(SESSION_KEY);
+      if (!s) { s = uuid(); localStorage.setItem(SESSION_KEY, s); }
+      return s;
+    } catch(e){ return 'nostorage-' + uuid(); }
+  }
+  function getSeekerCode(){
+    try { return localStorage.getItem('kundly_sk_code_v1') || null; } catch(e){ return null; }
+  }
+  window.kundlyTrack = function(eventName, params){
+    params = params || {};
+    var sessionId = getSessionId();
+    var seekerCode = getSeekerCode();
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, Object.assign({ session_id: sessionId }, params));
+      }
+    } catch(e){}
+    try {
+      fetch(EVENTS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          event_name: eventName,
+          seeker_code: seekerCode,
+          session_id: sessionId,
+          params: params
+        }),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  };
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>We're here — Kundly | Weave</title>
+<meta name="description" content="If you're going through something hard right now, here are people who can help today.">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/kundly/css/kundly.css">
+<style>
+  .safety-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+  .safety-wrap h1 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    color: #3a2e26;
+  }
+  .safety-wrap p {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #3a2e26;
+    margin: 0 0 1rem;
+  }
+  .safety-wrap ul.lines {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .safety-wrap ul.lines li {
+    padding: 1.125rem 1.5rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF8F5 100%);
+    border: 1.5px solid #C75B39;
+    box-shadow: 0 0 0 1px #E8A993, 0 2px 16px rgba(199, 91, 57, 0.14);
+    border-radius: 12px;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  .safety-wrap ul.lines .name {
+    font-weight: 600;
+    color: #3a2e26;
+    display: block;
+    font-size: 1rem;
+  }
+  .safety-wrap ul.lines .number {
+    font-size: 1.125rem;
+    color: #C75B39;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  .safety-wrap ul.lines .hours {
+    font-size: 0.875rem;
+    color: #6b5b4f;
+    display: block;
+    margin-top: 0.125rem;
+  }
+  .safety-wrap .wilfred-line {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%);
+    border: 1.5px solid #C9A96E;
+    box-shadow: 0 0 0 1px #E0C992, 0 2px 16px rgba(201, 169, 110, 0.18);
+    border-radius: 12px;
+  }
+  .safety-wrap .closing {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #5a4a3f;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      WEAVE
+      <span>Centre for Integrative Psychiatry</span>
+    </a>
+  </div>
+</nav>
+
+<main class="safety-wrap">
+  <h1>We're here.</h1>
+
+  <p>We've received your story, and what you shared matters deeply. Some of what you wrote made us worried about you right now — and we want to make sure you're safe before anything else.</p>
+
+  <p>Please reach out to one of these lines today. They are free, confidential, and staffed by people trained to help in exactly these moments:</p>
+
+  <ul class="lines">
+    <li>
+      <span class="name">iCall</span>
+      <span class="number">+91 9152987821</span>
+      <span class="hours">Monday–Saturday, 8am–10pm</span>
+    </li>
+    <li>
+      <span class="name">Vandrevala Foundation</span>
+      <span class="number">1860-2662-345 / 1800-2333-330</span>
+      <span class="hours">24×7</span>
+    </li>
+    <li>
+      <span class="name">AASRA</span>
+      <span class="number">+91 9820466726</span>
+      <span class="hours">24×7</span>
+    </li>
+    <li>
+      <span class="name">KIRAN (Government helpline)</span>
+      <span class="number">1800-599-0019</span>
+      <span class="hours">24×7, toll-free</span>
+    </li>
+    <li>
+      <span class="name">Snehi</span>
+      <span class="number">+91 9582208181</span>
+      <span class="hours">24×7</span>
+    </li>
+  </ul>
+
+  <div class="wilfred-line">
+    <p style="margin:0;">If you'd also like Dr. Wilfred to reach out to you directly, write to <strong>+91 87936 94229</strong> on WhatsApp. Please don't wait for the Kundly letter — right now, we want to make sure a person is with you, not a document.</p>
+  </div>
+
+  <p class="closing">You matter. What you're feeling is real. And help that takes you seriously is closer than it feels.</p>
+</main>
+
+<script>
+  if (typeof kundlyTrack === 'function') kundlyTrack('kundly_safety_screen_view', {});
+</script>
+</body>
+</html>

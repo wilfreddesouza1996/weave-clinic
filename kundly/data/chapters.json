@@ -1,0 +1,341 @@
+{
+  "version": "kundly-qb-v1",
+  "locked": true,
+  "language": "english",
+  "accepts_hinglish_input": true,
+  "hinglish_helper_line": "Write in whatever language feels right — English, Hinglish, or a mix. We read both.",
+  "notes": "v0.1 draft from research brief. Prompts are in English but the form accepts Hinglish answers (per landscape brief wedge). Pending Wilfred chapter-by-chapter review and Bansi warmth pass. Do NOT ship to production. See references/question-bank.md for full prompt text with design rationale and grounding cards.",
+  "estimated_completion_minutes": 35,
+  "chapters": [
+    {
+      "chapter_id": "chapter_1",
+      "number": 1,
+      "title": "Warm-up",
+      "intro_card": "Before we begin — this is a place for honest writing, not pretty writing. There are no wrong answers. You can skip any prompt that doesn't fit. Take your time.",
+      "upr_mapping": "presenting_complaint + demographics",
+      "questions": [
+        {
+          "q_id": "c1_why_here",
+          "type": "prose",
+          "text": "Before we begin, what made you open this today? You don't need to have the \"right\" reason — just the honest one. A sentence or a paragraph is fine.",
+          "min_words_suggested": 15,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c1_one_sentence",
+          "type": "prose",
+          "text": "If you had to put your life so far into one sentence — not the polished version, the real one — what would it sound like today?",
+          "min_words_suggested": 10,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c1_first_name",
+          "type": "text",
+          "label": "First name (for your letter)",
+          "helper": "We'll use this in the letter we send you. No last name needed.",
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c1_age",
+          "type": "number",
+          "label": "Your age",
+          "helper": "Kundly is for adults 18 and over.",
+          "min": 18,
+          "max": 99,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c1_gender_pronouns",
+          "type": "text",
+          "label": "Gender / pronouns",
+          "helper": "In your own words. Skip if you'd rather.",
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c1_occupation",
+          "type": "text",
+          "label": "What you spend your days on",
+          "helper": "Work, study, caregiving, searching, whatever fits.",
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c1_location",
+          "type": "text",
+          "label": "City or region",
+          "helper": "For context only. Not shared with anyone.",
+          "mandatory": false,
+          "skippable": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "chapter_2",
+      "number": 2,
+      "title": "Earliest Years",
+      "age_range": "0-8",
+      "intro_card": "Chapter 2 is about your earliest years. This one can stir things up. Take a slow breath. You can skip any prompt if you need to. If anything gets too heavy, you can stop and come back later — or reach iCall at 9152987821.",
+      "upr_mapping": "developmental_history.epoch_0_2 + epoch_3_5 + epoch_6_8",
+      "grounding_card_before": true,
+      "questions": [
+        {
+          "q_id": "c2_earliest_memory",
+          "type": "prose",
+          "text": "Take a moment and close your eyes. What's the earliest memory you can reach — not the one you've been told about by family, but the one you actually remember from the inside? Where are you? Who's there? What does the room feel like? What do you feel in your body as you remember it?",
+          "min_words_suggested": 60,
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c2_home_weather",
+          "type": "prose",
+          "text": "When you think of the home you grew up in as a small child, what was the air in that house like? Was it loud, quiet, warm, tense, busy, lonely, full of people, or empty most of the time? There's no right answer — try to describe the weather of your childhood home.",
+          "min_words_suggested": 60,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c2_safe_person",
+          "type": "prose",
+          "text": "Who made you feel safe when you were small — if anyone did? It could be a parent, a grandparent, an older sibling, a house help, a neighbour, a teacher, a pet. Tell us about one specific moment with that person or being — something you remember, not something you were told.",
+          "min_words_suggested": 60,
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c2_unnoticed_fear",
+          "type": "prose",
+          "text": "Was there something you were afraid of as a child that the adults around you didn't seem to notice? You can write about this gently — just a little or a lot, whatever feels right. You can also skip this one.",
+          "min_words_suggested": 40,
+          "mandatory": false,
+          "skippable": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "chapter_3",
+      "number": 3,
+      "title": "Middle Years",
+      "age_range": "9-14",
+      "intro_card": "Chapter 3 is about the years between nine and fourteen or so. The in-between years. This is the lightest chapter — there's room to smile here.",
+      "upr_mapping": "developmental_history.epoch_9_11 + epoch_12_14",
+      "questions": [
+        {
+          "q_id": "c3_what_you_loved",
+          "type": "prose",
+          "text": "Think back to yourself at around ten or eleven. What did you love doing, even if nobody else thought it was important? What could make you lose track of time? This can be something small — a book, a game, a corner of the garden, a comic, a show, a song you played on repeat.",
+          "min_words_suggested": 50,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c3_school_place",
+          "type": "prose",
+          "text": "Who were you in school? Not your grades — your place in the room. Were you the quiet one at the back, the one cracking jokes, the one the teachers trusted, the one everyone avoided, the one who moved between groups, the invisible one?",
+          "min_words_suggested": 50,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c3_formative_friend",
+          "type": "prose",
+          "text": "Tell us about one friend from these years — the kind of friendship that shaped you. What did being with them feel like? What did you do together? What happened to that friendship eventually?",
+          "min_words_suggested": 60,
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c3_rule_learned",
+          "type": "prose",
+          "text": "Every child learns, somewhere along the way, a rule about how to stay loved or how to stay safe. (\"Don't make Amma angry.\" \"Be good.\" \"Don't cry.\" \"Be the best.\" \"Don't need too much.\") What was yours? When did you first notice yourself following it?",
+          "min_words_suggested": 60,
+          "mandatory": true,
+          "skippable": false
+        }
+      ]
+    },
+    {
+      "chapter_id": "chapter_4",
+      "number": 4,
+      "title": "Late Adolescence",
+      "age_range": "15-20",
+      "intro_card": "Chapter 4 is about late adolescence — the years between fifteen and twenty or so. A lot of the shape of who you are now was laid down here.",
+      "upr_mapping": "developmental_history.epoch_15_18 + epoch_18_25 (early)",
+      "questions": [
+        {
+          "q_id": "c4_shift_moment",
+          "type": "prose",
+          "text": "Between fifteen and twenty, most of us have a moment where we realise something about ourselves that changes what we want from life. A quiet one or a loud one. What was yours? Where were you when it happened?",
+          "min_words_suggested": 70,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c4_heart_open_broken",
+          "type": "prose",
+          "text": "Tell us about the first time your heart was either broken or fully open — it could be romantic, a friendship, a family bond, a faith, something else entirely. Don't worry about whether it \"counts.\" If it marked you, it counts. What was it? What did it teach you about yourself?",
+          "min_words_suggested": 80,
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c4_family_rupture",
+          "type": "prose",
+          "text": "What was the biggest argument or rupture you had with a parent or a family member during these years? Not to judge them or you — just to remember what it was actually about, underneath the surface words. What were you both really fighting for?",
+          "min_words_suggested": 70,
+          "mandatory": false,
+          "skippable": true
+        },
+        {
+          "q_id": "c4_choice_still_thinking",
+          "type": "prose",
+          "text": "Was there a choice you made in these years — about a course, a city, a person, a belief — that you still think about? What drew you toward it? And if it's honest to say — what, if anything, were you running from?",
+          "min_words_suggested": 70,
+          "mandatory": true,
+          "skippable": false
+        }
+      ]
+    },
+    {
+      "chapter_id": "chapter_5",
+      "number": 5,
+      "title": "Early Adulthood",
+      "age_range": "21-present",
+      "intro_card": "Chapter 5 is about adulthood — from your twenties to right now. This is where many of the threads from earlier chapters start showing up again, wearing new clothes.",
+      "upr_mapping": "developmental_history.epoch_18_25 + epoch_25_40 + epoch_40_plus (if applicable)",
+      "questions": [
+        {
+          "q_id": "c5_work_you_do",
+          "type": "prose",
+          "text": "Tell us about the work you ended up doing — paid or unpaid. Did you choose it, or did it choose you? What do you tell people at a wedding when they ask what you do, and what do you actually feel about it underneath?",
+          "min_words_suggested": 70,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c5_shaping_relationship",
+          "type": "prose",
+          "text": "Describe one relationship in adulthood — partner, friend, colleague, sibling, mentor — that has genuinely shaped who you are. Tell us about one specific moment with them, if one comes to mind. It can be a good moment or a hard one. Or both.",
+          "min_words_suggested": 80,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c5_hardest_thing",
+          "type": "prose",
+          "text": "What is the hardest thing that has happened to you in adult life so far?",
+          "helper": "This next one can be heavy. Take a slow breath before you start. You can write as much or as little as you want. You can also skip this and come back to it later — we really mean that. If anything gets hard, iCall is at 9152987821.",
+          "min_words_suggested": 50,
+          "mandatory": false,
+          "skippable": true,
+          "grounding_before": true
+        },
+        {
+          "q_id": "c5_shift_for_better",
+          "type": "prose",
+          "text": "Was there a moment in adulthood where something inside you shifted for the better? A decision, a friendship, a conversation, a book, a night, a realisation. Tell us about it.",
+          "min_words_suggested": 70,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c5_pattern",
+          "type": "prose",
+          "text": "If you had to name the pattern you keep finding yourself in — the one that keeps showing up in different clothes, with different people, in different places — what would you call it? And when did you first notice it was a pattern and not just a bad streak?",
+          "min_words_suggested": 100,
+          "mandatory": true,
+          "skippable": false
+        }
+      ]
+    },
+    {
+      "chapter_id": "chapter_6",
+      "number": 6,
+      "title": "Now and Next",
+      "intro_card": "Last chapter. We'll come back to the present, look at what's alive and what's stuck, and ask you to imagine forward a little.",
+      "upr_mapping": "current_presentation + strengths_resources + goals",
+      "questions": [
+        {
+          "q_id": "c6_normal_week",
+          "type": "prose",
+          "text": "What does a normal week in your life look like right now? Walk us through it — not the Instagram version, the real one. The mornings, the commute or the lack of it, the people, the meals, the hours you like and the hours you dread.",
+          "min_words_suggested": 80,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c6_stuck_and_alive",
+          "type": "prose",
+          "text": "What in your life right now feels stuck, heavy, or out of shape? And what, if anything, feels genuinely alive?",
+          "min_words_suggested": 80,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c6_future_self",
+          "type": "prose",
+          "text": "If a version of you five years from now could walk into the room today, what would you want that person to be like? Not rich, not famous — what qualities would they have? What would make you proud of the way they'd turned out?",
+          "min_words_suggested": 100,
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "c6_untold_thing",
+          "type": "prose",
+          "text": "What's one thing you've never told anyone — or have only told one or two people — that you're willing to trust us with? We'll read it with care. You can skip this one; Kundly still works without it.",
+          "min_words_suggested": 50,
+          "mandatory": false,
+          "skippable": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "chapter_7_safety",
+      "number": 7,
+      "title": "One more thing",
+      "intro_card": "Before you finish — three short questions. We ask everyone these, because we want to make sure no one falls through.",
+      "upr_mapping": "current_presentation.safety",
+      "is_safety_screen": true,
+      "questions": [
+        {
+          "q_id": "safety_safe_now",
+          "type": "select",
+          "label": "Are you safe right now?",
+          "options": [
+            {"value": "mostly_safe", "text": "Mostly yes — I'm okay in my body and my environment", "flag": null},
+            {"value": "hard_place", "text": "I'm not in danger, but I'm in a hard place", "flag": "soft"},
+            {"value": "not_safe", "text": "I'm not safe and I'm scared", "flag": "hard"}
+          ],
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "safety_si_sh_2w",
+          "type": "select",
+          "label": "In the last two weeks, have you had thoughts of hurting yourself or ending your life?",
+          "options": [
+            {"value": "no", "text": "No", "flag": null},
+            {"value": "passing", "text": "Some passing thoughts, nothing I'd act on", "flag": "soft"},
+            {"value": "active_how", "text": "Yes, and sometimes I've thought about how", "flag": "hard"},
+            {"value": "active_plan", "text": "Yes, and I've thought about a plan", "flag": "hard"}
+          ],
+          "mandatory": true,
+          "skippable": false
+        },
+        {
+          "q_id": "safety_current_worry",
+          "type": "prose",
+          "text": "Is there anything happening right now — today, this week — that you're worried about and would want us to know? Free text. You can skip this.",
+          "min_words_suggested": 0,
+          "mandatory": false,
+          "skippable": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+<!-- Kundly analytics helper (GA4 + Supabase mirror) -->
+<script>
+(function(){
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var EVENTS_URL = SUPABASE_URL + '/rest/v1/kundly_funnel_events';
+  var SESSION_KEY = 'kundly_session_id_v1';
+  function uuid(){
+    if (window.crypto && crypto.randomUUID) { try { return crypto.randomUUID(); } catch(e){} }
+    return 'sx-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function getSessionId(){
+    try {
+      var s = localStorage.getItem(SESSION_KEY);
+      if (!s) { s = uuid(); localStorage.setItem(SESSION_KEY, s); }
+      return s;
+    } catch(e){ return 'nostorage-' + uuid(); }
+  }
+  function getSeekerCode(){
+    try { return localStorage.getItem('kundly_sk_code_v1') || null; } catch(e){ return null; }
+  }
+  window.kundlyTrack = function(eventName, params){
+    params = params || {};
+    var sessionId = getSessionId();
+    var seekerCode = getSeekerCode();
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, Object.assign({ session_id: sessionId }, params));
+      }
+    } catch(e){}
+    try {
+      fetch(EVENTS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          event_name: eventName,
+          seeker_code: seekerCode,
+          session_id: sessionId,
+          params: params
+        }),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  };
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you — your Kundly Spark | Weave</title>
+<meta name="description" content="Your Kundly Spark — a quick first reflection on what you shared. Your full Reflection Letter will reach you on WhatsApp within 2-4 business days.">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/kundly/css/kundly.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="kundly-body">
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      WEAVE
+      <span>Centre for Integrative Psychiatry</span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/what-to-expect.html">What to Expect</a></li>
+      <li><a href="/learn/index.html">Learn</a></li>
+      <li><a href="/kundly/" class="nav__kundly">Write your Kundly</a></li>
+      <li><a href="/DeepBlue/" class="nav__deepblue">Play DeepBlue</a></li>
+      <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="k-thanks">
+    <header class="k-thanks__header">
+      <h1 class="k-thanks__title" id="k-thanks-greeting">Thank you.</h1>
+      <p class="k-thanks__sub">
+        What you wrote reached us. Your reference code is <strong id="k-thanks-skcode">SK-····</strong> — keep this somewhere in case you want to refer back to your submission.
+      </p>
+    </header>
+
+    <p class="k-spark__disclaimer" style="max-width:36em; margin:1.5rem auto 2rem;">
+      What you're about to read is a quick first reflection — the smallest sliver of what we saw in your story. It's not a diagnosis or a medical assessment. Your full Kundly Letter is being written more carefully and will reach you on WhatsApp within 2-4 business days. That one will go deeper.
+    </p>
+
+    <div id="k-spark-loading" class="k-spark-loading">
+      We're reading your story carefully<span class="k-spark-loading__dots"></span>
+      <p style="font-size:0.875rem; margin-top:0.75rem;">This usually takes about a minute.</p>
+    </div>
+
+    <article id="k-spark" class="k-spark" style="display:none;">
+      <div class="k-spark__body" id="k-spark-body"></div>
+      <div class="k-spark__actions">
+        <button type="button" class="k-btn k-btn--ghost" id="k-save-pdf-btn">Save your Spark as PDF</button>
+      </div>
+    </article>
+
+    <div class="k-contact-card">
+      <p class="k-contact-card__title">What happens next</p>
+      <p class="k-contact-card__sub">
+        Dr. Wilfred Dsouza (psychiatry resident, under supervision of consultant psychiatrist Dr. Niharika) will read your story personally. Your full Reflection Letter reaches you on WhatsApp within 2-4 business days. Save these numbers so you don't miss the message.
+      </p>
+      <ul class="k-contact-list">
+        <li><span class="k-contact-label">Dr. Wilfred Dsouza</span><span class="k-contact-number">+91 87936 94229</span></li>
+        <li><span class="k-contact-label">Clinic</span><span class="k-contact-number">+91 76250 04229</span></li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; font-size:0.9375rem; color:var(--k-ink-soft); margin:2rem 0 1rem; font-style:italic;">
+      You can close this page. We'll see you soon.
+    </p>
+
+    <p style="text-align:center; font-size:0.8125rem; color:var(--k-muted); margin:2rem 0 0.5rem;">
+      If anything you wrote has made today feel harder, please reach out: <a href="/kundly/safety.html" style="color:var(--k-terracotta);">crisis resources</a>.
+    </p>
+
+    <p style="text-align:center; font-size:0.8125rem; color:var(--k-muted); font-style:italic; margin:2rem 0 0;">
+      Not a diagnosis. Not a medical test. Not a substitute for therapy.
+    </p>
+  </section>
+</main>
+
+<footer class="kundly-footer">
+  <div class="kundly-footer__inner">
+    <p>Kundly is part of <a href="/">Weave — Centre for Integrative Psychiatry</a>.</p>
+    <p class="kundly-footer__sig">— Dr. Wilfred Dsouza (under supervision of Dr. Niharika)</p>
+    <button type="button" class="kundly-footer__reset" id="k-reset-btn">Start over with a new submission</button>
+  </div>
+</footer>
+
+<!-- Reset confirmation modal (typed-confirm guard) -->
+<div class="k-reset-modal__overlay" id="k-reset-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="k-reset-title">
+  <div class="k-reset-modal">
+    <h3 id="k-reset-title">Are you sure you want to start over?</h3>
+    <p>This will permanently delete your current Spark and your submission record from this browser. Your story has already been sent to us — that part stays. But you won't be able to come back to this Spark on this device after you reset.</p>
+    <div class="k-reset-modal__warning">
+      ⚠ This cannot be undone. If you want to keep this Spark, save it as a PDF first using the button above.
+    </div>
+    <p style="margin-top: 1.25rem;">To confirm, type <strong>confirm</strong> in the box below:</p>
+    <input type="text" id="k-reset-confirm-input" placeholder="confirm" autocomplete="off" autocapitalize="none">
+    <p class="k-reset-modal__hint">Lowercase, no spaces.</p>
+    <div class="k-reset-modal__actions">
+      <button type="button" class="k-reset-cancel" id="k-reset-cancel-btn">Cancel — keep my Spark</button>
+      <button type="button" class="k-reset-confirm" id="k-reset-confirm-btn" disabled>Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var openBtn = document.getElementById('k-reset-btn');
+  var overlay = document.getElementById('k-reset-overlay');
+  var input = document.getElementById('k-reset-confirm-input');
+  var confirmBtn = document.getElementById('k-reset-confirm-btn');
+  var cancelBtn = document.getElementById('k-reset-cancel-btn');
+
+  if (!openBtn || !overlay) return;
+
+  function openModal() {
+    overlay.style.display = 'flex';
+    input.value = '';
+    confirmBtn.disabled = true;
+    setTimeout(function(){ input.focus(); }, 100);
+  }
+  function closeModal() {
+    overlay.style.display = 'none';
+    input.value = '';
+    confirmBtn.disabled = true;
+  }
+  function doReset() {
+    if (typeof kundlyTrack === 'function') kundlyTrack('kundly_reset', { from: 'thanks' });
+    try {
+      ['kundly_consent_v1','kundly_draft_v1','kundly_sk_code_v1','kundly_submission_v1'].forEach(function(k){
+        localStorage.removeItem(k);
+      });
+    } catch(e){}
+    window.location.href = '/kundly/';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  cancelBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+  input.addEventListener('input', function(){
+    confirmBtn.disabled = input.value.trim().toLowerCase() !== 'confirm';
+  });
+  confirmBtn.addEventListener('click', function(){
+    if (input.value.trim().toLowerCase() === 'confirm') doReset();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal();
+  });
+})();
+</script>
+
+<script src="/kundly/js/sk-code.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  // ─── Supabase config (same as kundly.js) ─────────────────────────────
+  var SUPABASE_URL = 'https://swnhmrljpafvaojaytkv.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_WJtwGO-qPRDnIYJ4ImdK-w_cz9o9xk1';
+  var SPARK_VIEW_URL = SUPABASE_URL + '/rest/v1/public_spark_view';
+  var POLL_INTERVAL_MS = 3000;
+  var POLL_TIMEOUT_MS = 120000; // 2 minutes — longer than Sonnet's typical ~45s
+
+  // ─── Hydrate from localStorage ───────────────────────────────────────
+  var submission = null;
+  try { submission = JSON.parse(localStorage.getItem('kundly_submission_v1') || 'null'); } catch(e){}
+
+  var draft = null;
+  try { draft = JSON.parse(localStorage.getItem('kundly_draft_v1') || 'null'); } catch(e){}
+
+  var firstName = '';
+  if (submission && submission.first_name) {
+    firstName = submission.first_name.trim();
+  } else if (draft && draft.chapters && draft.chapters.chapter_1) {
+    firstName = (draft.chapters.chapter_1.c1_first_name || '').trim();
+  }
+
+  var greeting = document.getElementById('k-thanks-greeting');
+  greeting.textContent = firstName ? ('Thank you, ' + firstName + '.') : 'Thank you.';
+
+  var skCode = (submission && submission.seeker_code) ||
+               (function(){ try { return localStorage.getItem('kundly_sk_code_v1'); } catch(e){ return null; } })() ||
+               (window.KundlySkCode && window.KundlySkCode.getOrCreate());
+
+  var skcodeEl = document.getElementById('k-thanks-skcode');
+  if (skCode) skcodeEl.textContent = skCode;
+
+  // ─── Spark display state ─────────────────────────────────────────────
+  var sparkParagraphs = []; // populated when spark lands
+
+  function renderSpark(text, isFallback){
+    if (typeof kundlyTrack === 'function') {
+      kundlyTrack(isFallback ? 'kundly_spark_fallback' : 'kundly_spark_loaded', {
+        char_length_bucket: text ? (text.length < 500 ? 'lt500' : text.length < 1500 ? 'lt1500' : 'gte1500') : 'empty'
+      });
+    }
+    document.getElementById('k-spark-loading').style.display = 'none';
+    var sparkEl = document.getElementById('k-spark');
+    sparkEl.style.display = 'block';
+    var body = document.getElementById('k-spark-body');
+    while (body.firstChild) body.removeChild(body.firstChild);
+
+    if (isFallback) {
+      var note = document.createElement('p');
+      note.style.color = 'var(--k-muted)';
+      note.style.fontStyle = 'italic';
+      note.style.fontSize = '0.9375rem';
+      note.style.marginBottom = '1rem';
+      note.textContent = 'A quick note from us:';
+      body.appendChild(note);
+    }
+
+    // Split on double newlines for paragraphs, single newlines preserved within
+    var paragraphs = String(text).split(/\n\s*\n/);
+    sparkParagraphs = paragraphs;
+    paragraphs.forEach(function(p){
+      var trimmed = p.trim();
+      if (!trimmed) return;
+      var para = document.createElement('p');
+      // Preserve single newlines as <br>
+      var lines = trimmed.split('\n');
+      lines.forEach(function(line, idx){
+        if (idx > 0) para.appendChild(document.createElement('br'));
+        para.appendChild(document.createTextNode(line));
+      });
+      body.appendChild(para);
+    });
+  }
+
+  function gracefulFallback(){
+    var name = firstName ? (', ' + firstName) : '';
+    var msg = 'Your story is safe with us' + name + '. We\'ll read it carefully and send your full Reflection Letter to WhatsApp within 2-4 business days.\n\n— with care, from Kundly';
+    renderSpark(msg, true);
+  }
+
+  // ─── Poll public_spark_view until status flips to ready / failed ─────
+  // Realtime over WebSocket would be cleaner but the static-HTML + anon-key
+  // path is simpler with polling. Polls every 3s, 2-minute ceiling, then
+  // graceful fallback.
+  function pollSpark(){
+    if (!skCode) {
+      gracefulFallback();
+      return;
+    }
+
+    var startedAt = Date.now();
+
+    function tick(){
+      var url = SPARK_VIEW_URL +
+        '?seeker_code=eq.' + encodeURIComponent(skCode) +
+        '&select=status,spark_md,safety_flagged' +
+        '&limit=1';
+
+      fetch(url, {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Accept': 'application/json'
+        }
+      }).then(function(res){
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      }).then(function(rows){
+        if (!Array.isArray(rows) || rows.length === 0) {
+          // Row not visible yet — view filters by status, may take a moment
+          if (Date.now() - startedAt > POLL_TIMEOUT_MS) {
+            gracefulFallback();
+            return;
+          }
+          setTimeout(tick, POLL_INTERVAL_MS);
+          return;
+        }
+
+        var row = rows[0];
+
+        // Crisis case → safety page
+        if (row.safety_flagged || row.status === 'crisis_escalated') {
+          window.location = '/kundly/safety.html';
+          return;
+        }
+
+        if (row.status === 'spark_ready' && row.spark_md) {
+          renderSpark(row.spark_md, false);
+          return;
+        }
+
+        if (row.status === 'spark_failed_graceful') {
+          if (row.spark_md) renderSpark(row.spark_md, true);
+          else gracefulFallback();
+          return;
+        }
+
+        // Still generating — keep polling
+        if (Date.now() - startedAt > POLL_TIMEOUT_MS) {
+          gracefulFallback();
+          return;
+        }
+        setTimeout(tick, POLL_INTERVAL_MS);
+      }).catch(function(err){
+        console.warn('Spark poll error', err);
+        if (Date.now() - startedAt > POLL_TIMEOUT_MS) {
+          gracefulFallback();
+        } else {
+          setTimeout(tick, POLL_INTERVAL_MS);
+        }
+      });
+    }
+
+    tick();
+  }
+
+  // ─── Boot ────────────────────────────────────────────────────────────
+  if (submission && submission.row_id) {
+    // Real submission — poll for spark
+    pollSpark();
+  } else {
+    // No submission found — this is a direct visit (e.g. Wilfred eyeballing
+    // thanks.html in dev) or localStorage was cleared. Show graceful fallback
+    // immediately so the page never sits in a perpetual loading state.
+    setTimeout(gracefulFallback, 800);
+  }
+
+  // ─── Save as PDF ─────────────────────────────────────────────────────
+  document.getElementById('k-save-pdf-btn').addEventListener('click', function(){
+    if (typeof kundlyTrack === 'function') kundlyTrack('kundly_pdf_save', {});
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      alert('PDF library did not load. Please refresh the page.');
+      return;
+    }
+    if (!sparkParagraphs.length) {
+      alert('Your Spark is still loading. Give it a moment.');
+      return;
+    }
+    var jsPDF = window.jspdf.jsPDF;
+    var doc = new jsPDF({ unit: 'pt', format: 'a4' });
+    var margin = 56;
+    var pageWidth = doc.internal.pageSize.getWidth();
+    var usable = pageWidth - margin * 2;
+    var y = margin;
+
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(18);
+    doc.text('Your Kundly Spark', margin, y);
+    y += 28;
+
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(10);
+    doc.setTextColor(120,120,120);
+    var sk = document.getElementById('k-thanks-skcode').textContent;
+    doc.text(sk + '  ·  ' + new Date().toLocaleDateString(), margin, y);
+    y += 22;
+
+    doc.setTextColor(0,0,0);
+    doc.setFontSize(9);
+    doc.setFont('helvetica','italic');
+    var disclaimer = 'A quick first reflection — the smallest sliver of what we saw in your story. Not a diagnosis or a medical assessment. Your full Kundly Letter will reach you on WhatsApp within 2-4 business days.';
+    var discLines = doc.splitTextToSize(disclaimer, usable);
+    doc.text(discLines, margin, y);
+    y += discLines.length * 12 + 14;
+
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(11);
+    sparkParagraphs.forEach(function(p){
+      var lines = doc.splitTextToSize(p.trim(), usable);
+      if (y + lines.length * 14 > doc.internal.pageSize.getHeight() - margin) {
+        doc.addPage();
+        y = margin;
+      }
+      doc.text(lines, margin, y);
+      y += lines.length * 14 + 10;
+    });
+
+    if (y > doc.internal.pageSize.getHeight() - margin - 40) {
+      doc.addPage();
+      y = margin;
+    }
+    doc.setFontSize(9);
+    doc.setTextColor(120,120,120);
+    doc.setFont('helvetica','italic');
+    doc.text('— Dr. Wilfred Dsouza (under supervision of Dr. Niharika)', margin, y);
+    y += 14;
+    doc.text('Not a diagnosis. Not a medical test. Not a substitute for therapy.', margin, y);
+
+    doc.save(sk + '-kundly-spark.pdf');
+  });
+})();
+</script>
+
+<script>
+  if (typeof kundlyTrack === 'function') kundlyTrack('kundly_thanks_view', {});
+</script>
+</body>
+</html>
