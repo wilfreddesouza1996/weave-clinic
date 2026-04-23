@@ -9,9 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelector('.nav__links');
 
   if (toggle && links) {
+    // Initialize aria-expanded state. The button has aria-label="Toggle menu"
+    // (set in the HTML) but no aria-expanded — without it, screen readers
+    // announce the toggle as "Toggle menu, button" with no signal of whether
+    // the menu is currently open or closed. Initialize as 'false' (collapsed)
+    // and flip on click. Also add aria-controls bridging to the menu element.
+    if (!links.id) links.id = 'nav-links-menu';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', links.id);
+
     toggle.addEventListener('click', () => {
-      links.classList.toggle('active');
+      const isOpen = links.classList.toggle('active');
       toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     // Close nav on link click (mobile)
@@ -19,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         links.classList.remove('active');
         toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -64,6 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Exam prep download modal
   const EDGE_FN_URL = 'https://swnhmrljpafvaojaytkv.supabase.co/functions/v1/exam-prep-download';
+  const SOURCE_BY_BUCKET = {
+    'exam-prep-pdfs': 'exam-prep',
+    'assimilate-pdfs': 'assimilate',
+    'psychotherapy-pdfs': 'psychotherapy',
+  };
   let pendingFileKey = null;
   let pendingBucket = 'exam-prep-pdfs';
   let pendingSource = 'exam-prep';
@@ -72,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = btn.closest('.exam-card');
     pendingFileKey = card.dataset.file;
     pendingBucket = card.dataset.bucket || 'exam-prep-pdfs';
-    pendingSource = pendingBucket === 'assimilate-pdfs' ? 'assimilate' : 'exam-prep';
+    pendingSource = SOURCE_BY_BUCKET[pendingBucket] || 'exam-prep';
 
     // Check localStorage for returning user
     const saved = localStorage.getItem('weave_exam_lead');

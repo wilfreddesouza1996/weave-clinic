@@ -1203,6 +1203,27 @@ select:focus-visible {
   color: #FFFFFF;
 }
 
+/* Psychotherapy Theme — Terracotta */
+.exam-card--psychotherapy:hover {
+  border-color: #B4654A;
+  box-shadow: 0 0 0 1px #C87C5E, 0 4px 20px rgba(180, 101, 74, 0.18);
+}
+
+.exam-card__tag--psychotherapy {
+  background: #8F4A33;
+  color: #FFFFFF;
+}
+
+.exam-card__btn--psychotherapy {
+  border-color: #B4654A;
+  color: #B4654A;
+}
+
+.exam-card__btn--psychotherapy:hover {
+  background: #B4654A;
+  color: #FFFFFF;
+}
+
 /* ═══════════════════════════════════════════
    FOR RESIDENTS — Download Modal
    ═══════════════════════════════════════════ */
