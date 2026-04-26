@@ -1,0 +1,1551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TMoP · Brain as Coil, Mind as Field — Weave</title>
+<meta name="description" content="An interactive walk-through of the Toroidal Model of the Psyche. The brain is a coil. The mind is the field around it. By Dr Wilfred D'souza, with Dr Eesha Sharma (NIMHANS).">
+<link rel="canonical" href="https://www.weave.clinic/tmop-explainer/">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.weave.clinic/tmop-explainer/">
+<meta property="og:title" content="TMoP · Brain as Coil, Mind as Field">
+<meta property="og:description" content="An interactive walk-through of the Toroidal Model of the Psyche. Built for working psychiatrists, written so anyone can follow.">
+<meta property="og:site_name" content="Weave">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TMoP · Brain as Coil, Mind as Field">
+<meta name="twitter:description" content="An interactive walk-through of the Toroidal Model of the Psyche.">
+
+<meta name="author" content="Dr Wilfred D'souza">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,500,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+  }
+}
+</script>
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+    --ink: #0a0a0a;
+    --body: #525252;
+    --muted: #a3a3a3;
+    --hairline: #e5e5e5;
+    --hairline-strong: #d4d4d4;
+    --orange: #FA5400;
+    --blue: #0066FF;
+    --red: #E11900;
+    --orange-tint: #fff4ee;
+    --blue-tint: #eef4ff;
+    --shadow-sm: 0 1px 2px rgba(10,10,10,0.04);
+    --shadow-md: 0 4px 16px rgba(10,10,10,0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    font-feature-settings: 'ss01', 'ss03';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display {
+    font-family: 'Cabinet Grotesk', 'Geist', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    color: var(--ink);
+  }
+
+  .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace; }
+
+  /* ─────────── MASTHEAD ─────────── */
+  header.masthead {
+    padding: 56px 64px 40px;
+    border-bottom: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 64px;
+    align-items: end;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  header.masthead h1 {
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    margin-bottom: 8px;
+  }
+  header.masthead .subtitle {
+    font-size: 1.05rem;
+    color: var(--body);
+    max-width: 520px;
+    margin-top: 14px;
+  }
+  .masthead-meta {
+    border-left: 1px solid var(--hairline);
+    padding-left: 32px;
+    font-size: 0.82rem;
+    color: var(--body);
+    line-height: 1.7;
+  }
+  .masthead-meta dt {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    font-weight: 600;
+    margin-top: 12px;
+  }
+  .masthead-meta dt:first-child { margin-top: 0; }
+  .masthead-meta dd { color: var(--ink); margin-bottom: 4px; }
+
+  /* ─────────── SCROLLY LAYOUT ─────────── */
+  .scrolly {
+    display: grid;
+    grid-template-columns: 1.05fr 1.25fr;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .scrolly .narrative { padding: 96px 56px 96px 32px; }
+
+  .scrolly .stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 16px;
+  }
+
+  .stage-inner {
+    width: 100%;
+    height: 88%;
+    background: var(--bg-soft);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #stage-canvas { width: 100%; height: 100%; display: block; }
+
+  .stage-overlay { position: absolute; inset: 0; pointer-events: none; }
+
+  .stage-label {
+    position: absolute;
+    background: var(--bg);
+    border: 1px solid var(--hairline-strong);
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: auto;
+    border-radius: 2px;
+    box-shadow: var(--shadow-sm);
+  }
+  .stage-label.show { opacity: 1; }
+  .stage-label .dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .stage-readout {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--body);
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+  }
+  .stage-readout .chap {
+    color: var(--ink);
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .stage-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'Geist Mono', monospace;
+  }
+  .stage-tag .num { color: var(--orange); margin-right: 8px; }
+
+  /* ─────────── NARRATIVE SECTIONS ─────────── */
+  section.chapter {
+    min-height: 92vh;
+    padding: 96px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  section.chapter:first-of-type { border-top: 0; padding-top: 24px; }
+
+  .chap-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--orange);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .chapter h2 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .chapter h3 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin: 36px 0 12px;
+    text-transform: none;
+  }
+  .chapter p {
+    font-size: 1rem;
+    color: var(--body);
+    margin-bottom: 18px;
+    max-width: 60ch;
+  }
+  .chapter p.lead {
+    font-size: 1.18rem;
+    color: var(--ink);
+    line-height: 1.45;
+    font-weight: 500;
+    max-width: 56ch;
+    margin-bottom: 28px;
+  }
+
+  .chapter strong { color: var(--ink); font-weight: 600; }
+  .chapter em { font-style: italic; color: var(--ink); }
+
+  .identity {
+    margin: 36px 0;
+    padding: 28px 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+  .identity p {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.25;
+    color: var(--ink);
+    max-width: none;
+    margin: 0;
+  }
+  .identity p + p { margin-top: 8px; }
+  .identity .accent-orange { color: var(--orange); }
+  .identity .accent-blue { color: var(--blue); }
+
+  .def-list {
+    list-style: none;
+    margin: 18px 0 24px;
+    border-top: 1px solid var(--hairline);
+  }
+  .def-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .def-list .term {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
+  .def-list .gloss {
+    color: var(--body);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+  .def-list .gloss .neuro {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: 'Geist Mono', monospace;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .bento-item {
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    padding: 22px 24px;
+    border-radius: 4px;
+  }
+  .bento-item .num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--orange);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .bento-item .title {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .bento-item p {
+    font-size: 0.86rem;
+    color: var(--body);
+    margin: 0;
+    line-height: 1.5;
+    max-width: none;
+  }
+  .bento-item.wide { grid-column: 1 / -1; }
+  .bento-item.dark { background: var(--ink); color: var(--bg); }
+  .bento-item.dark .num { color: var(--orange); }
+  .bento-item.dark .title { color: var(--bg); }
+  .bento-item.dark p { color: rgba(255,255,255,0.7); }
+
+  .eq-block {
+    margin: 28px 0;
+    padding: 32px 28px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 4px;
+    text-align: center;
+  }
+  .eq-block .eq {
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  .eq-block .eq .var-orange { color: var(--orange); }
+  .eq-block .eq .var-blue { color: #4d8fff; }
+  .eq-block .caption {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.04em;
+  }
+
+  .interactive {
+    background: var(--bg-soft);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 22px;
+    margin: 28px 0;
+  }
+  .interactive .label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .slider-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 56px;
+    gap: 14px;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .slider-row label {
+    font-size: 0.82rem;
+    color: var(--body);
+    font-weight: 500;
+  }
+  .slider-row label .sym {
+    font-family: 'Geist Mono', monospace;
+    color: var(--orange);
+    margin-right: 4px;
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: var(--hairline);
+    border-radius: 2px;
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  input[type=range]::-webkit-slider-thumb:active { transform: scale(0.95); }
+  input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+  .slider-row .val {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--ink);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .epoch-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .epoch-grid button {
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    padding: 10px 8px;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.78rem;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: left;
+    transition: all 0.15s ease;
+  }
+  .epoch-grid button .ep-num {
+    display: block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .epoch-grid button:hover {
+    border-color: var(--red);
+    background: #fff5f3;
+  }
+  .epoch-grid button:active { transform: translateY(1px); }
+  .epoch-grid button.active {
+    border-color: var(--red);
+    background: #fff5f3;
+    color: var(--red);
+  }
+  .epoch-grid button.active .ep-num { color: var(--red); }
+
+  .hitop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 18px 0;
+  }
+  .hitop-grid button {
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    padding: 14px 14px;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: left;
+    transition: all 0.18s ease;
+  }
+  .hitop-grid button .h-name {
+    display: block;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.86rem;
+    margin-bottom: 4px;
+  }
+  .hitop-grid button .h-config {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .hitop-grid button:hover { border-color: var(--ink); }
+  .hitop-grid button.active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .hitop-grid button.active .h-config { color: rgba(255,255,255,0.6); }
+
+  .pull {
+    margin: 28px 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--orange);
+  }
+  .pull p {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.4;
+    max-width: none;
+  }
+
+  /* "For the geeks" supplementary block — physics, math, neuroscience details */
+  .geek {
+    display: block;
+    margin: 14px 0 22px;
+    padding: 14px 16px 14px 18px;
+    background: var(--bg-soft);
+    border-left: 2px solid var(--muted);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.84rem;
+    color: var(--body);
+    line-height: 1.55;
+  }
+  .geek .geek-tag {
+    display: inline-block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-right: 10px;
+    padding: 2px 6px;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    vertical-align: 1px;
+  }
+  .geek strong { color: var(--ink); font-weight: 600; }
+  .geek em { font-style: italic; color: var(--ink); }
+
+  .citation {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: -8px;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+
+  .toggle-row {
+    display: inline-flex;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 3px;
+    margin: 8px 0;
+  }
+  .toggle-row button {
+    background: transparent;
+    border: 0;
+    padding: 8px 16px;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    color: var(--body);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.18s ease;
+  }
+  .toggle-row button.active {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  footer {
+    padding: 80px 64px;
+    border-top: 1px solid var(--hairline);
+    color: var(--muted);
+    font-size: 0.82rem;
+    background: var(--bg-soft);
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+  }
+  .footer-title {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  footer a { color: var(--ink); border-bottom: 1px solid var(--hairline-strong); text-decoration: none; }
+
+  @media (max-width: 1024px) {
+    header.masthead { grid-template-columns: 1fr; padding: 32px 24px; gap: 24px; }
+    .masthead-meta { border-left: 0; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 16px; }
+    .scrolly { grid-template-columns: 1fr; padding: 0 24px; }
+    .scrolly .stage { position: relative; height: 60vh; padding: 16px 0; }
+    .scrolly .narrative { padding: 32px 0; }
+    .bento { grid-template-columns: 1fr; }
+    .epoch-grid { grid-template-columns: repeat(2, 1fr); }
+    .hitop-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; padding: 48px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="masthead">
+  <div>
+    <div class="eyebrow">Toroidal Model of the Psyche / Interactive Explainer</div>
+    <h1 class="display">Brain as Solenoid.<br>Mind as Toroidal Field.</h1>
+    <p class="subtitle">Walk through the load-bearing claim of TMoP: the architecture, the magnetic-circuit parameters, the developmental construction of the coil, and the configurations that produce specific HiTOP profiles.</p>
+  </div>
+  <dl class="masthead-meta">
+    <dt>Author</dt><dd>Dr Wilfred D'souza</dd>
+    <dt>Collaborator</dt><dd>Dr Eesha Sharma · NIMHANS</dd>
+    <dt>Source</dt><dd>TMoP main paper + Supplement 1 (Physics)</dd>
+    <dt>Built</dt><dd>2026-04-26</dd>
+  </dl>
+</header>
+
+<div class="scrolly">
+
+  <div class="narrative">
+
+    <section class="chapter" data-section="0">
+      <span class="chap-num">CH 00 · Identity</span>
+      <h2>The brain is a coil. The mind is the field around it.</h2>
+      <p class="lead">That's the whole claim. Everything else in this explainer is a consequence of it.</p>
+
+      <div class="identity">
+        <p>The brain is a <span class="accent-orange">coil</span>.</p>
+        <p>The mind is the <span class="accent-blue">field</span> it generates.</p>
+      </div>
+
+      <p>The brain is a coiled biological structure, built turn by turn over your lifetime. When activity runs through it, a field forms around it. That field is the mind.</p>
+
+      <p>The mind is not a thing inside your skull. It is the shape made by what your brain is doing. Take the brain away and the field stops. Restart the brain (sleep, recovery, medication, therapy) and the field re-forms.</p>
+
+      <p>Two anchor terms. The top of the coil is where the system acts on the world. The bottom is where the world comes back in.</p>
+
+      <ul class="def-list">
+        <li><span class="term">N pole</span><span class="gloss"><strong>Top of the coil.</strong> Where you act, speak, reach, do.</span></li>
+        <li><span class="term">S pole</span><span class="gloss"><strong>Bottom of the coil.</strong> Where you hear, see, feel, take in.</span></li>
+      </ul>
+
+      <aside class="geek"><span class="geek-tag">Physics</span>The coil is what physicists call a <strong>solenoid</strong>: a wire wound into a tight cylindrical helix. When current flows, it generates a closed-loop magnetic field whose 3D envelope has the topology of a torus. That topology is the model's namesake.</aside>
+
+      <p>Scroll to walk through the model. The shape on the right will rotate and re-annotate to match each chapter. Drag it any time to look from another angle.</p>
+    </section>
+
+    <section class="chapter" data-section="1">
+      <span class="chap-num">CH 01 · The coil</span>
+      <h2>The brain is built turn by turn over a lifetime</h2>
+      <p class="lead">The coil is not finished at birth. It gets built across eight stages of life. Each stage adds another turn. Whatever happens at one stage becomes the foundation for every stage that comes after.</p>
+
+      <div class="bento">
+        <div class="bento-item"><div class="num">STAGE 01</div><div class="title">Before birth</div><p>The basic wiring is laid down inside the womb. Stress in pregnancy, infection, or toxin exposure can leave a faint kink in the coil that shows up decades later.</p></div>
+        <div class="bento-item"><div class="num">STAGE 02</div><div class="title">Infancy (0–2y)</div><p>The brain is doubling its connections. The baby borrows a parent's nervous system to learn how to settle. Neglect at this stage is the deepest wound there is.</p></div>
+        <div class="bento-item"><div class="num">STAGE 03</div><div class="title">Early childhood (2–6y)</div><p>Connections that get used get strengthened. Connections that don't get pruned. Language opens. Whatever is learned here goes deep, fast.</p></div>
+        <div class="bento-item"><div class="num">STAGE 04</div><div class="title">Middle childhood (6–11y)</div><p>Schools take over from caregivers. Self-worth starts forming around competence and peer approval. The coil settles into recognisable shape.</p></div>
+        <div class="bento-item"><div class="num">STAGE 05</div><div class="title">Adolescence (11–18y)</div><p>Hormones reorganise everything. Identity gets rebuilt from the inside out. This is when most major mental illnesses first appear.</p></div>
+        <div class="bento-item"><div class="num">STAGE 06</div><div class="title">Early adulthood (18–40y)</div><p>The prefrontal cortex finally finishes maturing around age 25. Career, intimacy, the long projects of life take shape.</p></div>
+        <div class="bento-item"><div class="num">STAGE 07</div><div class="title">Middle adulthood (40–65y)</div><p>The brain trades raw speed for accumulated wisdom. The coil is at its most stable but no longer growing.</p></div>
+        <div class="bento-item"><div class="num">STAGE 08</div><div class="title">Late adulthood (65+)</div><p>Slow decline of tissue. What survives is meaning. The arc closes.</p></div>
+      </div>
+
+      <p>When we talk about a "general vulnerability" to mental illness (the so-called p-factor), this is what we mean: the cumulative quality of the coil. A bad early turn shows up across the rest of life as a higher risk for almost everything.</p>
+
+      <aside class="geek"><span class="geek-tag">Neuro</span>Each epoch corresponds to specific neurodevelopmental processes: synaptogenesis (Epoch 2), pruning and myelination of association fibres (Epoch 3), fronto-parietal consolidation (Epoch 4), pubertal HPA/HPG reactivation and fronto-limbic imbalance (Epoch 5), PFC maturation completing ~25y (Epoch 6). The <strong>p-factor</strong> in HiTOP is, in TMoP terms, a coil-wide reduction in <strong>permeability (μ)</strong> from cumulative epoch insult.</aside>
+    </section>
+
+    <section class="chapter" data-section="2">
+      <span class="chap-num">CH 02 · N pole</span>
+      <h2>The top of the coil. Where you do.</h2>
+      <p class="lead">Every time you speak, move, reach, or try to influence the world, the field is firing outward from the top end of your brain coil. We call this end the N pole.</p>
+
+      <p>What sits at this end is the part of you that <em>tries</em>. It generates intentions, plans, sentences, gestures. Every sentence you say is a small experiment. Every reach for a doorknob is a small prediction.</p>
+
+      <p>This end has two layers. The deeper layer is raw drive: the urge to act, to speak, to push out. The surface layer shapes that drive into something coherent: sequencing, filtering, holding back when needed.</p>
+
+      <ul class="def-list">
+        <li><span class="term">Layer 1</span><span class="gloss"><strong>Drive.</strong> The raw urge. To do, to reach, to speak.</span></li>
+        <li><span class="term">Layer 2</span><span class="gloss"><strong>Shape.</strong> Sequencing, filtering, holding back. The brakes and the steering.</span></li>
+      </ul>
+
+      <p>This is what ADHD looks like in TMoP terms: the drive layer is fine, the shaping layer is immature. The urge to do is fully there. What's missing is the part that decides which urge, in what order, with how much.</p>
+
+      <aside class="geek"><span class="geek-tag">Comp psych</span>Computationally this is the <strong>active inference</strong> arm (Friston, 2010): the system acts on the world to make sensory input match its predictions. Anatomically: dorsolateral prefrontal cortex, premotor and supplementary motor areas, Broca's area, ventral striatum, mesolimbic dopamine system, executive division of the salience network. Biomarker proxies: ERN amplitude, spontaneous eye-blink rate (sEBR).</aside>
+    </section>
+
+    <section class="chapter" data-section="3">
+      <span class="chap-num">CH 03 · S pole</span>
+      <h2>The bottom of the coil. Where you take in.</h2>
+      <p class="lead">Every time you hear, see, taste, or notice your own heartbeat, signals are entering your brain coil from below. We call this end the S pole.</p>
+
+      <p>This end is the part of you that <em>receives</em>. It is also where you build the sense of being a self. Most people don't realise this, but the feeling of being you is something your brain has to keep making, every second, by paying attention to what's coming back from your body and from the world.</p>
+
+      <p>Like the top, the bottom has two layers. The deeper layer just registers the raw signal: a sound is a sound, a heartbeat is a heartbeat. The surface layer makes meaning of it: what the sound is, whether the heartbeat is a danger sign, what it all means about you.</p>
+
+      <ul class="def-list">
+        <li><span class="term">Layer 1</span><span class="gloss"><strong>Take in.</strong> The raw signal arriving from the world or the body.</span></li>
+        <li><span class="term">Layer 2</span><span class="gloss"><strong>Make sense.</strong> What the signal means, how it fits the picture of who you are.</span></li>
+      </ul>
+
+      <p>This is what PTSD looks like in TMoP terms: the take-in layer is fine, often too fine. Every threat signal lands hard. What fails is the meaning-making layer. The signal arrives but cannot be metabolised. It just sits there, vivid and unprocessed.</p>
+
+      <p>When the bottom of the coil is too blocked to take things in, the sense of being a self becomes thin. The person feels empty, numb, unreal. Not because they lack feeling, but because their brain cannot keep the sense of self in good supply.</p>
+
+      <aside class="geek"><span class="geek-tag">Comp psych</span>Computationally this is <strong>perceptual</strong> + <strong>interoceptive inference</strong> (Seth, 2013): predictions get tested against returning signals from the world and from the body. Anatomically: primary sensory cortices, posterior insula and interoceptive cortex, Wernicke's, PCC and precuneus, vmPFC, amygdala, default mode network. Biomarker proxies: heartbeat-evoked potential (HEP) amplitude, interoceptive accuracy, insular BOLD.</aside>
+    </section>
+
+    <section class="chapter" data-section="4">
+      <span class="chap-num">CH 04 · The field</span>
+      <h2>The field is shaped like a fountain</h2>
+      <p class="lead">When activity runs through the coil, a field forms around it. Picture a fountain. Water shoots out from the top, arcs through the air, falls back to the basin at the bottom, then loops back up through the inside to start over. The mind has the same shape. Every line of activity goes out from the top, loops around through the world, comes back in at the bottom, then runs up through the inside of the coil to begin again.</p>
+
+      <p>Every line is a closed loop. None of them just "fly off." The field has nowhere else to go.</p>
+
+      <div class="pull"><p>Every line of mental activity must close on itself. There is nowhere for it to disappear to.</p></div>
+
+      <p>The mind, in this model, is the whole pattern of these loops circulating around the coil. As long as activity flows in the brain, the field forms. Stop the flow and the field stops too. That is what unconsciousness, deep sleep, and death look like from the field's point of view.</p>
+
+      <p>A healthy mind does not need constant outside reassurance to feel like itself. The field circulates on its own. Out the top, around through the world, in at the bottom, back up through the brain. The continuous feeling of being you is this circulation.</p>
+
+      <h3>The field has depth</h3>
+      <p>The fountain isn't one single arc. There are many arcs, at different distances from the coil. Some loop close, hugging the body. Others reach far out into the world. Together they form a shape that, viewed from the side, looks like a pumpkin. Dense and clear at the centre. Fading to almost invisible at the edges.</p>
+
+      <p>Inside arcs are what you've already learned. They're tight, fast, automatic. You don't think about them. They've become part of who you are.</p>
+
+      <p>Outside arcs are what you're still reaching toward. They're loose, slow, uncertain. They're what you don't yet understand but are trying to.</p>
+
+      <p>This depth also tracks with time. Inner arcs are usually older. They were built early, when you were small, close to your body, close to the people who raised you. Outer arcs are newer. Things you're learning now, things you haven't yet metabolised. The pumpkin is, in a way, a map of your own history.</p>
+
+      <p>If the inside loop gets blocked, the field can't complete itself the normal way. It has to find another route. That's what externalising looks like, and we will come back to it in Chapter 09.</p>
+
+      <aside class="geek"><span class="geek-tag">Physics</span>Field lines from any solenoid form closed dipolar loops. The 3D envelope of all field lines has the topology of a torus, viewed as nested closed curves of varying equatorial radius. The "must close" rule is Maxwell's second equation: <em>∇·B = 0</em> (no magnetic monopole). The radial-depth gradient maps onto epistemic uncertainty in active inference: inner shells = high-precision priors (consolidated), outer shells = low-precision exploratory priors. The temporal layering reflects developmental order of consolidation.</aside>
+    </section>
+
+    <section class="chapter" data-section="5">
+      <span class="chap-num">CH 05 · Two halves</span>
+      <h2>The mind has an outside half and an inside half</h2>
+      <p class="lead">Each loop in the field has two halves. The outside half goes through the world. The inside half goes through the inside of your own coil. They are not two separate things. They are two halves of one circulation.</p>
+
+      <ul class="def-list">
+        <li><span class="term">Outside</span><span class="gloss"><strong>You and the world.</strong> Every interaction. Speaking, listening, working, touching, watching, doing.</span></li>
+        <li><span class="term">Inside</span><span class="gloss"><strong>You and yourself.</strong> Daydreams. Memories. Sense of who you are. The voice in your head.</span></li>
+      </ul>
+
+      <div class="interactive">
+        <div class="label">Highlight one half at a time</div>
+        <div class="toggle-row" id="arc-toggle">
+          <button data-arc="external" class="active">Outside half</button>
+          <button data-arc="internal">Inside half</button>
+          <button data-arc="both">Both</button>
+        </div>
+      </div>
+
+      <p>A healthy mind has both halves working. When one breaks down, the other tries to compensate, but at a cost.</p>
+
+      <p>Too much outside half without inside half: restless action without inner reference. The kind of person who can't stop doing but never feels grounded.</p>
+
+      <p>Too much inside half without outside half: rumination without contact. Loops of thought that have lost their connection to anything real.</p>
+
+      <aside class="geek"><span class="geek-tag">Neuro</span>The inside half corresponds to <strong>default mode network (DMN)</strong> activity, the brain's continuous self-model. The outside half corresponds to coupling with the salience and central executive networks. The TMoP-proposed biomarker for healthy circulation is <strong>CEN-DMN anticorrelation strength</strong> in resting-state fMRI: the two networks should oscillate in dynamic counterbalance.</aside>
+    </section>
+
+    <section class="chapter" data-section="6">
+      <span class="chap-num">CH 06 · The equation</span>
+      <h2>How strong the field is depends on three things</h2>
+      <p class="lead">There is one equation underneath the whole model. It says: the strength of your mental field is equal to your drive divided by your resistance.</p>
+
+      <div class="eq-block">
+        <div class="eq"><span class="var-blue">Field strength</span> &nbsp;=&nbsp; <span class="var-orange">Drive</span>&nbsp;÷&nbsp;<span>Resistance</span></div>
+        <div class="caption">Φ = (μ × I) / R<sub>total</sub> &nbsp; for the geeks</div>
+      </div>
+
+      <p>Drive itself is two things multiplied. How well-built your coil is (call this μ, your tissue quality) times how much energy is flowing through it right now (call this I, your moment-to-moment state). Both have to be high for the field to be strong.</p>
+
+      <ul class="def-list">
+        <li><span class="term">μ</span><span class="gloss"><strong>Tissue quality.</strong> How well your brain is built. Long-term, slow to change. Genetics, development, what happened in those eight stages.</span></li>
+        <li><span class="term">I</span><span class="gloss"><strong>Energy state.</strong> How well-fed, well-slept, well-regulated you are right now. Fast to change. Sleep, food, hormones, mood.</span></li>
+        <li><span class="term">μ × I</span><span class="gloss"><strong>Drive.</strong> Total push. A well-built brain on no sleep makes a weak field. A poorly-built brain on stimulants makes a strong but messy one.</span></li>
+        <li><span class="term">R</span><span class="gloss"><strong>Resistance.</strong> Anything in the way. Three different places. Next chapter.</span></li>
+        <li><span class="term">Φ</span><span class="gloss"><strong>Field strength.</strong> What you actually have to work with. Energy, attention, capacity to act and to take in.</span></li>
+      </ul>
+
+      <div class="interactive">
+        <div class="label">Move the sliders. The field on the right responds.</div>
+        <div class="slider-row">
+          <label><span class="sym">μ</span>tissue quality</label>
+          <input type="range" id="mu-slider" min="10" max="100" value="70" />
+          <span class="val mono" id="mu-val">0.70</span>
+        </div>
+        <div class="slider-row">
+          <label><span class="sym">I</span>energy</label>
+          <input type="range" id="i-slider" min="10" max="100" value="70" />
+          <span class="val mono" id="i-val">0.70</span>
+        </div>
+      </div>
+
+      <aside class="geek"><span class="geek-tag">Physics</span>This is <strong>Hopkinson's Law</strong> for magnetic circuits: <em>Φ = MMF / R<sub>total</sub></em>, where MMF (magnetomotive force) = μ × I. Direct analog of Ohm's Law (V = IR) for electrical circuits. The structural claim of TMoP's computational supplement is that this is also formally analogous to <strong>precision-weighted prediction error (Πε)</strong> in active inference: both are throughput equations factoring drive divided by resistance, both describe closed-loop circuits, both exhibit conservation. If the analogy is more than coincidental, TMoP becomes a constrained special case of the free energy principle.</aside>
+    </section>
+
+    <section class="chapter" data-section="7">
+      <span class="chap-num">CH 07 · Three blocks</span>
+      <h2>Three places where the field can get stuck</h2>
+      <p class="lead">The field can be weak for three different reasons. The block can be at the top of the coil, in the world outside, or at the bottom of the coil. Three different bottlenecks. Each one needs a different fix.</p>
+
+      <ul class="def-list">
+        <li><span class="term">Top block</span><span class="gloss"><strong>At the N pole.</strong> The system can't push out. Looks like inhibition, avoidance, slowness, withdrawal. The person wants to act but can't get the action started.</span></li>
+        <li><span class="term">World block</span><span class="gloss"><strong>In the medium.</strong> The world itself is hostile or chaotic. Looks like the consequences of poverty, abuse, isolation. The person can act and can take in, but what comes back is too thin or too dangerous to use.</span></li>
+        <li><span class="term">Bottom block</span><span class="gloss"><strong>At the S pole.</strong> The system can't take what's coming back. Looks like numbness, dissociation, the inability to name what you feel. Signal arrives but cannot be metabolised.</span></li>
+      </ul>
+
+      <div class="interactive">
+        <div class="label">Move each slider. The field on the right slows where the block is.</div>
+        <div class="slider-row">
+          <label><span class="sym">R<sub>N</sub></span>top block</label>
+          <input type="range" id="rn-slider" min="0" max="100" value="20" />
+          <span class="val mono" id="rn-val">0.20</span>
+        </div>
+        <div class="slider-row">
+          <label><span class="sym">R<sub>m</sub></span>world block</label>
+          <input type="range" id="rm-slider" min="0" max="100" value="20" />
+          <span class="val mono" id="rm-val">0.20</span>
+        </div>
+        <div class="slider-row">
+          <label><span class="sym">R<sub>S</sub></span>bottom block</label>
+          <input type="range" id="rs-slider" min="0" max="100" value="20" />
+          <span class="val mono" id="rs-val">0.20</span>
+        </div>
+      </div>
+
+      <p>This is the clinical payoff. Two patients can look equally depleted but for very different reasons. One needs help getting started (top block). One needs a different environment (world block). One needs help feeling their body again (bottom block). Same total weakness. Three completely different treatments.</p>
+
+      <aside class="geek"><span class="geek-tag">Physics</span>The three reluctances <strong>R<sub>N</sub></strong>, <strong>R<sub>medium</sub></strong>, <strong>R<sub>S</sub></strong> sum in series along the closed loop, so total reluctance R<sub>total</sub> = R<sub>N</sub> + R<sub>medium</sub> + R<sub>S</sub>. A bottleneck at any one node degrades the whole circuit's flux Φ. Biomarker proxies for R<sub>N</sub>: ERN amplitude reduction. For R<sub>S</sub>: HEP amplitude reduction, low interoceptive accuracy. R<sub>medium</sub> has no neural correlate by definition (lives in the environment), but proxied by area-deprivation indices, ACE scores, social-network density.</aside>
+    </section>
+
+    <section class="chapter" data-section="8">
+      <span class="chap-num">CH 08 · Gaps</span>
+      <h2>A small gap in the wrong place can wreck the whole coil</h2>
+      <p class="lead">Imagine a wedding ring with a tiny notch cut in it. The notch is small. But it changes how the whole ring behaves. The same thing happens in a brain coil. A bad early experience leaves a gap in one of the eight turns. The gap is small, but the field has to flow around it, and that single gap can dominate the whole circuit.</p>
+
+      <p>This is what early trauma does. A child who didn't get language input during the window when language is supposed to come in. A child whose attachment to a caregiver was broken before age two. A child exposed to chronic stress before the brain finishes its early consolidation. These leave gaps that don't go away. The rest of the coil compensates as best it can, but the gap is permanent.</p>
+
+      <p>This is also why the same dose of childhood adversity can produce wildly different adult outcomes. The gap is small in size but huge in effect. Whether it dominates depends on which turn it sat in and how the rest of the coil was wound.</p>
+
+      <div class="interactive">
+        <div class="label">Click any stage to put a gap there. The coil on the right shows the disruption.</div>
+        <div class="epoch-grid" id="epoch-grid">
+          <button data-epoch="1"><span class="ep-num">STAGE 01</span>Before birth</button>
+          <button data-epoch="2"><span class="ep-num">STAGE 02</span>Infancy</button>
+          <button data-epoch="3"><span class="ep-num">STAGE 03</span>Early child</button>
+          <button data-epoch="4"><span class="ep-num">STAGE 04</span>Middle child</button>
+          <button data-epoch="5"><span class="ep-num">STAGE 05</span>Adolescence</button>
+          <button data-epoch="6"><span class="ep-num">STAGE 06</span>Early adult</button>
+          <button data-epoch="7"><span class="ep-num">STAGE 07</span>Middle adult</button>
+          <button data-epoch="8"><span class="ep-num">STAGE 08</span>Late adult</button>
+        </div>
+      </div>
+
+      <aside class="geek"><span class="geek-tag">Physics + neuro</span>In magnetic circuits, an <strong>air gap</strong> as small as 1% of the circuit's length can dominate total reluctance, because air permeability is roughly 1/3000 of iron's. Imaging correlate: reduced <strong>fractional anisotropy</strong> on diffusion tensor imaging (DTI) of the <strong>uncinate fasciculus</strong> (the white-matter tract connecting orbitofrontal cortex to amygdala and temporal pole) is the canonical signature of early-life trauma. Other tracts indexed: cingulum (attachment), arcuate fasciculus (language window), SLF (cumulative epoch insult). Composite FA score across these tracts should predict the p-factor better than any single HiTOP dimension.</aside>
+    </section>
+
+    <section class="chapter" data-section="9">
+      <span class="chap-num">CH 09 · Leakage</span>
+      <h2>When the inside path fails, the field reaches outside</h2>
+      <p class="lead">There's a law of physics: a field line cannot just stop in space. It has to come back to where it started. So when the inside path of the loop is blocked, the field doesn't disappear. It finds another route. It reaches into the world for whatever it can use to complete itself.</p>
+
+      <p>This is what externalising looks like in TMoP terms. Anxious reassurance-seeking. Substance use. Controlling other people. Compulsive contact. Picking fights. The inside loop has failed, and the field is borrowing the world to complete itself.</p>
+
+      <div class="pull"><p>Externalising is not a moral failure. It is a field looking for a way to close itself.</p></div>
+
+      <p>This is one of the parts of the model that changes how you look at clinical work. Behaviours that look intentional or manipulative may be the visible signature of a field that has lost its internal route. The therapeutic question stops being "how do we stop this behaviour?" and becomes "where is the inside path broken, and can it be restored?"</p>
+
+      <aside class="geek"><span class="geek-tag">Physics</span>The relevant law is Maxwell's second equation: <em>∇·B = 0</em> (no magnetic monopole exists). Every field line is a closed curve. When internal closure path becomes too high-reluctance (e.g. high R<sub>S</sub> + air gaps), the field discharges through whatever lower-reluctance external path is available. In HiTOP terms this characterises the externalising spectrum (high MMF + high R<sub>S</sub>) and the manic configuration (very high MMF + I overdriven with fringing at both poles).</aside>
+    </section>
+
+    <section class="chapter" data-section="10">
+      <span class="chap-num">CH 10 · Drift</span>
+      <h2>How a delusion forms</h2>
+      <p class="lead">Imagine your model of the world drifting slowly out of sync with the actual world. At first you don't notice. The drift is small. Then it grows. Then it gets so big that updating your model is more "expensive" than just keeping the wrong one. Then the system locks. You believe something that isn't true and you cannot update.</p>
+
+      <p>That's how delusions form. They aren't random. They are the endpoint of a slow drift that accumulated, invisibly, for months.</p>
+
+      <p>The trigger for the lock isn't usually the wrong belief itself. It's something that drains the system's energy. A sleep crash. A withdrawal. A flu. A serious illness. That's why people often have their first psychotic break during physical stress, not during emotional stress.</p>
+
+      <p>The drift was already there. The energy drop is what fires the lock.</p>
+
+      <p>This explains a clinical pattern that looks mysterious from outside: the prodromal patient who seems "fine, just a bit off" for months, then crashes into full psychosis during a flu or after pulling several all-nighters. The model has been drifting for a long time. The acute illness drops the energy that was holding the loose prior in place. Below threshold, the system locks.</p>
+
+      <aside class="geek"><span class="geek-tag">Comp psych</span>The technical term is <strong>phase error</strong>: progressive divergence between the internal generative model and the hidden states of the world, accumulated over cycles where the S pole fails to register returning prediction errors. <strong>Inference closure</strong> (delusion formation) occurs when accumulated phase error exceeds total inferential drive. Biomarker proxy: <strong>MMN (mismatch negativity)</strong> reduction, which progressively worsens over illness duration. The TMoP-testable prediction: MMN × current-depletion interaction predicts conversion from ultra-high-risk to first-episode psychosis.</aside>
+    </section>
+
+    <section class="chapter" data-section="11">
+      <span class="chap-num">CH 11 · The map</span>
+      <h2>Different conditions are different shapes of the same field</h2>
+      <p class="lead">In this model, the major patterns of mental illness are not separate diseases. They are different patterns of strength and weakness in the same circuit. Click any one to see how the field reshapes.</p>
+
+      <div class="hitop-grid" id="hitop-grid">
+        <button data-mode="ext"><span class="h-name">Externalising</span><span class="h-config">Strong drive, weak return; field leaks outward</span></button>
+        <button data-mode="mania"><span class="h-name">Mania</span><span class="h-config">Field overdriven, fringing at both ends</span></button>
+        <button data-mode="ocd"><span class="h-name">OCD</span><span class="h-config">Tight loop; bottom rejects what comes back</span></button>
+        <button data-mode="anx"><span class="h-name">Anxiety</span><span class="h-config">Flooded with input, paralysed in output</span></button>
+        <button data-mode="dep"><span class="h-name">Depression</span><span class="h-config">Weak field everywhere; meaning thins</span></button>
+        <button data-mode="det"><span class="h-name">Detachment</span><span class="h-config">Field near collapse; nothing flows</span></button>
+        <button data-mode="td"><span class="h-name">Thought disorder</span><span class="h-config">Drift accumulating across cycles</span></button>
+        <button data-mode="p"><span class="h-name">General vulnerability</span><span class="h-config">Coil quality low; risk raised across all</span></button>
+        <button data-mode="reset"><span class="h-name">Healthy</span><span class="h-config">Reset to clean circulation</span></button>
+      </div>
+
+      <p>What this view buys clinically: the same diagnosis on paper can have very different field shapes underneath. The "depressed" patient who is paralysed by inhibition is not the same as the one who is drowning in environmental adversity is not the same as the one who has gone numb to their own body. They look similar on a checklist. They need different things.</p>
+
+      <aside class="geek"><span class="geek-tag">Comp psych</span>Each HiTOP dimension corresponds to a specific configuration of the parameters in <strong>Φ = (μ × I) / R<sub>total</sub></strong>. The model's central falsifiability commitment is the <strong>polar dissociation test</strong>: in a transdiagnostic sample (n ≥ 200, five groups: anxiety, depression, schizophrenia-spectrum, externalising, controls), confirmatory factor analysis of N-pole biomarkers (ERN, sEBR) and S-pole biomarkers (HEP, interoceptive accuracy, insular BOLD) must recover a two-factor polar structure with CFI > 0.95 and RMSEA < 0.06. If a single general factor explains ≥ 70% of variance, the model needs fundamental revision.</aside>
+    </section>
+
+    <section class="chapter" data-section="12">
+      <span class="chap-num">CH 12 · Whole</span>
+      <h2>That's the whole model</h2>
+      <p class="lead">Brain is a coil. Mind is the field around it. Field has two halves: outside (engagement with the world) and inside (engagement with yourself). The field can get blocked at three places: at the top of the coil, in the world, at the bottom of the coil. The coil is built across eight stages of life, and gaps in any stage affect the whole rest. When the inside loop fails, the field has to find another way to close itself. That's externalising. When your model of the world drifts too far from the actual world and your energy crashes, the system locks. That's psychosis.</p>
+
+      <p>What you can do with this:</p>
+
+      <div class="bento">
+        <div class="bento-item dark"><div class="num">01</div><div class="title">Same diagnosis, different shapes</div><p>Two patients with the same label can have very different field shapes underneath. Treat the field, not the label.</p></div>
+        <div class="bento-item"><div class="num">02</div><div class="title">Three different fixes for weakness</div><p>If the field is weak, ask which bottleneck. Top, world, or bottom. Different treatment for each.</p></div>
+        <div class="bento-item"><div class="num">03</div><div class="title">Externalising is geometry, not character</div><p>Reaching outside is what happens when the inside loop breaks. The clinical question becomes: where is the gap?</p></div>
+        <div class="bento-item"><div class="num">04</div><div class="title">Psychosis has a why and a when</div><p>Why: slow drift in the model. When: an energy crash that drops the system below threshold.</p></div>
+      </div>
+
+      <p>The model is not a literal claim that the brain runs on magnetism. It is a structural claim: the math of magnetic circuits and the math of how brains update their predictions share a formal shape that may turn out to be the same shape underneath. The model earns its keep, or doesn't, on whether its testable predictions hold. The most central one: whether the top and bottom of the coil can be measured separately as two distinct biomarker factors in a large transdiagnostic study. That study is the next piece of work.</p>
+
+      <aside class="geek"><span class="geek-tag">Epistemic note</span>TMoP is presented as a <strong>structural-mathematical analogy</strong>, not a literal physical claim. The brain does not operate as a magnetic circuit in the EM sense. The claim is that <em>Φ = MMF / R</em> (Hopkinson's Law) and <em>belief update ∝ precision × prediction error</em> (active inference) share formal features that may prove formally compatible under specific circuit constraints. If derivable from the free energy principle under those constraints, TMoP becomes a constrained special case. If not, it remains a productive structural heuristic that organises developmental, computational, and clinical observations under one geometry. The polar dissociation test (Chapter 11 geek note) is the falsifiability commitment.</aside>
+    </section>
+
+  </div>
+
+  <div class="stage">
+    <div class="stage-inner">
+      <div class="stage-tag" id="stage-tag"><span class="num">00</span><span id="stage-tag-name">Identity</span></div>
+      <canvas id="stage-canvas"></canvas>
+      <div class="stage-overlay">
+        <div class="stage-label" id="lbl-n" style="top: 16%; left: 50%; transform: translateX(-50%);"><span class="dot" style="background: var(--orange);"></span>N pole · projective</div>
+        <div class="stage-label" id="lbl-s" style="bottom: 18%; left: 50%; transform: translateX(-50%);"><span class="dot" style="background: var(--blue);"></span>S pole · receptive</div>
+        <div class="stage-label" id="lbl-int" style="top: 50%; left: 18px; transform: translateY(-50%);"><span class="dot" style="background: var(--ink);"></span>Internal arc · DMN</div>
+        <div class="stage-label" id="lbl-ext" style="top: 50%; right: 18px; transform: translateY(-50%);"><span class="dot" style="background: var(--ink);"></span>External arc · world</div>
+        <div class="stage-label" id="lbl-coil" style="top: 18px; right: 18px;"><span class="dot" style="background: var(--ink);"></span>Solenoid · brain</div>
+      </div>
+      <div class="stage-readout"><span class="chap" id="readout-chap">Ch 00.</span><span id="readout-body">Drag to rotate. Scroll the left column to walk through the model.</span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-title">Source</div>
+    <p>D'souza, W. (2026). <em>The Toroidal Model of the Psyche: psychopathology as recurrent stabilisation patterns in a developmental system.</em> With guidance from Dr Eesha Sharma, NIMHANS. Manuscript in preparation.</p>
+  </div>
+  <div>
+    <div class="footer-title">Contact</div>
+    <p>Dr Wilfred D'souza · <a href="mailto:wilfred.desouza1996@gmail.com">wilfred.desouza1996@gmail.com</a><br>Back to <a href="/">Weave</a>.</p>
+  </div>
+</footer>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const C = {
+  ink: 0x0a0a0a,
+  body: 0x525252,
+  muted: 0xa3a3a3,
+  hairline: 0xe5e5e5,
+  orange: 0xfa5400,
+  blue: 0x0066ff,
+  red: 0xe11900,
+  bg: 0xfafafa,
+};
+
+// ═══════════════════════════════════════════════════════════════
+//  STAGE
+// ═══════════════════════════════════════════════════════════════
+const canvas = document.getElementById('stage-canvas');
+const scene = new THREE.Scene();
+scene.background = null;
+
+const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+camera.position.set(4.5, 1.0, 5.0);
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+function fitRenderer() {
+  const r = canvas.parentElement.getBoundingClientRect();
+  renderer.setSize(r.width, r.height, false);
+  camera.aspect = r.width / r.height;
+  camera.updateProjectionMatrix();
+}
+fitRenderer();
+window.addEventListener('resize', fitRenderer);
+
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.enablePan = false;
+controls.minDistance = 4.0;
+controls.maxDistance = 10;
+controls.target.set(0, 0, 0);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+const key = new THREE.DirectionalLight(0xffffff, 0.5);
+key.position.set(5, 6, 4);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xffffff, 0.25);
+fill.position.set(-4, -2, -3);
+scene.add(fill);
+
+const sceneRoot = new THREE.Group();
+scene.add(sceneRoot);
+
+// ═══════════════════════════════════════════════════════════════
+//  STRAIGHT SOLENOID — vertical helix, 8 turns (one per epoch)
+// ═══════════════════════════════════════════════════════════════
+const COIL_R = 0.6;
+const COIL_H = 3.6;
+const N_TURNS = 8;
+const EPOCH_COUNT = 8;
+
+const epochSegments = [];
+for (let i = 0; i < EPOCH_COUNT; i++) {
+  epochSegments.push({
+    tStart: i / EPOCH_COUNT,
+    tEnd: (i + 1) / EPOCH_COUNT,
+    gap: false,
+  });
+}
+
+function solenoidPoint(t) {
+  // t in [0,1]; helix from bottom to top, N_TURNS turns
+  const angle = t * Math.PI * 2 * N_TURNS;
+  const y = (t - 0.5) * COIL_H;
+  return new THREE.Vector3(
+    COIL_R * Math.cos(angle),
+    y,
+    COIL_R * Math.sin(angle)
+  );
+}
+
+class SolenoidCurve extends THREE.Curve {
+  constructor(tStart, tEnd) { super(); this.tStart = tStart; this.tEnd = tEnd; }
+  getPoint(u, target = new THREE.Vector3()) {
+    const t = this.tStart + (this.tEnd - this.tStart) * u;
+    return target.copy(solenoidPoint(t));
+  }
+}
+
+const solenoidGroup = new THREE.Group();
+sceneRoot.add(solenoidGroup);
+
+function rebuildSolenoid(visibleEpochs) {
+  while (solenoidGroup.children.length > 0) {
+    const m = solenoidGroup.children.pop();
+    if (m.geometry) m.geometry.dispose();
+  }
+  for (let i = 0; i < EPOCH_COUNT; i++) {
+    if (i >= visibleEpochs) continue;
+    const seg = epochSegments[i];
+    if (seg.gap) {
+      const tMid = (seg.tStart + seg.tEnd) / 2;
+      const halfWidth = (seg.tEnd - seg.tStart) * 0.42;
+      makeSegment(seg.tStart, tMid - halfWidth * 0.5);
+      makeSegment(tMid + halfWidth * 0.5, seg.tEnd);
+      const mark = new THREE.Mesh(
+        new THREE.SphereGeometry(0.07, 16, 16),
+        new THREE.MeshBasicMaterial({ color: C.red })
+      );
+      mark.position.copy(solenoidPoint(tMid));
+      solenoidGroup.add(mark);
+    } else {
+      makeSegment(seg.tStart, seg.tEnd);
+    }
+  }
+  function makeSegment(tStart, tEnd) {
+    const curve = new SolenoidCurve(tStart, tEnd);
+    const samples = Math.max(8, Math.floor((tEnd - tStart) * N_TURNS * 24));
+    const tube = new THREE.TubeGeometry(curve, samples, 0.03, 8, false);
+    const mat = new THREE.MeshStandardMaterial({
+      color: C.ink, metalness: 0.4, roughness: 0.55,
+    });
+    solenoidGroup.add(new THREE.Mesh(tube, mat));
+  }
+}
+rebuildSolenoid(EPOCH_COUNT);
+
+// ═══════════════════════════════════════════════════════════════
+//  POLE MARKERS — N at top, S at bottom
+// ═══════════════════════════════════════════════════════════════
+const N_POS = new THREE.Vector3(0, COIL_H / 2 + 0.15, 0);
+const S_POS = new THREE.Vector3(0, -COIL_H / 2 - 0.15, 0);
+
+function makePoleMarker(color) {
+  const grp = new THREE.Group();
+  grp.add(new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 24, 24),
+    new THREE.MeshStandardMaterial({
+      color, emissive: color, emissiveIntensity: 0.6, roughness: 0.4,
+    })
+  ));
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(0.32, 0.012, 8, 64),
+    new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.55 })
+  );
+  ring.rotation.x = Math.PI / 2;
+  grp.add(ring);
+  return grp;
+}
+const nMarker = makePoleMarker(C.orange);
+nMarker.position.copy(N_POS);
+sceneRoot.add(nMarker);
+const sMarker = makePoleMarker(C.blue);
+sMarker.position.copy(S_POS);
+sceneRoot.add(sMarker);
+
+// ═══════════════════════════════════════════════════════════════
+//  TOROIDAL FIELD — concentric shells of closed dipolar loops
+//  Each shell is at a different radial depth. Inner shells = consolidated
+//  / foundational / earlier. Outer shells = exploratory / uncertain / later.
+//  Together the shells form a pumpkin-shaped envelope around the coil.
+// ═══════════════════════════════════════════════════════════════
+const fieldGroup = new THREE.Group();
+sceneRoot.add(fieldGroup);
+
+const SHELLS = [
+  { peak: 0.90, opacity: 0.55, lineCount: 12, tubeR: 0.014, label: 'foundational' },
+  { peak: 1.30, opacity: 0.38, lineCount: 12, tubeR: 0.012, label: 'consolidated' },
+  { peak: 1.85, opacity: 0.24, lineCount: 10, tubeR: 0.010, label: 'middle' },
+  { peak: 2.50, opacity: 0.14, lineCount: 8,  tubeR: 0.009, label: 'exploratory' },
+  { peak: 3.20, opacity: 0.07, lineCount: 6,  tubeR: 0.008, label: 'uncertain' },
+];
+
+function buildFieldLine(phi, peak, baseOpacity, tubeR, shellIdx) {
+  const yTop = COIL_H / 2;
+  const N = 48;
+  const extPoints = [];
+  const intPoints = [];
+
+  // External arc — pumpkin profile via sin^0.65 (broader equator than ellipse)
+  for (let k = 0; k <= N; k++) {
+    const u = (k / N) * Math.PI;            // 0 → π
+    const sinU = Math.sin(u);
+    const rExt = COIL_R * 0.7 + (peak - COIL_R * 0.7) * Math.pow(sinU, 0.65);
+    const y = yTop * Math.cos(u);            // yTop → -yTop
+    extPoints.push(new THREE.Vector3(rExt * Math.cos(phi), y, rExt * Math.sin(phi)));
+  }
+
+  // Internal arc — through the coil interior
+  for (let k = 0; k <= N; k++) {
+    const u = Math.PI - (k / N) * Math.PI;   // π → 0
+    const rInt = COIL_R * 0.22;
+    const y = yTop * Math.cos(u);            // -yTop → yTop
+    intPoints.push(new THREE.Vector3(rInt * Math.cos(phi), y, rInt * Math.sin(phi)));
+  }
+
+  const extCurve = new THREE.CatmullRomCurve3(extPoints, false);
+  const intCurve = new THREE.CatmullRomCurve3(intPoints, false);
+  const allPoints = [...extPoints, ...intPoints.slice(1, -1)];
+  const fullCurve = new THREE.CatmullRomCurve3(allPoints, true);
+
+  const extMat = new THREE.MeshBasicMaterial({ color: C.ink, transparent: true, opacity: baseOpacity });
+  const intMat = new THREE.MeshBasicMaterial({ color: C.ink, transparent: true, opacity: baseOpacity });
+  const extMesh = new THREE.Mesh(new THREE.TubeGeometry(extCurve, 80, tubeR, 6, false), extMat);
+  const intMesh = new THREE.Mesh(new THREE.TubeGeometry(intCurve, 80, tubeR, 6, false), intMat);
+  fieldGroup.add(extMesh, intMesh);
+
+  return { fullCurve, extMesh, intMesh, extMat, intMat, phi, peak, baseOpacity, shellIdx };
+}
+
+const fieldLines = [];
+SHELLS.forEach((shell, sIdx) => {
+  for (let i = 0; i < shell.lineCount; i++) {
+    const phi = (i / shell.lineCount) * Math.PI * 2 + sIdx * 0.13; // small offset per shell so lines don't all align
+    fieldLines.push(buildFieldLine(phi, shell.peak, shell.opacity, shell.tubeR, sIdx));
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  PARTICLES — flow along each field line; orange near N, blue near S
+// ═══════════════════════════════════════════════════════════════
+const particleGroup = new THREE.Group();
+sceneRoot.add(particleGroup);
+
+function makeParticle() {
+  const m = new THREE.Mesh(
+    new THREE.SphereGeometry(0.05, 8, 8),
+    new THREE.MeshBasicMaterial({ color: C.orange, transparent: true, opacity: 0.85 })
+  );
+  particleGroup.add(m);
+  return m;
+}
+
+const particles = [];
+// Particles only on inner shells (shellIdx <= 1) to avoid clutter on the outer pumpkin
+const particleLines = fieldLines.filter(l => l.shellIdx <= 1);
+for (let i = 0; i < particleLines.length; i++) {
+  const ln = particleLines[i];
+  particles.push({
+    line: ln,
+    mesh: makeParticle(),
+    t: (i / particleLines.length) % 1,
+    speed: 0.16 + Math.random() * 0.12,
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RELUCTANCE & MEDIUM OVERLAYS
+// ═══════════════════════════════════════════════════════════════
+const mediumGeom = new THREE.SphereGeometry(4.0, 32, 32);
+const mediumMat = new THREE.MeshBasicMaterial({
+  color: C.muted, transparent: true, opacity: 0.0, depthWrite: false, side: THREE.BackSide,
+});
+sceneRoot.add(new THREE.Mesh(mediumGeom, mediumMat));
+
+function makeReluctanceDisk(color) {
+  return new THREE.Mesh(
+    new THREE.RingGeometry(0.4, 0.95, 48),
+    new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.0, side: THREE.DoubleSide })
+  );
+}
+const rnDisk = makeReluctanceDisk(C.red);
+rnDisk.position.copy(N_POS);
+sceneRoot.add(rnDisk);
+const rsDisk = makeReluctanceDisk(C.red);
+rsDisk.position.copy(S_POS);
+sceneRoot.add(rsDisk);
+
+// ═══════════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════════
+const state = {
+  showField: true,
+  showInternal: true,
+  showExternal: true,
+  fieldOpacity: 1.0,
+  particleOpacity: 1.0,
+  mu: 0.7, i: 0.7,
+  rN: 0.2, rM: 0.2, rS: 0.2,
+  visibleEpochs: 8,
+  showLeakage: false,
+  showPhaseError: false,
+  visibleLabels: ['n','s'],
+  cam: new THREE.Vector3(4.5, 1.0, 5.0),
+  target: new THREE.Vector3(0, 0, 0),
+  arcMode: 'both',
+};
+
+const SECTIONS = {
+  0: { cam: [4.5, 1.0, 5.0], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['n','s'], chap: 'Ch 00.', body: 'Straight 8-turn solenoid (the brain) and the toroidal field (the mind) it generates. Drag to rotate.', tag: ['00','Identity'] },
+  1: { cam: [3.5, 0.6, 4.5], target: [0, 0, 0], showField: false, showInternal: false, showExternal: false,
+       labels: ['coil'], visibleEpochs: 8, chap: 'Ch 01.', body: 'Solenoid only. Eight turns visible, one per developmental epoch.', tag: ['01','The solenoid'] },
+  2: { cam: [3.0, 2.5, 4.0], target: [0, COIL_H/2 - 0.4, 0], showField: false, showInternal: false, showExternal: false,
+       labels: ['n'], chap: 'Ch 02.', body: 'N pole at the top of the coil. Projective. Active inference.', tag: ['02','N pole'] },
+  3: { cam: [3.0, -2.5, 4.0], target: [0, -COIL_H/2 + 0.4, 0], showField: false, showInternal: false, showExternal: false,
+       labels: ['s'], chap: 'Ch 03.', body: 'S pole at the bottom of the coil. Receptive. Perceptual + interoceptive inference.', tag: ['03','S pole'] },
+  4: { cam: [4.5, 0.5, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['n','s','coil'], chap: 'Ch 04.', body: 'Field lines emerge from N, loop through the world, return at S, close through the coil interior. Each line is closed. The set is topologically toroidal.', tag: ['04','The toroidal field'] },
+  5: { cam: [4.5, 0.5, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['int','ext'], chap: 'Ch 05.', body: 'Two arcs of the toroidal field. Internal (DMN) and external (world). Toggle to highlight.', tag: ['05','Two arcs'] },
+  6: { cam: [4.5, 0.5, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['coil'], chap: 'Ch 06.', body: "Hopkinson's Law. Adjust μ and I in the narrative; field intensity responds.", tag: ['06','Hopkinson'] },
+  7: { cam: [4.5, 0.5, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['n','s'], chap: 'Ch 07.', body: 'Three reluctances at three locations. Adjust each independently.', tag: ['07','Three reluctances'] },
+  8: { cam: [3.0, 0.5, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['coil'], chap: 'Ch 08.', body: 'Click an epoch to remove that turn of the coil. Field lines fringe at the gap.', tag: ['08','Air gaps'] },
+  9: { cam: [4.5, 1.0, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['ext'], chap: 'Ch 09.', body: 'When the internal closure path is blocked, field finds external routes. Externalising as flux leakage.', tag: ['09','Flux leakage'] },
+  10:{ cam: [4.5, 0.5, 4.5], target: [0,0,0], showField: true, showInternal: true, showExternal: false,
+       labels: ['int'], chap: 'Ch 10.', body: 'Phase error accumulating. The internal arc drifts from the world’s actual state.', tag: ['10','Phase error'] },
+  11:{ cam: [4.5, 0.5, 4.8], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: [], chap: 'Ch 11.', body: 'Click a HiTOP dimension. The field reconfigures to the corresponding circuit profile.', tag: ['11','HiTOP map'] },
+  12:{ cam: [5.0, 1.0, 5.0], target: [0,0,0], showField: true, showInternal: true, showExternal: true,
+       labels: ['n','s','int','ext','coil'], chap: 'Ch 12.', body: 'The whole, again. Drag freely.', tag: ['12','Whole'] },
+};
+
+const labelEls = {
+  n: document.getElementById('lbl-n'),
+  s: document.getElementById('lbl-s'),
+  int: document.getElementById('lbl-int'),
+  ext: document.getElementById('lbl-ext'),
+  coil: document.getElementById('lbl-coil'),
+};
+const readoutChap = document.getElementById('readout-chap');
+const readoutBody = document.getElementById('readout-body');
+const tagNum = document.querySelector('#stage-tag .num');
+const tagName = document.getElementById('stage-tag-name');
+
+let currentSection = 0;
+let manualHitop = null;
+let target = SECTIONS[0];
+let lerpCam = new THREE.Vector3(...target.cam);
+let lerpTarget = new THREE.Vector3(...target.target);
+
+function applySection(idx) {
+  const s = SECTIONS[idx];
+  if (!s) return;
+  currentSection = idx;
+  target = s;
+  state.cam = new THREE.Vector3(...s.cam);
+  state.target = new THREE.Vector3(...s.target);
+  state.showField = s.showField;
+  state.showInternal = s.showInternal;
+  state.showExternal = s.showExternal;
+  state.visibleLabels = s.labels;
+  if (s.visibleEpochs !== undefined && s.visibleEpochs !== state.visibleEpochs) {
+    state.visibleEpochs = s.visibleEpochs;
+    rebuildSolenoid(state.visibleEpochs);
+  }
+  Object.keys(labelEls).forEach(k => labelEls[k].classList.remove('show'));
+  s.labels.forEach(k => labelEls[k] && labelEls[k].classList.add('show'));
+  readoutChap.textContent = s.chap;
+  readoutBody.textContent = s.body;
+  tagNum.textContent = s.tag[0];
+  tagName.textContent = s.tag[1];
+  state.showLeakage = (idx === 9);
+  state.showPhaseError = (idx === 10);
+}
+
+const sections = document.querySelectorAll('section.chapter');
+const sectionState = new Map();
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    const idx = parseInt(e.target.dataset.section, 10);
+    sectionState.set(idx, e.isIntersecting);
+  });
+  let active = 0;
+  for (const [idx, on] of sectionState.entries()) {
+    if (on) { active = idx; break; }
+  }
+  applySection(active);
+}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+sections.forEach(s => observer.observe(s));
+
+// Inline interactives
+document.querySelectorAll('#arc-toggle button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#arc-toggle button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    state.arcMode = b.dataset.arc;
+  });
+});
+
+const muSlider = document.getElementById('mu-slider');
+const muVal = document.getElementById('mu-val');
+const iSlider = document.getElementById('i-slider');
+const iVal = document.getElementById('i-val');
+function updateMuI() {
+  state.mu = parseInt(muSlider.value, 10) / 100;
+  state.i = parseInt(iSlider.value, 10) / 100;
+  muVal.textContent = state.mu.toFixed(2);
+  iVal.textContent = state.i.toFixed(2);
+}
+muSlider.addEventListener('input', updateMuI);
+iSlider.addEventListener('input', updateMuI);
+updateMuI();
+
+const rnSlider = document.getElementById('rn-slider');
+const rmSlider = document.getElementById('rm-slider');
+const rsSlider = document.getElementById('rs-slider');
+const rnVal = document.getElementById('rn-val');
+const rmVal = document.getElementById('rm-val');
+const rsVal = document.getElementById('rs-val');
+function updateR() {
+  state.rN = parseInt(rnSlider.value, 10) / 100;
+  state.rM = parseInt(rmSlider.value, 10) / 100;
+  state.rS = parseInt(rsSlider.value, 10) / 100;
+  rnVal.textContent = state.rN.toFixed(2);
+  rmVal.textContent = state.rM.toFixed(2);
+  rsVal.textContent = state.rS.toFixed(2);
+}
+rnSlider.addEventListener('input', updateR);
+rmSlider.addEventListener('input', updateR);
+rsSlider.addEventListener('input', updateR);
+updateR();
+
+document.querySelectorAll('#epoch-grid button').forEach(b => {
+  b.addEventListener('click', () => {
+    const ep = parseInt(b.dataset.epoch, 10);
+    const seg = epochSegments[ep - 1];
+    seg.gap = !seg.gap;
+    if (seg.gap) b.classList.add('active'); else b.classList.remove('active');
+    rebuildSolenoid(state.visibleEpochs);
+  });
+});
+
+const HITOP = {
+  ext:   { mu: 0.7, i: 0.8, rN: 0.1, rM: 0.3, rS: 0.7, leak: true },
+  mania: { mu: 0.6, i: 1.0, rN: 0.1, rM: 0.2, rS: 0.2, leak: true },
+  ocd:   { mu: 0.7, i: 0.7, rN: 0.2, rM: 0.2, rS: 0.7, leak: false },
+  anx:   { mu: 0.6, i: 0.5, rN: 0.7, rM: 0.3, rS: 0.1, leak: false },
+  dep:   { mu: 0.5, i: 0.2, rN: 0.4, rM: 0.4, rS: 0.4, leak: false },
+  det:   { mu: 0.4, i: 0.1, rN: 0.7, rM: 0.6, rS: 0.7, leak: false },
+  td:    { mu: 0.5, i: 0.5, rN: 0.3, rM: 0.7, rS: 0.5, leak: false, phase: true },
+  p:     { mu: 0.2, i: 0.5, rN: 0.4, rM: 0.4, rS: 0.4, leak: false },
+  reset: { mu: 0.7, i: 0.7, rN: 0.2, rM: 0.2, rS: 0.2, leak: false },
+};
+document.querySelectorAll('#hitop-grid button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#hitop-grid button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    manualHitop = HITOP[b.dataset.mode];
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  ANIMATION LOOP
+// ═══════════════════════════════════════════════════════════════
+const clock = new THREE.Clock();
+
+function lerp(a, b, t) { return a + (b - a) * Math.min(1, Math.max(0, t)); }
+
+function animate() {
+  const dt = Math.min(clock.getDelta(), 0.05);
+
+  // Resolve effective parameters
+  let mu = state.mu, ii = state.i, rN = state.rN, rM = state.rM, rS = state.rS;
+  let leak = state.showLeakage;
+  let phaseOn = state.showPhaseError;
+  if (manualHitop) {
+    mu = manualHitop.mu; ii = manualHitop.i;
+    rN = manualHitop.rN; rM = manualHitop.rM; rS = manualHitop.rS;
+    leak = manualHitop.leak;
+    phaseOn = !!manualHitop.phase;
+  }
+  const mmf = mu * ii;
+  const rTotal = rN + rM + rS;
+  const fluxNorm = Math.min(1.5, mmf / Math.max(0.05, rTotal + 0.3));
+
+  const baseFieldOp = state.showField ? Math.min(1, fluxNorm) : 0;
+
+  // External arc opacity (boosted on leak)
+  const extTarget = baseFieldOp * (state.showExternal ? 1 : 0) * (
+    state.arcMode === 'both' ? 1 : state.arcMode === 'external' ? 1 : 0.18
+  ) * (leak ? 1.6 : 1.0);
+  const intTarget = baseFieldOp * (state.showInternal ? 1 : 0) * (
+    state.arcMode === 'both' ? 1 : state.arcMode === 'internal' ? 1 : 0.18
+  ) * (leak ? 0.4 : 1.0);
+
+  fieldLines.forEach(ln => {
+    // Each shell preserves its baseline opacity; flux gates modulate it
+    ln.extMat.opacity = lerp(ln.extMat.opacity, Math.min(ln.baseOpacity, extTarget * ln.baseOpacity), dt * 4);
+    ln.intMat.opacity = lerp(ln.intMat.opacity, Math.min(ln.baseOpacity, intTarget * ln.baseOpacity), dt * 4);
+  });
+
+  // Particles
+  particles.forEach(p => {
+    p.t += dt * p.speed * (0.5 + fluxNorm);
+    if (p.t > 1) p.t -= 1;
+    let u = p.t;
+    if (phaseOn) {
+      u = (u + 0.04 * Math.sin(clock.elapsedTime * 0.6 + p.line.phi)) % 1;
+      if (u < 0) u += 1;
+    }
+    const pos = p.line.fullCurve.getPointAt(u);
+    p.mesh.position.copy(pos);
+    // Color shift: orange near N pole top (high y), blue near S pole bottom (low y)
+    const cMix = (pos.y / (COIL_H / 2) + 1) / 2;  // 0 at bottom, 1 at top
+    const r = 0xfa * cMix + 0x00 * (1 - cMix);
+    const g = 0x54 * cMix + 0x66 * (1 - cMix);
+    const bl = 0x00 * cMix + 0xff * (1 - cMix);
+    p.mesh.material.color.setRGB(r/255, g/255, bl/255);
+    // Particle visibility
+    const onExt = u < 0.5;  // first half of curve = external arc
+    const visGate = onExt ? extTarget : intTarget;
+    p.mesh.material.opacity = lerp(p.mesh.material.opacity, Math.min(1, visGate * 0.95), dt * 4);
+  });
+
+  // Pole markers visibility — always on once we're past CH 00
+  nMarker.visible = state.visibleLabels.includes('n') || state.visibleLabels.includes('coil') || currentSection >= 4;
+  sMarker.visible = state.visibleLabels.includes('s') || state.visibleLabels.includes('coil') || currentSection >= 4;
+
+  // Reluctance disks
+  rnDisk.material.opacity = lerp(rnDisk.material.opacity, Math.min(0.5, rN * 0.6), dt * 3);
+  rsDisk.material.opacity = lerp(rsDisk.material.opacity, Math.min(0.5, rS * 0.6), dt * 3);
+  rnDisk.lookAt(camera.position);
+  rsDisk.lookAt(camera.position);
+
+  // Medium opacity
+  mediumMat.opacity = lerp(mediumMat.opacity, Math.min(0.22, rM * 0.32), dt * 3);
+
+  // Idle rotation on Ch 0 and Ch 12
+  if (currentSection === 0 || currentSection === 12) {
+    sceneRoot.rotation.y += dt * 0.08;
+  }
+
+  // Camera lerp
+  lerpCam.lerp(state.cam, Math.min(1, dt * 1.6));
+  lerpTarget.lerp(state.target, Math.min(1, dt * 1.6));
+  camera.position.copy(lerpCam);
+  controls.target.copy(lerpTarget);
+  controls.update();
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+animate();
+
+applySection(0);
+</script>
+
+</body>
+</html>
