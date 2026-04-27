@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://weave.clinic/</loc><lastmod>2026-03-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://weave.clinic/</loc><lastmod>2026-04-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://weave.clinic/about.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://weave.clinic/services.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://weave.clinic/what-to-expect.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://weave.clinic/contact.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://weave.clinic/medication-faq.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://weave.clinic/your-rights.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://weave.clinic/learn/</loc><lastmod>2026-03-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Learn hub + general mental-health articles -->
+  <url><loc>https://weave.clinic/learn/</loc><lastmod>2026-04-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://weave.clinic/learn/adhd-in-adults.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://weave.clinic/learn/addictions.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://weave.clinic/learn/screen-use.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -17,4 +19,34 @@
   <url><loc>https://weave.clinic/learn/supplements.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://weave.clinic/learn/sexual-health.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://weave.clinic/learn/psychosis.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Residency / exam-prep curriculum hubs -->
+  <url><loc>https://weave.clinic/learn/for-residents/</loc><lastmod>2026-04-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/</loc><lastmod>2026-04-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Weave Psychotherapy 13-volume curriculum -->
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-01-Sprint/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-02-Foundations/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-03-Psychodynamic/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-04-CBT/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-05-Behaviour-Therapy/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-06-Third-Wave/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-07-Humanistic-Existential/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-08-Specialized-Modalities/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-09-Group-Family-Couples/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-10-Special-Populations/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-11-Disorder-Specific-Map/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-12-Landmark-Papers/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://weave.clinic/learn/psychotherapy/WP-13-Question-Bank/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Other indexable hubs -->
+  <url><loc>https://weave.clinic/tmop-explainer/</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://weave.clinic/kundly/</loc><lastmod>2026-04-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://weave.clinic/buy/</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://weave.clinic/buy/reading-the-patient/</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Legal -->
+  <url><loc>https://weave.clinic/privacy.html</loc><lastmod>2026-04-25</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://weave.clinic/terms.html</loc><lastmod>2026-04-25</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://weave.clinic/refund-policy.html</loc><lastmod>2026-04-25</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 </urlset>
