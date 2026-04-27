@@ -66,19 +66,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kundly — the psychiatry way | Weave</title>
-<meta name="description" content="A free preliminary reflection on your life story. Not a diagnosis, not a medical test — a careful reading, given as a gift. From Weave Centre for Integrative Psychiatry.">
+<meta name="description" content="Tell us your story. A psychiatrist will read it carefully and write you back a reflection. Free, no diagnosis, no strings, no account needed.">
 
 <meta property="og:title" content="Kundly — the psychiatry way">
-<meta property="og:description" content="Tell us your story. We'll read it, and write you a reflection letter. Free. No diagnosis, no strings.">
+<meta property="og:description" content="Tell us your story. A psychiatrist will read it carefully and write you back a reflection. Free, no diagnosis, no strings, no account needed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://weave.clinic/kundly/">
+<meta property="og:image" content="https://weave.clinic/img/homepage.png">
 <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://weave.clinic/kundly/">
 
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon-180.png">
 
+<link rel="preconnect" href="https://swnhmrljpafvaojaytkv.supabase.co" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -94,7 +97,7 @@
       WEAVE
       <span>Centre for Integrative Psychiatry</span>
     </a>
-    <button class="nav__toggle" aria-label="Toggle menu">
+    <button type="button" class="nav__toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav__links">
@@ -103,7 +106,6 @@
       <li><a href="/what-to-expect.html">What to Expect</a></li>
       <li><a href="/learn/index.html">Learn</a></li>
       <li><a href="/kundly/" class="nav__kundly">Write your Kundly</a></li>
-      <li><a href="/DeepBlue/" class="nav__deepblue">Play DeepBlue</a></li>
       <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
     </ul>
   </div>
@@ -123,11 +125,11 @@
     <div class="kundly-hero__disclaimer">
       <strong>Kundly is a free reflection tool.</strong> It is not therapy, not diagnosis, and not an emergency service. If you're in distress right now, please don't write — reach out to a person who can hold you in this moment.
       <span class="kundly-hero__crisis">
-        iCall: <strong>9152987821</strong> (Mon–Sat, 8am–10pm) · AASRA: <strong>9820466726</strong> (24×7)
+        iCall: <a href="tel:+919152987821" style="color:inherit;text-decoration:underline;"><strong>9152987821</strong></a> (Mon–Sat, 8am–10pm) · AASRA: <a href="tel:+919820466726" style="color:inherit;text-decoration:underline;"><strong>9820466726</strong></a> (24×7)
       </span>
     </div>
 
-    <a href="/kundly/consent.html" class="k-btn k-btn--primary k-btn--lg">Begin your Kundly →</a>
+    <a href="/kundly/consent" class="k-btn k-btn--primary k-btn--lg">Begin your Kundly →</a>
 
     <p class="kundly-hero__trust">
       No account. No phone number. No name required to begin.
@@ -176,7 +178,7 @@
       <p>
         Dr. Wilfred Dsouza — psychiatry resident at KMCRI, under the supervision of consultant psychiatrist Dr. Niharika. He reads every submission personally before your letter is sent. No interns. No farm-outs. No AI replying for him.
       </p>
-      <a href="/kundly/consent.html" class="k-btn k-btn--primary k-btn--lg">Begin your Kundly →</a>
+      <a href="/kundly/consent" class="k-btn k-btn--primary k-btn--lg">Begin your Kundly →</a>
       <p class="kundly-closing__micro">Free · 30–40 minutes · Save and come back any time</p>
     </div>
   </section>
@@ -192,5 +194,9 @@
 <script>
   if (typeof kundlyTrack === 'function') kundlyTrack('kundly_landing_view', {});
 </script>
+<!-- Site-wide nav toggle handler (mobile menu). Without this, the
+     .nav__toggle button on this page is dead on mobile and the seeker
+     cannot navigate from any Kundly page. -->
+<script src="/js/main.js" defer></script>
 </body>
 </html>
