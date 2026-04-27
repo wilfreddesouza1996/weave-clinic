@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQF603DJ1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CQF603DJ1W');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon-180.png">
+  <title>Things we make — Weave Centre for Integrative Psychiatry</title>
+  <meta name="description" content="Field guides, study notes and conceptual essays from Weave. Most are free. A few are paid, so the rest can stay free.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Things we make at Weave">
+  <meta property="og:description" content="Field guides, study notes and conceptual essays. Most free. A few paid, so the rest stays free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weave.clinic/buy/">
+  <meta property="og:image" content="https://weave.clinic/img/homepage.png">
+  <meta property="og:site_name" content="Weave — Centre for Integrative Psychiatry">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://weave.clinic/buy/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>W</text></svg>">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* ── Page-specific ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Quiet hero — smaller than the homepage */
+    .buy-hero {
+      padding: 4rem 0 2rem;
+    }
+    .buy-hero h1 {
+      font-size: 2.5rem;
+      max-width: 720px;
+      margin: 0 auto 1rem;
+      text-align: center;
+    }
+    .buy-hero__sub {
+      font-size: 1.125rem;
+      color: #7A6B5D;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* Section label — quiet eyebrow */
+    .buy-eyebrow {
+      display: block;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #A89B8C;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .buy-section-h {
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .buy-section-note {
+      font-size: 0.9375rem;
+      color: #A89B8C;
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    /* Catalogue grid — borrowed from learn-grid */
+    .buy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .buy-grid--single {
+      grid-template-columns: 1fr;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .buy-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E8DDD0;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 300ms ease;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      color: inherit;
+      position: relative;
+    }
+    .buy-card:hover {
+      transform: translateY(-4px);
+      border-color: #C9A96E;
+      box-shadow: 0 0 0 1px #E0C992, 0 4px 20px rgba(201, 169, 110, 0.18);
+    }
+
+    .buy-card__badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .buy-card__badge--free {
+      background: #EFF5EF;
+      color: #4A6E4A;
+    }
+    .buy-card__badge--paid {
+      background: #FDF6EE;
+      color: #8B6914;
+      border: 1px solid #E0C992;
+    }
+
+    .buy-card__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #5B4A3F;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .buy-card__sub {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.9375rem;
+      font-style: italic;
+      color: #A89B8C;
+      margin-bottom: 0.75rem;
+    }
+    .buy-card__excerpt {
+      color: #7A6B5D;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .buy-card__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid #F0E9DE;
+    }
+    .buy-card__price {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #5B4A3F;
+    }
+    .buy-card__price--free {
+      color: #6B8F6B;
+      font-style: italic;
+    }
+    .buy-card__cta {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #6B8F6B;
+    }
+    .buy-card:hover .buy-card__cta {
+      color: #4A6E4A;
+    }
+
+    /* Featured paid card — gets the gold lining */
+    .buy-card--featured {
+      border: 1.5px solid #C9A96E;
+      box-shadow: 0 0 0 1px #E0C992, 0 2px 16px rgba(201, 169, 110, 0.18);
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%);
+    }
+
+    /* Cover thumbnail (placeholder) */
+    .buy-card__cover {
+      width: 96px;
+      height: 130px;
+      background: linear-gradient(135deg, #5B4A3F 0%, #3D3228 100%);
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(61, 50, 40, 0.2);
+      flex-shrink: 0;
+    }
+    .buy-card__cover-placeholder {
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: #FAF7F2;
+      font-size: 0.6875rem;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 0.5rem;
+      opacity: 0.7;
+    }
+
+    /* Honest paragraph */
+    .buy-honest {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 3rem 0 1rem;
+    }
+    .buy-honest p {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: #5B4A3F;
+      max-width: none;
+      margin: 0 auto 1rem;
+    }
+    .buy-honest p:last-child {
+      color: #7A6B5D;
+      font-size: 0.9375rem;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-style: normal;
+    }
+
+    /* Hardship line */
+    .buy-hardship {
+      max-width: 560px;
+      margin: 1rem auto 0;
+      text-align: center;
+      padding: 1.5rem;
+      background: #F5EDE3;
+      border-radius: 12px;
+      font-size: 0.9375rem;
+      color: #5B4A3F;
+      line-height: 1.6;
+    }
+    .buy-hardship a {
+      color: #6B8F6B;
+      font-weight: 600;
+    }
+
+    /* Disclaimer */
+    .buy-disclaimer {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      padding: 1.25rem;
+      border-top: 1px solid #E8DDD0;
+      font-size: 0.8125rem;
+      color: #A89B8C;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .buy-hero {
+        padding: 2.5rem 0 1.5rem;
+      }
+      .buy-hero h1 {
+        font-size: 2rem;
+      }
+      .buy-hero__sub {
+        font-size: 1rem;
+      }
+      .buy-grid {
+        grid-template-columns: 1fr;
+      }
+      .buy-card {
+        padding: 1.5rem;
+        min-height: 0;
+      }
+      .buy-section-h {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        WEAVE
+        <span>Centre for Integrative Psychiatry</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/what-to-expect.html">What to Expect</a></li>
+        <li><a href="/learn/index.html">Learn</a></li>
+        <li><a href="/kundly/" class="nav__kundly">Write your Kundly</a></li>
+        <li><a href="/contact.html" class="nav__cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero buy-hero">
+    <div class="container">
+      <span class="buy-eyebrow">Weave Press</span>
+      <h1>Things we make</h1>
+      <p class="buy-hero__sub">
+        Field guides, study notes and conceptual essays we write for ourselves, then share. Most are free. A few are paid, so the rest can stay free.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════ FREE SECTION ════════════════ -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <span class="buy-eyebrow">Free, and staying free</span>
+      <h2 class="buy-section-h">For trainees, residents and curious clinicians</h2>
+      <p class="buy-section-note">No sign-up. No email capture. Open the link, read the thing.</p>
+
+      <div class="buy-grid fade-in">
+
+        <!-- Study Guide -->
+        <a href="/learn/for-residents/" class="buy-card">
+          <span class="buy-card__badge buy-card__badge--free">Free</span>
+          <h3 class="buy-card__title">Study Guide</h3>
+          <p class="buy-card__sub">Exam prep companion</p>
+          <p class="buy-card__excerpt">
+            Topic-by-topic notes for the MD Psychiatry track — written the way we actually revised. Updated as we go.
+          </p>
+          <div class="buy-card__meta">
+            <span class="buy-card__price buy-card__price--free">Free</span>
+            <span class="buy-card__cta">Open &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Assimilate -->
+        <a href="/learn/for-residents/" class="buy-card">
+          <span class="buy-card__badge buy-card__badge--free">Free</span>
+          <h3 class="buy-card__title">Assimilate</h3>
+          <p class="buy-card__sub">Deep conceptual dives</p>
+          <p class="buy-card__excerpt">
+            Long-form essays that take one idea seriously. Vol. 1 is the autonomic nervous system in psychiatry. More volumes coming.
+          </p>
+          <div class="buy-card__meta">
+            <span class="buy-card__price buy-card__price--free">Free</span>
+            <span class="buy-card__cta">Open &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Psychotherapy Notes -->
+        <a href="/learn/for-residents/" class="buy-card">
+          <span class="buy-card__badge buy-card__badge--free">Free</span>
+          <h3 class="buy-card__title">Psychotherapy Notes</h3>
+          <p class="buy-card__sub">Case formulations and modality breakdowns</p>
+          <p class="buy-card__excerpt">
+            Schema, CBT, DBT, EFT — written from inside the room, not the textbook. For trainees building their first formulations.
+          </p>
+          <div class="buy-card__meta">
+            <span class="buy-card__price buy-card__price--free">Free</span>
+            <span class="buy-card__cta">Open &rarr;</span>
+          </div>
+        </a>
+
+        <!-- History-Taking Compendium -->
+        <a href="/learn/for-residents/" class="buy-card">
+          <span class="buy-card__badge buy-card__badge--free">Free</span>
+          <h3 class="buy-card__title">History-Taking Compendium</h3>
+          <p class="buy-card__sub">Full reference for the psychiatric interview</p>
+          <p class="buy-card__excerpt">
+            Every section of the psychiatric interview, written out properly. The companion reference for trainees building their interview from scratch.
+          </p>
+          <div class="buy-card__meta">
+            <span class="buy-card__price buy-card__price--free">Free</span>
+            <span class="buy-card__cta">Open &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ PAID SECTION ════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <span class="buy-eyebrow">Paid</span>
+      <h2 class="buy-section-h">Field guides</h2>
+      <p class="buy-section-note">Built from the same notes we use ourselves on the wards. Watermarked PDF, sent to your WhatsApp.</p>
+
+      <div class="buy-grid buy-grid--single fade-in">
+
+        <!-- Reading the Patient -->
+        <a href="/buy/reading-the-patient/" class="buy-card buy-card--featured">
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <img src="/img/reading-the-patient-cover.jpg" alt="Reading the Patient — cover" class="buy-card__cover" style="object-fit: cover; padding: 0;">
+            <div style="flex: 1; min-width: 0;">
+              <span class="buy-card__badge buy-card__badge--paid">Weave Press &middot; Volume One</span>
+              <h3 class="buy-card__title">Reading the Patient</h3>
+              <p class="buy-card__sub">A Field Guide to Dimensional Psychiatry &middot; 108 pages</p>
+              <p class="buy-card__excerpt">
+                How psychiatry actually thinks now &mdash; HiTOP, the p-factor, predictive processing &mdash; applied to the eight domains of the mental state examination. The lens you put on before you reach for the checklist.
+              </p>
+            </div>
+          </div>
+          <div class="buy-card__meta">
+            <div>
+              <span class="buy-card__price">&#8377;299</span>
+              <span style="display: block; font-size: 0.8125rem; color: #A89B8C; margin-top: 0.25rem;">&#8377;99 for students with a college ID</span>
+            </div>
+            <span class="buy-card__cta">See more &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ HONEST PARA ════════════════ -->
+  <section class="section" style="padding: 3rem 0 1rem;">
+    <div class="container">
+      <div class="buy-honest fade-in">
+        <p>
+          Most of what we make is free, and stays that way. A few things will be paid &mdash; that is how the rest stays free. One transaction does both jobs at once.
+        </p>
+        <p>
+          &mdash; Dr Wilfred D'souza
+        </p>
+      </div>
+
+      <div class="buy-hardship">
+        Trainee or in financial difficulty? Just <a href="mailto:wilfred.desouza1996@gmail.com?subject=Field%20guide%20%E2%80%94%20trainee%20copy">email us</a>. No proof required.
+      </div>
+
+      <div class="buy-disclaimer">
+        Educational material for healthcare professionals. Not medical advice for any individual patient. The authors do not warrant outcomes from clinical use.
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">WEAVE</div>
+        <p class="footer__sub">Centre for Integrative Psychiatry</p>
+        <p style="font-size: 0.8125rem; color: #A89B8C;">
+          Online consultations across India.<br>
+          In-person in Hubli &amp; Dharwad today; Mumbai late 2026.<br>WhatsApp: <a href="https://wa.me/917625004229" target="_blank" rel="noopener" style="color: #A89B8C;">+91 7625004229</a><br>
+          <a href="mailto:wilfred.desouza1996@gmail.com" style="color: #A89B8C;">wilfred.desouza1996@gmail.com</a> &middot; <a href="mailto:hs.niharika@gmail.com" style="color: #A89B8C;">hs.niharika@gmail.com</a>
+        </p>
+      </div>
+      <div class="footer__links">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/what-to-expect.html">What to Expect</a>
+        <a href="/learn/index.html">Learn</a>
+        <a href="/buy/">Things we make</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Legal</strong>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms &amp; Conditions</a>
+        <a href="/refund-policy.html">Refund Policy</a>
+        <a href="/your-rights.html">Your Rights</a>
+      </div>
+      <div class="footer__links">
+        <strong style="font-size: 0.875rem; color: #5B4A3F;">Follow us</strong>
+        <a href="https://instagram.com/doc.wilfred.md" target="_blank" rel="noopener">@doc.wilfred.md</a>
+        <a href="https://instagram.com/doc.niharika.md" target="_blank" rel="noopener">@doc.niharika.md</a>
+      </div>
+    </div>
+    <div class="footer__crisis">
+      <strong>In crisis?</strong> iCall: 9152987821 &middot; Vandrevala Foundation: 1860-2662-345
+    </div>
+    <div class="footer__copy">
+      &copy; 2026 Weave &mdash; Centre for Integrative Psychiatry. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in observer
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+    // Mobile nav toggle
+    var toggle = document.querySelector('.nav__toggle');
+    var links = document.querySelector('.nav__links');
+    if (toggle && links) {
+      toggle.addEventListener('click', function() {
+        links.classList.toggle('active');
+        toggle.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>
